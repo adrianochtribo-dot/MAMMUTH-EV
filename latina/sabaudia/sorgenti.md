@@ -35,3 +35,32 @@ Testate Provinciali: Monitoraggio sezioni locali di Latina Oggi, Latina Quotidia
 
 Religioso
 Diocesi di Latina-Terracina-Sezze-Priverno: http://www.diocesilatina.it/
+Registro Sorgenti - Sabaudia
+Istituzionale e Servizi Comunali
+Comune di Sabaudia: https://comune.sabaudia.lt.it/
+
+Servizio Cultura: Gestione spazi espositivi e musei
+
+Servizio Turismo: Gestione accoglienza e tassa di soggiorno
+
+Civicam Sabaudia: Streaming dei consigli comunali
+
+Promozione Territoriale e Turismo
+Pro Loco Sabaudia (Sito): https://www.prolocosabaudia.com
+
+Pro Loco Sabaudia (Social): Canale Facebook per eventi in tempo reale
+
+Sabaudia Eventi e Turismo: Community Facebook di riferimento
+
+VisitLazio - Sabaudia: Guida turistica regionale
+
+Italia.it - Parco del Circeo: Focus del Ministero del Turismo
+
+Cultura, Storia e Associazioni
+Strutture Museali: Orari Museo Emilio Greco e Torre Civica
+
+Sabaudia Culturando (Sito): https://www.sabaudiaculturando.it
+
+### Sport Remieri e Nautici
+* **Fiamme Gialle Canottaggio**: https://fiammegialle.org
+* **Lega Navale Italiana - Sezione Sabaudia**: https://www.leganavale.it/sabaudia
