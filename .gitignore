@@ -1,0 +1,14 @@
+# Esclusioni di sistema
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# File di configurazione locale
+.env
+.vscode/
+.idea/
+
+# File temporanei
+*.log
+*.tmp
+temp/
