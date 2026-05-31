@@ -1,22 +1,27 @@
-# Guida alla contribuzione
+# Guida alla Collaborazione - MAMMUTH•EVENTS™
 
-Grazie per il tuo interesse verso il progetto Mammuth•Events™! La collaborazione è il cuore della nostra infrastruttura territoriale.
+Grazie per il tuo interesse nel contribuire a **MAMMUTH•EVENTS™**! Questo progetto si basa sulla trasparenza e sulla partecipazione attiva per costruire un'infrastruttura di verità territoriale.
 
-## Come contribuire
-Puoi contribuire in diversi modi:
+## Come Contribuire
 
-1. **Segnalazione Bug**: Apri una "Issue" se riscontri errori nel protocollo o nel codice.
-2. **Proposte di miglioramento**: Se hai idee per ottimizzare il backend API o le pipeline di validazione (T.C.F.™ / MORPHEUS•JLX™), apri una discussione.
-3. **Documentazione**: Aiutaci a mantenere chiari i protocolli di partecipazione.
+Ci sono molti modi per supportare l'ecosistema:
 
-## Processo di invio (Pull Request)
-Per inviare modifiche:
-1. Effettua il fork del repository.
-2. Crea un nuovo branch per la tua modifica.
-3. Invia una Pull Request (PR) descrivendo chiaramente cosa hai cambiato e perché.
+### 1. Segnalazione di Bug
+Se riscontri malfunzionamenti nel protocollo o nell'infrastruttura, apri una nuova [Issue](https://github.com/adrianochtribo-dot/MAMMUTH-EVENTS-LAZIO/issues). Assicurati di utilizzare il template "Segnalazione Bug" e di includere i passaggi necessari per riprodurre il problema.
 
-## Codice di condotta
-Ci impegniamo a mantenere un ambiente di collaborazione costruttivo e rispettoso. Ogni contributo deve essere coerente con la visione del progetto: costruire una tecnologia a misura d'uomo e trasparente.
+### 2. Proposte di Miglioramento
+Il protocollo è in costante evoluzione. Se hai idee per migliorare il flusso di partecipazione o l'integrazione dei dati:
+*   Apri una Issue descrivendo l'idea.
+*   Discutiamone insieme prima di procedere con modifiche sostanziali.
+
+### 3. Contributi al Codice
+*   Effettua il fork del repository.
+*   Crea un branch dedicato per la tua modifica (`git checkout -b feature/nome-miglioramento`).
+*   Apporta le modifiche seguendo lo stile del progetto.
+*   Invia una Pull Request descrivendo chiaramente l'impatto della tua modifica sul protocollo.
+
+## Codice di Condotta
+Questo progetto promuove un ambiente inclusivo e rispettoso. Ogni contributo deve essere orientato alla costruzione di una "verità territoriale" condivisa e al benessere della community.
 
 ---
-*Per domande urgenti, fai riferimento al nostro sito ufficiale o alle issue aperte.*
+*KREATIO UNIVERSAL SYSTEM™ - Regional pilot infrastructure for territorial event truth.*
