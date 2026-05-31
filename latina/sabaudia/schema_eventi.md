@@ -1,4 +1,13 @@
-## Evento: Notre Dame de Paris
+## Template di riferimento per nuovi inserimenti
+- **ID_EVENTO**: [Codice univoco]
+- **TITOLO**: [Nome dell'evento]
+- **DATA_ORA**: [YYYY-MM-DD HH:MM]
+- **LUOGO**: [Arena o sede]
+- **CATEGORIA**: [Es. Spettacolo, Musica, Sport - Canottaggio, Sport - Vela]
+- **FONTE**: [Fonte]
+- **STATO**: [Verificato]
+-
+- ## Evento: Notre Dame de Paris
 - **ID_EVENTO**: SAB-2026-ARENA-001
 - **TITOLO**: NOTRE DAME DE PARIS - Colossal musical
 - **DATA_ORA**: 2026-08-12 21:00
