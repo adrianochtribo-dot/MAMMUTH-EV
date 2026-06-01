@@ -1,0 +1,21 @@
+# Contribuire a MAMMUTH•EVENTS™ (Protocollo KWF Core 3620™)
+
+Grazie per il tuo interesse a mappare gli eventi del territorio. Per mantenere l'integrità del database globale, ogni contributo DEVE rispettare il protocollo di certificazione.
+
+## 1. Requisiti di Certificazione Dati
+Ogni evento inserito deve essere validato contro il nostro schema relazionale (`schema_architettura.sql`). Non verranno accettate PR (Pull Request) che non includano:
+- **Codice ISTAT (place_id)**: L'ancoraggio territoriale è obbligatorio.
+- **Identità Fiscale (vat_number)**: Ogni organizzatore deve essere certificato.
+- **Normalizzazione**: I nomi degli eventi e le categorie devono seguire le convenzioni indicate in `schema_eventi.md`.
+
+## 2. Flusso di Inserimento (Pipeline)
+1.  **Fork del repository.**
+2.  **Validazione Locale**: Verifica che l'evento rispetti le Foreign Key definite in `schema_architettura.sql`.
+3.  **Submit**: Invia una Pull Request.
+4.  **Audit**: Il sistema di validazione verificherà la coerenza dei dati. Se il `place_id` non esiste nel `kwf_territory_hub`, la PR sarà respinta.
+
+## 3. Filosofia del Progetto
+- **Qualità > Quantità**: Un solo evento certificato vale più di cento record incompleti.
+- **Integrità Totale**: Mai inventare dati. Se una fonte non è verificata, l'evento non esiste per il sistema.
+
+*La verità territoriale è un bene comune. Certificala con rigore.*
