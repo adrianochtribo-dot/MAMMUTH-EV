@@ -10,10 +10,22 @@ nei seed di tipo `festa_religiosa`.
 
 | Data | Ricorrenza | Rilevanza cistercense |
 |------|-----------|----------------------|
-| 5 Mar | Mercoledì delle Ceneri | Inizio Quaresima — apertura ciclo penitenziale |
+| 6 Gen | Epifania del Signore | Chiusura ciclo natalizio |
+| 12 Gen | Battesimo del Signore | Chiusura tempo natalizio |
+| 5 Mar | Mercoledì delle Ceneri | Inizio Quaresima — ciclo penitenziale |
+| 9 Mar | I Domenica di Quaresima | |
+| 16 Mar | II Domenica di Quaresima | |
+| 23 Mar | III Domenica di Quaresima | |
+| 30 Mar | IV Domenica di Quaresima | |
+| 13 Apr | Domenica delle Palme | Inizio Settimana Santa |
+| 18 Apr | Venerdì Santo | |
 | 20 Apr | Pasqua | Solennità principale |
+| 21 Apr | Lunedì dell'Angelo | |
 | 29 Mag | Ascensione | Festa liturgica |
+| 8 Giu | Pentecoste | |
+| 15 Giu | SS. Trinità | |
 | 22 Giu | Corpus Domini | Processioni, eventi comunitari monastici |
+| 27 Giu | Sacro Cuore di Gesù | Devozione cistercense |
 
 ## Secondo semestre 2025
 
