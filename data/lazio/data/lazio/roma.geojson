@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "name": "MAMMUTH-EV | Roma | Micro-eventi territoriali",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.6667, 41.7167]
+      },
+      "properties": {
+        "event_id": "IT-LAZ-RM-058008-002",
+        "place_id": "IT-LAZ-RM-058008",
+        "nome": "Sagra della Porchetta di Ariccia",
+        "tipo": "sagra",
+        "micro_territorio": "LAZ-01",
+        "comune": "Ariccia",
+        "provincia": "RM",
+        "data_inizio": "2025-09-15",
+        "data_fine": "2025-09-21",
+        "periodo": "Settembre — terza settimana",
+        "frequenza": "annuale",
+        "ente_organizzatore": "Pro Loco Ariccia",
+        "descrizione_storica": "Tradizione secolare della porchetta arrosto, prodotto IGP dal 2011. Ariccia è riconosciuta capitale mondiale della porchetta.",
+        "elemento_identitario": "Porchetta di Ariccia IGP — maiale intero arrostito con erbe aromatiche locali",
+        "fonte": "https://www.porchettadiariccia.it",
+        "livello_fonte": "primaria",
+        "priorita": "alta"
+      }
+    }
+  ]
+}
