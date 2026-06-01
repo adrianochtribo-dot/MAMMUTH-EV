@@ -10,6 +10,7 @@
 ## Geografia
 - **comune**: Sermoneta
 - **provincia**: LT (Latina)
+- **place_id**: IT-LAZ-LT-059027
 - **codice_istat**: 059027
 - **codice_belfiore**: I634
 - **cap**: 04013
