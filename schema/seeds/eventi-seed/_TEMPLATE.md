@@ -10,9 +10,10 @@
 ## Geografia
 - **comune**: 
 - **provincia**: 
+- **place_id**: (formato: IT-{REGIONE}-{PROVINCIA}-{CODICE_ISTAT})
 - **codice_istat**: (da comuni_istat.csv)
-- **codice_belfiore**: (da codici_belfiore.csv)
-- **cap**: (da cap.csv)
+- **codice_belfiore**: (da codici_belfiore.csv → kwf_belfiore_codes.BELFIORE_CODE)
+- **cap**: (da cap.csv → kwf_postal_codes.CAP)
 
 ## Temporalità
 - **data_o_periodo**: 
