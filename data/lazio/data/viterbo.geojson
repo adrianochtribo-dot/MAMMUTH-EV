@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "name": "MAMMUTH-EV | Viterbo | Micro-eventi territoriali",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.2167, 42.2833]
+      },
+      "properties": {
+        "event_id": "IT-LAZ-VT-056047-003",
+        "place_id": "IT-LAZ-VT-056047",
+        "nome": "Palio di Ronciglione",
+        "tipo": "palio",
+        "micro_territorio": "LAZ-04",
+        "comune": "Ronciglione",
+        "provincia": "VT",
+        "data_inizio": "2026-02-14",
+        "data_fine": "2026-02-17",
+        "periodo": "Febbraio — periodo Carnevale",
+        "frequenza": "annuale",
+        "ente_organizzatore": "Comune di Ronciglione / Contrade storiche",
+        "descrizione_storica": "Carnevale storico con origini rinascimentali, tra i più antichi del Lazio. Include sfilate in costume d'epoca, palio equestre tra le contrade e rievocazioni storiche.",
+        "elemento_identitario": "Palio equestre tra contrade storiche, costumi rinascimentali, carri allegorici",
+        "fonte": "https://www.carnevaleronciglione.it",
+        "livello_fonte": "primaria",
+        "priorita": "alta"
+      }
+    }
+  ]
+}
