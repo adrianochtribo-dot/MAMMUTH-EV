@@ -51,3 +51,31 @@ Consulta `territorio/fonti-dati.md` per i livelli di qualità accettati.
 - `001-valvisciolo.md` → heritage/abbazia
 - `002-sagra-porchetta-ariccia.md` → sagra enogastronomica
 - `003-palio-ronciglione.md` → palio/rievocazione storica
+## 4. Segnalare un Nuovo Micro-Evento (via Issues)
+
+Se non vuoi aprire una Pull Request ma conosci un evento del 
+micro-territorio non ancora mappato, apri una **Issue** usando 
+questo template:
+
+---
+
+**Titolo Issue:** `[SEED] Nome Evento — Comune (Provincia)`
+
+**Corpo:**
+Evento da mappare
+
+nome_evento:
+tipo_primario: [ sagra | palio | rievocazione | festa_religiosa | proloco | fiera_storica ]
+comune:
+provincia:
+periodo: (es. "prima domenica di agosto")
+ente_organizzatore:
+fonte: (URL sito ufficiale o riferimento)
+elemento_identitario: (cosa rende unico questo evento?)
+
+Perché è un micro-evento invisibile?
+(Spiega brevemente perché questo evento merita di essere mappato)
+---
+
+Il team MAMMUTH•EV valuterà la segnalazione e creerà il seed 
+ufficiale entro 7 giorni lavorativi.
