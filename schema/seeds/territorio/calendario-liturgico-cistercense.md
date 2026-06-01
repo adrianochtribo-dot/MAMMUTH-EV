@@ -50,3 +50,25 @@ Queste date sono i trigger consigliati per push notifiche via APNs
 (ActivityKit + pushType: .token) senza App Store review.
 Ogni ricorrenza può attivare un aggiornamento del ContentState 
 con contenuto tematico stagionale.
+## Primo semestre 2026
+
+| Data | Ricorrenza | Rilevanza cistercense |
+|------|-----------|----------------------|
+| 6 Gen | Epifania del Signore | Chiusura ciclo natalizio |
+| 11 Gen | Battesimo del Signore | Chiusura tempo natalizio |
+| 18 Feb | Mercoledì delle Ceneri | Inizio Quaresima — ciclo penitenziale |
+| 1 Mar | II Domenica di Quaresima | |
+| 8 Mar | III Domenica di Quaresima | |
+| 15 Mar | IV Domenica di Quaresima | |
+| 22 Mar | V Domenica di Quaresima | |
+| 29 Mar | Domenica delle Palme | Inizio Settimana Santa |
+| 3 Apr | Venerdì Santo | |
+| 5 Apr | Pasqua | Solennità principale |
+| 6 Apr | Lunedì dell'Angelo | |
+| 25 Apr | Liberazione | Ponte — eventi culturali |
+| 14 Mag | Ascensione | Festa liturgica |
+| 24 Mag | Pentecoste | |
+| 31 Mag | SS. Trinità | |
+| 7 Giu | Corpus Domini | Processioni, eventi comunitari monastici |
+| 12 Giu | Sacro Cuore di Gesù | Devozione cistercense |
+| 2 Giu | Festa della Repubblica | Ponte — eventi heritage |
