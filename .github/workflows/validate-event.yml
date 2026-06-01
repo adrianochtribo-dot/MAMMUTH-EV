@@ -1,0 +1,16 @@
+name: KWF Core 3620 Validator
+on:
+  pull_request:
+    paths:
+      - 'latina/**/*'
+jobs:
+  validate-event:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate Event Integrity
+        run: |
+          echo "Verifica integrità evento..."
+          grep -q "ID_EVENTO" ${{ github.event.pull_request.head.sha }} || (echo "Errore: ID_EVENTO mancante" && exit 1)
+          grep -q "place_id" ${{ github.event.pull_request.head.sha }} || (echo "Errore: place_id mancante" && exit 1)
+          echo "Validazione superata: Evento conforme al protocollo KWF."
