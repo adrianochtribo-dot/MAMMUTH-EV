@@ -7,6 +7,8 @@ Prima di inserire un evento in `eventi-seed/`, deve superare questi controlli.
 - [ ] `nome_evento` presente e non duplicato
 - [ ] `tipo_primario` corrisponde a tassonomia in `tipologie-evento.md`
 - [ ] `comune` presente e verificato in `comuni_istat.csv`
+- [ ] `place_id` presente nel formato IT-{REGIONE}-{PROVINCIA}-{CODICE_ISTAT}
+- [ ] `place_id` verificabile in `kwf_territory_hub`
 - [ ] `codice_istat` presente e corretto
 - [ ] `data_o_periodo` specificata (anche generica: "terza domenica di agosto")
 - [ ] `ente_organizzatore` identificato
