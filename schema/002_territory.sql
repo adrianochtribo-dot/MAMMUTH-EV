@@ -1,0 +1,15 @@
+CREATE TABLE kwf_territory_hub (
+    PLACE_ID TEXT PRIMARY KEY
+);
+
+CREATE TABLE kwf_postal_codes (
+    CAP TEXT NOT NULL,
+    PLACE_ID TEXT NOT NULL,
+    PRIMARY KEY(CAP, PLACE_ID),
+    FOREIGN KEY(PLACE_ID) REFERENCES kwf_territory_hub(PLACE_ID)
+);
+
+CREATE TABLE kwf_belfiore_codes (
+    BELFIORE_CODE TEXT PRIMARY KEY,
+    PLACE_ID TEXT NOT NULL
+);
