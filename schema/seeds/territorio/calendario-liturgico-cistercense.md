@@ -72,3 +72,26 @@ con contenuto tematico stagionale.
 | 7 Giu | Corpus Domini | Processioni, eventi comunitari monastici |
 | 12 Giu | Sacro Cuore di Gesù | Devozione cistercense |
 | 2 Giu | Festa della Repubblica | Ponte — eventi heritage |
+## Secondo semestre 2026
+
+| Data | Ricorrenza | Rilevanza cistercense |
+|------|-----------|----------------------|
+| 6 Lug | S. Maria Goretti | Santa laziale — Corinaldo/Nettuno |
+| 15 Ago | Assunzione B.V. Maria | Festa mariana principale — ordine cistercense |
+| 8 Set | Natività B.V. Maria | Ricorrenza mariana |
+| 14 Set | Esaltazione della Croce | Calendario monastico |
+| 4 Ott | S. Francesco d'Assisi | Feste patronali area Monti Lepini |
+| 1 Nov | Ognissanti | Commemorazione liturgica |
+| 2 Nov | Comm. dei Defunti | Memoria cistercense |
+| 15 Nov | Avvento Ambrosiano | Rito ambrosiano — Milano |
+| 21 Nov | Presentazione B.V. Maria | Calendario monastico cistercense |
+| 29 Nov | I Domenica di Avvento | Inizio anno liturgico |
+| 6 Dic | II Domenica di Avvento | |
+| 7 Dic | S. Ambrogio | Patrono Milano |
+| 8 Dic | Immacolata Concezione | Solennità cistercense — aperture straordinarie |
+| 13 Dic | III Domenica di Avvento | |
+| 20 Dic | IV Domenica di Avvento | |
+| 25 Dic | Natale del Signore | Ciclo natalizio |
+| 26 Dic | Santo Stefano | Festività civile |
+| 27 Dic | Santa Famiglia | Domenica dopo Natale |
+| 31 Dic | S. Silvestro | Chiusura anno civile |
