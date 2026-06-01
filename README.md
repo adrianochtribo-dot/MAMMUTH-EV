@@ -1,3 +1,8 @@
+> 🌍 **GLOBAL FOLK & TRADITIONS — Where Communities Come Alive**  
+> Il sistema nervoso della cultura locale. Sagre, palii, feste religiose 
+> e tradizioni invisibili del micro-territorio mondiale.
+
+---
 # KREATIO UNIVERSAL SYSTEM™ | MAMMUTH•EVENTS™
 
 ## Visione & Identità
