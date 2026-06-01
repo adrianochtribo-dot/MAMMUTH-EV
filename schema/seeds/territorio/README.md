@@ -10,6 +10,13 @@ per MAMMUTH•EVENTS™ | KREATIO UNIVERSAL SYSTEM™ (Code 3620).
 | `tipologie-evento.md` | Tassonomia ufficiale degli eventi (sagra, palio, festa religiosa...) |
 | `fonti-dati.md` | Fonti autoritative per reperire dati (ISTAT, proloco, diocesi...) |
 | `validazione-schema.md` | Regole per validare un evento prima dell'inserimento |
+| `calendario-liturgico-cistercense.md` | Calendario liturgico cistercense 2025-2026 per seed heritage |
+| `calendario-internazionale-2025.md` | Festività internazionali per mercati target europei |
+| `fusi-orari-mercati-target.md` | Fusi orari e finestre ottimali per push APNs |
+| `clima-mercati-target.md` | Dati climatici per pianificazione eventi outdoor |
+| `alimenti-tipici-riferimento.md` | Riferimento nutrizionale prodotti tipici sagre laziali |
+| `temperature-taglie-internazionali.md` | Conversioni temperature e taglie IT/GB/USA |
+| `pesi-misure-internazionali.md` | Conversioni metriche e inglesi per spazi e prodotti |
 
 ## Relazione con i CSV
 
