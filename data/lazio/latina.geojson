@@ -1,0 +1,32 @@
+{
+  "type": "FeatureCollection",
+  "name": "MAMMUTH-EV | Latina | Micro-eventi territoriali",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [12.9833, 41.5500]
+      },
+      "properties": {
+        "event_id": "IT-LAZ-LT-059027-001",
+        "place_id": "IT-LAZ-LT-059027",
+        "nome": "Abbazia di Valvisciolo — Polo Culturale Vivente",
+        "tipo": "festa_religiosa",
+        "micro_territorio": "LAZ-02",
+        "comune": "Sermoneta",
+        "provincia": "LT",
+        "data_inizio": null,
+        "data_fine": null,
+        "periodo": "Ciclo liturgico annuale",
+        "frequenza": "annuale",
+        "ente_organizzatore": "Ordine di Malta / Comunità cistercense",
+        "descrizione_storica": "Abbazia cistercense fondata nel XIII secolo, gestita dall'Ordine di Malta. Contiene affreschi templari e un chiostro medievale tra i meglio conservati del Lazio.",
+        "elemento_identitario": "Architettura cistercense, simbolismo templare, giardino officinale",
+        "fonte": "https://www.abbaziadivalvisciolo.it",
+        "livello_fonte": "primaria",
+        "priorita": "alta"
+      }
+    }
+  ]
+}
