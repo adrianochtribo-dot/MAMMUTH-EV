@@ -7,18 +7,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #c9a96e;
-      --gold-light: #e8c98a;
-      --gold-dim: #7a6240;
-      --bg: #080808;
-      --bg-2: #0f0f0f;
-      --bg-3: #161616;
-      --border: #222;
-      --border-gold: #3a2e1a;
-      --text: #d4c4a8;
-      --text-dim: #6a5f4e;
-      --green: #7ab88a;
-      --blue: #6e9ec9;
+      --gold: #c9a96e; --gold-light: #e8c98a; --gold-dim: #7a6240;
+      --bg: #080808; --bg-2: #0f0f0f; --bg-3: #161616;
+      --border: #222; --border-gold: #3a2e1a;
+      --text: #d4c4a8; --text-dim: #6a5f4e;
+      --green: #7ab88a; --blue: #6e9ec9; --amber: #d4a017;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--bg); color: var(--text); font-family: 'Fraunces', serif; font-weight: 300; min-height: 100vh; display: flex; flex-direction: column; }
@@ -29,7 +22,7 @@
     .sys-header .status { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--green); }
     .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-    main { flex: 1; max-width: 900px; margin: 0 auto; padding: 80px 40px; position: relative; z-index: 1; width: 100%; }
+    main { flex: 1; max-width: 1000px; margin: 0 auto; padding: 80px 40px; position: relative; z-index: 1; width: 100%; }
     .hero { text-align: center; padding: 60px 0 80px; border-bottom: 1px solid var(--border-gold); margin-bottom: 80px; }
     .hero-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.5em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 24px; }
     .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600; color: var(--gold); letter-spacing: 0.1em; line-height: 1.2; margin-bottom: 12px; }
@@ -37,18 +30,21 @@
     .hero-desc { max-width: 560px; margin: 0 auto; font-size: 0.95rem; color: var(--text-dim); line-height: 1.8; font-style: italic; }
     .docs-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
     .docs-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 60px; }
+    .docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 4px; }
+    .docs-grid-full { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 60px; }
     .doc-card { background: var(--bg-2); padding: 40px 36px; text-decoration: none; display: block; transition: background 0.3s; position: relative; overflow: hidden; }
     .doc-card::after { content: '→'; position: absolute; bottom: 32px; right: 32px; font-family: 'DM Mono', monospace; font-size: 1.2rem; color: var(--border-gold); transition: color 0.3s, transform 0.3s; }
     .doc-card:hover { background: var(--bg-3); }
     .doc-card:hover::after { color: var(--gold); transform: translateX(4px); }
     .doc-tag { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--text-dim); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .doc-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-dim); }
+    .doc-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold-dim); flex-shrink: 0; }
+    .doc-tag-dot.amber { background: var(--amber); }
     .doc-name { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 8px; line-height: 1.2; }
     .doc-subtitle { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 20px; }
     .doc-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 28px; }
     .doc-pillars { display: flex; flex-wrap: wrap; gap: 6px; }
     .pillar-chip { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.15em; padding: 3px 8px; border: 1px solid var(--border-gold); color: var(--gold-dim); }
+    .pillar-chip.amber { border-color: rgba(212,160,23,0.3); color: var(--amber); }
     .system-map { background: var(--bg-2); border: 1px solid var(--border-gold); padding: 32px; margin-bottom: 60px; }
     .map-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold-dim); margin-bottom: 24px; text-transform: uppercase; }
     .map-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
@@ -62,16 +58,14 @@
     .footer-glyph { font-size: 1rem; color: var(--border-gold); }
     .fade-in { opacity: 0; transform: translateY(16px); animation: fadeIn 0.7s ease forwards; }
     @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-    .fade-in:nth-child(1) { animation-delay: 0.1s; }
-    .fade-in:nth-child(2) { animation-delay: 0.25s; }
-    .fade-in:nth-child(3) { animation-delay: 0.4s; }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; } .fade-in:nth-child(2) { animation-delay: 0.25s; } .fade-in:nth-child(3) { animation-delay: 0.4s; }
     @media (max-width: 680px) { main { padding: 40px 20px; } .docs-grid { grid-template-columns: 1fr; } .sys-header { padding: 14px 20px; } .sys-header .code { display: none; } footer { flex-direction: column; gap: 16px; text-align: center; } }
   </style>
 </head>
 <body>
 <header class="sys-header">
   <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
-  <span class="code">DEVELOPER PORTAL · v1.0</span>
+  <span class="code">DEVELOPER PORTAL · v1.1</span>
   <span class="status"><span class="status-dot"></span>DOCS ONLINE</span>
 </header>
 <main>
@@ -81,6 +75,7 @@
     <div class="hero-sub">MAMMUTH•EV™ · KREATIO UNIVERSAL SYSTEM™</div>
     <p class="hero-desc">Architettura tecnica, protocolli di validazione e specifiche operative per lo sviluppo dell'ecosistema KREATIO UNIVERSAL SYSTEM™.</p>
   </div>
+
   <div class="fade-in">
     <div class="docs-label">Documenti Tecnici</div>
     <div class="docs-grid">
@@ -109,7 +104,23 @@
         </div>
       </a>
     </div>
+    <div class="docs-grid-full">
+      <a class="doc-card" href="THRESHOLD-5000.html">
+        <div class="doc-tag"><span class="doc-tag-dot amber"></span>DOC-TH-001 · Strategic Framework</div>
+        <div class="doc-name">THRESHOLD·5000™</div>
+        <div class="doc-subtitle">PRIORITY CULTURAL FRAMEWORK</div>
+        <div class="doc-desc">La soglia minima di 5000 eventi canonici (Riti Religiosi, Sagre, Palii) che trasforma il sistema da aggregatore a Sistema di Verità Territoriale. Il pilastro strategico che garantisce la purezza del dato e l'autorità informativa del database ATLAS•EVENTA™. Ogni evento certificato è un TheBricks'Event™ — un mattone della memoria collettiva.</div>
+        <div class="doc-pillars">
+          <span class="pillar-chip amber">5000 EVENTS</span>
+          <span class="pillar-chip amber">QUALITY GATE</span>
+          <span class="pillar-chip amber">THEBRICKS'EVENT™</span>
+          <span class="pillar-chip amber">TERRITORIAL DNA</span>
+          <span class="pillar-chip amber">ANTI-FRAGMENTATION</span>
+        </div>
+      </a>
+    </div>
   </div>
+
   <div class="fade-in">
     <div class="docs-label">System Architecture</div>
     <div class="system-map">
