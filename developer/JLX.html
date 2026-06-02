@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JLX™ — JOKA Language Extended | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--orange:#e07b39;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--orange);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:1100px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:80px 0 60px;border-bottom:1px solid var(--border-gold);margin-bottom:80px;position:relative;overflow:hidden;}
+    .hero::after{content:'JLX';position:absolute;right:-20px;top:30%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:12rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(224,123,57,0.05);pointer-events:none;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--gold);line-height:1.0;letter-spacing:0.08em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.28em;font-weight:400;letter-spacing:0.4em;color:var(--text-dim);margin-top:16px;}
+    .hero-desc{max-width:660px;margin-top:32px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+    .hero-meta{margin-top:40px;display:flex;gap:40px;flex-wrap:wrap;}
+    .hero-meta-item{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);}
+    .hero-meta-item strong{display:block;color:var(--gold);font-size:0.75rem;margin-bottom:4px;}
+
+    section{margin-bottom:80px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:32px;}
+
+    .definition{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--orange);padding:32px 36px;margin-bottom:40px;position:relative;}
+    .definition::before{content:'§';position:absolute;top:24px;right:28px;font-family:'Cinzel',serif;font-size:2rem;color:var(--border-gold);}
+    .definition p{font-size:1rem;line-height:1.9;color:var(--text);}
+
+    /* LANGUAGE DISPLAY */
+    .lang-display{background:var(--bg-2);border:1px solid var(--border-gold);padding:48px;margin-bottom:40px;text-align:center;position:relative;overflow:hidden;}
+    .lang-display::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(224,123,57,0.04) 0%,transparent 70%);}
+    .ld-inner{position:relative;z-index:1;}
+    .ld-acronym{font-family:'Cinzel',serif;font-size:5rem;font-weight:900;color:var(--gold);letter-spacing:0.15em;line-height:1;margin-bottom:16px;}
+    .ld-full{display:flex;justify-content:center;gap:0;margin-bottom:24px;}
+    .ld-word{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.3em;padding:8px 16px;border:1px solid var(--border-gold);color:var(--text-dim);}
+    .ld-word.highlight{border-color:var(--orange);color:var(--orange);}
+    .ld-desc{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);}
+
+    /* FUNCTIONS */
+    .functions{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:40px;}
+    .func{background:var(--bg-2);padding:36px 32px;transition:background 0.3s;border-top:2px solid transparent;}
+    .func:hover{background:var(--bg-3);border-top-color:var(--orange);}
+    .func-index{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:16px;}
+    .func-name{font-family:'Cinzel',serif;font-size:0.95rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;margin-bottom:12px;line-height:1.3;}
+    .func-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.7;}
+    .func-tag{display:inline-block;margin-top:16px;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;padding:4px 10px;border:1px solid rgba(224,123,57,0.3);color:var(--orange);}
+
+    /* GUARANTEES */
+    .guarantees{margin-bottom:40px;}
+    .guarantee{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+    .guarantee:last-child{border-bottom:none;}
+    .guarantee-num{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:900;color:var(--border-gold);min-width:50px;line-height:1;padding-top:4px;}
+    .guarantee-content{flex:1;}
+    .guarantee-title{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:6px;}
+    .guarantee-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.6;}
+
+    /* CODE BLOCKS */
+    .code-block{background:#050505;border:1px solid var(--border);border-left:3px solid var(--orange);padding:28px 32px;margin:24px 0;overflow-x:auto;}
+    .code-block pre{font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.8;color:#8ea8c0;}
+    .comment{color:#3a4a3a;}.key{color:var(--gold);}.value{color:var(--green);}
+    .string{color:#a0c8a0;}.label{color:var(--blue);}.num{color:var(--amber);}.orange{color:var(--orange);}
+
+    /* LINK TO MORPHEUS */
+    .link-block{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--purple);padding:32px 36px;margin-bottom:40px;}
+    .lb-title{font-family:'Cinzel',serif;font-size:1rem;color:var(--purple);letter-spacing:0.1em;margin-bottom:12px;}
+    .lb-desc{font-size:0.88rem;color:var(--text-dim);line-height:1.7;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-links{display:flex;gap:20px;margin-top:12px;}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.15em;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    .fade-in{opacity:0;transform:translateY(20px);animation:fadeIn 0.8s ease forwards;}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+    .fade-in:nth-child(1){animation-delay:0.1s}.fade-in:nth-child(2){animation-delay:0.2s}.fade-in:nth-child(3){animation-delay:0.3s}.fade-in:nth-child(4){animation-delay:0.4s}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.functions{grid-template-columns:1fr;}.ld-full{flex-direction:column;align-items:center;}.hero::after{display:none;}footer{flex-direction:column;gap:20px;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-JLX-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>LANGUAGE ACTIVE</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">Proprietary Data Language Document</div>
+    <h1>JLX™<span>JOKA Language Extended · Lingua Madre dell'Ecosistema</span></h1>
+    <p class="hero-desc">Non un semplice linguaggio di programmazione. Il protocollo di codifica dei dati strutturati proprietario che permette al KREATIO UNIVERSAL SYSTEM™ di pensare, organizzare e certificare la realtà in modo coerente e universale.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>TIPO</strong>Proprietary Data Language</div>
+      <div class="hero-meta-item"><strong>FILOSOFIA</strong>ElppaK•Clean™ · Minimalismo Sintattico</div>
+      <div class="hero-meta-item"><strong>INTEGRAZIONE</strong>MORPHEUS•JLX™ · T.C.F.™ · QDC.v.</div>
+      <div class="hero-meta-item"><strong>PRINCIPIO</strong>Auto-documentato · Universale</div>
+    </div>
+  </div>
+
+  <!-- LANGUAGE DISPLAY -->
+  <section class="fade-in">
+    <div class="section-label">00 · Il Nome</div>
+    <h2 class="section-title">JOKA Language Extended</h2>
+    <div class="lang-display">
+      <div class="ld-inner">
+        <div class="ld-acronym">JLX™</div>
+        <div class="ld-full">
+          <div class="ld-word highlight">J</div>
+          <div class="ld-word">OKA</div>
+          <div class="ld-word highlight">L</div>
+          <div class="ld-word">ANGUAGE</div>
+          <div class="ld-word highlight">E</div>
+          <div class="ld-word">XTENDED</div>
+        </div>
+        <div class="ld-desc">Lingua madre del KREATIO UNIVERSAL SYSTEM™ · Code 3620</div>
+      </div>
+    </div>
+    <div class="definition">
+      <p>Il <strong style="color:var(--orange)">JLX™</strong> è il linguaggio di marcatura e l'architettura sintattica proprietaria del KREATIO UNIVERSAL SYSTEM™. Non è un semplice linguaggio di programmazione, ma un protocollo di codifica dei dati strutturati concepito per garantire che ogni informazione sia espressa in una forma <em>univoca, leggibile dalla macchina e conforme ai vincoli di integrità di ATLAS•EVENTA™</em>.</p>
+    </div>
+  </section>
+
+  <!-- FUNZIONI -->
+  <section class="fade-in">
+    <div class="section-label">01 · Funzioni</div>
+    <h2 class="section-title">Le Quattro Funzioni Core</h2>
+    <div class="functions">
+      <div class="func">
+        <div class="func-index">FUNC · 01</div>
+        <div class="func-name">Normalizzazione della Semantica</div>
+        <div class="func-desc">Il JLX impone una sintassi rigorosa per la descrizione degli eventi. Definisce le regole con cui entità logiche (eventi) e istanze temporali (date) vengono scritte e archiviate, impedendo ambiguità semantiche che potrebbero compromettere la coerenza del database.</div>
+        <span class="func-tag">SEMANTIC · STRICT SYNTAX · NO AMBIGUITY</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 02</div>
+        <div class="func-name">Standardizzazione per MORPHEUS•JLX™</div>
+        <div class="func-desc">Il nome stesso del motore di pulizia chiarisce il legame indissolubile: MORPHEUS•JLX™ è progettato per leggere, validare e sanificare i dati scritti in formato JLX. È il linguaggio che il motore parla per mantenere l'ecosistema pulito.</div>
+        <span class="func-tag">MORPHEUS NATIVE · MACHINE READABLE</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 03</div>
+        <div class="func-name">Compatibilità Totale · Code 3620</div>
+        <div class="func-desc">Ogni record scritto in JLX è, per definizione, conforme ai vincoli del sistema: EVENT_ID, PLACE_ID, e tutti i campi obbligatori. Garantisce che il dato sia immediatamente elaborabile, deduplicabile e certificabile dal protocollo QDC.v.</div>
+        <span class="func-tag">CODE 3620 COMPLIANT · QDC.v. READY</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 04</div>
+        <div class="func-name">Minimalismo Sintattico · ElppaK•Clean™</div>
+        <div class="func-desc">In linea con la filosofia di design dell'ecosistema, il JLX è progettato per essere estremamente asciutto. Elimina il rumore informativo e le ridondanze, riducendo ogni concetto alla sua essenza logica. Meno parole, più precisione.</div>
+        <span class="func-tag">MINIMAL · CLEAN · PRECISE</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESEMPIO JLX -->
+  <section class="fade-in">
+    <div class="section-label">02 · Sintassi</div>
+    <h2 class="section-title">Esempio di Record JLX™</h2>
+
+    <div class="code-block">
+      <pre><span class="comment">// JLX™ — Record Canonico · Sintassi Standard</span>
+<span class="comment">// KREATIO UNIVERSAL SYSTEM™ · Code 3620</span>
+
+<span class="orange">@JLX</span> <span class="label">v1.0</span> <span class="orange">KREATIO</span> <span class="label">Code:3620</span>
+
+<span class="orange">ENTITY</span> {
+  <span class="key">EVENT_ID</span>        : <span class="string">"ev-laz-0042"</span>
+  <span class="key">EVENT_NAME</span>      : <span class="string">"Infiorata di Genzano"</span>
+  <span class="key">CATEGORY</span>        : <span class="orange">FESTA_RELIGIOSA</span>
+  <span class="key">PLACE_ID</span>        : <span class="string">"istat-058041"</span>
+  <span class="key">GPS_LAT</span>         : <span class="num">41.7001</span>
+  <span class="key">GPS_LNG</span>         : <span class="num">12.6876</span>
+  <span class="key">PRIORITY_TIER</span>   : <span class="num">1</span>
+}
+
+<span class="orange">INSTANCE</span> {
+  <span class="key">INSTANCE_ID</span>     : <span class="string">"inst-laz-0042-2026"</span>
+  <span class="key">PARENT_ID</span>       : <span class="string">"ev-laz-0042"</span>
+  <span class="key">DATE_START</span>      : <span class="string">"2026-06-14"</span>
+  <span class="key">DATE_END</span>        : <span class="string">"2026-06-15"</span>
+  <span class="key">EDITION</span>         : <span class="num">97</span>
+}
+
+<span class="orange">CERTIFICATION</span> {
+  <span class="key">MORPHEUS_STATUS</span> : <span class="value">CLEAN</span>
+  <span class="key">TCF_STATUS</span>      : <span class="value">VALIDATED</span>
+  <span class="key">QDC_STATUS</span>      : <span class="value">CERTIFIED</span>
+  <span class="key">VERSION</span>         : <span class="num">1</span>
+  <span class="key">SIG</span>             : <span class="orange">CODE_3620</span>
+}</pre>
+    </div>
+  </section>
+
+  <!-- GARANZIE -->
+  <section class="fade-in">
+    <div class="section-label">03 · Perché è Essenziale</div>
+    <h2 class="section-title">Le Tre Garanzie del JLX™</h2>
+    <div class="guarantees">
+      <div class="guarantee">
+        <div class="guarantee-num">1</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">Architettura Auto-Documentata</div>
+          <div class="guarantee-desc">Chiunque analizzi i dati scritti in JLX riconosce immediatamente la struttura logica del KREATIO UNIVERSAL SYSTEM™. Non servono manuali esterni — la sintassi stessa è il manuale.</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee-num">2</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">Integrazione Nativa</div>
+          <div class="guarantee-desc">Ogni nuovo modulo, componente o startup che adotterà il framework KREATIO potrà "parlare" lo stesso linguaggio, garantendo la compatibilità totale dell'intera infrastruttura — incluso l'hub startup in Estonia.</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee-num">3</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">Auditabilità Immediata</div>
+          <div class="guarantee-desc">Poiché il JLX è rigoroso e non ammette libertà interpretative, il controllo di conformità tramite T.C.F.™ diventa un processo <strong style="color:var(--orange)">matematico, veloce e senza margini di errore</strong>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINK A MORPHEUS -->
+  <section class="fade-in">
+    <div class="section-label">04 · Legame con MORPHEUS•JLX™</div>
+    <h2 class="section-title">Il Linguaggio e il Motore</h2>
+    <div class="link-block">
+      <div class="lb-title">MORPHEUS•JLX™ — Il Motore che Parla JLX</div>
+      <div class="lb-desc">Il nome MORPHEUS•JLX™ non è casuale: il suffisso <strong style="color:var(--orange)">•JLX™</strong> indica che il motore è nativamente progettato per operare sul linguaggio JLX. Il motore legge, valida e sanifica esclusivamente dati conformi alla specifica JLX. Questo legame indissolubile garantisce che non vi siano mai disallineamenti tra il formato del dato e la logica di elaborazione: sono la stessa cosa, espressa in due forme complementari.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+    <div class="footer-links">
+      <a href="developer-index.html">← Developer Portal</a>
+      <a href="MORPHEUS-JLX.html">→ MORPHEUS•JLX™</a>
+      <a href="TCF-framework.html">→ T.C.F.™</a>
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+</body>
+</html>
