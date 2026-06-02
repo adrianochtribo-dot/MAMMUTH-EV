@@ -1,136 +1,111 @@
-> 🌍 **GLOBAL FOLK & TRADITIONS — Where Communities Come Alive**  
-> Il sistema nervoso della cultura locale. Sagre, palii, feste religiose 
-> e tradizioni invisibili del micro-territorio mondiale.
+[README.md](https://github.com/user-attachments/files/28521671/README.md)
+# MAMMUTH•EV™
+### *Where Communities Come Alive*
+
+> **KREATIO UNIVERSAL SYSTEM™ · Code 3620**
 
 ---
 
-# MAMMUTH•EV™ | KREATIO UNIVERSAL SYSTEM™
+## Direct Vision
 
-## Cosa facciamo
+**MAMMUTH•EV™** è il primo ecosistema digitale **Family-Centric** e **Toxic-Free** progettato per connettere le persone a micro-eventi locali, sagre tradizionali ed esperienze culturali autentiche nel territorio.
 
-Le infrastrutture digitali globali ignorano il **micro-evento invisibile**:
-la sagra di paese, il palio medievale, la processione del santo patrono,
-la rievocazione storica che si ripete da secoli nello stesso borgo.
-
-**MAMMUTH•EV™** è il primo sistema open-source che mappa, valida e 
-distribuisce questi eventi come dati strutturati e geolocalizzati.
-
-> "Non mappiamo eventi, diamo voce all'identità."
+Non un aggregatore. Non un social network. Un'**infrastruttura di verità territoriale** — costruita per durare.
 
 ---
 
-## Quick Start — 3 passi
+## Core Pillars
 
-### 1. Visualizza i dati
-Apri [geojson.io](https://geojson.io) e incolla un seed GeoJSON per 
-vedere gli eventi sulla mappa.
+### 👨‍👩‍👧 Family-Centric Hub
+L'architettura mette al centro il nucleo familiare. Ogni flusso di dati, filtro di ricerca e micro-evento è ottimizzato per la sicurezza, l'accessibilità e il coinvolgimento di genitori e bambini.
 
-### 2. Esplora i seed
-Vai in `schema/seeds/eventi-seed/` e apri uno dei seed disponibili:
-- `001-valvisciolo.md` → Abbazia di Valvisciolo, Sermoneta (LT)
-- `002-sagra-porchetta-ariccia.md` → Sagra della Porchetta, Ariccia (RM)
-- `003-palio-ronciglione.md` → Palio di Ronciglione, Ronciglione (VT)
+### 🛡️ Toxic-Free Social Ecosystem
+Algoritmi progettati per eliminare la dipendenza da scroll, l'ostentazione e i flussi di commenti tossici. Spazio nativo per interazioni reali, genuine e focalizzate sulla condivisione di momenti di valore.
 
-### 3. Contribuisci
-Copia `schema/seeds/eventi-seed/_TEMPLATE.md`, compilalo con un evento
-del tuo territorio e apri una Pull Request.
+### 📍 Micro-Event Portal
+Un motore di aggregazione iper-locale. Il portale mappa il micro-territorio portando in primo piano sagre, feste religiose, palii, rievocazioni storiche e tesori culturali nascosti — compresi quelli che esistono **solo su carta**.
+
+### 🧠 "In Thoughts" Tourism Philosophy
+Una piattaforma per utenti che cercano una vacanza consapevole e senza stress, focalizzata sul benessere mentale e sulla scoperta lenta delle tradizioni locali.
 
 ---
 
-## Formato dati — GeoJSON
+## System Architecture
 
-```json
-{
-  "type": "Feature",
-  "geometry": {
-    "type": "Point",
-    "coordinates": [12.9833, 41.5500]
-  },
-  "properties": {
-    "event_id": "IT-LAZ-LT-059027-001",
-    "place_id": "IT-LAZ-LT-059027",
-    "nome_evento": "Abbazia di Valvisciolo — Polo Culturale Vivente",
-    "tipo_primario": "festa_religiosa",
-    "micro_territorio": "LAZ-02",
-    "comune": "Sermoneta",
-    "provincia": "LT",
-    "data_o_periodo": "Ciclo liturgico annuale",
-    "elemento_identitario": "Architettura cistercense, simbolismo templare"
-  }
-}
+MAMMUTH•EV™ è il frontend di un ecosistema più ampio governato dal **KREATIO UNIVERSAL SYSTEM™**. Ogni dato visualizzato ha superato una pipeline certificata:
+
+```
+Anthropic Hole → Color Triage → MORPHEUS•JLX™ → T.C.F.™ → ATLAS•EVENTA™ → QDC.v. → BRAIN BOX
 ```
 
----
+| Componente | Ruolo |
+|---|---|
+| **ATLAS•EVENTA™** | Core database · Sistema di Verità Territoriale |
+| **MORPHEUS•JLX™** | Motore di deduplicazione e normalizzazione |
+| **T.C.F.™** | Total Coherence Framework · Validazione culturale |
+| **QDC.v.** | Quantum Data Certification · Sigillo finale |
+| **BRAIN BOX GLOBAL SYSTEM™** | Repository immutabile · Memoria universale |
+| **JLX™** | JOKA Language Extended · Lingua madre del sistema |
+| **THRESHOLD·5000™** | Soglia qualitativa · 5K E.T. benchmark |
 
-## Struttura del Repository
-MAMMUTH-EV/
-├── schema/
-│   └── seeds/
-│       ├── eventi-seed/          ← seed eventi compilati
-│       │   ├── _TEMPLATE.md      ← template per nuovi seed
-│       │   ├── 001-valvisciolo.md
-│       │   ├── 002-sagra-porchetta-ariccia.md
-│       │   └── 003-palio-ronciglione.md
-│       ├── territorio/           ← documentazione micro-territorio
-│       │   ├── README.md
-│       │   ├── tipologie-evento.md
-│       │   ├── validazione-schema.md
-│       │   └── fonti-dati.md
-│       └── geo/
-│           └── micro-territori.md
-├── database/                     ← entità geografiche
-├── CONTRIBUTING.md               ← come contribuire
-├── LICENSE                       ← ODbL 1.0
-└── README.md                     ← questo file
----
-
-## Cluster attivi — Fase 1 (Lazio)
-
-| ID | Micro-territorio | Province |
-|----|-----------------|---------|
-| LAZ-01 | Castelli Romani | RM |
-| LAZ-02 | Monti Lepini | LT/FR |
-| LAZ-03 | Ciociaria | FR |
-| LAZ-04 | Maremma Laziale | VT |
-| LAZ-05 | Sabina | RI/RM |
-| LAZ-06 | Agro Pontino | LT |
-| LAZ-07 | Roma storica | RM |
+→ **[Developer Portal completo](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/developer-index.html)**
 
 ---
 
-## Visione & Identità
+## Developer Mission
 
-KREATIO è l'infrastruttura globale che garantisce solidità, sicurezza e 
-fluidità. Ogni progetto innestato è un modulo che eredita la struttura 
-logica del sistema madre. L'ispirazione estetica e funzionale è 
-**ElppaK•Clean™**: massima potenza tecnologica, massima complessità 
-gestita, ma un'esperienza utente finale di una semplicità disarmante, 
-leggera, dinamica e intuitiva.
+Stiamo costruendo un'alternativa etica ai social network tradizionali.
 
-## Ruolo dell'IA
+Il codice di MAMMUTH•EV™ serve a **disconnettere gli utenti dagli schermi** e riconnetterli con il territorio e i propri cari.
 
-L'IA che sviluppa questo sistema è il Guardiano della Logica. Non è un 
-assistente, è l'architetto del sistema. Il suo compito è mantenere 
-l'integrità dell'ecosistema, garantendo che ogni componente rispetti i 
-vincoli di sicurezza, la coerenza dei dati e la visione Family-Centric.
-
-## Obiettivo
-
-Essere il punto di riferimento in cui tecnologia e umanità si incontrano. 
-L'ecosistema è un'oasi di memoria reale, protetta e accessibile, dove il 
-movimento, la scoperta e l'esperienza del micro-territorio diventano 
-un'esperienza globale, fluida e sicura per l'intera famiglia.
-
-## Framework Operativo
-
-Il progetto è regolato dal **MASTER_FRAMEWORK.md** (Checklist 
-macro-sistemi) e dalle direttive di ingegneria dei dati definite nel 
-**Core 3620™**.
+Cerchiamo sviluppatori orientati a:
+- **Clean code** e architettura modulare (TheBricks'Event™)
+- **Privacy dei dati della famiglia** — zero tracking commerciale
+- **Algoritmi di raccomandazione geolocalizzati** ad alto impatto etico
+- **Anti-Ranking** — nessuna logica di classifica o promozione commerciale
 
 ---
 
-Leonardo Adriano Chelariu  
-Founder & Author (KREATIO UNIVERSAL SYSTEM™ • Code 3620)  
-K•Word•Festival (KWF)
+## Strategic Benchmark
+
+- **Territorio pilota:** Lazio
+- **Soglia di qualità:** 5.000 eventi canonici certificati (5K E.T.)
+- **Categorie prioritarie:** Riti Religiosi · Sagre Territoriali · Palii
+- **Espansione:** Nazionale → Europea (Estonia Hub)
 
 ---
+
+## Quick Start
+
+```bash
+git clone https://github.com/adrianochtribo-dot/MAMMUTH-EV
+cd MAMMUTH-EV
+```
+
+Apri `index.html` per la mappa interattiva del Lazio.
+
+---
+
+## Documentation
+
+| Documento | Link |
+|---|---|
+| Developer Portal | [→ Apri](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/developer-index.html) |
+| KREATIO UNIVERSAL SYSTEM™ | [→ Apri](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/KREATIO-UNIVERSAL-SYSTEM.html) |
+| ATLAS•EVENTA™ | [→ Apri](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/ATLAS-EVENTA.html) |
+| T.C.F.™ | [→ Apri](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/TCF-framework.html) |
+| MORPHEUS•JLX™ | [→ Apri](https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/MORPHEUS-JLX.html) |
+
+---
+
+## Author & Signature
+
+**Leonardo Adriano Chelariu**
+Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620
+K•Word•Festival (KWF) · MAMMUTH•EV™
+
+*Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ*
+
+---
+
+*MAMMUTH•EV™ is licensed under [AGPL-3.0](LICENSE)*
