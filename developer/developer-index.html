@@ -6,7 +6,7 @@
   <title>Developer Portal | KREATIO UNIVERSAL SYSTEM™</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
   <style>
-    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--green:#7ab88a;--blue:#6e9ec9;--amber:#d4a017;--purple:#9b7fc7;}
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--green:#7ab88a;--blue:#6e9ec9;--amber:#d4a017;--purple:#9b7fc7;--orange:#e07b39;}
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;min-height:100vh;display:flex;flex-direction:column;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
@@ -173,13 +173,26 @@
 
 
 
-    <!-- ROW 5: QDC.v. full width -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
+
+    <!-- ROW 5: JLX + QDC.v. -->
+    <div class="docs-grid">
+      <a class="doc-card" href="JLX.html">
+        <div class="doc-tag"><span class="doc-tag-dot" style="background:#e07b39"></span>DOC-JLX-001 · Proprietary Language</div>
+        <div class="doc-name" style="color:var(--orange);">JLX™</div>
+        <div class="doc-subtitle">JOKA LANGUAGE EXTENDED</div>
+        <div class="doc-desc">La lingua madre dell'ecosistema. Il protocollo di codifica dei dati strutturati proprietario che permette al sistema di pensare, organizzare e certificare la realtà in modo coerente e universale.</div>
+        <div class="doc-pillars">
+          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">SEMANTIC NORM.</span>
+          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">MORPHEUS NATIVE</span>
+          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">MINIMAL SYNTAX</span>
+          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">AUTO-DOCUMENTED</span>
+        </div>
+      </a>
       <a class="doc-card" href="QDC-v.html" style="border-top:2px solid var(--cyan);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--cyan)"></span>DOC-QDC-001 · Final Certification Protocol</div>
+        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--cyan)"></span>DOC-QDC-001 · Final Certification</div>
         <div class="doc-name" style="color:var(--cyan);">QDC.v.</div>
-        <div class="doc-subtitle">QUANTUM DATA CERTIFICATION AND VALIDATION</div>
-        <div class="doc-desc">Il protocollo di garanzia ultima. Lo stadio finale che sigilla il dato, conferendogli il valore di verità storica certificata, indivisibile e non alterabile. Trasforma il database da collezione di informazioni a sistema di autorità.</div>
+        <div class="doc-subtitle">QUANTUM DATA CERTIFICATION</div>
+        <div class="doc-desc">Il protocollo di garanzia ultima. Lo stadio finale che sigilla il dato come verità storica certificata, indivisibile e non alterabile.</div>
         <div class="doc-pillars">
           <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">QUANTUM SEALED</span>
           <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">CHAIN OF CUSTODY</span>
@@ -188,6 +201,7 @@
         </div>
       </a>
     </div>
+
 
     <!-- FLOW MAP -->
     <div class="system-map">
