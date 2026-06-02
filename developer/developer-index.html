@@ -6,7 +6,7 @@
   <title>Developer Portal | KREATIO UNIVERSAL SYSTEM™</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
   <style>
-    :root { --gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--green:#7ab88a;--blue:#6e9ec9;--amber:#d4a017;--purple:#9b7fc7; }
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--green:#7ab88a;--blue:#6e9ec9;--amber:#d4a017;--purple:#9b7fc7;}
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;min-height:100vh;display:flex;flex-direction:column;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
@@ -25,25 +25,24 @@
     .docs-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:16px;}
     .docs-label::after{content:'';flex:1;height:1px;background:var(--border);}
     .docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:4px;}
-    .docs-grid-full{display:grid;grid-template-columns:1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:4px;}
-    .doc-card{background:var(--bg-2);padding:40px 36px;text-decoration:none;display:block;transition:background 0.3s;position:relative;overflow:hidden;}
-    .doc-card::after{content:'→';position:absolute;bottom:32px;right:32px;font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--border-gold);transition:color 0.3s,transform 0.3s;}
+    .doc-card{background:var(--bg-2);padding:36px 32px;text-decoration:none;display:block;transition:background 0.3s;position:relative;overflow:hidden;}
+    .doc-card::after{content:'→';position:absolute;bottom:28px;right:28px;font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--border-gold);transition:color 0.3s,transform 0.3s;}
     .doc-card:hover{background:var(--bg-3);}
     .doc-card:hover::after{color:var(--gold);transform:translateX(4px);}
-    .doc-tag{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+    .doc-tag{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
     .doc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--gold-dim);flex-shrink:0;}
-    .doc-name{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:8px;line-height:1.2;}
-    .doc-subtitle{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:20px;}
-    .doc-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.7;margin-bottom:28px;}
-    .doc-pillars{display:flex;flex-wrap:wrap;gap:6px;}
-    .pillar-chip{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;padding:3px 8px;border:1px solid var(--border-gold);color:var(--gold-dim);}
+    .doc-name{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:6px;line-height:1.2;}
+    .doc-subtitle{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:16px;}
+    .doc-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:20px;}
+    .doc-pillars{display:flex;flex-wrap:wrap;gap:5px;}
+    .pillar-chip{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.12em;padding:3px 7px;border:1px solid var(--border-gold);color:var(--gold-dim);}
     .system-map{background:var(--bg-2);border:1px solid var(--border-gold);padding:32px;margin-top:4px;margin-bottom:60px;}
     .map-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);margin-bottom:24px;text-transform:uppercase;}
     .map-flow{display:flex;align-items:center;flex-wrap:wrap;}
-    .map-node{border:1px solid var(--border-gold);padding:12px 16px;text-align:center;flex:1;min-width:100px;}
-    .map-node-name{font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:3px;}
-    .map-node-sub{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--text-dim);letter-spacing:0.08em;}
-    .map-arrow{font-family:'DM Mono',monospace;color:var(--gold-dim);font-size:1rem;padding:0 6px;flex-shrink:0;}
+    .map-node{border:1px solid var(--border-gold);padding:12px 14px;text-align:center;flex:1;min-width:90px;}
+    .map-node-name{font-family:'Cinzel',serif;font-size:0.6rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:3px;}
+    .map-node-sub{font-family:'DM Mono',monospace;font-size:0.48rem;color:var(--text-dim);}
+    .map-arrow{font-family:'DM Mono',monospace;color:var(--gold-dim);font-size:1rem;padding:0 4px;flex-shrink:0;}
     footer{border-top:1px solid var(--border-gold);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
     .footer-sig{font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:1.8;}
     .footer-sig strong{color:var(--gold);}
@@ -57,7 +56,7 @@
 <body>
 <header class="sys-header">
   <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
-  <span class="code">DEVELOPER PORTAL · v1.2</span>
+  <span class="code">DEVELOPER PORTAL · v1.3</span>
   <span class="status"><span class="status-dot"></span>DOCS ONLINE</span>
 </header>
 <main>
@@ -74,7 +73,7 @@
         <div class="doc-tag"><span class="doc-tag-dot"></span>DOC-AE-001 · Core System</div>
         <div class="doc-name">ATLAS•EVENTA™</div>
         <div class="doc-subtitle">SISTEMA DI VERITÀ TERRITORIALE</div>
-        <div class="doc-desc">Core informativo e motore operativo del sistema. Architettura Entity/Instance, ancoraggio ISTAT, pipeline di validazione integrata e gerarchia di priorità territoriale.</div>
+        <div class="doc-desc">Core informativo e motore operativo. Architettura Entity/Instance, ancoraggio ISTAT, pipeline di validazione e gerarchia di priorità territoriale.</div>
         <div class="doc-pillars">
           <span class="pillar-chip">ENTITY / INSTANCE</span>
           <span class="pillar-chip">ISTAT ANCHOR</span>
@@ -94,13 +93,11 @@
           <span class="pillar-chip">AUDITABILITY</span>
         </div>
       </a>
-    </div>
-    <div class="docs-grid">
       <a class="doc-card" href="MORPHEUS-JLX.html">
         <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--purple)"></span>DOC-MJX-001 · Core Engine</div>
         <div class="doc-name">MORPHEUS•JLX™</div>
         <div class="doc-subtitle">SANIFICATION · DEDUPLICATION · NORMALIZATION</div>
-        <div class="doc-desc">Il motore che veglia sul flusso informativo. Deduplicazione intelligente Parent–Child, Anti-Rumore, Normalizzazione rigorosa e Versioning immutabile. Filtro pass-or-fail assoluto.</div>
+        <div class="doc-desc">Il motore che veglia sul flusso informativo. Deduplicazione intelligente Parent–Child, Anti-Rumore, Normalizzazione rigorosa e Versioning immutabile.</div>
         <div class="doc-pillars">
           <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">DEDUP PARENT-CHILD</span>
           <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">ANTI-NOISE</span>
@@ -112,12 +109,25 @@
         <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--amber)"></span>DOC-TH-001 · Strategic Framework</div>
         <div class="doc-name">THRESHOLD·5000™</div>
         <div class="doc-subtitle">PRIORITY CULTURAL FRAMEWORK</div>
-        <div class="doc-desc">La soglia minima di 5000 eventi canonici che trasforma il sistema da aggregatore a Sistema di Verità. Riti, Sagre, Palii. Ogni evento certificato è un TheBricks'Event™.</div>
+        <div class="doc-desc">La soglia minima di 5000 eventi canonici che trasforma il sistema da aggregatore a Sistema di Verità. Ogni evento certificato è un TheBricks'Event™.</div>
         <div class="doc-pillars">
           <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">5000 EVENTS</span>
           <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">QUALITY GATE</span>
           <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">THEBRICKS'EVENT™</span>
           <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">TERRITORIAL DNA</span>
+        </div>
+      </a>
+      <a class="doc-card" href="CODE-3620.html" style="grid-column:1/-1;">
+        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--gold)"></span>DOC-C3620-001 · System Identity</div>
+        <div class="doc-name">CODE 3620</div>
+        <div class="doc-subtitle">SYSTEM SIGNATURE · KREATIO UNIVERSAL SYSTEM™</div>
+        <div class="doc-desc">Il sigillo operativo che certifica che ogni processo, protocollo e output è stato prodotto secondo gli standard del KREATIO UNIVERSAL SYSTEM™. Identità, tracciabilità e standardizzazione in un unico codice immutabile.</div>
+        <div class="doc-pillars">
+          <span class="pillar-chip">SYSTEM IDENTITY</span>
+          <span class="pillar-chip">CODE OWNERSHIP</span>
+          <span class="pillar-chip">CERTIFICATION SEAL</span>
+          <span class="pillar-chip">TRACEABILITY</span>
+          <span class="pillar-chip">STANDARDIZATION</span>
         </div>
       </a>
     </div>
@@ -133,6 +143,8 @@
         <div class="map-node" style="border-color:var(--gold-dim)"><div class="map-node-name">ATLAS•EVENTA™</div><div class="map-node-sub">Certified DB</div></div>
         <span class="map-arrow">→</span>
         <div class="map-node" style="border-color:var(--blue);opacity:0.6"><div class="map-node-name" style="color:var(--blue)">MAMMUTH•EV™</div><div class="map-node-sub">Map · Frontend</div></div>
+        <span class="map-arrow">→</span>
+        <div class="map-node" style="border-color:var(--gold)"><div class="map-node-name" style="color:var(--gold)">CODE 3620</div><div class="map-node-sub">Certified ✓</div></div>
       </div>
     </div>
   </div>
