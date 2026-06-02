@@ -1,9 +1,10 @@
 ---
 name: Segnalazione Bug
 about: Segnala un malfunzionamento del sistema
-title: '[BUG] '
+title: "[BUG] "
 labels: bug
 assignees: ''
+
 ---
 
 **Descrizione del problema**
