@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODE 3620 — System Signature | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:1100px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:80px 0 60px;border-bottom:1px solid var(--border-gold);margin-bottom:80px;position:relative;overflow:hidden;}
+    .hero::after{content:'3620';position:absolute;right:-20px;top:30%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:12rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(201,169,110,0.04);pointer-events:none;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;color:var(--gold);line-height:1.0;letter-spacing:0.08em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.28em;font-weight:400;letter-spacing:0.4em;color:var(--text-dim);margin-top:16px;}
+    .hero-desc{max-width:640px;margin-top:32px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+    .hero-meta{margin-top:40px;display:flex;gap:40px;flex-wrap:wrap;}
+    .hero-meta-item{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);}
+    .hero-meta-item strong{display:block;color:var(--gold);font-size:0.75rem;margin-bottom:4px;}
+
+    section{margin-bottom:80px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:32px;}
+
+    .definition{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--gold);padding:32px 36px;margin-bottom:40px;position:relative;}
+    .definition::before{content:'§';position:absolute;top:24px;right:28px;font-family:'Cinzel',serif;font-size:2rem;color:var(--border-gold);}
+    .definition p{font-size:1rem;line-height:1.9;color:var(--text);}
+
+    /* SEAL */
+    .seal-block{display:flex;align-items:center;justify-content:center;padding:60px 40px;background:var(--bg-2);border:1px solid var(--border-gold);margin-bottom:40px;position:relative;overflow:hidden;}
+    .seal-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,110,0.04) 0%,transparent 70%);}
+    .seal-inner{text-align:center;position:relative;z-index:1;}
+    .seal-number{font-family:'Cinzel',serif;font-size:8rem;font-weight:900;color:var(--gold);line-height:1;letter-spacing:0.1em;text-shadow:0 0 80px rgba(201,169,110,0.15);}
+    .seal-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.6em;color:var(--text-dim);margin-top:16px;text-transform:uppercase;}
+    .seal-sub{font-family:'Cinzel',serif;font-size:0.8rem;color:var(--gold-dim);letter-spacing:0.3em;margin-top:8px;}
+
+    /* FUNCTIONS */
+    .func-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:40px;}
+    .func-item{background:var(--bg-2);padding:32px 28px;transition:background 0.3s;}
+    .func-item:hover{background:var(--bg-3);}
+    .func-icon{font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--gold-dim);margin-bottom:16px;display:block;}
+    .func-name{font-family:'Cinzel',serif;font-size:0.9rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;margin-bottom:10px;line-height:1.3;}
+    .func-desc{font-size:0.83rem;color:var(--text-dim);line-height:1.7;}
+
+    /* SIGNATURE BLOCK */
+    .sig-block{background:var(--bg-2);border:1px solid var(--border-gold);padding:40px;margin-bottom:40px;}
+    .sig-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);margin-bottom:24px;text-transform:uppercase;}
+    .sig-line{display:flex;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .sig-line:last-child{border-bottom:none;}
+    .sig-key{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--gold);min-width:200px;}
+    .sig-val{font-size:0.85rem;color:var(--text-dim);}
+
+    /* CODE BLOCK */
+    .code-block{background:#050505;border:1px solid var(--border);border-left:3px solid var(--gold);padding:28px 32px;margin:24px 0;overflow-x:auto;}
+    .code-block pre{font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.8;color:#8ea8c0;}
+    .comment{color:#3a4a3a;} .key{color:var(--gold);} .value{color:var(--green);}
+    .string{color:#a0c8a0;} .label{color:var(--blue);} .num{color:var(--amber);}
+
+    /* WHERE IT APPEARS */
+    .where-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:40px;}
+    .where-item{background:var(--bg-2);padding:24px 28px;}
+    .where-context{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.25em;color:var(--gold-dim);margin-bottom:8px;text-transform:uppercase;}
+    .where-name{font-family:'Cinzel',serif;font-size:0.85rem;color:var(--gold);margin-bottom:6px;}
+    .where-desc{font-size:0.8rem;color:var(--text-dim);line-height:1.5;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-links{display:flex;gap:20px;margin-top:12px;}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.15em;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    .fade-in{opacity:0;transform:translateY(20px);animation:fadeIn 0.8s ease forwards;}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+    .fade-in:nth-child(1){animation-delay:0.1s}.fade-in:nth-child(2){animation-delay:0.2s}.fade-in:nth-child(3){animation-delay:0.3s}.fade-in:nth-child(4){animation-delay:0.4s}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.func-grid{grid-template-columns:1fr;}.where-grid{grid-template-columns:1fr;}.hero::after{display:none;}footer{flex-direction:column;gap:20px;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-C3620-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>SIGNATURE ACTIVE</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">System Identity Document</div>
+    <h1>CODE 3620<span>System Signature · KREATIO UNIVERSAL SYSTEM™</span></h1>
+    <p class="hero-desc">Non un numero casuale. Il sigillo operativo che certifica che ogni processo, protocollo e output è stato prodotto secondo i rigorosi standard del KREATIO UNIVERSAL SYSTEM™.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>TIPO</strong>System Signature</div>
+      <div class="hero-meta-item"><strong>FUNZIONE</strong>Identity · Traceability · Certification</div>
+      <div class="hero-meta-item"><strong>SCOPE</strong>Ogni output del sistema</div>
+      <div class="hero-meta-item"><strong>AUTORE</strong>Leonardo Adriano Chelariu</div>
+    </div>
+  </div>
+
+  <!-- SEAL -->
+  <section class="fade-in">
+    <div class="section-label">00 · Il Sigillo</div>
+    <h2 class="section-title">Il Numero come Firma</h2>
+    <div class="seal-block">
+      <div class="seal-inner">
+        <div class="seal-number">3620</div>
+        <div class="seal-label">Kreatio Universal System™</div>
+        <div class="seal-sub">System Signature · Code Ownership · Certification Seal</div>
+      </div>
+    </div>
+    <div class="definition">
+      <p>Il <strong style="color:var(--gold)">CODE 3620</strong> è l'identificativo univoco che caratterizza l'architettura e la firma del KREATIO UNIVERSAL SYSTEM™. Funge da <em>marchio di fabbrica</em> che certifica che un determinato output, database o logica è stato prodotto secondo i rigorosi standard del sistema: deduplicazione, T.C.F.™, normalizzazione e tracciabilità totale.</p>
+    </div>
+  </section>
+
+  <!-- FUNZIONI -->
+  <section class="fade-in">
+    <div class="section-label">01 · Funzioni</div>
+    <h2 class="section-title">Significato e Funzione</h2>
+    <div class="func-grid">
+      <div class="func-item">
+        <span class="func-icon">◈</span>
+        <div class="func-name">Identità di Sistema</div>
+        <div class="func-desc">Funge da marchio di fabbrica che certifica che un output, database o logica è stato prodotto secondo gli standard del KREATIO UNIVERSAL SYSTEM™. È la prova di appartenenza al framework.</div>
+      </div>
+      <div class="func-item">
+        <span class="func-icon">⊛</span>
+        <div class="func-name">Tracciabilità · Code Ownership</div>
+        <div class="func-desc">In un contesto di sviluppo complesso, il codice permette di risalire immediatamente alla paternità e alla specifica configurazione logica adottata per la creazione di quel blocco di dati o processo.</div>
+      </div>
+      <div class="func-item">
+        <span class="func-icon">⊕</span>
+        <div class="func-name">Standardizzazione</div>
+        <div class="func-desc">Applicare CODE 3620 è la dichiarazione formale che il processo ha superato i vincoli del sistema: VINCOLO DI NUMERAZIONE ID, pulizia MORPHEUS•JLX™, validazione T.C.F.™. L'output non è generico — è certificato.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOVE APPARE -->
+  <section class="fade-in">
+    <div class="section-label">02 · Presenza nel Sistema</div>
+    <h2 class="section-title">Dove Appare CODE 3620</h2>
+    <div class="where-grid">
+      <div class="where-item">
+        <div class="where-context">Header · Ogni Documento</div>
+        <div class="where-name">Developer Portal</div>
+        <div class="where-desc">Ogni pagina tecnica del sistema riporta "CODE 3620" nell'header fisso come riferimento costante al framework di appartenenza.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-context">Record · Database</div>
+        <div class="where-name">ATLAS•EVENTA™</div>
+        <div class="where-desc">Ogni record certificato porta il riferimento al sistema che lo ha generato e validato, garantendo la catena di custodia del dato.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-context">Firma · Comunicazioni</div>
+        <div class="where-name">Identità Professionale</div>
+        <div class="where-desc">Parte integrante della firma ufficiale del Founder. Mantiene costante il riferimento al framework in ogni comunicazione o documento operativo.</div>
+      </div>
+      <div class="where-item">
+        <div class="where-context">Certificazione · Output</div>
+        <div class="where-name">Ogni Progetto KREATIO</div>
+        <div class="where-desc">KWF, MAMMUTH•EV™ e ogni progetto figlio porta il CODE 3620 come sigillo di appartenenza alla "mothership" KREATIO UNIVERSAL SYSTEM™.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIRMA UFFICIALE -->
+  <section class="fade-in">
+    <div class="section-label">03 · Firma Ufficiale</div>
+    <h2 class="section-title">Struttura della Firma di Sistema</h2>
+    <div class="sig-block">
+      <div class="sig-title">Firma Standard · KREATIO UNIVERSAL SYSTEM™</div>
+      <div class="sig-line">
+        <span class="sig-key">FOUNDER & AUTHOR</span>
+        <span class="sig-val">Leonardo Adriano Chelariu</span>
+      </div>
+      <div class="sig-line">
+        <span class="sig-key">SYSTEM</span>
+        <span class="sig-val">KREATIO UNIVERSAL SYSTEM™</span>
+      </div>
+      <div class="sig-line">
+        <span class="sig-key">SIGNATURE CODE</span>
+        <span class="sig-val" style="color:var(--gold);font-family:'Cinzel',serif;font-size:1rem;font-weight:600;">CODE 3620</span>
+      </div>
+      <div class="sig-line">
+        <span class="sig-key">FLAGSHIP PROJECT</span>
+        <span class="sig-val">K•Word•Festival (KWF)</span>
+      </div>
+      <div class="sig-line">
+        <span class="sig-key">OPERATIVE PLATFORM</span>
+        <span class="sig-val">MAMMUTH•EV™</span>
+      </div>
+      <div class="sig-line">
+        <span class="sig-key">IDENTITY GLYPH</span>
+        <span class="sig-val" style="font-size:1rem;letter-spacing:0.1em;">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre><span class="comment">// CODE 3620 — Certification Stamp</span>
+{
+  <span class="key">"system_signature"</span>: <span class="string">"CODE_3620"</span>,
+  <span class="key">"author"</span>: <span class="string">"Leonardo Adriano Chelariu"</span>,
+  <span class="key">"framework"</span>: <span class="string">"KREATIO_UNIVERSAL_SYSTEM"</span>,
+  <span class="key">"certified_protocols"</span>: [
+    <span class="string">"MORPHEUS·JLX™"</span>,
+    <span class="string">"T.C.F.™"</span>,
+    <span class="string">"ATLAS·EVENTA™"</span>,
+    <span class="string">"THRESHOLD·5000™"</span>
+  ],
+  <span class="key">"projects"</span>: [<span class="string">"KWF"</span>, <span class="string">"MAMMUTH·EV™"</span>],
+  <span class="key">"certification_status"</span>: <span class="value">ACTIVE</span>,
+  <span class="key">"glyph"</span>: <span class="string">"Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ"</span>
+}</pre>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+    <div class="footer-links">
+      <a href="developer-index.html">← Developer Portal</a>
+      <a href="ATLAS-EVENTA.html">→ ATLAS•EVENTA™</a>
+      <a href="TCF-framework.html">→ T.C.F.™</a>
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+</body>
+</html>
