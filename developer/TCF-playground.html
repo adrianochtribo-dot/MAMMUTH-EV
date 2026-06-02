@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.C.F.™ Playground — Validation Engine | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--green);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:1200px;margin:0 auto;padding:100px 40px 60px;position:relative;z-index:1;}
+
+    .hero{padding:40px 0 40px;border-bottom:1px solid var(--border-gold);margin-bottom:40px;text-align:center;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.5em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:8px;}
+    .hero-sub{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+
+    /* LAYOUT */
+    .playground{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+
+    /* INPUT PANEL */
+    .input-panel{background:var(--bg-2);border:1px solid var(--border-gold);padding:28px;}
+    .panel-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;}
+    .panel-title span{color:var(--text-dim);}
+
+    textarea{width:100%;height:320px;background:#050505;border:1px solid var(--border);color:#a0c8a0;font-family:'DM Mono',monospace;font-size:0.75rem;line-height:1.6;padding:16px;resize:vertical;outline:none;transition:border 0.2s;}
+    textarea:focus{border-color:var(--gold-dim);}
+
+    .btn-validate{width:100%;margin-top:16px;padding:14px;background:var(--bg-3);border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;}
+    .btn-validate:hover{background:var(--border-gold);border-color:var(--gold);}
+
+    .btn-load{margin-top:8px;width:100%;padding:10px;background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;cursor:pointer;transition:all 0.2s;}
+    .btn-load:hover{border-color:var(--border-gold);color:var(--gold-dim);}
+
+    /* RESULTS PANEL */
+    .results-panel{background:var(--bg-2);border:1px solid var(--border-gold);padding:28px;}
+
+    /* VERDICT */
+    .verdict{text-align:center;padding:24px;margin-bottom:24px;border:1px solid var(--border);display:none;}
+    .verdict.pass{border-color:var(--green);background:rgba(122,184,138,0.05);}
+    .verdict.fail{border-color:var(--red);background:rgba(192,57,43,0.05);}
+    .verdict.flagged{border-color:var(--amber);background:rgba(212,160,23,0.05);}
+    .verdict-icon{font-size:2rem;margin-bottom:8px;display:block;}
+    .verdict-text{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;letter-spacing:0.15em;}
+    .verdict.pass .verdict-text{color:var(--green);}
+    .verdict.fail .verdict-text{color:var(--red);}
+    .verdict.flagged .verdict-text{color:var(--amber);}
+    .verdict-sub{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;margin-top:6px;}
+
+    /* PILLARS */
+    .pillars{display:flex;flex-direction:column;gap:8px;}
+    .pillar-result{border:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:all 0.3s;}
+    .pillar-result.pass{border-left:3px solid var(--green);}
+    .pillar-result.fail{border-left:3px solid var(--red);}
+    .pillar-result.warn{border-left:3px solid var(--amber);}
+    .pillar-result.pending{border-left:3px solid var(--border);opacity:0.4;}
+
+    .pillar-icon{font-size:1.2rem;min-width:24px;text-align:center;}
+    .pillar-info{flex:1;}
+    .pillar-name{font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:3px;}
+    .pillar-msg{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);line-height:1.4;}
+    .pillar-badge{font-family:'DM Mono',monospace;font-size:0.55rem;padding:3px 8px;border:1px solid;white-space:nowrap;}
+    .pillar-result.pass .pillar-badge{border-color:var(--green);color:var(--green);}
+    .pillar-result.fail .pillar-badge{border-color:var(--red);color:var(--red);}
+    .pillar-result.warn .pillar-badge{border-color:var(--amber);color:var(--amber);}
+    .pillar-result.pending .pillar-badge{border-color:var(--border);color:var(--text-dim);}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:16px;}
+    .stat{background:var(--bg-3);padding:12px;text-align:center;border:1px solid var(--border);}
+    .stat-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold);}
+    .stat-label{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--text-dim);letter-spacing:0.1em;margin-top:4px;}
+
+    /* SAMPLE RECORDS */
+    .samples{margin-bottom:40px;}
+    .samples-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .samples-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .samples-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .sample-btn{background:var(--bg-2);border:1px solid var(--border);padding:14px 16px;cursor:pointer;text-align:left;transition:all 0.2s;}
+    .sample-btn:hover{border-color:var(--border-gold);background:var(--bg-3);}
+    .sample-btn-name{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:4px;}
+    .sample-btn-desc{font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--text-dim);}
+    .sample-btn.green-sample{border-left:2px solid var(--green);}
+    .sample-btn.amber-sample{border-left:2px solid var(--amber);}
+    .sample-btn.red-sample{border-left:2px solid var(--red);}
+
+    /* DOCS LINK */
+    .docs-link{text-align:center;padding:20px;border-top:1px solid var(--border-gold);}
+    .docs-link a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.2em;}
+    .docs-link a:hover{color:var(--gold);}
+
+    footer{border-top:1px solid var(--border-gold);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold-dim);letter-spacing:0.2em;}
+    .footer-sig strong{color:var(--gold);}
+    .footer-glyph{font-size:1rem;color:var(--border-gold);}
+
+    @media(max-width:900px){.playground{grid-template-columns:1fr;}.samples-grid{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">T.C.F.™ PLAYGROUND · LIVE</span>
+  <span class="status"><span class="status-dot"></span>ENGINE ACTIVE</span>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-label">Interactive Validation Engine</div>
+    <h1>T.C.F.™ Playground</h1>
+    <div class="hero-sub">Total Coherence Framework · Test your records in real time</div>
+  </div>
+
+  <!-- SAMPLE RECORDS -->
+  <div class="samples">
+    <div class="samples-title">Record di Esempio</div>
+    <div class="samples-grid">
+      <button class="sample-btn green-sample" onclick="loadSample('valid')">
+        <div class="sample-btn-name">✓ Record Valido</div>
+        <div class="sample-btn-desc">Festa Religiosa · Lazio · Tutti i campi presenti</div>
+      </button>
+      <button class="sample-btn amber-sample" onclick="loadSample('flagged')">
+        <div class="sample-btn-name">⚠ Record Incompleto</div>
+        <div class="sample-btn-desc">Sagra · Coordinate mancanti → FLAGGED</div>
+      </button>
+      <button class="sample-btn red-sample" onclick="loadSample('invalid')">
+        <div class="sample-btn-name">✗ Record Non Valido</div>
+        <div class="sample-btn-desc">Categoria errata · ID mancante → REJECTED</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- PLAYGROUND -->
+  <div class="playground">
+
+    <!-- INPUT -->
+    <div class="input-panel">
+      <div class="panel-title">
+        Input · Record JSON
+        <span>Incolla o modifica</span>
+      </div>
+      <textarea id="jsonInput" placeholder='{ "EVENT_ID": "ev-laz-0001", "EVENT_NAME": "...", ... }'></textarea>
+      <button class="btn-validate" onclick="validateRecord()">▶ ESEGUI VALIDAZIONE T.C.F.™</button>
+      <button class="btn-load" onclick="clearAll()">✕ Cancella</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-panel">
+      <div class="panel-title">Output · Risultati T.C.F.™</div>
+
+      <div class="verdict" id="verdict">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-text" id="verdictText"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar-result pending" id="pillar1">
+          <div class="pillar-icon">🌍</div>
+          <div class="pillar-info">
+            <div class="pillar-name">Pillar 01 · Coerenza Territoriale</div>
+            <div class="pillar-msg" id="pillar1msg">In attesa di input...</div>
+          </div>
+          <span class="pillar-badge" id="pillar1badge">PENDING</span>
+        </div>
+        <div class="pillar-result pending" id="pillar2">
+          <div class="pillar-icon">🔇</div>
+          <div class="pillar-info">
+            <div class="pillar-name">Pillar 02 · Anti-Rumore MORPHEUS·JLX™</div>
+            <div class="pillar-msg" id="pillar2msg">In attesa di input...</div>
+          </div>
+          <span class="pillar-badge" id="pillar2badge">PENDING</span>
+        </div>
+        <div class="pillar-result pending" id="pillar3">
+          <div class="pillar-icon">🏛</div>
+          <div class="pillar-info">
+            <div class="pillar-name">Pillar 03 · Validazione Ontologica</div>
+            <div class="pillar-msg" id="pillar3msg">In attesa di input...</div>
+          </div>
+          <span class="pillar-badge" id="pillar3badge">PENDING</span>
+        </div>
+        <div class="pillar-result pending" id="pillar4">
+          <div class="pillar-icon">📋</div>
+          <div class="pillar-info">
+            <div class="pillar-name">Pillar 04 · Auditabilità</div>
+            <div class="pillar-msg" id="pillar4msg">In attesa di input...</div>
+          </div>
+          <span class="pillar-badge" id="pillar4badge">PENDING</span>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-num" id="statPass">-</div><div class="stat-label">PASS</div></div>
+        <div class="stat"><div class="stat-num" id="statFail">-</div><div class="stat-label">FAIL</div></div>
+        <div class="stat"><div class="stat-num" id="statWarn">-</div><div class="stat-label">WARN</div></div>
+        <div class="stat"><div class="stat-num" id="statScore">-</div><div class="stat-label">SCORE</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="docs-link">
+    <a href="TCF-framework.html">← Leggi la documentazione completa T.C.F.™</a>
+    &nbsp;&nbsp;·&nbsp;&nbsp;
+    <a href="developer-index.html">← Developer Portal</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-sig"><strong>Leonardo Adriano Chelariu</strong> · KREATIO UNIVERSAL SYSTEM™ · Code 3620</div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+<script>
+const VALID_CATEGORIES = ['festa_religiosa','sagra','palio','rito_agrario','mercato','sagra_territoriale','palio_rievocazione'];
+const REQUIRED_FIELDS = ['EVENT_ID','EVENT_NAME','CATEGORY','PLACE_ID','GPS_LAT','GPS_LNG'];
+
+const SAMPLES = {
+  valid: {
+    EVENT_ID: "ev-laz-0042",
+    EVENT_NAME: "Infiorata di Genzano",
+    CATEGORY: "festa_religiosa",
+    PLACE_ID: "istat-058041",
+    GPS_LAT: 41.7001,
+    GPS_LNG: 12.6876,
+    COMUNE: "Genzano di Roma",
+    PROVINCIA: "RM",
+    ENTE_ORGANIZZATORE: "Comune di Genzano di Roma",
+    PERIODO: "Giugno",
+    VERSION: 1,
+    SOURCE_TYPE: "PRO_LOCO"
+  },
+  flagged: {
+    EVENT_NAME: "Sagra della Porchetta",
+    CATEGORY: "sagra",
+    COMUNE: "Ariccia",
+    PROVINCIA: "RM"
+  },
+  invalid: {
+    nome: "Concerto Rock",
+    tipo: "musica",
+    luogo: "Roma"
+  }
+};
+
+function loadSample(type) {
+  document.getElementById('jsonInput').value = JSON.stringify(SAMPLES[type], null, 2);
+}
+
+function clearAll() {
+  document.getElementById('jsonInput').value = '';
+  resetResults();
+}
+
+function resetResults() {
+  const verdict = document.getElementById('verdict');
+  verdict.style.display = 'none';
+  verdict.className = 'verdict';
+  ['1','2','3','4'].forEach(n => {
+    document.getElementById('pillar'+n).className = 'pillar-result pending';
+    document.getElementById('pillar'+n+'badge').textContent = 'PENDING';
+    document.getElementById('pillar'+n+'msg').textContent = 'In attesa di input...';
+  });
+  ['statPass','statFail','statWarn','statScore'].forEach(id => {
+    document.getElementById(id).textContent = '-';
+  });
+}
+
+function setPillar(num, status, msg) {
+  const el = document.getElementById('pillar'+num);
+  const badge = document.getElementById('pillar'+num+'badge');
+  const msgEl = document.getElementById('pillar'+num+'msg');
+  el.className = 'pillar-result ' + status;
+  badge.textContent = status.toUpperCase();
+  msgEl.textContent = msg;
+}
+
+function validateRecord() {
+  const input = document.getElementById('jsonInput').value.trim();
+  if (!input) { alert('Inserisci un record JSON'); return; }
+
+  let record;
+  try { record = JSON.parse(input); }
+  catch(e) {
+    document.getElementById('verdict').style.display = 'block';
+    document.getElementById('verdict').className = 'verdict fail';
+    document.getElementById('verdictIcon').textContent = '✗';
+    document.getElementById('verdictText').textContent = 'JSON NON VALIDO';
+    document.getElementById('verdictSub').textContent = e.message;
+    return;
+  }
+
+  let pass = 0, fail = 0, warn = 0;
+
+  // PILLAR 1 — Coerenza Territoriale
+  const hasGeo = record.GPS_LAT !== undefined && record.GPS_LNG !== undefined;
+  const hasPlace = record.PLACE_ID || record.COMUNE || record.comune;
+  const hasProvincia = record.PROVINCIA || record.provincia;
+  if (hasGeo && hasPlace && hasProvincia) {
+    setPillar(1, 'pass', 'Coordinate GPS presenti · Ancoraggio territoriale verificato · Provincia presente');
+    pass++;
+  } else if (hasPlace) {
+    setPillar(1, 'warn', 'Coordinate GPS mancanti — il dato necessita di geolocalizzazione precisa');
+    warn++;
+  } else {
+    setPillar(1, 'fail', 'Nessun riferimento territoriale — PLACE_ID, COMUNE e coordinate assenti');
+    fail++;
+  }
+
+  // PILLAR 2 — Anti-Rumore
+  const hasId = record.EVENT_ID || record.id;
+  const hasName = record.EVENT_NAME || record.nome;
+  const nameLen = (record.EVENT_NAME || record.nome || '').length;
+  const hasSource = record.SOURCE_TYPE || record.source_type;
+  if (hasId && hasName && nameLen > 3 && hasSource) {
+    setPillar(2, 'pass', 'ID presente · Nome normalizzabile · Fonte tracciata — nessun rumore rilevato');
+    pass++;
+  } else if (hasId && hasName) {
+    setPillar(2, 'warn', 'SOURCE_TYPE mancante — la fonte non è tracciata, richiede verifica manuale');
+    warn++;
+  } else if (!hasId) {
+    setPillar(2, 'fail', 'EVENT_ID assente — ID non può essere consumato senza tutti i campi obbligatori');
+    fail++;
+  } else {
+    setPillar(2, 'warn', 'Nome evento assente o troppo breve — possibile rumore informativo');
+    warn++;
+  }
+
+  // PILLAR 3 — Validazione Ontologica
+  const cat = (record.CATEGORY || record.tipo || record.category || '').toLowerCase();
+  if (VALID_CATEGORIES.includes(cat)) {
+    setPillar(3, 'pass', 'Categoria "' + cat + '" appartiene alla tassonomia KREATIO — conforme');
+    pass++;
+  } else if (cat === '') {
+    setPillar(3, 'fail', 'CATEGORY assente — ogni entità deve avere una categoria tassonomica definita');
+    fail++;
+  } else {
+    setPillar(3, 'fail', 'Categoria "' + cat + '" non appartiene al set chiuso ammesso · Valori validi: ' + VALID_CATEGORIES.join(', '));
+    fail++;
+  }
+
+  // PILLAR 4 — Auditabilità
+  const hasVersion = record.VERSION !== undefined || record.version !== undefined;
+  const hasTimestamp = record.timestamp || record.created || record.TCF_TIMESTAMP;
+  const hasSource2 = record.SOURCE_TYPE || record.source_type || record.ente_organizzatore || record.ENTE_ORGANIZZATORE;
+  if (hasVersion && hasSource2) {
+    setPillar(4, 'pass', 'Versioning presente · Fonte tracciata — catena di custodia del dato garantita');
+    pass++;
+  } else if (hasSource2) {
+    setPillar(4, 'warn', 'VERSION mancante — il versioning è obbligatorio per l\'auditabilità totale');
+    warn++;
+  } else {
+    setPillar(4, 'fail', 'VERSION e SOURCE_TYPE assenti — impossibile garantire la tracciabilità del dato');
+    fail++;
+  }
+
+  // VERDICT
+  const verdict = document.getElementById('verdict');
+  verdict.style.display = 'block';
+  const score = Math.round((pass / 4) * 100);
+
+  if (fail === 0 && warn === 0) {
+    verdict.className = 'verdict pass';
+    document.getElementById('verdictIcon').textContent = '✓';
+    document.getElementById('verdictText').textContent = 'VALIDATED';
+    document.getElementById('verdictSub').textContent = 'Il record ha superato tutti i 4 pilastri T.C.F.™ · Pronto per ATLAS•EVENTA™';
+  } else if (fail > 0) {
+    verdict.className = 'verdict fail';
+    document.getElementById('verdictIcon').textContent = '✗';
+    document.getElementById('verdictText').textContent = 'REJECTED';
+    document.getElementById('verdictSub').textContent = fail + ' pilastro/i falliti · Il record non può entrare nel database';
+  } else {
+    verdict.className = 'verdict flagged';
+    document.getElementById('verdictIcon').textContent = '⚠';
+    document.getElementById('verdictText').textContent = 'FLAGGED';
+    document.getElementById('verdictSub').textContent = warn + ' avvertimento/i · Il record richiede revisione umana prima dell\'ingresso';
+  }
+
+  document.getElementById('statPass').textContent = pass;
+  document.getElementById('statFail').textContent = fail;
+  document.getElementById('statWarn').textContent = warn;
+  document.getElementById('statScore').textContent = score + '%';
+}
+</script>
+
+</body>
+</html>
