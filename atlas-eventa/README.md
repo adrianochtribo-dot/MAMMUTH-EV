@@ -1,4 +1,4 @@
-**ATLAS•EVENTA™**
+# ATLAS·EVENTA™
 ### The Global Micro-Event Encyclopedia
 #### Powered by KREATIO UNIVERSAL SYSTEM™ · T.C.F.™ Validated
 
