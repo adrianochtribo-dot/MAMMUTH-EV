@@ -5,41 +5,42 @@
 
 ---
 
-## La Visione
-Il turismo globale ignora i micro-territori. MAMMUTH cambia il paradigma: un ecosistema open-source, non tossico e family-centric ispirato a GetYourGuide, ma costruito per le sagre, le feste patronali e i tesori culturali nascosti delle piccole comunità.
+## What We're Building
+Not another event app. A cultural infrastructure.
+MAMMUTH maps the invisible — the village squares, the patron saint festivals, the harvest sagre that no algorithm has ever indexed.
 
-Non forniamo solo indicazioni stradali. Preserviamo il patrimonio culturale attraverso codice solido.
-
----
-
-## Il Manifesto del Codice Family-Centric
-Contribuire a questo repository significa aderire a principi di sicurezza algoritmica rigorosi:
-
-1. Zero Algoritmi Tossici — nessuna notifica manipolativa, nessuna architettura da doom-scrolling
-2. Privacy First — i dati delle famiglie sono protetti. La presenza o i dati dei bambini non vengono mai tracciati o monetizzati
-3. Pipeline di Contenuti Sicuri — livelli di moderazione automatica filtrano qualsiasi contenuto inappropriato
+We don't just provide directions. We preserve cultural heritage through bulletproof code.
 
 ---
 
-## Stack Tecnologico
+## The Family-Centric Code Manifesto
+Contributing to this repository means adhering to strict algorithmic safety principles:
+
+1. Zero Toxic Algorithms — no engagement-baiting notifications, no doom-scrolling architecture
+2. Privacy First — family data is protected. Children's presence or data is never tracked or monetized
+3. Safe Content Pipelines — automated moderation layers filter any inappropriate content
+
+---
+
+## Tech Stack
 - Frontend: React Native (iOS/Android) + Next.js (web)
 - Backend: Python (FastAPI) + Node.js
 - Database: PostgreSQL + PostGIS
 - Geo-Indexing: Uber H3
 - Cache: Redis Geospatial
-- Validazione: T.C.F.™ Protocol
+- Validation: T.C.F.™ Protocol
 
 ---
 
-## Architettura Geo
-Vedi docs/architettura.md per la spiegazione completa del sistema di mappatura iper-locale.
+## Architecture
+See docs/architettura.md for the complete hyper-local geo-mapping system.
 
 ---
 
-## Come Contribuire
-Cerchiamo sviluppatori, designer UI/UX e appassionati di geofencing. Consulta CONTRIBUTING.md e prendi un ticket dalla board Issues.
+## How to Contribute
+We welcome developers, UI/UX designers and geofencing enthusiasts. Check CONTRIBUTING.md and grab a ticket from the Issues board.
 
-Costruiamo insieme un software che protegge e amplifica l'anima delle piccole comunità.
+Let's build software that protects and amplifies the soul of small communities.
 
 ---
 
