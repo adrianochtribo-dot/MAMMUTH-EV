@@ -1,29 +1,32 @@
-# Architettura Globale del Micro-Dato
+# Global Micro-Data Architecture
 
-## Il Problema
-Google Maps conosce Sermoneta ma non la Contrada Selva, non la piazza della Sagra della Polenta, non il capitello votivo dove si raduna la processione.
+## The Problem
+Google Maps knows Sermoneta but not Contrada Selva, not the square where the Sagra della Polenta takes place, not the votive chapel where the procession gathers.
 
-## La Soluzione
-Un layer geografico proprietario a 4 livelli: Nazione → Regione → Comune → Micro-Entità
+## The Solution
+A proprietary geographic layer with 4 levels: Nation → Region → Municipality → Micro-Entity
 
-Le micro-entità (frazione, piazza, capitello, campo) vengono definite con coordinate custom + poligono GeoJSON + raggio di rilevanza in metri. Nessuna dipendenza da Google.
+Micro-entities (hamlet, square, chapel, field) are defined with custom coordinates + GeoJSON polygon + relevance radius in meters. No dependency on Google.
 
-## Stack Geo
-- PostGIS — query spaziali (ST_Within, ST_DWithin)
-- OpenStreetMap + Overpass API — base dati libera
-- GeoJSON — formato standard per ogni entità
-- H3 (Uber) — indicizzazione esagonale, scala da Sermoneta al mondo senza riscrivere una riga
+## Geo Stack
+- PostGIS — spatial queries (ST_Within, ST_DWithin)
+- OpenStreetMap + Overpass API — free base data
+- GeoJSON — standard format for every entity
+- H3 (Uber) — hexagonal territory indexing, scales from Sermoneta to the world without rewriting a single line
 
-## Scalabilità
-Ogni nuovo territorio è un seed nel database. L'architettura non cambia — si aggiungono dati.
+## Scalability
+Every new territory is a seed in the database. The architecture never changes — data is added.
 
-## Geo-Meshing Iper-Locale
-Risoluzione H3 L10/L11: esagoni con raggio da 10 a 25 metri mappano l'esatta porzione di territorio dove si svolge l'evento. Le coordinate temporali attivano e disattivano gli esagoni dinamicamente.
+## Hyper-Local Geo-Meshing
+H3 Resolution L10/L11: hexagons with a radius of 10 to 25 meters map the exact portion of territory where the event takes place. Temporal coordinates dynamically activate and deactivate hexagons.
 
 ## Database
-- PostgreSQL + PostGIS — persistenza dei confini storici e poligoni GeoJSON
-- Redis Geospatial — query real-time e caching per latenze inferiori a 50ms
-- Sharding geografico per codici ISO regionali — dati europei su nodi europei, rispetto GDPR
+- PostgreSQL + PostGIS — persistence of historical boundaries and GeoJSON polygons
+- Redis Geospatial — real-time queries and caching for latencies under 50ms
+- Geographic sharding by ISO regional codes — European data on European nodes, GDPR compliant
 
-## Espansione Globale
-Il modello pilota parte da Sermoneta (Provincia di Latina, Lazio, Italia). L'architettura è concepita per espandersi in tutta Europa e successivamente in tutti i continenti senza modifiche strutturali.
+## Global Expansion
+The pilot model starts from Sermoneta (Province of Latina, Lazio, Italy). The architecture is designed to expand across Europe and subsequently to all continents without structural changes.
+
+---
+MAMMUTH EVENTS™ · KREATIO UNIVERSAL SYSTEM™ · Code 3620
