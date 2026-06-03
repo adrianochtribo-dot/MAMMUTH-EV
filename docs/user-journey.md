@@ -1,33 +1,34 @@
-# User Journey Iper-Locale — La Famiglia Smith a Sermoneta
+# Hyper-Local User Journey — The Smith Family in Sermoneta
 
-## Lo Scenario
-Una famiglia inglese arriva a Sermoneta un sabato mattina. Non conoscono il territorio. Aprono MAMMUTH.
+## The Scenario
+An English family arrives in Sermoneta on a Saturday morning. They don't know the territory. They open MAMMUTH.
 
-## Il Flusso
+## The Flow
 
-1. ARRIVO — Il GPS posiziona la famiglia nel borgo medievale. MAMMUTH rileva l'esagono H3 attivo.
+1. ARRIVAL — GPS positions the family in the medieval village. MAMMUTH detects the active H3 hexagon.
 
-2. SCOPERTA — Nessun banner, nessuna pubblicità. L'app mostra in silenzio: "Sagra della Polenta — Stasera — 200m da te." La notifica appare solo perché sono fisicamente nel raggio dell'evento.
+2. DISCOVERY — No banners, no ads. The app silently shows: "Sagra della Polenta — Tonight — 200m from you." The notification appears only because they are physically within the event radius.
 
-3. INFORMAZIONE — Toccano l'evento. Vedono: storia della sagra, orario, costo (0€), percorso a piedi family-safe con indicazione parcheggio per passeggini. Guida multilingua integrata che spiega ai bambini la storia della festa. Zero pop-up, zero pubblicità.
+3. INFORMATION — They tap the event. They see: history of the sagra, time, cost (0€), family-safe walking route with stroller parking indication. Integrated multilingual guide explaining the festival history to children. Zero pop-ups, zero ads.
 
-4. PARTECIPAZIONE — Un bottone: "Siamo in 4". Nessuna registrazione, nessuna email, nessun dato venduto. Solo un counter anonimo per l'organizzatore locale.
+4. PARTICIPATION — One button: "We are 4." No registration, no email, no data sold. Just an anonymous counter for the local organizer.
 
-5. DOPO — L'app non invia notifiche push aggressive. Non chiede recensioni ogni 5 minuti. Il silenzio è parte del design.
+5. AFTER — The app sends no aggressive push notifications. It does not ask for reviews every 5 minutes. Silence is part of the design.
 
-## Il Flusso Tecnico
-Arrivo nel borgo → Esagono H3 attivo → Notifica contestuale silenziosa → Micro-transazione pulita (opzionale)
+## Technical Flow
+Arrival in the village → Active H3 hexagon → Silent contextual notification → Clean micro-transaction (optional)
 
-## Monetizzazione Etica
+## Ethical Monetization
 
-- L'organizzatore locale paga 9 euro/anno per avere la pagina verificata
-- Le famiglie non pagano mai nulla
-- Zero pubblicità. Zero tracciamento comportamentale.
-- Commissione 5-8% solo su prenotazioni opzionali (menu fisso, laboratori per bambini)
-- I Comuni e le Pro Loco possono accedere a MAMMUTH Pro — dashboard analytics anonima — con abbonamento flat annuale
+- Local organizer pays 9 EUR/year for a verified page
+- Families never pay anything
+- Zero ads. Zero behavioral tracking.
+- 5-8% commission only on optional bookings (set menus, children's workshops)
+- Municipalities and Pro Loco associations can access MAMMUTH Pro — anonymous analytics dashboard — with a flat annual subscription
 
-## Il Principio
-MAMMUTH facilita l'interazione umana, non lo schermo. La colonna sonora dell'esperienza è il silenzio del borgo, non le notifiche.
+## The Principle
+MAMMUTH facilitates human interaction, not screen time. The soundtrack of the experience is the silence of the village, not notifications.
 
 ---
 MAMMUTH EVENTS™ · KREATIO UNIVERSAL SYSTEM™ · Code 3620
+© Leonardo Adriano Chelariu
