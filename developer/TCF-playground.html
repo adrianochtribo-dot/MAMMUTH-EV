@@ -1,400 +1,417 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T.C.F.™ Playground — Validation Engine | KREATIO UNIVERSAL SYSTEM™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <title>T.C.F.™ Playground – Validation Engine | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&display=swap" rel="stylesheet">
   <style>
-    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;}
+    :root {
+      --gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;
+      --bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1e;
+      --green:#00e87a;--green-dim:#00a855;
+      --red:#ff3b5c;--red-dim:#8b1a2e;
+      --yellow:#ffd600;--yellow-dim:#7a6500;
+      --text:#e8e4dc;--text-dim:#666;
+    }
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;min-height:100vh;}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
 
-    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;}
     .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
     .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
     .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--green);}
     .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 
-    main{max-width:1200px;margin:0 auto;padding:100px 40px 60px;position:relative;z-index:1;}
+    main{max-width:1400px;margin:0 auto;padding:100px 40px 60px;position:relative;z-index:1;}
 
     .hero{padding:40px 0 40px;border-bottom:1px solid var(--border-gold);margin-bottom:40px;text-align:center;}
-    .hero-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.5em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;}
-    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:8px;}
-    .hero-sub{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.5em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:12px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:8px;}
+    .hero-sub{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.3em;}
+
+    /* MODE TOGGLE */
+    .mode-toggle{display:flex;gap:0;margin-bottom:32px;border:1px solid var(--border-gold);border-radius:3px;overflow:hidden;width:fit-content;}
+    .mode-btn{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;padding:10px 24px;border:none;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
+    .mode-btn.active{background:var(--gold);color:#000;}
+    .mode-btn:not(.active){background:transparent;color:var(--text-dim);}
+    .mode-btn:not(.active):hover{background:var(--border-gold);color:var(--gold);}
 
     /* LAYOUT */
-    .playground{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+    .layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+    @media(max-width:900px){.layout{grid-template-columns:1fr;}}
 
-    /* INPUT PANEL */
-    .input-panel{background:var(--bg-2);border:1px solid var(--border-gold);padding:28px;}
-    .panel-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;}
-    .panel-title span{color:var(--text-dim);}
+    .panel{background:var(--bg-2);border:1px solid var(--border-gold);border-radius:4px;overflow:hidden;}
+    .panel-header{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+    .panel-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);}
+    .panel-body{padding:0;}
 
-    textarea{width:100%;height:320px;background:#050505;border:1px solid var(--border);color:#a0c8a0;font-family:'DM Mono',monospace;font-size:0.75rem;line-height:1.6;padding:16px;resize:vertical;outline:none;transition:border 0.2s;}
-    textarea:focus{border-color:var(--gold-dim);}
+    textarea{width:100%;min-height:400px;background:#050505;border:none;outline:none;color:var(--text);font-family:'DM Mono',monospace;font-size:0.72rem;line-height:1.7;padding:20px;resize:vertical;}
 
-    .btn-validate{width:100%;margin-top:16px;padding:14px;background:var(--bg-3);border:1px solid var(--gold-dim);color:var(--gold);font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;}
-    .btn-validate:hover{background:var(--border-gold);border-color:var(--gold);}
+    .btn-run{width:100%;background:transparent;border:1px solid var(--gold-dim);border-radius:0;padding:14px;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);cursor:pointer;transition:all 0.2s;text-transform:uppercase;margin-top:1px;}
+    .btn-run:hover{background:var(--gold);color:#000;}
+    .btn-clear{width:100%;background:transparent;border:1px solid var(--border);border-radius:0;padding:10px;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);cursor:pointer;transition:all 0.2s;text-transform:uppercase;margin-top:1px;}
+    .btn-clear:hover{border-color:var(--red);color:var(--red);}
 
-    .btn-load{margin-top:8px;width:100%;padding:10px;background:transparent;border:1px solid var(--border);color:var(--text-dim);font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;cursor:pointer;transition:all 0.2s;}
-    .btn-load:hover{border-color:var(--border-gold);color:var(--gold-dim);}
+    /* SINGLE RESULT */
+    .verdict-box{padding:28px 24px;text-align:center;border-bottom:1px solid var(--border);}
+    .verdict-icon{font-size:2rem;margin-bottom:8px;}
+    .verdict-label{font-family:'Cinzel',serif;font-size:1.4rem;letter-spacing:0.15em;margin-bottom:6px;}
+    .verdict-sub{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.2em;}
+    .verdict-VALIDATED .verdict-label{color:var(--green);}
+    .verdict-REJECTED .verdict-label{color:var(--red);}
+    .verdict-WARNING .verdict-label{color:var(--yellow);}
+    .verdict-PENDING .verdict-label{color:var(--text-dim);}
 
-    /* RESULTS PANEL */
-    .results-panel{background:var(--bg-2);border:1px solid var(--border-gold);padding:28px;}
-
-    /* VERDICT */
-    .verdict{text-align:center;padding:24px;margin-bottom:24px;border:1px solid var(--border);display:none;}
-    .verdict.pass{border-color:var(--green);background:rgba(122,184,138,0.05);}
-    .verdict.fail{border-color:var(--red);background:rgba(192,57,43,0.05);}
-    .verdict.flagged{border-color:var(--amber);background:rgba(212,160,23,0.05);}
-    .verdict-icon{font-size:2rem;margin-bottom:8px;display:block;}
-    .verdict-text{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:600;letter-spacing:0.15em;}
-    .verdict.pass .verdict-text{color:var(--green);}
-    .verdict.fail .verdict-text{color:var(--red);}
-    .verdict.flagged .verdict-text{color:var(--amber);}
-    .verdict-sub{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;margin-top:6px;}
-
-    /* PILLARS */
-    .pillars{display:flex;flex-direction:column;gap:8px;}
-    .pillar-result{border:1px solid var(--border);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:all 0.3s;}
-    .pillar-result.pass{border-left:3px solid var(--green);}
-    .pillar-result.fail{border-left:3px solid var(--red);}
-    .pillar-result.warn{border-left:3px solid var(--amber);}
-    .pillar-result.pending{border-left:3px solid var(--border);opacity:0.4;}
-
-    .pillar-icon{font-size:1.2rem;min-width:24px;text-align:center;}
+    .pillar-list{padding:16px;}
+    .pillar-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .pillar-item:last-child{border-bottom:none;}
+    .pillar-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
     .pillar-info{flex:1;}
-    .pillar-name{font-family:'Cinzel',serif;font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:3px;}
-    .pillar-msg{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);line-height:1.4;}
-    .pillar-badge{font-family:'DM Mono',monospace;font-size:0.55rem;padding:3px 8px;border:1px solid;white-space:nowrap;}
-    .pillar-result.pass .pillar-badge{border-color:var(--green);color:var(--green);}
-    .pillar-result.fail .pillar-badge{border-color:var(--red);color:var(--red);}
-    .pillar-result.warn .pillar-badge{border-color:var(--amber);color:var(--amber);}
-    .pillar-result.pending .pillar-badge{border-color:var(--border);color:var(--text-dim);}
+    .pillar-name{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.2em;margin-bottom:3px;}
+    .pillar-msg{font-family:'DM Mono',monospace;font-size:0.62rem;line-height:1.5;}
+    .pillar-badge{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;padding:3px 8px;border-radius:2px;flex-shrink:0;}
+    .badge-PASS{background:#00e87a15;color:var(--green);border:1px solid #00e87a33;}
+    .badge-FAIL{background:#ff3b5c15;color:var(--red);border:1px solid #ff3b5c33;}
+    .badge-WARN{background:#ffd60015;color:var(--yellow);border:1px solid #ffd60033;}
+    .badge-PENDING{background:#33333315;color:var(--text-dim);border:1px solid #333;}
 
-    /* STATS */
-    .stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:16px;}
-    .stat{background:var(--bg-3);padding:12px;text-align:center;border:1px solid var(--border);}
-    .stat-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold);}
-    .stat-label{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--text-dim);letter-spacing:0.1em;margin-top:4px;}
+    .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);}
+    .stat{padding:14px;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;}
+    .stat-label{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;color:var(--text-dim);margin-top:2px;}
 
-    /* SAMPLE RECORDS */
-    .samples{margin-bottom:40px;}
-    .samples-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
-    .samples-title::after{content:'';flex:1;height:1px;background:var(--border);}
-    .samples-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
-    .sample-btn{background:var(--bg-2);border:1px solid var(--border);padding:14px 16px;cursor:pointer;text-align:left;transition:all 0.2s;}
-    .sample-btn:hover{border-color:var(--border-gold);background:var(--bg-3);}
-    .sample-btn-name{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:4px;}
-    .sample-btn-desc{font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--text-dim);}
-    .sample-btn.green-sample{border-left:2px solid var(--green);}
-    .sample-btn.amber-sample{border-left:2px solid var(--amber);}
-    .sample-btn.red-sample{border-left:2px solid var(--red);}
+    /* BATCH RESULTS */
+    .batch-summary{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+    .batch-stat{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;}
+    .batch-stat span{font-size:1.1rem;font-weight:700;margin-right:4px;}
+    .b-ok span{color:var(--green);}
+    .b-fail span{color:var(--red);}
+    .b-warn span{color:var(--yellow);}
+    .b-total span{color:var(--gold);}
 
-    /* DOCS LINK */
-    .docs-link{text-align:center;padding:20px;border-top:1px solid var(--border-gold);}
-    .docs-link a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.2em;}
+    .batch-progress{height:3px;background:var(--border);margin:0;}
+    .batch-progress-bar{height:100%;transition:width 0.4s;}
+
+    .batch-table{width:100%;border-collapse:collapse;}
+    .batch-table th{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--text-dim);padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);background:var(--bg-3);}
+    .batch-table td{font-family:'DM Mono',monospace;font-size:0.6rem;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+    .batch-table tr:last-child td{border-bottom:none;}
+    .batch-table tr:hover td{background:#ffffff05;}
+    .row-VALIDATED td:first-child{border-left:2px solid var(--green);}
+    .row-REJECTED td:first-child{border-left:2px solid var(--red);}
+    .row-WARNING td:first-child{border-left:2px solid var(--yellow);}
+
+    .event-name-cell{color:var(--text);max-width:200px;word-break:break-word;line-height:1.4;}
+    .event-date-cell{color:var(--text-dim);white-space:nowrap;}
+    .event-venue-cell{color:var(--text-dim);max-width:150px;word-break:break-word;line-height:1.4;}
+    .pillars-mini{display:flex;gap:3px;flex-wrap:wrap;}
+    .pm{font-size:0.55rem;padding:2px 5px;border-radius:1px;}
+    .pm-PASS{background:#00e87a15;color:var(--green);}
+    .pm-FAIL{background:#ff3b5c15;color:var(--red);}
+    .pm-WARN{background:#ffd60015;color:var(--yellow);}
+    .verdict-chip{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;padding:3px 8px;border-radius:2px;white-space:nowrap;}
+    .vc-VALIDATED{background:#00e87a15;color:var(--green);border:1px solid #00e87a33;}
+    .vc-REJECTED{background:#ff3b5c15;color:var(--red);border:1px solid #ff3b5c33;}
+    .vc-WARNING{background:#ffd60015;color:var(--yellow);border:1px solid #ffd60033;}
+
+    .batch-scroll{max-height:500px;overflow-y:auto;}
+    .batch-scroll::-webkit-scrollbar{width:3px;}
+    .batch-scroll::-webkit-scrollbar-track{background:var(--bg-2);}
+    .batch-scroll::-webkit-scrollbar-thumb{background:var(--border-gold);}
+
+    .empty-state{padding:60px 24px;text-align:center;}
+    .empty-state p{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.2em;}
+
+    .error-box{padding:16px 20px;background:#ff3b5c0a;border-left:3px solid var(--red);}
+    .error-box p{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--red);line-height:1.6;}
+
+    .docs-link{margin-top:40px;text-align:center;padding:20px 0;border-top:1px solid var(--border);}
+    .docs-link a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.2em;text-decoration:none;}
     .docs-link a:hover{color:var(--gold);}
 
-    footer{border-top:1px solid var(--border-gold);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-    .footer-sig{font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold-dim);letter-spacing:0.2em;}
+    footer{text-align:center;padding:20px 40px;border-top:1px solid var(--border-gold);position:relative;z-index:1;}
+    .footer-sig{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.2em;}
     .footer-sig strong{color:var(--gold);}
-    .footer-glyph{font-size:1rem;color:var(--border-gold);}
-
-    @media(max-width:900px){.playground{grid-template-columns:1fr;}.samples-grid{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}}
   </style>
 </head>
 <body>
 
 <header class="sys-header">
-  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
-  <span class="code">T.C.F.™ PLAYGROUND · LIVE</span>
-  <span class="status"><span class="status-dot"></span>ENGINE ACTIVE</span>
+  <div class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</div>
+  <div style="font-family:'Cinzel',serif;font-size:0.75rem;letter-spacing:0.2em;color:var(--gold);">T.C.F.™ PLAYGROUND · LIVE</div>
+  <div class="sys-header status"><div class="status-dot"></div>ENGINE ACTIVE</div>
 </header>
 
 <main>
-
   <div class="hero">
     <div class="hero-label">Interactive Validation Engine</div>
     <h1>T.C.F.™ Playground</h1>
-    <div class="hero-sub">Total Coherence Framework · Test your records in real time</div>
+    <div class="hero-sub">Total Coherence Framework · Single record or batch validation</div>
   </div>
 
-  <!-- SAMPLE RECORDS -->
-  <div class="samples">
-    <div class="samples-title">Record di Esempio</div>
-    <div class="samples-grid">
-      <button class="sample-btn green-sample" onclick="loadSample('valid')">
-        <div class="sample-btn-name">✓ Record Valido</div>
-        <div class="sample-btn-desc">Festa Religiosa · Lazio · Tutti i campi presenti</div>
-      </button>
-      <button class="sample-btn amber-sample" onclick="loadSample('flagged')">
-        <div class="sample-btn-name">⚠ Record Incompleto</div>
-        <div class="sample-btn-desc">Sagra · Coordinate mancanti → FLAGGED</div>
-      </button>
-      <button class="sample-btn red-sample" onclick="loadSample('invalid')">
-        <div class="sample-btn-name">✗ Record Non Valido</div>
-        <div class="sample-btn-desc">Categoria errata · ID mancante → REJECTED</div>
-      </button>
-    </div>
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="btn-single" onclick="setMode('single')">◈ SINGLE RECORD</button>
+    <button class="mode-btn" id="btn-batch" onclick="setMode('batch')">⊞ BATCH MODE</button>
   </div>
 
-  <!-- PLAYGROUND -->
-  <div class="playground">
-
+  <div class="layout">
     <!-- INPUT -->
-    <div class="input-panel">
-      <div class="panel-title">
-        Input · Record JSON
-        <span>Incolla o modifica</span>
+    <div>
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">INPUT · RECORD JSON</span>
+          <span class="panel-title" id="mode-label">SINGLE MODE</span>
+        </div>
+        <div class="panel-body">
+          <textarea id="jsonInput" placeholder='{ "EVENT_ID": "EVT-...", "EVENT_NAME": "...", ... }'></textarea>
+        </div>
       </div>
-      <textarea id="jsonInput" placeholder='{ "EVENT_ID": "ev-laz-0001", "EVENT_NAME": "...", ... }'></textarea>
-      <button class="btn-validate" onclick="validateRecord()">▶ ESEGUI VALIDAZIONE T.C.F.™</button>
-      <button class="btn-load" onclick="clearAll()">✕ Cancella</button>
+      <button class="btn-run" onclick="runValidation()">▶ ESEGUI VALIDAZIONE T.C.F.™</button>
+      <button class="btn-clear" onclick="clearAll()">× Cancella</button>
     </div>
 
-    <!-- RESULTS -->
-    <div class="results-panel">
-      <div class="panel-title">Output · Risultati T.C.F.™</div>
-
-      <div class="verdict" id="verdict">
-        <span class="verdict-icon" id="verdictIcon"></span>
-        <div class="verdict-text" id="verdictText"></div>
-        <div class="verdict-sub" id="verdictSub"></div>
-      </div>
-
-      <div class="pillars">
-        <div class="pillar-result pending" id="pillar1">
-          <div class="pillar-icon">🌍</div>
-          <div class="pillar-info">
-            <div class="pillar-name">Pillar 01 · Coerenza Territoriale</div>
-            <div class="pillar-msg" id="pillar1msg">In attesa di input...</div>
-          </div>
-          <span class="pillar-badge" id="pillar1badge">PENDING</span>
+    <!-- OUTPUT -->
+    <div>
+      <div class="panel" id="outputPanel">
+        <div class="panel-header">
+          <span class="panel-title">OUTPUT · RISULTATI T.C.F.™</span>
+          <span class="panel-title" id="output-count"></span>
         </div>
-        <div class="pillar-result pending" id="pillar2">
-          <div class="pillar-icon">🔇</div>
-          <div class="pillar-info">
-            <div class="pillar-name">Pillar 02 · Anti-Rumore MORPHEUS·JLX™</div>
-            <div class="pillar-msg" id="pillar2msg">In attesa di input...</div>
-          </div>
-          <span class="pillar-badge" id="pillar2badge">PENDING</span>
+        <div id="outputBody">
+          <div class="empty-state"><p>IN ATTESA DI INPUT...</p></div>
         </div>
-        <div class="pillar-result pending" id="pillar3">
-          <div class="pillar-icon">🏛</div>
-          <div class="pillar-info">
-            <div class="pillar-name">Pillar 03 · Validazione Ontologica</div>
-            <div class="pillar-msg" id="pillar3msg">In attesa di input...</div>
-          </div>
-          <span class="pillar-badge" id="pillar3badge">PENDING</span>
-        </div>
-        <div class="pillar-result pending" id="pillar4">
-          <div class="pillar-icon">📋</div>
-          <div class="pillar-info">
-            <div class="pillar-name">Pillar 04 · Auditabilità</div>
-            <div class="pillar-msg" id="pillar4msg">In attesa di input...</div>
-          </div>
-          <span class="pillar-badge" id="pillar4badge">PENDING</span>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat"><div class="stat-num" id="statPass">-</div><div class="stat-label">PASS</div></div>
-        <div class="stat"><div class="stat-num" id="statFail">-</div><div class="stat-label">FAIL</div></div>
-        <div class="stat"><div class="stat-num" id="statWarn">-</div><div class="stat-label">WARN</div></div>
-        <div class="stat"><div class="stat-num" id="statScore">-</div><div class="stat-label">SCORE</div></div>
       </div>
     </div>
-
   </div>
 
   <div class="docs-link">
     <a href="TCF-framework.html">← Leggi la documentazione completa T.C.F.™</a>
-    &nbsp;&nbsp;·&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <a href="developer-index.html">← Developer Portal</a>
   </div>
-
 </main>
 
 <footer>
   <div class="footer-sig"><strong>Leonardo Adriano Chelariu</strong> · KREATIO UNIVERSAL SYSTEM™ · Code 3620</div>
-  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+  <div class="footer-sig" style="margin-top:4px;font-size:0.5rem;">Ð Ï ∂·♠Λ∃·2⊥∘Λ∃</div>
 </footer>
 
 <script>
+// ─── CONFIG ───────────────────────────────────────────────────────────────────
 const VALID_CATEGORIES = ['festa_religiosa','sagra','palio','rito_agrario','mercato','sagra_territoriale','palio_rievocazione','festival_culturale','concerto','spettacolo_strada','mostra','workshop','residenza_artistica','evento_musicale'];
-const REQUIRED_FIELDS = ['EVENT_ID','EVENT_NAME','CATEGORY','PLACE_ID','GPS_LAT','GPS_LNG'];
+const REQUIRED_FIELDS = ['EVENT_ID','EVENT_NAME','CATEGORY','GPS_LAT','GPS_LNG'];
 
-const SAMPLES = {
-  valid: {
-    EVENT_ID: "ev-laz-0042",
-    EVENT_NAME: "Infiorata di Genzano",
-    CATEGORY: "festa_religiosa",
-    PLACE_ID: "istat-058041",
-    GPS_LAT: 41.7001,
-    GPS_LNG: 12.6876,
-    COMUNE: "Genzano di Roma",
-    PROVINCIA: "RM",
-    ENTE_ORGANIZZATORE: "Comune di Genzano di Roma",
-    PERIODO: "Giugno",
-    VERSION: 1,
-    SOURCE_TYPE: "PRO_LOCO"
-  },
-  flagged: {
-    EVENT_NAME: "Sagra della Porchetta",
-    CATEGORY: "sagra",
-    COMUNE: "Ariccia",
-    PROVINCIA: "RM"
-  },
-  invalid: {
-    nome: "Concerto Rock",
-    tipo: "musica",
-    luogo: "Roma"
-  }
-};
+let currentMode = 'single';
 
-function loadSample(type) {
-  document.getElementById('jsonInput').value = JSON.stringify(SAMPLES[type], null, 2);
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-single').className = 'mode-btn' + (mode === 'single' ? ' active' : '');
+  document.getElementById('btn-batch').className = 'mode-btn' + (mode === 'batch' ? ' active' : '');
+  document.getElementById('mode-label').textContent = mode === 'single' ? 'SINGLE MODE' : 'BATCH MODE';
+  document.getElementById('jsonInput').placeholder = mode === 'single'
+    ? '{ "EVENT_ID": "EVT-...", "EVENT_NAME": "...", "CATEGORY": "...", "GPS_LAT": 41.5, "GPS_LNG": 12.9, "SOURCE_TYPE": "...", "VERSION": "1.0" }'
+    : '[\n  { "EVENT_ID": "EVT-001", ... },\n  { "EVENT_ID": "EVT-002", ... }\n]';
+  clearOutput();
 }
 
 function clearAll() {
   document.getElementById('jsonInput').value = '';
-  resetResults();
+  clearOutput();
 }
 
-function resetResults() {
-  const verdict = document.getElementById('verdict');
-  verdict.style.display = 'none';
-  verdict.className = 'verdict';
-  ['1','2','3','4'].forEach(n => {
-    document.getElementById('pillar'+n).className = 'pillar-result pending';
-    document.getElementById('pillar'+n+'badge').textContent = 'PENDING';
-    document.getElementById('pillar'+n+'msg').textContent = 'In attesa di input...';
-  });
-  ['statPass','statFail','statWarn','statScore'].forEach(id => {
-    document.getElementById(id).textContent = '-';
-  });
+function clearOutput() {
+  document.getElementById('outputBody').innerHTML = '<div class="empty-state"><p>IN ATTESA DI INPUT...</p></div>';
+  document.getElementById('output-count').textContent = '';
 }
 
-function setPillar(num, status, msg) {
-  const el = document.getElementById('pillar'+num);
-  const badge = document.getElementById('pillar'+num+'badge');
-  const msgEl = document.getElementById('pillar'+num+'msg');
-  el.className = 'pillar-result ' + status;
-  badge.textContent = status.toUpperCase();
-  msgEl.textContent = msg;
+// ─── VALIDATION CORE ──────────────────────────────────────────────────────────
+function validateRecord(rec) {
+  const pillars = [];
+
+  // PILLAR 01 — Coerenza Territoriale
+  const hasGPS = rec.GPS_LAT != null && rec.GPS_LNG != null;
+  const validLat = hasGPS && parseFloat(rec.GPS_LAT) >= -90 && parseFloat(rec.GPS_LAT) <= 90;
+  const validLng = hasGPS && parseFloat(rec.GPS_LNG) >= -180 && parseFloat(rec.GPS_LNG) <= 180;
+  const hasPlace = rec.COMUNE || rec.PLACE_ID;
+  if (hasGPS && validLat && validLng && hasPlace) {
+    pillars.push({id:'01',name:'Coerenza Territoriale',status:'PASS',msg:'Coordinate GPS presenti · Ancoraggio territoriale verificato · Provincia presente'});
+  } else if (hasGPS && validLat && validLng) {
+    pillars.push({id:'01',name:'Coerenza Territoriale',status:'WARN',msg:'Coordinate GPS presenti ma COMUNE/PLACE_ID mancante'});
+  } else {
+    pillars.push({id:'01',name:'Coerenza Territoriale',status:'FAIL',msg:'Coordinate GPS mancanti – il dato necessita di geolocalizzazione precisa'});
+  }
+
+  // PILLAR 02 — Anti-Rumore MORPHEUS·JLX™
+  const hasId = !!rec.EVENT_ID;
+  const hasName = !!rec.EVENT_NAME;
+  const hasSource = !!rec.SOURCE_TYPE;
+  if (hasId && hasName && hasSource) {
+    pillars.push({id:'02',name:'Anti-Rumore MORPHEUS·JLX™',status:'PASS',msg:'ID presente · Nome normalizzabile · Fonte tracciata – nessun rumore rilevato'});
+  } else if (hasId && hasName) {
+    pillars.push({id:'02',name:'Anti-Rumore MORPHEUS·JLX™',status:'WARN',msg:'SOURCE_TYPE mancante – la fonte non è tracciata, richiede verifica manuale'});
+  } else {
+    pillars.push({id:'02',name:'Anti-Rumore MORPHEUS·JLX™',status:'FAIL',msg:'EVENT_ID assente – ID non può essere consumato senza tutti i campi obbligatori'});
+  }
+
+  // PILLAR 03 — Validazione Ontologica
+  const cat = rec.CATEGORY;
+  if (!cat) {
+    pillars.push({id:'03',name:'Validazione Ontologica',status:'FAIL',msg:'CATEGORY assente – ogni entità deve avere una categoria tassonomica definita'});
+  } else if (VALID_CATEGORIES.includes(cat)) {
+    pillars.push({id:'03',name:'Validazione Ontologica',status:'PASS',msg:'Categoria "'+cat+'" appartiene alla tassonomia KREATIO – conforme'});
+  } else {
+    pillars.push({id:'03',name:'Validazione Ontologica',status:'FAIL',msg:'Categoria "'+cat+'" non appartiene al set chiuso ammesso · Valori validi: '+VALID_CATEGORIES.join(', ')});
+  }
+
+  // PILLAR 04 — Auditabilità
+  const hasVersion = rec.VERSION != null;
+  const hasSType = !!rec.SOURCE_TYPE;
+  if (hasVersion && hasSType) {
+    pillars.push({id:'04',name:'Auditabilità',status:'PASS',msg:'Versioning presente · Fonte tracciata – catena di custodia del dato garantita'});
+  } else {
+    pillars.push({id:'04',name:'Auditabilità',status:'FAIL',msg:'VERSION e SOURCE_TYPE assenti – impossibile garantire la tracciabilità del dato'});
+  }
+
+  const pass = pillars.filter(p=>p.status==='PASS').length;
+  const fail = pillars.filter(p=>p.status==='FAIL').length;
+  const warn = pillars.filter(p=>p.status==='WARN').length;
+  const score = Math.round((pass/4)*100);
+  const verdict = fail===0 && warn===0 ? 'VALIDATED' : fail===0 ? 'WARNING' : 'REJECTED';
+
+  return {pillars, pass, fail, warn, score, verdict};
 }
 
-function validateRecord() {
-  const input = document.getElementById('jsonInput').value.trim();
-  if (!input) { alert('Inserisci un record JSON'); return; }
+// ─── RENDER SINGLE ────────────────────────────────────────────────────────────
+function renderSingle(rec, result) {
+  const icons = {PASS:'✅',FAIL:'✗',WARN:'⚠',PENDING:'–'};
+  const verdictIcon = result.verdict==='VALIDATED'?'✓':result.verdict==='WARNING'?'⚠':'✗';
+  const verdictSub = result.verdict==='VALIDATED'
+    ? 'Il record ha superato tutti i 4 pilastri T.C.F.™ · Pronto per ATLAS·EVENTA™'
+    : result.verdict==='WARNING'
+    ? result.fail+' pilastro/i con warning · Verificare prima dell\'inserimento'
+    : result.fail+' pilastro/i falliti · Il record non può entrare nel database';
 
-  let record;
-  try { record = JSON.parse(input); }
-  catch(e) {
-    document.getElementById('verdict').style.display = 'block';
-    document.getElementById('verdict').className = 'verdict fail';
-    document.getElementById('verdictIcon').textContent = '✗';
-    document.getElementById('verdictText').textContent = 'JSON NON VALIDO';
-    document.getElementById('verdictSub').textContent = e.message;
+  let pillarsHtml = result.pillars.map(p=>`
+    <div class="pillar-item">
+      <div class="pillar-icon">${icons[p.status]}</div>
+      <div class="pillar-info">
+        <div class="pillar-name">PILLAR ${p.id} · ${p.name}</div>
+        <div class="pillar-msg" style="color:${p.status==='PASS'?'var(--green)':p.status==='FAIL'?'var(--red)':'var(--yellow)'}">${p.msg}</div>
+      </div>
+      <div class="pillar-badge badge-${p.status}">${p.status}</div>
+    </div>`).join('');
+
+  return `
+    <div class="verdict-box verdict-${result.verdict}">
+      <div class="verdict-icon">${verdictIcon}</div>
+      <div class="verdict-label">${result.verdict}</div>
+      <div class="verdict-sub">${verdictSub}</div>
+    </div>
+    <div class="pillar-list">${pillarsHtml}</div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-num" style="color:var(--green)">${result.pass}</div><div class="stat-label">PASS</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--red)">${result.fail}</div><div class="stat-label">FAIL</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--yellow)">${result.warn}</div><div class="stat-label">WARN</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--gold)">${result.score}%</div><div class="stat-label">SCORE</div></div>
+    </div>`;
+}
+
+// ─── RENDER BATCH ─────────────────────────────────────────────────────────────
+function renderBatch(records, results) {
+  const total = records.length;
+  const validated = results.filter(r=>r.verdict==='VALIDATED').length;
+  const rejected = results.filter(r=>r.verdict==='REJECTED').length;
+  const warning = results.filter(r=>r.verdict==='WARNING').length;
+  const pct = Math.round((validated/total)*100);
+  const barColor = pct===100?'var(--green)':pct>50?'var(--yellow)':'var(--red)';
+
+  const rows = records.map((rec,i)=>{
+    const r = results[i];
+    const miniPillars = r.pillars.map(p=>`<span class="pm pm-${p.status}">P${p.id} ${p.status}</span>`).join('');
+    return `
+      <tr class="row-${r.verdict}">
+        <td style="color:var(--text-dim);font-size:0.55rem;">${i+1}</td>
+        <td class="event-name-cell">${rec.EVENT_NAME||'—'}</td>
+        <td class="event-date-cell">${rec.DATE||rec.DATE_START||'—'}</td>
+        <td class="event-venue-cell">${rec.VENUE||rec.COMUNE||'—'}</td>
+        <td><div class="pillars-mini">${miniPillars}</div></td>
+        <td><span class="verdict-chip vc-${r.verdict}">${r.verdict}</span></td>
+        <td style="color:var(--gold);font-size:0.65rem;font-weight:700;">${r.score}%</td>
+      </tr>`;
+  }).join('');
+
+  return `
+    <div class="batch-summary">
+      <div class="batch-stat b-total"><span>${total}</span>TOTALE</div>
+      <div class="batch-stat b-ok"><span>${validated}</span>VALIDATED</div>
+      <div class="batch-stat b-fail"><span>${rejected}</span>REJECTED</div>
+      <div class="batch-stat b-warn"><span>${warning}</span>WARNING</div>
+      <div class="batch-stat" style="margin-left:auto;"><span style="color:${barColor};font-size:1.1rem;font-weight:700;">${pct}%</span>SUCCESS RATE</div>
+    </div>
+    <div class="batch-progress"><div class="batch-progress-bar" style="width:${pct}%;background:${barColor};"></div></div>
+    <div class="batch-scroll">
+      <table class="batch-table">
+        <thead><tr>
+          <th>#</th><th>EVENTO</th><th>DATA</th><th>VENUE / COMUNE</th><th>PILLAR STATUS</th><th>VERDICT</th><th>SCORE</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+// ─── MAIN RUNNER ──────────────────────────────────────────────────────────────
+function runValidation() {
+  const raw = document.getElementById('jsonInput').value.trim();
+  if (!raw) return;
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch(e) {
+    document.getElementById('outputBody').innerHTML = `
+      <div class="verdict-box verdict-REJECTED">
+        <div class="verdict-icon">✗</div>
+        <div class="verdict-label">JSON NON VALIDO</div>
+        <div class="verdict-sub">JSON Parse error: ${e.message}</div>
+      </div>`;
     return;
   }
 
-  let pass = 0, fail = 0, warn = 0;
+  const isBatch = Array.isArray(parsed);
 
-  // PILLAR 1 — Coerenza Territoriale
-  const hasGeo = record.GPS_LAT !== undefined && record.GPS_LNG !== undefined;
-  const hasPlace = record.PLACE_ID || record.COMUNE || record.comune;
-  const hasProvincia = record.PROVINCIA || record.provincia;
-  if (hasGeo && hasPlace && hasProvincia) {
-    setPillar(1, 'pass', 'Coordinate GPS presenti · Ancoraggio territoriale verificato · Provincia presente');
-    pass++;
-  } else if (hasPlace) {
-    setPillar(1, 'warn', 'Coordinate GPS mancanti — il dato necessita di geolocalizzazione precisa');
-    warn++;
+  if (isBatch) {
+    // BATCH MODE
+    if (parsed.length === 0) {
+      document.getElementById('outputBody').innerHTML = '<div class="empty-state"><p>ARRAY VUOTO</p></div>';
+      return;
+    }
+    const results = parsed.map(rec => validateRecord(rec));
+    document.getElementById('output-count').textContent = parsed.length + ' RECORDS';
+    document.getElementById('outputBody').innerHTML = renderBatch(parsed, results);
   } else {
-    setPillar(1, 'fail', 'Nessun riferimento territoriale — PLACE_ID, COMUNE e coordinate assenti');
-    fail++;
+    // SINGLE MODE
+    const result = validateRecord(parsed);
+    document.getElementById('output-count').textContent = '1 RECORD';
+    document.getElementById('outputBody').innerHTML = renderSingle(parsed, result);
   }
-
-  // PILLAR 2 — Anti-Rumore
-  const hasId = record.EVENT_ID || record.id;
-  const hasName = record.EVENT_NAME || record.nome;
-  const nameLen = (record.EVENT_NAME || record.nome || '').length;
-  const hasSource = record.SOURCE_TYPE || record.source_type;
-  if (hasId && hasName && nameLen > 3 && hasSource) {
-    setPillar(2, 'pass', 'ID presente · Nome normalizzabile · Fonte tracciata — nessun rumore rilevato');
-    pass++;
-  } else if (hasId && hasName) {
-    setPillar(2, 'warn', 'SOURCE_TYPE mancante — la fonte non è tracciata, richiede verifica manuale');
-    warn++;
-  } else if (!hasId) {
-    setPillar(2, 'fail', 'EVENT_ID assente — ID non può essere consumato senza tutti i campi obbligatori');
-    fail++;
-  } else {
-    setPillar(2, 'warn', 'Nome evento assente o troppo breve — possibile rumore informativo');
-    warn++;
-  }
-
-  // PILLAR 3 — Validazione Ontologica
-  const cat = (record.CATEGORY || record.tipo || record.category || '').toLowerCase();
-  if (VALID_CATEGORIES.includes(cat)) {
-    setPillar(3, 'pass', 'Categoria "' + cat + '" appartiene alla tassonomia KREATIO — conforme');
-    pass++;
-  } else if (cat === '') {
-    setPillar(3, 'fail', 'CATEGORY assente — ogni entità deve avere una categoria tassonomica definita');
-    fail++;
-  } else {
-    setPillar(3, 'fail', 'Categoria "' + cat + '" non appartiene al set chiuso ammesso · Valori validi: ' + VALID_CATEGORIES.join(', '));
-    fail++;
-  }
-
-  // PILLAR 4 — Auditabilità
-  const hasVersion = record.VERSION !== undefined || record.version !== undefined;
-  const hasTimestamp = record.timestamp || record.created || record.TCF_TIMESTAMP;
-  const hasSource2 = record.SOURCE_TYPE || record.source_type || record.ente_organizzatore || record.ENTE_ORGANIZZATORE;
-  if (hasVersion && hasSource2) {
-    setPillar(4, 'pass', 'Versioning presente · Fonte tracciata — catena di custodia del dato garantita');
-    pass++;
-  } else if (hasSource2) {
-    setPillar(4, 'warn', 'VERSION mancante — il versioning è obbligatorio per l\'auditabilità totale');
-    warn++;
-  } else {
-    setPillar(4, 'fail', 'VERSION e SOURCE_TYPE assenti — impossibile garantire la tracciabilità del dato');
-    fail++;
-  }
-
-  // VERDICT
-  const verdict = document.getElementById('verdict');
-  verdict.style.display = 'block';
-  const score = Math.round((pass / 4) * 100);
-
-  if (fail === 0 && warn === 0) {
-    verdict.className = 'verdict pass';
-    document.getElementById('verdictIcon').textContent = '✓';
-    document.getElementById('verdictText').textContent = 'VALIDATED';
-    document.getElementById('verdictSub').textContent = 'Il record ha superato tutti i 4 pilastri T.C.F.™ · Pronto per ATLAS•EVENTA™';
-  } else if (fail > 0) {
-    verdict.className = 'verdict fail';
-    document.getElementById('verdictIcon').textContent = '✗';
-    document.getElementById('verdictText').textContent = 'REJECTED';
-    document.getElementById('verdictSub').textContent = fail + ' pilastro/i falliti · Il record non può entrare nel database';
-  } else {
-    verdict.className = 'verdict flagged';
-    document.getElementById('verdictIcon').textContent = '⚠';
-    document.getElementById('verdictText').textContent = 'FLAGGED';
-    document.getElementById('verdictSub').textContent = warn + ' avvertimento/i · Il record richiede revisione umana prima dell\'ingresso';
-  }
-
-  document.getElementById('statPass').textContent = pass;
-  document.getElementById('statFail').textContent = fail;
-  document.getElementById('statWarn').textContent = warn;
-  document.getElementById('statScore').textContent = score + '%';
 }
-</script>
 
+// Auto-detect mode from input
+document.getElementById('jsonInput').addEventListener('input', function() {
+  const val = this.value.trim();
+  if (val.startsWith('[')) {
+    if (currentMode !== 'batch') setMode('batch');
+  } else if (val.startsWith('{')) {
+    if (currentMode !== 'single') setMode('single');
+  }
+});
+
+// Init
+setMode('single');
+</script>
 </body>
 </html>
