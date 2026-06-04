@@ -1,327 +1,404 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Portal | KREATIO UNIVERSAL SYSTEM™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
-  <style>
-    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--green:#7ab88a;--blue:#6e9ec9;--amber:#d4a017;--purple:#9b7fc7;--orange:#e07b39;--silver:#a8b8c8;--rose:#c97090;--wa:#25d366;}
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;min-height:100vh;display:flex;flex-direction:column;}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
-    .sys-header{border-bottom:1px solid var(--border-gold);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;}
-    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
-    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
-    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--green);}
-    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-    main{flex:1;max-width:1000px;margin:0 auto;padding:80px 40px;position:relative;z-index:1;width:100%;}
-    .hero{text-align:center;padding:60px 0 80px;border-bottom:1px solid var(--border-gold);margin-bottom:80px;}
-    .hero-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.5em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
-    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:600;color:var(--gold);letter-spacing:0.1em;line-height:1.2;margin-bottom:12px;}
-    .hero-sub{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:32px;}
-    .hero-desc{max-width:560px;margin:0 auto;font-size:0.95rem;color:var(--text-dim);line-height:1.8;font-style:italic;}
-    .docs-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:16px;}
-    .docs-label::after{content:'';flex:1;height:1px;background:var(--border);}
-    .docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:4px;}
-    .doc-card{background:var(--bg-2);padding:36px 32px;text-decoration:none;display:block;transition:background 0.3s;position:relative;overflow:hidden;}
-    .doc-card::after{content:'→';position:absolute;bottom:28px;right:28px;font-family:'DM Mono',monospace;font-size:1.2rem;color:var(--border-gold);transition:color 0.3s,transform 0.3s;}
-    .doc-card:hover{background:var(--bg-3);}
-    .doc-card:hover::after{color:var(--gold);transform:translateX(4px);}
-    .doc-tag{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.3em;color:var(--text-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-    .doc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--gold-dim);flex-shrink:0;}
-    .doc-name{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold);letter-spacing:0.08em;margin-bottom:6px;line-height:1.2;}
-    .doc-subtitle{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;color:var(--text-dim);margin-bottom:14px;}
-    .doc-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.7;margin-bottom:18px;}
-    .doc-pillars{display:flex;flex-wrap:wrap;gap:5px;}
-    .pillar-chip{font-family:'DM Mono',monospace;font-size:0.48rem;letter-spacing:0.12em;padding:3px 7px;border:1px solid var(--border-gold);color:var(--gold-dim);}
-    .system-map{background:var(--bg-2);border:1px solid var(--border-gold);padding:32px;margin-top:4px;margin-bottom:60px;}
-    .map-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);margin-bottom:24px;text-transform:uppercase;}
-    .map-flow{display:flex;align-items:center;flex-wrap:wrap;}
-    .map-node{border:1px solid var(--border-gold);padding:10px 12px;text-align:center;flex:1;min-width:80px;}
-    .map-node-name{font-family:'Cinzel',serif;font-size:0.58rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:3px;}
-    .map-node-sub{font-family:'DM Mono',monospace;font-size:0.45rem;color:var(--text-dim);}
-    .map-arrow{font-family:'DM Mono',monospace;color:var(--gold-dim);font-size:0.9rem;padding:0 4px;flex-shrink:0;}
-    footer{border-top:1px solid var(--border-gold);padding:32px 40px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
-    .footer-sig{font-family:'Cinzel',serif;font-size:0.65rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:1.8;}
-    .footer-sig strong{color:var(--gold);}
-    .footer-glyph{font-size:1rem;color:var(--border-gold);}
-    .fade-in{opacity:0;transform:translateY(16px);animation:fadeIn 0.7s ease forwards;}
-    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
-    .fade-in:nth-child(1){animation-delay:0.1s}.fade-in:nth-child(2){animation-delay:0.25s}.fade-in:nth-child(3){animation-delay:0.4s}
-    @media(max-width:680px){main{padding:40px 20px;}.docs-grid{grid-template-columns:1fr;}.sys-header{padding:14px 20px;}.sys-header .code{display:none;}footer{flex-direction:column;gap:16px;text-align:center;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Portal | MAMMUTH•EV™ — KREATIO UNIVERSAL SYSTEM™</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Fraunces:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c8a96e;
+    --gold-dim: #7a6240;
+    --bg: #080808;
+    --bg-2: #0f0f0f;
+    --bg-3: #161616;
+    --border: #222;
+    --silver: #a0a0a0;
+    --text: #e8e4dc;
+    --green: #4ade80;
+    --red: #ef4444;
+    --amber: #f0c040;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(8,8,8,0.95);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--silver);
+  }
+
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Hero */
+  .hero {
+    padding: 120px 40px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .hero-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--silver);
+    margin-bottom: 40px;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-dim);
+  }
+
+  .hero-meta span { color: var(--gold); }
+
+  /* Grid */
+  .grid-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 28px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.3s ease;
+  }
+
+  .card:hover {
+    background: var(--bg-3);
+    border-color: var(--gold-dim);
+  }
+
+  .card:hover::before { height: 100%; }
+
+  .card-tag {
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-family: 'Fraunces', serif;
+    font-size: 0.8rem;
+    color: var(--silver);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .card-status {
+    margin-top: 16px;
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot-green { color: var(--green); }
+  .dot-amber { color: var(--amber); }
+  .dot-red { color: var(--red); }
+
+  /* Featured card (mappa) */
+  .card-featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #0a0f0a 0%, #0f1a0f 100%);
+    border-color: var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .card-featured .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-featured-badge {
+    flex-shrink: 0;
+    padding: 8px 20px;
+    border: 1px solid var(--gold);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-dim);
+  }
+</style>
 </head>
 <body>
-<header class="sys-header">
-  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
-  <span class="code">DEVELOPER PORTAL · v1.4</span>
-  <span class="status"><span class="status-dot"></span>DOCS ONLINE</span>
+
+<header>
+  <div class="header-left">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</div>
+  <div class="header-right">
+    <div class="status-dot"></div>
+    DEVELOPER PORTAL · LIVE
+  </div>
 </header>
-<main>
-  <div class="hero fade-in">
-    <div class="hero-label">Technical Documentation</div>
-    <div style="margin-bottom:24px;">
-      <div style="font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:600;color:var(--gold);letter-spacing:0.08em;line-height:1.1;margin-bottom:6px;">MAMMUTH•EV™</div>
-      <div style="font-family:'Fraunces',serif;font-size:0.85rem;color:var(--text-dim);letter-spacing:0.15em;font-style:italic;margin-bottom:16px;">Where Communities Come Alive</div>
-      <div style="width:40px;height:1px;background:var(--border-gold);margin:0 auto 16px;"></div>
-    </div>
-    <h1>Developer Portal</h1>
-    <div class="hero-sub">KREATIO UNIVERSAL SYSTEM™ · Code 3620</div>
-    <p class="hero-desc">Architettura tecnica, protocolli di validazione e specifiche operative per lo sviluppo dell'ecosistema KREATIO UNIVERSAL SYSTEM™.</p>
+
+<div class="hero">
+  <div class="hero-label">Sistema Integrato · MAMMUTH•EV™</div>
+  <h1>Developer Portal</h1>
+  <p class="hero-sub">Architettura completa, protocolli di validazione e pipeline operative</p>
+  <div class="hero-meta">
+    <div>Pagine · <span>14</span></div>
+    <div>Sistema · <span>ACTIVE</span></div>
+    <div>Versione · <span>v2.0</span></div>
+    <div>Code · <span>KWF-3620</span></div>
   </div>
-  <div class="fade-in">
-    <div class="docs-label">Documenti Tecnici</div>
+</div>
 
+<div class="grid-container">
 
+  <!-- MAPPA + HOMEPAGE -->
+  <div class="section-label">00 · Interfacce Principali</div>
+  <div class="grid">
 
-
-    <!-- ROW: TO FILL THE VOID -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="TO-FILL-THE-VOID.html" style="border-top:2px solid #25d366;">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:#25d366"></span>DOC-TFTV-001 · Territorial Saturation Strategy</div>
-        <div class="doc-name" style="color:#25d366;">To Fill The Void™</div>
-        <div class="doc-subtitle">STRATEGIA DI SATURAZIONE · LOGICA WHATSAPP</div>
-        <div class="doc-desc">La filosofia che motiva l'Anthropic Hole SYSTEM™. Colmare il vuoto informativo con la semplicità di una foto WhatsApp. Zero attrito, capillarità totale, saturazione rapida del 5K E.T.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(37,211,102,0.3);color:#25d366">VOID FILLING</span>
-          <span class="pillar-chip" style="border-color:rgba(37,211,102,0.3);color:#25d366">WHATSAPP LOGIC</span>
-          <span class="pillar-chip" style="border-color:rgba(37,211,102,0.3);color:#25d366">ZERO FRICTION</span>
-          <span class="pillar-chip" style="border-color:rgba(37,211,102,0.3);color:#25d366">5K ET ACCELERATOR</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ROW: ANTHROPIC HOLE + COLOR TRIAGE as 2-col -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="ANTHROPIC-HOLE.html" style="border-top:2px solid #c97090;">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:#c97090"></span>DOC-AHS-001 · Mass Acquisition Engine · PRIORITÀ ASSOLUTA</div>
-        <div class="doc-name" style="color:#c97090;">Anthropic Hole SYSTEM™</div>
-        <div class="doc-subtitle">MOTORE DI ACQUISIZIONE MASSIVA · COMMUNITY-BASED</div>
-        <div class="doc-desc">Il braccio operativo che trasforma ogni cittadino in un sensore attivo. Fotocamera → OCR → pipeline certificata. Supera il Digital Divide catturando eventi che esistono solo su carta nei borghi, bacheche parrocchiali e circoli locali.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(201,112,144,0.3);color:#c97090">PHOTO SCAN</span>
-          <span class="pillar-chip" style="border-color:rgba(201,112,144,0.3);color:#c97090">COMMUNITY SENSOR</span>
-          <span class="pillar-chip" style="border-color:rgba(201,112,144,0.3);color:#c97090">DIGITAL DIVIDE</span>
-          <span class="pillar-chip" style="border-color:rgba(201,112,144,0.3);color:#c97090">FAMILY-CENTRIC</span>
-          <span class="pillar-chip" style="border-color:rgba(201,112,144,0.3);color:#c97090">EXPONENTIAL GROWTH</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ROW 0: COLOR TRIAGE full width — FIRST STAGE -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="COLOR-TRIAGE.html" style="border-top:2px solid var(--amber);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--amber)"></span>DOC-CT-001 · Pre-Processing Engine · PRIMO STADIO</div>
-        <div class="doc-name" style="font-size:1.1rem;">COLOR TRIAGE RAW PARKING</div>
-        <div class="doc-subtitle">ANTICAMERA DI CONTROLLO · BARRIERA ANTI-ENTROPIA</div>
-        <div class="doc-desc">Il primo stadio di ingresso. La barriera protettiva che impedisce che il disordine esterno inquini il database principale. Color Coding GREEN/AMBER/RED, gestione ridondanza e Raw Parking sicuro.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">COLOR CODING</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">RAW PARKING</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">ANTI-CHAOS</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">DEDUP PRE-FILTER</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ROW 1: MOTHERSHIP full width -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="KREATIO-UNIVERSAL-SYSTEM.html" style="border-top:2px solid var(--gold);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--gold);width:7px;height:7px;"></span>DOC-KUS-001 · Master Architecture</div>
-        <div class="doc-name" style="font-size:1.6rem;">KREATIO UNIVERSAL SYSTEM™</div>
-        <div class="doc-subtitle">THE MOTHERSHIP · CODE 3620</div>
-        <div class="doc-desc">L'ecosistema strutturale centrale. Non un'applicazione singola, ma la mothership tecnologica e filosofica da cui si sviluppano tutte le componenti. Verità territoriale, pipeline di integrità, ElppaK•Clean™, TheBricks'Event™ e auditabilità totale.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip">MASTER ARCHITECTURE</span>
-          <span class="pillar-chip">ELPPAК•CLEAN™</span>
-          <span class="pillar-chip">THEBRICKS'EVENT™</span>
-          <span class="pillar-chip">AUDITABILITY</span>
-          <span class="pillar-chip">CODE 3620</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ROW 2: ATLAS + TCF -->
-    <div class="docs-grid">
-      <a class="doc-card" href="ATLAS-EVENTA.html">
-        <div class="doc-tag"><span class="doc-tag-dot"></span>DOC-AE-001 · Core System</div>
-        <div class="doc-name">ATLAS•EVENTA™</div>
-        <div class="doc-subtitle">SISTEMA DI VERITÀ TERRITORIALE</div>
-        <div class="doc-desc">Core informativo e motore operativo. Architettura Entity/Instance, ancoraggio ISTAT, pipeline di validazione e gerarchia di priorità territoriale.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip">ENTITY / INSTANCE</span>
-          <span class="pillar-chip">ISTAT ANCHOR</span>
-          <span class="pillar-chip">VERSIONING</span>
-          <span class="pillar-chip">ANTI-RANKING</span>
-        </div>
-      </a>
-      <a class="doc-card" href="TCF-framework.html">
-        <div class="doc-tag"><span class="doc-tag-dot"></span>DOC-TCF-001 · Validation Protocol</div>
-        <div class="doc-name">T.C.F.™</div>
-        <div class="doc-subtitle">TOTAL COHERENCE FRAMEWORK</div>
-        <div class="doc-desc">Il guardiano del database ATLAS•EVENTA™: quattro pilastri che certificano ogni dato prima dell'ingresso nel sistema.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip">TERRITORIAL</span>
-          <span class="pillar-chip">ANTI-NOISE</span>
-          <span class="pillar-chip">ONTOLOGICAL</span>
-          <span class="pillar-chip">AUDITABILITY</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- ROW 3: MORPHEUS + THRESHOLD -->
-    <div class="docs-grid">
-      <a class="doc-card" href="MORPHEUS-JLX.html">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--purple)"></span>DOC-MJX-001 · Core Engine</div>
-        <div class="doc-name">MORPHEUS•JLX™</div>
-        <div class="doc-subtitle">SANIFICATION · DEDUPLICATION · NORMALIZATION</div>
-        <div class="doc-desc">Il motore che veglia sul flusso informativo. Deduplicazione Parent–Child, Anti-Rumore, Normalizzazione rigorosa e Versioning immutabile.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">DEDUP PARENT-CHILD</span>
-          <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">ANTI-NOISE</span>
-          <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">NORMALIZATION</span>
-          <span class="pillar-chip" style="border-color:rgba(155,127,199,0.3);color:var(--purple)">VERSIONING</span>
-        </div>
-      </a>
-      <a class="doc-card" href="THRESHOLD-5000.html">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--amber)"></span>DOC-TH-001 · Strategic Framework</div>
-        <div class="doc-name">THRESHOLD·5000™</div>
-        <div class="doc-subtitle">PRIORITY CULTURAL FRAMEWORK</div>
-        <div class="doc-desc">La soglia minima di 5000 eventi canonici che trasforma il sistema da aggregatore a Sistema di Verità. Ogni evento è un TheBricks'Event™.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">5000 EVENTS</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">QUALITY GATE</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">THEBRICKS'EVENT™</span>
-          <span class="pillar-chip" style="border-color:rgba(212,160,23,0.3);color:var(--amber)">TERRITORIAL DNA</span>
-        </div>
-      </a>
-    </div>
-
-
-    <!-- ROW 4: JUST ONE CLICK + CODE 3620 -->
-    <div class="docs-grid">
-      <a class="doc-card" href="JUST-ONE-CLICK-AWAY.html">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--green)"></span>DOC-JOCA-001 · UX Interface</div>
-        <div class="doc-name">Just•One•Click•Away™</div>
-        <div class="doc-subtitle">INTERFACE LAYER · ELPPAК•CLEAN™</div>
-        <div class="doc-desc">La filosofia che trasforma la complessità in semplicità. Il punto di contatto operativo che rende invisibile l'architettura e immediato il risultato.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">MINIMAL UX</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">ABSTRACTION</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">USER-FIRST</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">ELPPAК•CLEAN™</span>
-        </div>
-      </a>
-      <a class="doc-card" href="CODE-3620.html">
-        <div class="doc-tag"><span class="doc-tag-dot"></span>DOC-C3620-001 · System Identity</div>
-        <div class="doc-name">CODE 3620</div>
-        <div class="doc-subtitle">SYSTEM SIGNATURE · KREATIO™</div>
-        <div class="doc-desc">Il sigillo operativo che certifica ogni processo, protocollo e output del sistema. Identità, tracciabilità e standardizzazione in un unico codice immutabile.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip">SYSTEM IDENTITY</span>
-          <span class="pillar-chip">CODE OWNERSHIP</span>
-          <span class="pillar-chip">CERTIFICATION</span>
-          <span class="pillar-chip">TRACEABILITY</span>
-        </div>
-      </a>
-    </div>
-
-
-
-
-    <!-- ROW 5: JLX + QDC.v. -->
-    <div class="docs-grid">
-      <a class="doc-card" href="JLX.html">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:#e07b39"></span>DOC-JLX-001 · Proprietary Language</div>
-        <div class="doc-name" style="color:var(--orange);">JLX™</div>
-        <div class="doc-subtitle">JOKA LANGUAGE EXTENDED</div>
-        <div class="doc-desc">La lingua madre dell'ecosistema. Il protocollo di codifica dei dati strutturati proprietario che permette al sistema di pensare, organizzare e certificare la realtà in modo coerente e universale.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">SEMANTIC NORM.</span>
-          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">MORPHEUS NATIVE</span>
-          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">MINIMAL SYNTAX</span>
-          <span class="pillar-chip" style="border-color:rgba(224,123,57,0.3);color:#e07b39">AUTO-DOCUMENTED</span>
-        </div>
-      </a>
-      <a class="doc-card" href="QDC-v.html" style="border-top:2px solid var(--cyan);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--cyan)"></span>DOC-QDC-001 · Final Certification</div>
-        <div class="doc-name" style="color:var(--cyan);">QDC.v.</div>
-        <div class="doc-subtitle">QUANTUM DATA CERTIFICATION</div>
-        <div class="doc-desc">Il protocollo di garanzia ultima. Lo stadio finale che sigilla il dato come verità storica certificata, indivisibile e non alterabile.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">QUANTUM SEALED</span>
-          <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">CHAIN OF CUSTODY</span>
-          <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">INDIVISIBLE</span>
-          <span class="pillar-chip" style="border-color:rgba(78,201,176,0.3);color:#4ec9b0">AUDIT CERTIFIED</span>
-        </div>
-      </a>
-    </div>
-
-
-
-    <!-- ROW 6: BRAIN BOX full width -->
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="BRAIN-BOX.html" style="border-top:2px solid var(--silver);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--silver);width:7px;height:7px;"></span>DOC-BB-001 · Universal Memory Infrastructure</div>
-        <div class="doc-name" style="color:var(--silver);">BRAIN BOX GLOBAL SYSTEM™</div>
-        <div class="doc-subtitle">VERTICE GERARCHICO · REPOSITORY FINALE · MEMORIA IMMUTABILE</div>
-        <div class="doc-desc">Il punto di arrivo di ogni processo KREATIO. La cassaforte dove la frammentazione viene vinta definitivamente — dato processato JLX, mappatura certificata, data certa e firma digitale CODE 3620. Infrastruttura di memoria universale pronta per l'espansione europea.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(168,184,200,0.3);color:#a8b8c8">IMMUTABLE ARCHIVE</span>
-          <span class="pillar-chip" style="border-color:rgba(168,184,200,0.3);color:#a8b8c8">DATA CERTA</span>
-          <span class="pillar-chip" style="border-color:rgba(168,184,200,0.3);color:#a8b8c8">CODE 3620 SIGNED</span>
-          <span class="pillar-chip" style="border-color:rgba(168,184,200,0.3);color:#a8b8c8">SCALABLE ∞</span>
-          <span class="pillar-chip" style="border-color:rgba(168,184,200,0.3);color:#a8b8c8">ESTONIA HUB READY</span>
-        </div>
-      </a>
-    </div>
-
-
-    <!-- PLAYGROUND SECTION -->
-    <div class="docs-label" style="margin-top:40px;">Strumenti Interattivi</div>
-    <div class="docs-grid" style="grid-template-columns:1fr;margin-bottom:4px;">
-      <a class="doc-card" href="TCF-playground.html" style="border-top:2px solid var(--green);">
-        <div class="doc-tag"><span class="doc-tag-dot" style="background:var(--green)"></span>PLAYGROUND · Interactive Tool · LIVE</div>
-        <div class="doc-name" style="color:var(--green);">T.C.F.™ Playground</div>
-        <div class="doc-subtitle">VALIDATION ENGINE · TEST YOUR RECORDS IN REAL TIME</div>
-        <div class="doc-desc">Incolla un record JSON e vedi in tempo reale se supera i 4 pilastri del Total Coherence Framework. VALIDATED · FLAGGED · REJECTED. Score percentuale, messaggi dettagliati per ogni pilastro. Zero backend.</div>
-        <div class="doc-pillars">
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">LIVE VALIDATION</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">4 PILLARS CHECK</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">SCORE ENGINE</span>
-          <span class="pillar-chip" style="border-color:rgba(122,184,138,0.3);color:var(--green)">ZERO BACKEND</span>
-        </div>
-      </a>
-    </div>
-
-    <!-- FLOW MAP -->
-    <div class="system-map">
-      <div class="map-title">Flusso Operativo · KREATIO UNIVERSAL SYSTEM™</div>
-      <div class="map-flow">
-        <div class="map-node" style="border-color:rgba(212,160,23,0.5)"><div class="map-node-name" style="color:var(--amber)">COLOR TRIAGE</div><div class="map-node-sub">Raw Parking</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node"><div class="map-node-name">FONTI</div><div class="map-node-sub">Pro Loco · API</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node" style="border-color:rgba(155,127,199,0.4)"><div class="map-node-name" style="color:var(--purple)">MORPHEUS•JLX™</div><div class="map-node-sub">Dedup · Clean</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node"><div class="map-node-name">T.C.F.™</div><div class="map-node-sub">4 Pillars</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node" style="border-color:var(--gold-dim)"><div class="map-node-name">ATLAS•EVENTA™</div><div class="map-node-sub">Certified DB</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node" style="border-color:var(--blue);opacity:0.7"><div class="map-node-name" style="color:var(--blue)">MAMMUTH•EV™</div><div class="map-node-sub">Map · UX</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node" style="border-color:var(--gold)"><div class="map-node-name" style="color:var(--gold)">CODE 3620</div><div class="map-node-sub">Certified ✓</div></div>
-        <span class="map-arrow">→</span>
-        <div class="map-node" style="border-color:rgba(168,184,200,0.5)"><div class="map-node-name" style="color:#a8b8c8">BRAIN BOX</div><div class="map-node-sub">Archive ∞</div></div>
+    <a href="../index.html" class="card card-featured">
+      <div>
+        <div class="card-tag">Homepage · Mappa Interattiva</div>
+        <div class="card-title">MAMMUTH•EV™ — Global Folk & Traditions</div>
+        <div class="card-desc">Mappa live degli eventi del microterritorio italiano. Geolocalizzazione certificata, dati ISTAT verificati.</div>
+        <div class="card-status dot-green">● LIVE · Where Communities Come Alive</div>
       </div>
-    </div>
+      <div class="card-featured-badge">Apri Mappa →</div>
+    </a>
+
+    <a href="ATLAS-EVENTA.html" class="card">
+      <div class="card-tag">Archivio · Database</div>
+      <div class="card-title">ATLAS•EVENTA™</div>
+      <div class="card-desc">Repository centrale degli eventi verificati. Struttura gerarchica per territorio, categoria e fonte.</div>
+      <div class="card-status dot-green">● ACTIVE</div>
+    </a>
+
   </div>
-</main>
+
+  <!-- VALIDAZIONE -->
+  <div class="section-label">01 · Sistema di Validazione T.C.F.™</div>
+  <div class="grid">
+
+    <a href="TCF-playground.html" class="card">
+      <div class="card-tag">Validazione · Interactive</div>
+      <div class="card-title">T.C.F.™ Playground</div>
+      <div class="card-desc">Motore di validazione interattivo. Testa record JSON in tempo reale contro i 4 pilastri del Total Coherence Framework.</div>
+      <div class="card-status dot-green">● ENGINE ACTIVE</div>
+    </a>
+
+    <a href="TCF-framework.html" class="card">
+      <div class="card-tag">Documentazione · Framework</div>
+      <div class="card-title">T.C.F.™ Framework</div>
+      <div class="card-desc">Specifica completa dei 4 pilastri: Coerenza Territoriale, Anti-Rumore, Validazione Ontologica, Auditabilità.</div>
+      <div class="card-status dot-green">● DOC ACTIVE</div>
+    </a>
+
+    <a href="COLOR-TRIAGE.html" class="card">
+      <div class="card-tag">Classificazione · Triage</div>
+      <div class="card-title">Color Triage System</div>
+      <div class="card-desc">Sistema di classificazione cromatica per stato e priorità dei record nel database.</div>
+      <div class="card-status dot-amber">● BETA</div>
+    </a>
+
+    <a href="THRESHOLD-5000.html" class="card">
+      <div class="card-tag">Soglie · Calibrazione</div>
+      <div class="card-title">Threshold 5000</div>
+      <div class="card-desc">Parametri di soglia per il sistema immunitario del dato. Calibrazione dinamica dell'ENTROPY_INDEX.</div>
+      <div class="card-status dot-amber">● BETA</div>
+    </a>
+
+  </div>
+
+  <!-- CORE SYSTEM -->
+  <div class="section-label">02 · Core System Architecture</div>
+  <div class="grid">
+
+    <a href="JLX.html" class="card">
+      <div class="card-tag">Linguaggio · Normalizzazione</div>
+      <div class="card-title">JLX™ — JOKA Language Extended</div>
+      <div class="card-desc">Standard di normalizzazione del dato. Ogni record espresso in forma univoca, leggibile dalla macchina e conforme agli standard KREATIO.</div>
+      <div class="card-status dot-green">● ACTIVE</div>
+    </a>
+
+    <a href="MORPHEUS-JLX.html" class="card">
+      <div class="card-tag">Anti-Rumore · Filtro</div>
+      <div class="card-title">MORPHEUS•JLX™</div>
+      <div class="card-desc">Sistema di soppressione del rumore semantico. Pilastro 02 del T.C.F.™ — elimina duplicati e anomalie contestuali.</div>
+      <div class="card-status dot-green">● ACTIVE</div>
+    </a>
+
+    <a href="BRAIN-BOX.html" class="card">
+      <div class="card-tag">Repository · Memoria</div>
+      <div class="card-title">Brain Box Global System™</div>
+      <div class="card-desc">Vertice gerarchico della pipeline. Repository finale con memoria immutabile, data certa e firma digitale CODE 3620.</div>
+      <div class="card-status dot-green">● ARCHIVE ACTIVE</div>
+    </a>
+
+    <a href="QDC-v.html" class="card">
+      <div class="card-tag">Qualità · Certificazione</div>
+      <div class="card-title">QDC-v™</div>
+      <div class="card-desc">Quality Data Certification. Protocollo di certificazione finale prima dell'ingresso nel Brain Box.</div>
+      <div class="card-status dot-green">● ACTIVE</div>
+    </a>
+
+    <a href="CODE-3620.html" class="card">
+      <div class="card-tag">Identità · Firma</div>
+      <div class="card-title">CODE 3620</div>
+      <div class="card-desc">Firma digitale del sistema KREATIO. Impronta di provenienza, integrità e conformità su ogni blocco di dati.</div>
+      <div class="card-status dot-green">● ACTIVE</div>
+    </a>
+
+  </div>
+
+  <!-- RICERCA & SVILUPPO -->
+  <div class="section-label">03 · Ricerca & Sviluppo</div>
+  <div class="grid">
+
+    <a href="ANTHROPIC-HOLE.html" class="card">
+      <div class="card-tag">AI · Integrazione</div>
+      <div class="card-title">Anthropic Hole</div>
+      <div class="card-desc">Interfaccia di integrazione con modelli AI per validazione semantica profonda e cross-referencing automatico.</div>
+      <div class="card-status dot-amber">● EXPERIMENTAL</div>
+    </a>
+
+    <a href="TO-FILL-THE-VOID.html" class="card">
+      <div class="card-tag">Gap Analysis · Popolamento</div>
+      <div class="card-title">To Fill The Void</div>
+      <div class="card-desc">Protocollo di identificazione e popolamento dei gap nel database territoriale. Strategia di espansione per profondità.</div>
+      <div class="card-status dot-amber">● IN PROGRESS</div>
+    </a>
+
+    <a href="JUST-ONE-CLICK-AWAY.html" class="card">
+      <div class="card-tag">UX · Onboarding</div>
+      <div class="card-title">Just One Click Away</div>
+      <div class="card-desc">Interfaccia di inserimento rapido eventi per operatori territoriali. Riduce il tempo di inserimento a un click certificato.</div>
+      <div class="card-status dot-amber">● BETA</div>
+    </a>
+
+  </div>
+
+</div>
+
 <footer>
-  <div class="footer-sig"><strong>Leonardo Adriano Chelariu</strong> · Founder & Author<br>KREATIO UNIVERSAL SYSTEM™ · Code 3620 · K•Word•Festival (KWF)</div>
-  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+  <div>MAMMUTH•EV™ · KREATIO UNIVERSAL SYSTEM™ · KWF-3620</div>
+  <div>Developer Portal · v2.0 · <span style="color:var(--green)">● SYSTEM ACTIVE</span></div>
 </footer>
+
 </body>
 </html>
