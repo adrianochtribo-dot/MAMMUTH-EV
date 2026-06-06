@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRITĒRION•SĀNCTUS — MAMMUTH•EVENTS™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#060606;color:#e0e0e0;font-family:'IBM Plex Mono',monospace;min-height:100vh}
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-track{background:#080808}
+::-webkit-scrollbar-thumb{background:#222}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.topbar{background:#020202;border-bottom:1px solid #1a1a1a;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;padding:2px 8px;border:1px solid #333;color:#555;font-size:9px;letter-spacing:.15em;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;text-decoration:none;transition:color .2s,border-color .2s}
+.tag:hover{color:#aaa;border-color:#555}
+.tag.active{border-color:#ff3333;color:#ff3333}
+.topbar-right{font-size:9px;letter-spacing:.1em;color:#2a2a2a}
+.wrap{padding:36px 28px 60px;max-width:1200px}
+.sys-label{font-size:9px;letter-spacing:.3em;color:#333;margin-bottom:10px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,72px);letter-spacing:.08em;color:#fff;line-height:.9;margin-bottom:10px}
+h1 .dot{color:#ff3333}
+.hero-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:14px;color:#444;margin-top:10px;letter-spacing:.05em}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#111;border:1px solid #1a1a1a;margin:32px 0 24px}
+@media(max-width:700px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat-cell{padding:16px 14px;background:#080808;text-align:center}
+.stat-val{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:8px;letter-spacing:.15em;color:#333;text-transform:uppercase}
+.arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#111;border:1px solid #1a1a1a;margin-bottom:28px}
+@media(max-width:700px){.arch-grid{grid-template-columns:1fr}}
+.arch-cell{background:#070707;padding:20px}
+.arch-level{font-size:9px;letter-spacing:.2em;margin-bottom:8px;text-transform:uppercase}
+.arch-desc{font-family:'Crimson Pro',serif;font-size:13px;color:#888;line-height:1.5;margin-bottom:10px}
+.arch-src{font-size:9px;color:#333;line-height:1.6}
+.log-label{font-size:9px;letter-spacing:.2em;color:#333;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.log-dot{color:#00ff88;animation:pulse 1.5s infinite}
+.log-box{background:#020202;border:1px solid #1a1a1a;height:160px;overflow-y:auto;padding:12px 16px;margin-bottom:28px}
+.log-line{font-size:11px;line-height:1.7}
+.cursor{animation:blink 1s infinite}
+.filter-bar{display:flex;gap:2px;margin-bottom:12px;align-items:center;flex-wrap:wrap}
+.filter-label{font-size:9px;color:#333;letter-spacing:.15em;margin-right:12px}
+.filter-btn{background:transparent;border:1px solid #222;color:#555;padding:4px 14px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;transition:all .15s}
+.filter-btn.active-all{background:#fff;border-color:#fff;color:#000}
+.filter-btn.active-V{background:#00ff88;border-color:#00ff88;color:#000}
+.filter-btn.active-G{background:#ffd600;border-color:#ffd600;color:#000}
+.filter-btn.active-R{background:#ff3333;border-color:#ff3333;color:#000}
+.filter-count{font-size:10px;color:#333;margin-left:auto}
+.tbl-wrap{border:1px solid #1a1a1a;overflow-x:auto;margin-bottom:40px}
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:1px solid #1a1a1a}
+th{padding:10px 12px;text-align:left;font-size:8px;letter-spacing:.2em;color:#333;font-weight:400;background:#040404}
+tbody tr{cursor:pointer;border-left:3px solid transparent;transition:background .15s}
+tbody tr:hover td{background:rgba(255,255,255,.015)}
+td{padding:9px 12px;font-size:11px}
+.td-ts{color:#555;font-family:monospace}
+.td-id{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700}
+.td-reg{color:#777;font-family:monospace}
+.td-src{color:#444;font-family:monospace;font-size:10px}
+.glyph-bar{font-family:monospace;font-size:11px;letter-spacing:1px}
+.score-val{color:#555;font-size:10px;font-family:monospace;margin-left:8px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:#0a0a0a;width:min(680px,95vw);max-height:90vh;overflow-y:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid #1e1e1e}
+.modal-id{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:700}
+.modal-ts{font-family:monospace;font-size:10px;color:#555;margin-top:2px}
+.modal-close{background:none;border:1px solid #333;color:#666;padding:4px 10px;cursor:pointer;font-family:monospace;font-size:12px}
+.modal-body{padding:24px}
+.modal-section-label{font-size:9px;letter-spacing:.2em;color:#444;margin-bottom:12px}
+pre{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aaa;background:#050505;border:1px solid #1a1a1a;padding:20px;overflow-x:auto;line-height:1.7;white-space:pre-wrap}
+.verdict{margin-top:20px;padding:16px 20px;border:1px solid #1e1e1e}
+.verdict-label{font-size:9px;letter-spacing:.2em;color:#444;margin-bottom:10px}
+.verdict-text{font-family:monospace;font-size:12px;color:#888;line-height:1.6}
+.geo-alert{margin-top:12px;padding:10px 16px;border:1px solid #ff330055;background:#ff33330a;font-size:11px;color:#ff6666}
+.footer{padding-top:20px;border-top:1px solid #111;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.footer-left .fl{font-size:8px;letter-spacing:.2em;color:#2a2a2a;margin-bottom:4px}
+.footer-left .fn{font-family:'Crimson Pro',serif;font-size:12px;color:#444}
+.footer-left .fs{font-size:9px;color:#222;margin-top:2px}
+.footer-right{text-align:right}
+.footer-right .fr1{font-size:9px;color:#222}
+.footer-right .fr2{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#1a1a1a;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a href="index.html" class="tag">← PORTAL</a>
+    <span class="tag active">CRITĒRION•SĀNCTUS</span>
+    <span class="tag">KREATIO • 3620</span>
+    <span class="tag">T.C.F.™</span>
+    <span class="tag">MORPHEUS·JLX™</span>
+  </div>
+  <span class="topbar-right">CID_HUB / ATLAS•EVENTA / MAMMUTH•EVENTS™</span>
+</div>
+<div class="wrap">
+  <div class="sys-label">MODULO / MACCHINA DELLA VERITÀ</div>
+  <h1>CRITĒRION<span class="dot">•</span>SĀNCTUS</h1>
+  <p class="hero-sub">«il metro di paragone inviolabile» — Protocollo di Immunizzazione Dati</p>
+  <div class="stats" id="statsBar"></div>
+  <div class="arch-grid">
+    <div class="arch-cell">
+      <div class="arch-level" style="color:#666">▸ BASELINE</div>
+      <div class="arch-desc">Fonti istituzionali come metro di paragone</div>
+      <div class="arch-src">Siti parrocchiali · Proloco · Archivi diocesani</div>
+    </div>
+    <div class="arch-cell">
+      <div class="arch-level" style="color:#ffd600">▸ RILEVAMENTO STRESS</div>
+      <div class="arch-desc">Frequenza · Variabilità · Volume classificano ogni entrata</div>
+      <div class="arch-src">Saturazione · Incoerenza metadati · Tentativi multipli</div>
+    </div>
+    <div class="arch-cell">
+      <div class="arch-level" style="color:#ff3333">▸ ANALISI COMPORTAMENTALE</div>
+      <div class="arch-desc">Dato privo di parent logico → isolamento automatico</div>
+      <div class="arch-src">Firma storica · Divergenza semantica · Geotag obbligatorio</div>
+    </div>
+  </div>
+  <div class="log-label"><span class="log-dot">●</span> SYSTEM LOG — CID_HUB STREAM</div>
+  <div class="log-box" id="logBox"></div>
+  <div class="filter-bar">
+    <span class="filter-label">TRIAGE FILTER:</span>
+    <button class="filter-btn active-all" onclick="setFilter('ALL',this)">ALL</button>
+    <button class="filter-btn" onclick="setFilter('VALIDATED',this)">VALIDATED</button>
+    <button class="filter-btn" onclick="setFilter('QUARANTINE',this)">QUARANTINE</button>
+    <button class="filter-btn" onclick="setFilter('REJECTED',this)">REJECTED</button>
+    <span class="filter-count" id="filterCount"></span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>TIMESTAMP</th><th>ID DNA</th><th>STATUS</th><th>REGIONE</th><th>TRUTH SCORE</th><th>FONTE</th>
+      </tr></thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+  </div>
+  <div class="footer">
+    <div class="footer-left">
+      <div class="fl">FOUNDER &amp; AUTHOR</div>
+      <div class="fn">Leonardo Adriano Chelariu — K•Word•Festival (KWF)</div>
+      <div class="fs">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+    </div>
+    <div class="footer-right">
+      <div class="fr1">MAMMUTH•EVENTS™ / ElppaK•Clean™</div>
+      <div class="fr2">CRITĒRION•SĀNCTUS</div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head" id="modalHead">
+      <div>
+        <div class="modal-id" id="modalId"></div>
+        <div class="modal-ts" id="modalTs"></div>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕ CLOSE</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-label">▸ EVENT_DNA / CID_HUB RECORD</div>
+      <pre id="modalJson"></pre>
+      <div class="verdict" id="modalVerdict">
+        <div class="verdict-label">▸ TRIAGE VERDICT</div>
+        <div class="verdict-text" id="modalVerdictText"></div>
+      </div>
+      <div class="geo-alert" id="modalGeoAlert" style="display:none">⚠ GEOTAG ASSENTE — incentivo non erogabile per questa entità</div>
+    </div>
+  </div>
+</div>
+<script>
+const DATA=[
+  {id:"000001",source:"USER_CROWD_SOURCE",region:"LT-SERMONETA",geo:true, score:0.97,status:"VALIDATED",  ts:"2026-06-05 08:14:22",path:"CID_HUB/MAMMUTH/LT/LOG_000001"},
+  {id:"000002",source:"INSTITUTIONAL",    region:"LT-NORMA",    geo:true, score:0.99,status:"VALIDATED",  ts:"2026-06-05 08:15:01",path:"CID_HUB/MAMMUTH/LT/LOG_000002"},
+  {id:"000003",source:"USER_CROWD_SOURCE",region:"LT-CORI",     geo:false,score:0.44,status:"QUARANTINE", ts:"2026-06-05 08:17:34",path:"CID_HUB/MAMMUTH/LT/QUARANTINE/LOG_000003"},
+  {id:"000004",source:"USER_CROWD_SOURCE",region:"UNKNOWN",     geo:false,score:0.09,status:"REJECTED",   ts:"2026-06-05 08:19:55",path:"CID_HUB/MAMMUTH/REJECTED/LOG_000004"},
+  {id:"000005",source:"INSTITUTIONAL",    region:"LT-BASSIANO", geo:true, score:0.96,status:"VALIDATED",  ts:"2026-06-05 08:21:10",path:"CID_HUB/MAMMUTH/LT/LOG_000005"},
+  {id:"000006",source:"USER_CROWD_SOURCE",region:"LT-SEZZE",    geo:true, score:0.71,status:"QUARANTINE", ts:"2026-06-05 08:23:44",path:"CID_HUB/MAMMUTH/LT/QUARANTINE/LOG_000006"},
+  {id:"000007",source:"USER_CROWD_SOURCE",region:"RM-VELLETRI", geo:true, score:0.88,status:"VALIDATED",  ts:"2026-06-05 08:25:02",path:"CID_HUB/MAMMUTH/RM/LOG_000007"},
+];
+const STATUS_META={
+  VALIDATED: {label:"VERDE",  color:"#00ff88",symbol:"●",short:"V"},
+  QUARANTINE:{label:"GIALLO", color:"#ffd600",symbol:"◐",short:"G"},
+  REJECTED:  {label:"ROSSO",  color:"#ff3333",symbol:"◼",short:"R"},
+};
+const LOG_LINES=[
+  {t:"[SYS]",txt:"CRITĒRION•SĀNCTUS v1.0 — BOOT SEQUENZA COMPLETATA",c:"#555"},
+  {t:"[TCF]",txt:"T.C.F.™ GUARDIANO ATTIVO — ATLAS•EVENTA PROTETTO",c:"#4488ff"},
+  {t:"[JLX]",txt:"MORPHEUS·JLX™ ONLINE — BASELINE CARICATA",c:"#4488ff"},
+  {t:"[SYS]",txt:"CID_HUB MOUNT: /MAMMUTH/LT/ → OK",c:"#555"},
+  {t:"[SYS]",txt:"CID_HUB MOUNT: /MAMMUTH/RM/ → OK",c:"#555"},
+  {t:"[SYS]",txt:"ID COUNTER INIZIALIZZATO: 000007",c:"#555"},
+  {t:"[VAL]",txt:"#000001 LT-SERMONETA — SCORE 0.97 → VALIDATED ●",c:"#00ff88"},
+  {t:"[VAL]",txt:"#000002 LT-NORMA — SCORE 0.99 → VALIDATED ●",c:"#00ff88"},
+  {t:"[ALR]",txt:"#000003 LT-CORI — GEOTAG ASSENTE → QUARANTINE ◐",c:"#ffd600"},
+  {t:"[THR]",txt:"#000004 UNKNOWN — SCORE 0.09 / NO_PARENT → REJECTED ◼ / BAN ISSUED",c:"#ff3333"},
+  {t:"[VAL]",txt:"#000005 LT-BASSIANO — SCORE 0.96 → VALIDATED ●",c:"#00ff88"},
+  {t:"[ALR]",txt:"#000006 LT-SEZZE — VARIABILITÀ METADATI → QUARANTINE ◐",c:"#ffd600"},
+  {t:"[VAL]",txt:"#000007 RM-VELLETRI — SCORE 0.88 → VALIDATED ●",c:"#00ff88"},
+  {t:"[SYS]",txt:"LOG SINCRONIA CID_HUB COMPLETATA — 7 RECORD PROCESSATI",c:"#555"},
+];
+function buildStats(){
+  const total=DATA.length;
+  const v=DATA.filter(d=>d.status==="VALIDATED").length;
+  const q=DATA.filter(d=>d.status==="QUARANTINE").length;
+  const r=DATA.filter(d=>d.status==="REJECTED").length;
+  const avg=(DATA.reduce((a,b)=>a+b.score,0)/total).toFixed(3);
+  const stats=[
+    {label:"TOTALE ENTITÀ",value:String(total).padStart(3,"0"),color:"#666"},
+    {label:"VALIDATE",value:String(v).padStart(3,"0"),color:"#00ff88"},
+    {label:"QUARANTENA",value:String(q).padStart(3,"0"),color:"#ffd600"},
+    {label:"RIGETTATE",value:String(r).padStart(3,"0"),color:"#ff3333"},
+    {label:"TRUTH AVG",value:avg,color:"#4488ff"},
+    {label:"NEXT ID",value:"#"+String(total+1).padStart(6,"0"),color:"#888"},
+  ];
+  document.getElementById("statsBar").innerHTML=stats.map(s=>`<div class="stat-cell"><div class="stat-val" style="color:${s.color}">${s.value}</div><div class="stat-lbl">${s.label}</div></div>`).join("");
+}
+let logIdx=0;
+function tick(){
+  if(logIdx>=LOG_LINES.length)return;
+  const l=LOG_LINES[logIdx++];
+  const box=document.getElementById("logBox");
+  const prev=box.querySelector(".cursor");
+  if(prev)prev.remove();
+  const div=document.createElement("div");
+  div.className="log-line";
+  div.style.color=l.c;
+  div.textContent=l.t+" "+l.txt;
+  box.appendChild(div);
+  if(logIdx<LOG_LINES.length){
+    const cur=document.createElement("span");
+    cur.className="cursor log-line";
+    cur.style.color="#555";
+    cur.textContent="▌";
+    box.appendChild(cur);
+  }
+  box.scrollTop=box.scrollHeight;
+  setTimeout(tick,280+Math.random()*200);
+}
+function glyphBar(score,color){
+  const n=Math.round(score*20);
+  return `<span class="glyph-bar"><span style="color:${color}">${"█".repeat(n)}</span><span style="color:#222">${"░".repeat(20-n)}</span></span><span class="score-val">${score.toFixed(2)}</span>`;
+}
+let currentFilter="ALL";
+function setFilter(f,btn){
+  currentFilter=f;
+  document.querySelectorAll(".filter-btn").forEach(b=>{b.className="filter-btn";});
+  if(f==="ALL")btn.classList.add("active-all");
+  else if(f==="VALIDATED")btn.classList.add("active-V");
+  else if(f==="QUARANTINE")btn.classList.add("active-G");
+  else btn.classList.add("active-R");
+  renderTable();
+}
+function renderTable(){
+  const filtered=currentFilter==="ALL"?DATA:DATA.filter(d=>d.status===currentFilter);
+  document.getElementById("filterCount").textContent=filtered.length+" record · click per DNA";
+  document.getElementById("tblBody").innerHTML=filtered.map(e=>{
+    const m=STATUS_META[e.status];
+    return `<tr onclick="openModal('${e.id}')" style="border-left:3px solid ${m.color}22"><td class="td-ts">${e.ts}</td><td class="td-id" style="color:${m.color}">#${e.id}</td><td><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 10px;border:1px solid ${m.color}44;background:${m.color}11;color:${m.color};font-size:10px;letter-spacing:.15em"><span style="font-size:8px">${m.symbol}</span>${m.label}</span></td><td class="td-reg">${e.region}</td><td>${glyphBar(e.score,m.color)}</td><td class="td-src">${e.source==="INSTITUTIONAL"?"INST":"USR"}</td></tr>`;
+  }).join("");
+}
+function openModal(id){
+  const e=DATA.find(d=>d.id===id);
+  const m=STATUS_META[e.status];
+  const json={event_dna:{id_sequence:e.id,status:e.status,storage_path:e.path,integrity_check:e.score>=0.5?"SUCCESS":"FAIL"},metadata:{source_type:e.source,geotag_coherence:String(e.geo).toUpperCase(),truth_score:e.score.toFixed(2)}};
+  document.getElementById("modalId").textContent="ENTITY #"+e.id;
+  document.getElementById("modalId").style.color=m.color;
+  document.getElementById("modalTs").textContent=e.ts;
+  document.getElementById("modalHead").style.borderBottomColor=m.color+"33";
+  document.getElementById("modalHead").style.background=m.color+"08";
+  document.getElementById("modalJson").textContent=JSON.stringify(json,null,2);
+  document.getElementById("modalVerdict").style.borderColor=m.color+"33";
+  document.getElementById("modalVerdict").style.background=m.color+"06";
+  const vt=document.getElementById("modalVerdictText");
+  if(e.status==="VALIDATED")vt.innerHTML=`Coerenza verificata. ID sequenziale assegnato. Integrazione permanente in <span style="color:#00ff88">${e.path}</span>`;
+  else if(e.status==="QUARANTINE")vt.innerHTML=`Incoerenza rilevata. Entità isolata. <span style="color:#ffd600">Audit manuale obbligatorio.</span>`;
+  else vt.innerHTML=`Minaccia grave rilevata. Scarto immediato. <span style="color:#ff3333">Entità mittente bannata dal sistema.</span>`;
+  document.getElementById("modalGeoAlert").style.display=e.geo?"none":"block";
+  document.getElementById("modal").classList.add("open");
+}
+function closeModal(e){if(e.target===document.getElementById("modal"))document.getElementById("modal").classList.remove("open")}
+buildStats();
+renderTable();
+tick();
+</script>
+</body>
+</html>
