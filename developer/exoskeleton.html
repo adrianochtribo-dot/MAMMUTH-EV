@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXOSKELETON™ — MAMMUTH•EVENTS™ Master Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,700;1,300&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#040404;--bg2:#080808;--bg3:#0d0d0d;--bg4:#111;
+  --border:#1a1a1a;--border2:#222;--border3:#2a2a2a;
+  --text:#d0d0d0;--dim:#555;--dim2:#333;--dim3:#222;
+  --gold:#c9a96e;--gold2:#7a6240;--gold3:#3a2e1a;
+  --green:#00ff88;--yellow:#ffd600;--red:#ff3333;--blue:#4488ff;--cyan:#00d4ff;--purple:#9b7fc7;--wa:#25d366;
+  --nav-w:220px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--border3)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
+@keyframes blink{0%,100%{opacity:1}49%{opacity:1}50%{opacity:0}99%{opacity:0}}
+
+/* SCANLINE EFFECT */
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none;z-index:9999}
+
+/* TOP BAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(4,4,4,.97);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(12px)}
+.tb-brand{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.1em;color:#fff}
+.tb-brand span{color:var(--green)}
+.tb-meta{display:flex;gap:20px;align-items:center}
+.tb-tag{font-size:8px;letter-spacing:.2em;color:var(--dim);border:1px solid var(--border2);padding:2px 8px;text-transform:uppercase}
+.tb-status{font-size:9px;letter-spacing:.15em;color:var(--green);display:flex;align-items:center;gap:6px}
+.tb-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.tb-back{font-size:9px;color:var(--dim);text-decoration:none;letter-spacing:.15em;border:1px solid var(--border2);padding:3px 10px;transition:all .2s}
+.tb-back:hover{color:var(--text);border-color:var(--border3)}
+
+/* SIDE NAV */
+.sidenav{position:fixed;top:41px;left:0;bottom:0;width:var(--nav-w);background:var(--bg2);border-right:1px solid var(--border);overflow-y:auto;z-index:100;padding:24px 0}
+.sn-section{margin-bottom:8px}
+.sn-label{font-size:7px;letter-spacing:.3em;color:var(--dim2);padding:6px 16px 4px;text-transform:uppercase}
+.sn-link{display:block;padding:6px 16px;font-size:10px;letter-spacing:.08em;color:var(--dim);text-decoration:none;border-left:2px solid transparent;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sn-link:hover{color:var(--text);background:var(--bg3)}
+.sn-link.active{color:var(--green);border-left-color:var(--green);background:rgba(0,255,136,.04)}
+.sn-link.s-yellow{color:var(--dim)}
+.sn-link.s-yellow.active{color:var(--yellow);border-left-color:var(--yellow)}
+.sn-link.s-red{color:var(--dim)}
+.sn-link.s-red.active{color:var(--red);border-left-color:var(--red)}
+
+/* MAIN */
+main{margin-left:var(--nav-w);padding-top:41px;min-height:100vh}
+
+/* SECTIONS */
+section{padding:60px 48px;border-bottom:1px solid var(--border);animation:fadeUp .6s ease both}
+
+/* HERO */
+.hero{background:var(--bg);position:relative;overflow:hidden;min-height:320px;display:flex;flex-direction:column;justify-content:center}
+.hero-bg-text{position:absolute;right:-40px;bottom:-20px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.03);pointer-events:none;letter-spacing:.05em;line-height:1;user-select:none}
+.hero-label{font-size:8px;letter-spacing:.4em;color:var(--gold2);text-transform:uppercase;margin-bottom:16px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);letter-spacing:.06em;color:#fff;line-height:.95;margin-bottom:16px}
+.hero-title span{color:var(--green)}
+.hero-sub{font-family:'Crimson Pro',serif;font-style:italic;font-size:16px;color:var(--dim);max-width:560px;line-height:1.7;margin-bottom:32px}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:8px;letter-spacing:.15em;padding:3px 10px;border:1px solid var(--border2);color:var(--dim);text-transform:uppercase}
+.chip.live{border-color:var(--green);color:var(--green);background:rgba(0,255,136,.05)}
+.chip.dev{border-color:var(--yellow);color:var(--yellow);background:rgba(255,214,0,.05)}
+.chip.plan{border-color:var(--red);color:var(--red);background:rgba(255,51,51,.05)}
+
+/* SECTION HEADERS */
+.sec-label{font-size:8px;letter-spacing:.35em;color:var(--gold2);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.08em;color:#fff;margin-bottom:32px}
+
+/* MODULE MAP */
+.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.module-card{background:var(--bg2);padding:20px;cursor:default;transition:background .2s;position:relative;overflow:hidden}
+.module-card:hover{background:var(--bg3)}
+.module-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.module-card.live::before{background:var(--green)}
+.module-card.dev::before{background:var(--yellow)}
+.module-card.plan::before{background:var(--red)}
+.mc-status{font-size:7px;letter-spacing:.2em;margin-bottom:8px;text-transform:uppercase}
+.live .mc-status{color:var(--green)}
+.dev .mc-status{color:var(--yellow)}
+.plan .mc-status{color:var(--red)}
+.mc-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;color:#fff;margin-bottom:6px;line-height:1}
+.mc-desc{font-size:10px;color:var(--dim);line-height:1.6;margin-bottom:12px}
+.mc-tags{display:flex;gap:4px;flex-wrap:wrap}
+.mc-tag{font-size:7px;letter-spacing:.1em;padding:2px 6px;border:1px solid var(--border2);color:var(--dim2)}
+.mc-link{display:inline-block;margin-top:10px;font-size:8px;letter-spacing:.15em;color:var(--dim);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:1px;transition:all .2s}
+.mc-link:hover{color:var(--text);border-bottom-color:var(--text)}
+
+/* FLOW PIPELINE */
+.pipeline{background:var(--bg2);border:1px solid var(--border);padding:28px;margin-bottom:24px;overflow-x:auto}
+.pipe-title{font-size:8px;letter-spacing:.25em;color:var(--dim2);margin-bottom:20px;text-transform:uppercase}
+.pipe-steps{display:flex;align-items:center;gap:0;min-width:max-content}
+.pipe-step{border:1px solid var(--border2);padding:12px 14px;min-width:100px;text-align:center;position:relative}
+.pipe-step-icon{font-size:16px;margin-bottom:4px;display:block}
+.pipe-step-name{font-size:9px;letter-spacing:.08em;line-height:1.2;margin-bottom:2px}
+.pipe-step-sub{font-size:7px;color:var(--dim2);letter-spacing:.08em}
+.pipe-arrow{color:var(--dim2);font-size:14px;padding:0 6px;flex-shrink:0}
+.pipe-step.wa{border-color:rgba(37,211,102,.4)}
+.pipe-step.wa .pipe-step-name{color:var(--wa)}
+.pipe-step.ai{border-color:rgba(68,136,255,.4)}
+.pipe-step.ai .pipe-step-name{color:var(--blue)}
+.pipe-step.val{border-color:rgba(0,255,136,.4)}
+.pipe-step.val .pipe-step-name{color:var(--green)}
+.pipe-step.db{border-color:rgba(155,127,199,.4)}
+.pipe-step.db .pipe-step-name{color:var(--purple)}
+
+/* STACK */
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.stack-cell{background:var(--bg2);padding:18px 20px;transition:background .15s}
+.stack-cell:hover{background:var(--bg3)}
+.sc-layer{font-size:7px;letter-spacing:.25em;color:var(--dim2);margin-bottom:6px;text-transform:uppercase}
+.sc-tech{font-size:13px;color:#fff;margin-bottom:4px;letter-spacing:.02em}
+.sc-ver{font-size:9px;color:var(--dim);letter-spacing:.1em}
+.sc-role{font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.5}
+
+/* DATABASE SCHEMA */
+.schema-block{background:var(--bg2);border:1px solid var(--border);margin-bottom:16px}
+.sb-head{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.sb-name{font-size:11px;color:var(--gold);letter-spacing:.08em}
+.sb-badge{font-size:7px;letter-spacing:.15em;padding:2px 8px;border:1px solid var(--gold3);color:var(--gold2)}
+.sb-body{padding:16px 20px;overflow-x:auto}
+.schema-table{width:100%;border-collapse:collapse}
+.schema-table th{font-size:7px;letter-spacing:.2em;color:var(--dim2);padding:4px 12px;text-align:left;border-bottom:1px solid var(--border);text-transform:uppercase}
+.schema-table td{font-size:10px;padding:6px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.schema-table tr:last-child td{border-bottom:none}
+.field-name{color:var(--cyan);font-weight:700}
+.field-type{color:var(--purple)}
+.field-note{color:var(--dim);font-size:9px}
+.field-req{color:var(--green);font-size:8px;letter-spacing:.1em}
+
+/* GEOGRAPHY */
+.geo-hierarchy{display:flex;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:24px}
+.geo-level{flex:1;background:var(--bg2);padding:16px;text-align:center}
+.gl-code{font-size:8px;letter-spacing:.2em;color:var(--dim2);margin-bottom:4px}
+.gl-name{font-size:11px;color:#fff;margin-bottom:4px}
+.gl-example{font-size:9px;color:var(--gold);font-family:'Crimson Pro',serif;font-style:italic}
+.geo-arrow{display:flex;align-items:center;font-size:18px;color:var(--dim2);background:var(--bg);padding:0 4px}
+
+/* VALIDATION PIPELINE */
+.val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:24px}
+@media(max-width:900px){.val-grid{grid-template-columns:1fr 1fr}}
+.val-cell{background:var(--bg2);padding:20px}
+.vc-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--border3);line-height:1;margin-bottom:8px}
+.vc-name{font-size:10px;color:#fff;letter-spacing:.08em;margin-bottom:6px}
+.vc-desc{font-size:9px;color:var(--dim);line-height:1.6}
+.vc-tech{margin-top:10px;font-size:8px;color:var(--blue);letter-spacing:.1em}
+
+/* PORTAL LINKS */
+.portal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.portal-card{background:var(--bg2);padding:18px 20px;text-decoration:none;display:block;transition:background .15s;border-left:2px solid transparent}
+.portal-card:hover{background:var(--bg3);border-left-color:var(--green)}
+.pc-label{font-size:7px;letter-spacing:.2em;color:var(--dim2);margin-bottom:6px;text-transform:uppercase}
+.pc-name{font-size:12px;color:#fff;letter-spacing:.05em;margin-bottom:4px}
+.pc-desc{font-size:9px;color:var(--dim);line-height:1.5}
+.pc-arrow{font-size:9px;color:var(--dim2);margin-top:8px;letter-spacing:.1em}
+
+/* ROADMAP */
+.roadmap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+@media(max-width:800px){.roadmap{grid-template-columns:1fr}}
+.rm-col{background:var(--bg2);padding:24px}
+.rm-head{font-size:9px;letter-spacing:.2em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);text-transform:uppercase}
+.rm-head.live{color:var(--green)}
+.rm-head.dev{color:var(--yellow)}
+.rm-head.plan{color:var(--red)}
+.rm-item{padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start}
+.rm-item:last-child{border-bottom:none}
+.rm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.live .rm-dot{background:var(--green)}
+.dev .rm-dot{background:var(--yellow)}
+.plan .rm-dot{background:var(--red)}
+.rm-text{font-size:10px;color:var(--dim);line-height:1.5}
+.rm-text strong{color:var(--text);display:block;font-weight:400;margin-bottom:2px}
+
+/* CODE BLOCK */
+.code-block{background:#020202;border:1px solid var(--border);border-left:3px solid var(--blue);padding:20px 24px;margin:16px 0;overflow-x:auto}
+.code-block pre{font-size:11px;line-height:1.8;color:#7a9ab0}
+.ck{color:var(--gold)}.cv{color:var(--green)}.cs{color:#a0c8a0}.cn{color:var(--yellow)}.cc{color:var(--border3)}.cw{color:var(--wa)}.cp{color:var(--purple)}
+
+/* FOOTER */
+.doc-footer{padding:40px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.df-left .df-label{font-size:7px;letter-spacing:.25em;color:var(--dim2);margin-bottom:6px}
+.df-left .df-name{font-family:'Crimson Pro',serif;font-size:13px;color:var(--gold)}
+.df-left .df-sub{font-size:9px;color:var(--dim2);margin-top:2px}
+.df-left .df-sigil{font-size:10px;color:var(--dim2);margin-top:6px;letter-spacing:.05em}
+.df-right{text-align:right}
+.df-right .df-ver{font-size:8px;letter-spacing:.2em;color:var(--dim2)}
+.df-right .df-sys{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--border3);letter-spacing:.08em}
+
+@media(max-width:768px){
+  .sidenav{display:none}
+  main{margin-left:0}
+  section{padding:40px 20px}
+  .module-grid{grid-template-columns:1fr}
+  .val-grid{grid-template-columns:1fr}
+  .roadmap{grid-template-columns:1fr}
+  .pipe-steps{flex-direction:column}
+  .pipe-arrow{transform:rotate(90deg)}
+  .geo-hierarchy{flex-direction:column}
+  .geo-arrow{transform:rotate(90deg);justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-brand">MAMMUTH<span>•</span>EVENTS™ <span style="font-size:11px;color:var(--dim);font-family:'IBM Plex Mono',monospace;letter-spacing:.1em"> / EXOSKELETON™</span></div>
+  <div class="tb-meta">
+    <span class="tb-tag">v1.0</span>
+    <span class="tb-tag">CODE 3620</span>
+    <div class="tb-status"><span class="tb-dot"></span>SYSTEM ACTIVE</div>
+    <a href="developer-index.html" class="tb-back">← PORTAL</a>
+  </div>
+</div>
+
+<!-- SIDE NAV -->
+<nav class="sidenav">
+  <div class="sn-section">
+    <div class="sn-label">Documento</div>
+    <a href="#hero" class="sn-link active">▸ Overview</a>
+    <a href="#modules" class="sn-link">▸ Moduli KREATIO</a>
+    <a href="#flow" class="sn-link">▸ Flusso Dati</a>
+  </div>
+  <div class="sn-section">
+    <div class="sn-label">Architettura</div>
+    <a href="#stack" class="sn-link">▸ Tech Stack</a>
+    <a href="#database" class="sn-link">▸ Database Schema</a>
+    <a href="#validation" class="sn-link">▸ Validation Pipeline</a>
+    <a href="#geography" class="sn-link">▸ Gerarchia Geografica</a>
+  </div>
+  <div class="sn-section">
+    <div class="sn-label">Riferimenti</div>
+    <a href="#portal" class="sn-link">▸ Developer Portal</a>
+    <a href="#roadmap" class="sn-link">▸ Roadmap</a>
+  </div>
+  <div style="margin-top:32px;padding:12px 16px;border-top:1px solid var(--border)">
+    <div style="font-size:7px;letter-spacing:.2em;color:var(--dim2);margin-bottom:8px">STATO SISTEMA</div>
+    <div style="font-size:9px;color:var(--green);margin-bottom:4px">● 11 moduli live</div>
+    <div style="font-size:9px;color:var(--yellow);margin-bottom:4px">◐ 3 in sviluppo</div>
+    <div style="font-size:9px;color:var(--red)">○ 5 pianificati</div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-bg-text">EXOSKELETON</div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-label">Master Architecture Document — Developer Reference v1.0</div>
+    <h1 class="hero-title">EXOSKELETON<span>™</span></h1>
+    <p class="hero-sub">Il documento di riferimento assoluto per lo sviluppo di MAMMUTH•EVENTS™. Architettura completa, mappa dei moduli KREATIO, flusso dati, stack tecnico e stato avanzamento del sistema.</p>
+    <div class="hero-chips">
+      <span class="chip live">● 11 LIVE</span>
+      <span class="chip dev">◐ 3 IN SVILUPPO</span>
+      <span class="chip plan">○ 5 PIANIFICATI</span>
+      <span class="chip" style="border-color:var(--gold2);color:var(--gold2)">KREATIO UNIVERSAL SYSTEM™</span>
+      <span class="chip" style="border-color:var(--blue);color:var(--blue)">CODE 3620</span>
+      <span class="chip" style="border-color:var(--purple);color:var(--purple)">PROVINCIA DI LATINA — PILOT</span>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section id="modules">
+  <div class="sec-label">01 — Mappa Moduli</div>
+  <div class="sec-title">KREATIO UNIVERSAL SYSTEM™</div>
+
+  <div class="module-grid">
+    <!-- LIVE -->
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">ATLAS•EVENTA</div>
+      <div class="mc-desc">Database centrale degli eventi territoriali. Schema PostgreSQL + PostGIS con gerarchia ISTAT, 190 eventi verificati Lazio, 65 categorie tassonomiche.</div>
+      <div class="mc-tags"><span class="mc-tag">PostgreSQL</span><span class="mc-tag">PostGIS</span><span class="mc-tag">ISTAT</span></div>
+      <a href="ATLAS-EVENTA.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">T.C.F.™</div>
+      <div class="mc-desc">Total Coherence Framework — guardiano del database. 4 pilastri: Coerenza Territoriale, Anti-Rumore, Validazione Ontologica, Auditabilità. Playground v2.0 con batch mode.</div>
+      <div class="mc-tags"><span class="mc-tag">Validazione</span><span class="mc-tag">Batch Mode</span><span class="mc-tag">GitHub Pages</span></div>
+      <a href="TCF-framework.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">MORPHEUS·JLX™</div>
+      <div class="mc-desc">Motore di normalizzazione e anti-rumore. Analizza frequenza, variabilità e volume degli invii. Integrato nel T.C.F.™ come layer di pre-validazione semantica.</div>
+      <div class="mc-tags"><span class="mc-tag">NLP</span><span class="mc-tag">Anti-Rumore</span><span class="mc-tag">Normalizzazione</span></div>
+      <a href="MORPHEUS-JLX.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">COLOR-TRIAGE</div>
+      <div class="mc-desc">Sistema di classificazione cromatica dei dati in ingresso. Verde (validato) / Giallo (quarantena) / Rosso (rigettato). Prima linea di difesa del database.</div>
+      <div class="mc-tags"><span class="mc-tag">Classificazione</span><span class="mc-tag">Triage</span><span class="mc-tag">Real-Time</span></div>
+      <a href="COLOR-TRIAGE.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">CRITĒRION•SĀNCTUS</div>
+      <div class="mc-desc">Macchina della Verità. Protocollo di immunizzazione dati con ID sequenziale (DNA del dato), log CID_HUB, analisi comportamentale e ban automatico entità malevole.</div>
+      <div class="mc-tags"><span class="mc-tag">ID Sequenziale</span><span class="mc-tag">Ban System</span><span class="mc-tag">CID_HUB</span></div>
+      <a href="criterion-sanctus.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">THRESHOLD·5000™</div>
+      <div class="mc-desc">Protocollo di saturazione territoriale. Obiettivo: 5.000 eventi territoriali canonici verificati nella Provincia di Latina come dataset pilota.</div>
+      <div class="mc-tags"><span class="mc-tag">KPI</span><span class="mc-tag">5K Target</span><span class="mc-tag">Provincia LT</span></div>
+      <a href="THRESHOLD-5000.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">TO FILL THE VOID™</div>
+      <div class="mc-desc">Strategia di saturazione territoriale via Logica WhatsApp. Crowdsourcing gamificato con protocollo PIQ/ENR/LEM per trasformare ogni utente in Architetto della Verità Territoriale.</div>
+      <div class="mc-tags"><span class="mc-tag">WhatsApp</span><span class="mc-tag">Gamification</span><span class="mc-tag">Crowdsourcing</span></div>
+      <a href="to-fill-the-void-strategy.html" class="mc-link">→ Strategia</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">BRAIN-BOX</div>
+      <div class="mc-desc">Archivio permanente dei dati validati. Repository strutturato con tracciabilità completa, versioning e audit trail di ogni record processato dal sistema.</div>
+      <div class="mc-tags"><span class="mc-tag">Archivio</span><span class="mc-tag">Versioning</span><span class="mc-tag">Audit Trail</span></div>
+      <a href="BRAIN-BOX.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">JLX</div>
+      <div class="mc-desc">JSON Lexicon Exchange — protocollo di normalizzazione strutturale dei dati in ingresso. Standardizza ogni record prima dell'ingresso nel pipeline di validazione.</div>
+      <div class="mc-tags"><span class="mc-tag">JSON</span><span class="mc-tag">Normalizzazione</span><span class="mc-tag">Schema</span></div>
+      <a href="JLX.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">QDC-v</div>
+      <div class="mc-desc">Quality Data Control versioned — sistema di controllo qualità con versionamento progressivo dei record. Garantisce la tracciabilità delle modifiche nel tempo.</div>
+      <div class="mc-tags"><span class="mc-tag">Quality Control</span><span class="mc-tag">Versioning</span><span class="mc-tag">Delta</span></div>
+      <a href="QDC-v.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card live">
+      <div class="mc-status">● LIVE</div>
+      <div class="mc-name">CODE-3620</div>
+      <div class="mc-desc">Identità operativa del sistema KREATIO. Codice univoco del progetto, governance della nomenclatura e sistema di classificazione dei documenti ufficiali.</div>
+      <div class="mc-tags"><span class="mc-tag">Governance</span><span class="mc-tag">Nomenclatura</span><span class="mc-tag">Identity</span></div>
+      <a href="CODE-3620.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <!-- IN SVILUPPO -->
+    <div class="module-card dev">
+      <div class="mc-status">◐ IN SVILUPPO</div>
+      <div class="mc-name">ANTHROPIC HOLE™</div>
+      <div class="mc-desc">Pipeline di ingestion WhatsApp → OCR → Claude API → estrazione strutturata. Integrazione con Twilio sandbox e Meta WhatsApp Business API pending verification.</div>
+      <div class="mc-tags"><span class="mc-tag">Claude API</span><span class="mc-tag">OCR</span><span class="mc-tag">Twilio</span></div>
+      <a href="ANTHROPIC-HOLE.html" class="mc-link">→ Documentazione</a>
+    </div>
+    <div class="module-card dev">
+      <div class="mc-status">◐ IN SVILUPPO</div>
+      <div class="mc-name">KWF PIPELINE</div>
+      <div class="mc-desc">Key-Word-Framework validation pipeline a 4 layer: DNA del Dato, star-schema SQL, KDE-based dynamic thresholds, ISTAT/ANAC oracle verification.</div>
+      <div class="mc-tags"><span class="mc-tag">KDE</span><span class="mc-tag">ISTAT Oracle</span><span class="mc-tag">Star-Schema</span></div>
+    </div>
+    <div class="module-card dev">
+      <div class="mc-status">◐ IN SVILUPPO</div>
+      <div class="mc-name">WHATSAPP BUSINESS</div>
+      <div class="mc-desc">Integrazione Meta WhatsApp Business API per l'ingestion ufficiale. Twilio sandbox attivo come alternativa durante pending business verification.</div>
+      <div class="mc-tags"><span class="mc-tag">Meta API</span><span class="mc-tag">Twilio</span><span class="mc-tag">Webhook</span></div>
+    </div>
+    <!-- PIANIFICATI -->
+    <div class="module-card plan">
+      <div class="mc-status">○ PIANIFICATO</div>
+      <div class="mc-name">REACT NATIVE APP</div>
+      <div class="mc-desc">App mobile iOS/Android per discovery eventi territoriali. Geolocalizzazione H3, filtri per categoria, notifiche push eventi vicini.</div>
+      <div class="mc-tags"><span class="mc-tag">React Native</span><span class="mc-tag">iOS</span><span class="mc-tag">Android</span></div>
+    </div>
+    <div class="module-card plan">
+      <div class="mc-status">○ PIANIFICATO</div>
+      <div class="mc-name">TYPESENSE SEARCH</div>
+      <div class="mc-desc">Motore di ricerca full-text per eventi, luoghi e tradizioni. Ricerca fuzzy, filtri combinati, suggerimenti in tempo reale.</div>
+      <div class="mc-tags"><span class="mc-tag">Typesense</span><span class="mc-tag">Full-Text</span><span class="mc-tag">Fuzzy</span></div>
+    </div>
+    <div class="module-card plan">
+      <div class="mc-status">○ PIANIFICATO</div>
+      <div class="mc-name">ANALYTICS DASHBOARD</div>
+      <div class="mc-desc">Dashboard per monitoraggio copertura territoriale, qualità dati, trend stagionali e KPI del sistema THRESHOLD·5000™.</div>
+      <div class="mc-tags"><span class="mc-tag">Analytics</span><span class="mc-tag">KPI</span><span class="mc-tag">Charts</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="sec-label">02 — Pipeline</div>
+  <div class="sec-title">FLUSSO DATI COMPLETO</div>
+
+  <div class="pipeline">
+    <div class="pipe-title">INGESTION PIPELINE — WhatsApp → Database Certificato</div>
+    <div class="pipe-steps">
+      <div class="pipe-step wa"><span class="pipe-step-icon">📸</span><div class="pipe-step-name">FOTO WA</div><div class="pipe-step-sub">User Submit</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step wa"><span class="pipe-step-icon">⚡</span><div class="pipe-step-name">ANTHROPIC HOLE™</div><div class="pipe-step-sub">OCR Extract</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step ai"><span class="pipe-step-icon">🤖</span><div class="pipe-step-name">CLAUDE API</div><div class="pipe-step-sub">Structured Parse</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step" style="border-color:rgba(255,214,0,.4)"><span class="pipe-step-icon">🎨</span><div class="pipe-step-name" style="color:var(--yellow)">COLOR TRIAGE</div><div class="pipe-step-sub">V / G / R</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step" style="border-color:rgba(155,127,199,.4)"><span class="pipe-step-icon">🔄</span><div class="pipe-step-name" style="color:var(--purple)">MORPHEUS·JLX™</div><div class="pipe-step-sub">Normalize</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step val"><span class="pipe-step-icon">✓</span><div class="pipe-step-name">T.C.F.™</div><div class="pipe-step-sub">Validate</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step val"><span class="pipe-step-icon">🛡</span><div class="pipe-step-name">CRITĒRION•SĀNCTUS</div><div class="pipe-step-sub">ID DNA Assign</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step db"><span class="pipe-step-icon">∞</span><div class="pipe-step-name">BRAIN-BOX</div><div class="pipe-step-sub">Archive</div></div>
+      <span class="pipe-arrow">→</span>
+      <div class="pipe-step db"><span class="pipe-step-icon">📍</span><div class="pipe-step-name">ATLAS•EVENTA</div><div class="pipe-step-sub">Deploy Live</div></div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <pre><span class="cc">// MAMMUTH•EVENTS™ — Evento Certificato (DNA Record)</span>
+{
+  <span class="ck">"event_dna"</span>: {
+    <span class="ck">"id_sequence"</span>: <span class="cs">"000001"</span>,
+    <span class="ck">"istat_code"</span>: <span class="cs">"059026"</span>,          <span class="cc">// Sermoneta — anchor comune</span>
+    <span class="ck">"status"</span>: <span class="cv">VALIDATED</span>,
+    <span class="ck">"storage_path"</span>: <span class="cs">"CID_HUB/MAMMUTH/LT/LOG_000001"</span>,
+    <span class="ck">"integrity_check"</span>: <span class="cv">SUCCESS</span>
+  },
+  <span class="ck">"event"</span>: {
+    <span class="ck">"nome"</span>: <span class="cs">"Sagra del Fagiolo Biancolino"</span>,
+    <span class="ck">"data_inizio"</span>: <span class="cs">"2026-09-12"</span>,
+    <span class="ck">"comune"</span>: <span class="cs">"Sermoneta"</span>,
+    <span class="ck">"provincia"</span>: <span class="cs">"LT"</span>,
+    <span class="ck">"categoria"</span>: <span class="cs">"sagra_enogastronomica"</span>,
+    <span class="ck">"fonte"</span>: <span class="cs">"proloco_sermoneta_official"</span>
+  },
+  <span class="ck">"metadata"</span>: {
+    <span class="ck">"source_type"</span>: <span class="cs">"INSTITUTIONAL"</span>,
+    <span class="ck">"geotag_coherence"</span>: <span class="cv">TRUE</span>,
+    <span class="ck">"truth_score"</span>: <span class="cn">0.97</span>,
+    <span class="ck">"tcf_passed"</span>: <span class="cv">true</span>,
+    <span class="ck">"zero_invented_data"</span>: <span class="cv">true</span>
+  }
+}</pre>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="sec-label">03 — Tech Stack</div>
+  <div class="sec-title">ARCHITETTURA TECNICA</div>
+
+  <div class="stack-grid">
+    <div class="stack-cell">
+      <div class="sc-layer">Frontend</div>
+      <div class="sc-tech">Next.js 14</div>
+      <div class="sc-ver">+ TypeScript + Tailwind CSS</div>
+      <div class="sc-role">App web principale, SSR, routing, componenti UI</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Mobile</div>
+      <div class="sc-tech">React Native</div>
+      <div class="sc-ver">iOS + Android</div>
+      <div class="sc-role">App discovery eventi, geolocalizzazione, notifiche push</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Backend</div>
+      <div class="sc-tech">Node.js</div>
+      <div class="sc-ver">+ Express / Fastify</div>
+      <div class="sc-role">API REST, webhook WhatsApp, pipeline ingestion</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Database</div>
+      <div class="sc-tech">PostgreSQL</div>
+      <div class="sc-ver">+ PostGIS extension</div>
+      <div class="sc-role">Storage principale, query geospaziali, schema KWF</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Geo Mapping</div>
+      <div class="sc-tech">H3 + OpenStreetMap</div>
+      <div class="sc-ver">+ Leaflet.js</div>
+      <div class="sc-role">Griglia esagonale territoriale, mappa dark-theme interattiva</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Search</div>
+      <div class="sc-tech">Typesense</div>
+      <div class="sc-ver">Self-hosted</div>
+      <div class="sc-role">Full-text search eventi, fuzzy matching, filtri combinati</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">AI / LLM</div>
+      <div class="sc-tech">Claude API</div>
+      <div class="sc-ver">claude-sonnet-4 · Anthropic</div>
+      <div class="sc-role">OCR extraction, structured parsing, validazione semantica</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Messaging</div>
+      <div class="sc-tech">WhatsApp Business</div>
+      <div class="sc-ver">Meta API + Twilio sandbox</div>
+      <div class="sc-role">Canale ingestion foto eventi da utenti community</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">DevOps</div>
+      <div class="sc-tech">GitHub</div>
+      <div class="sc-ver">Actions + Pages + Dependabot</div>
+      <div class="sc-role">CI/CD, branch protection, deploy automatico Developer Portal</div>
+    </div>
+    <div class="stack-cell">
+      <div class="sc-layer">Dati Ufficiali</div>
+      <div class="sc-tech">ISTAT + ANAC</div>
+      <div class="sc-ver">Oracle verification</div>
+      <div class="sc-role">Codici comuni ufficiali, verifica fonti istituzionali</div>
+    </div>
+  </div>
+</section>
+
+<!-- DATABASE -->
+<section id="database">
+  <div class="sec-label">04 — Database</div>
+  <div class="sec-title">SCHEMA KWF — DNA DEL DATO</div>
+
+  <div class="schema-block">
+    <div class="sb-head">
+      <span class="sb-name">TABLE: eventi_territoriali</span>
+      <span class="sb-badge">CORE TABLE</span>
+    </div>
+    <div class="sb-body">
+      <table class="schema-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Obbl.</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">id_sequence</td><td class="field-type">VARCHAR(6)</td><td class="field-req">DNA</td><td class="field-note">ID progressivo univoco — DNA del dato. Es: 000001</td></tr>
+          <tr><td class="field-name">istat_code</td><td class="field-type">VARCHAR(6)</td><td class="field-req">DNA</td><td class="field-note">Codice ISTAT comune 6 cifre. Es: 059026 (Sermoneta)</td></tr>
+          <tr><td class="field-name">nome_evento</td><td class="field-type">TEXT</td><td class="field-req">DNA</td><td class="field-note">Nome ufficiale evento — zero invenzioni</td></tr>
+          <tr><td class="field-name">data_inizio</td><td class="field-type">DATE</td><td class="field-req">DNA</td><td class="field-note">Data inizio evento ISO 8601</td></tr>
+          <tr><td class="field-name">comune</td><td class="field-type">VARCHAR(100)</td><td class="field-req">DNA</td><td class="field-note">Nome comune ufficiale ISTAT</td></tr>
+          <tr><td class="field-name">provincia</td><td class="field-type">CHAR(2)</td><td class="field-req">DNA</td><td class="field-note">Sigla provincia. Es: LT, RM</td></tr>
+          <tr><td class="field-name">categoria</td><td class="field-type">VARCHAR(50)</td><td class="field-req">DNA</td><td class="field-note">Da schema categorie.json (15+ categorie ufficiali)</td></tr>
+          <tr><td class="field-name">fonte_url</td><td class="field-type">TEXT</td><td class="field-req">DNA</td><td class="field-note">URL fonte istituzionale verificata — no blog, no aggregatori</td></tr>
+          <tr><td class="field-name">truth_score</td><td class="field-type">DECIMAL(3,2)</td><td class="field-req">●</td><td class="field-note">Score T.C.F.™ 0.00–1.00</td></tr>
+          <tr><td class="field-name">geom</td><td class="field-type">GEOMETRY(Point)</td><td class="field-req">●</td><td class="field-note">PostGIS — coordinate WGS84</td></tr>
+          <tr><td class="field-name">h3_index</td><td class="field-type">VARCHAR(15)</td><td class="field-req">●</td><td class="field-note">H3 resolution 8 — griglia esagonale</td></tr>
+          <tr><td class="field-name">status</td><td class="field-type">ENUM</td><td class="field-req">●</td><td class="field-note">VALIDATED / QUARANTINE / REJECTED</td></tr>
+          <tr><td class="field-name">created_at</td><td class="field-type">TIMESTAMP</td><td class="field-req">●</td><td class="field-note">UTC — immutabile dopo creazione</td></tr>
+          <tr><td class="field-name">storage_path</td><td class="field-type">TEXT</td><td class="field-req">●</td><td class="field-note">Path CID_HUB. Es: CID_HUB/MAMMUTH/LT/LOG_000001</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="padding:14px 20px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--red);font-size:10px;color:var(--dim);line-height:1.7">
+    <span style="color:var(--red);letter-spacing:.15em;font-size:8px">⚠ REGOLA ASSOLUTA — ZERO INVENTED DATA</span><br>
+    Ogni record DEVE provenire da fonti ufficiali verificate: siti parrocchiali, diocesani, ProLoco, archivi storici, ISTAT. Vietato inserire dati da blog, aggregatori, Wikipedia non citata, social media non ufficiali. La Verità Territoriale è l'asset fondamentale del sistema.
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section id="validation">
+  <div class="sec-label">05 — Validazione</div>
+  <div class="sec-title">KWF VALIDATION PIPELINE — 4 LAYER</div>
+
+  <div class="val-grid">
+    <div class="val-cell">
+      <div class="vc-num">01</div>
+      <div class="vc-name">DNA DEL DATO</div>
+      <div class="vc-desc">Verifica presenza di tutti i campi obbligatori: id_sequence, istat_code, nome_evento, data_inizio, comune, provincia, categoria, fonte_url.</div>
+      <div class="vc-tech">→ T.C.F.™ Layer 1</div>
+    </div>
+    <div class="val-cell">
+      <div class="vc-num">02</div>
+      <div class="vc-name">STAR-SCHEMA SQL</div>
+      <div class="vc-desc">Verifica coerenza relazionale: istat_code deve corrispondere al comune dichiarato. Nessuna discrepanza geografica tollerata. Join con tabella ISTAT ufficiale.</div>
+      <div class="vc-tech">→ T.C.F.™ Layer 2</div>
+    </div>
+    <div class="val-cell">
+      <div class="vc-num">03</div>
+      <div class="vc-name">KDE THRESHOLDS</div>
+      <div class="vc-desc">Kernel Density Estimation per rilevare anomalie statistiche: date impossibili, nomi duplicati con variazioni minime, pattern di spam e saturazione artificiale.</div>
+      <div class="vc-tech">→ MORPHEUS·JLX™</div>
+    </div>
+    <div class="val-cell">
+      <div class="vc-num">04</div>
+      <div class="vc-name">ISTAT/ANAC ORACLE</div>
+      <div class="vc-desc">Verifica esterna contro database ISTAT ufficiale per codici comuni e ANAC per enti pubblici. Unico layer che richiede connessione a fonte esterna certificata.</div>
+      <div class="vc-tech">→ Oracle Verification</div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAPHY -->
+<section id="geography">
+  <div class="sec-label">06 — Geografia</div>
+  <div class="sec-title">GERARCHIA TERRITORIALE ISTAT</div>
+
+  <div class="geo-hierarchy">
+    <div class="geo-level">
+      <div class="gl-code">LIVELLO 1</div>
+      <div class="gl-name">NAZIONE</div>
+      <div class="gl-example">Italia</div>
+    </div>
+    <div class="geo-arrow">→</div>
+    <div class="geo-level">
+      <div class="gl-code">LIVELLO 2</div>
+      <div class="gl-name">REGIONE</div>
+      <div class="gl-example">Lazio</div>
+    </div>
+    <div class="geo-arrow">→</div>
+    <div class="geo-level">
+      <div class="gl-code">LIVELLO 3</div>
+      <div class="gl-name">PROVINCIA</div>
+      <div class="gl-example">Latina (LT)</div>
+    </div>
+    <div class="geo-arrow">→</div>
+    <div class="geo-level">
+      <div class="gl-code">LIVELLO 4</div>
+      <div class="gl-name">COMUNE</div>
+      <div class="gl-example">Sermoneta</div>
+    </div>
+    <div class="geo-arrow">→</div>
+    <div class="geo-level" style="border-left:2px solid var(--green)">
+      <div class="gl-code" style="color:var(--green)">ISTAT CODE</div>
+      <div class="gl-name" style="color:var(--green)">059026</div>
+      <div class="gl-example">Anchor Comune</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)">
+    <div style="background:var(--bg2);padding:20px">
+      <div style="font-size:8px;letter-spacing:.2em;color:var(--dim2);margin-bottom:10px">PILOT TERRITORY</div>
+      <div style="font-size:20px;font-family:'Bebas Neue',sans-serif;color:#fff;margin-bottom:8px">Provincia di Latina</div>
+      <div style="font-size:10px;color:var(--dim);line-height:1.7">33 comuni · target 5.000 eventi · codice LT · regione Lazio · ancora: Sermoneta (059026)</div>
+    </div>
+    <div style="background:var(--bg2);padding:20px">
+      <div style="font-size:8px;letter-spacing:.2em;color:var(--dim2);margin-bottom:10px">EXPANSION ROADMAP</div>
+      <div style="font-size:10px;color:var(--dim);line-height:1.8">
+        <span style="color:var(--green)">● LIVE</span> Sermoneta + Provincia LT<br>
+        <span style="color:var(--yellow)">◐ NEXT</span> Regione Lazio completa<br>
+        <span style="color:var(--red)">○ Q3 2026</span> Italia intera<br>
+        <span style="color:var(--dim2)">○ 2027</span> Europa → Global
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAL -->
+<section id="portal">
+  <div class="sec-label">07 — Developer Portal</div>
+  <div class="sec-title">PAGINE ATTIVE — developer/</div>
+
+  <div class="portal-grid">
+    <a href="developer-index.html" class="portal-card">
+      <div class="pc-label">Index</div>
+      <div class="pc-name">Developer Portal</div>
+      <div class="pc-desc">Homepage del portal — accesso a tutti i moduli e documenti tecnici</div>
+      <div class="pc-arrow">→ developer-index.html</div>
+    </a>
+    <a href="ATLAS-EVENTA.html" class="portal-card">
+      <div class="pc-label">Database</div>
+      <div class="pc-name">ATLAS•EVENTA</div>
+      <div class="pc-desc">Schema database eventi territoriali, tassonomia categorie, dataset Lazio</div>
+      <div class="pc-arrow">→ ATLAS-EVENTA.html</div>
+    </a>
+    <a href="TCF-framework.html" class="portal-card">
+      <div class="pc-label">Validazione</div>
+      <div class="pc-name">T.C.F.™ Framework</div>
+      <div class="pc-desc">Total Coherence Framework — 4 pilastri, regole di validazione</div>
+      <div class="pc-arrow">→ TCF-framework.html</div>
+    </a>
+    <a href="TCF-playground.html" class="portal-card">
+      <div class="pc-label">Tool</div>
+      <div class="pc-name">T.C.F.™ Playground v2.0</div>
+      <div class="pc-desc">Validatore interattivo con batch mode — zero backend</div>
+      <div class="pc-arrow">→ TCF-playground.html</div>
+    </a>
+    <a href="MORPHEUS-JLX.html" class="portal-card">
+      <div class="pc-label">Anti-Rumore</div>
+      <div class="pc-name">MORPHEUS·JLX™</div>
+      <div class="pc-desc">Motore normalizzazione e filtro semantico dei dati in ingresso</div>
+      <div class="pc-arrow">→ MORPHEUS-JLX.html</div>
+    </a>
+    <a href="ANTHROPIC-HOLE.html" class="portal-card">
+      <div class="pc-label">Ingestion</div>
+      <div class="pc-name">ANTHROPIC HOLE™</div>
+      <div class="pc-desc">Pipeline WhatsApp → OCR → Claude API → database</div>
+      <div class="pc-arrow">→ ANTHROPIC-HOLE.html</div>
+    </a>
+    <a href="criterion-sanctus.html" class="portal-card">
+      <div class="pc-label">Macchina della Verità</div>
+      <div class="pc-name">CRITĒRION•SĀNCTUS</div>
+      <div class="pc-desc">ID sequenziale, triage V/G/R, log CID_HUB, ban system</div>
+      <div class="pc-arrow">→ criterion-sanctus.html</div>
+    </a>
+    <a href="to-fill-the-void-strategy.html" class="portal-card">
+      <div class="pc-label">Strategia</div>
+      <div class="pc-name">To Fill The Void™</div>
+      <div class="pc-desc">Filosofia saturazione territoriale, logica WhatsApp, 3 garanzie</div>
+      <div class="pc-arrow">→ to-fill-the-void-strategy.html</div>
+    </a>
+    <a href="to-fill-the-void.html" class="portal-card">
+      <div class="pc-label">Protocollo</div>
+      <div class="pc-name">Protocollo PIQ/ENR/LEM</div>
+      <div class="pc-desc">3 pilastri operativi gamification — Incentivo, Rumore, Leva Emotiva</div>
+      <div class="pc-arrow">→ to-fill-the-void.html</div>
+    </a>
+    <a href="THRESHOLD-5000.html" class="portal-card">
+      <div class="pc-label">KPI</div>
+      <div class="pc-name">THRESHOLD·5000™</div>
+      <div class="pc-desc">Protocollo saturazione 5K eventi, metriche copertura territoriale</div>
+      <div class="pc-arrow">→ THRESHOLD-5000.html</div>
+    </a>
+    <a href="COLOR-TRIAGE.html" class="portal-card">
+      <div class="pc-label">Classificazione</div>
+      <div class="pc-name">COLOR-TRIAGE</div>
+      <div class="pc-desc">Sistema triage cromatico Verde/Giallo/Rosso per dati in ingresso</div>
+      <div class="pc-arrow">→ COLOR-TRIAGE.html</div>
+    </a>
+    <a href="exoskeleton.html" class="portal-card" style="border-left-color:var(--green)">
+      <div class="pc-label" style="color:var(--green)">Questo documento</div>
+      <div class="pc-name">EXOSKELETON™</div>
+      <div class="pc-desc">Master Architecture Document — riferimento completo per sviluppatori</div>
+      <div class="pc-arrow" style="color:var(--green)">→ exoskeleton.html</div>
+    </a>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="sec-label">08 — Roadmap</div>
+  <div class="sec-title">STATO AVANZAMENTO SISTEMA</div>
+
+  <div class="roadmap">
+    <div class="rm-col live">
+      <div class="rm-head live">● LIVE — Operativi</div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>ATLAS•EVENTA</strong>190 eventi Lazio verificati, schema PostgreSQL completo</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>T.C.F.™ Playground v2.0</strong>Batch mode attivo, zero backend, GitHub Pages</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Developer Portal</strong>14+ pagine HTML, CI/CD, branch protection</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>CRITĒRION•SĀNCTUS</strong>Macchina della Verità con triage V/G/R</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Mappa Leaflet</strong>Dark-theme interattiva, GitHub Pages</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>schema/categorie.json</strong>15+ categorie ufficiali eventi</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>GDPR Infrastructure</strong>Privacy page, WhatsApp consent flow</div></div>
+    </div>
+    <div class="rm-col dev">
+      <div class="rm-head dev">◐ IN SVILUPPO</div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>ANTHROPIC HOLE™ Pipeline</strong>WhatsApp → OCR → Claude API → commit GitHub</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>KWF Validation Pipeline</strong>4 layer: DNA, star-schema, KDE, ISTAT oracle</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>WhatsApp Business API</strong>Twilio sandbox attivo, Meta verification pending</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Shadow Testing</strong>Validazione parallela su dataset reali Sermoneta</div></div>
+    </div>
+    <div class="rm-col plan">
+      <div class="rm-head plan">○ PIANIFICATI</div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>React Native App</strong>iOS + Android, discovery eventi, geolocalizzazione</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Typesense Search</strong>Full-text, fuzzy, filtri combinati</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Analytics Dashboard</strong>KPI, copertura territoriale, trend stagionali</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Espansione Lazio</strong>Regione completa dopo saturazione LT</div></div>
+      <div class="rm-item"><div class="rm-dot"></div><div class="rm-text"><strong>Italia → Europa → Global</strong>Wikipedia dei micro-eventi mondiali</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div class="df-left">
+    <div class="df-label">FOUNDER & AUTHOR</div>
+    <div class="df-name">Leonardo Adriano Chelariu</div>
+    <div class="df-sub">K•Word•Festival (KWF) · MAMMUTH•EVENTS™</div>
+    <div class="df-sigil">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+  </div>
+  <div class="df-right">
+    <div class="df-ver">KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · v1.0</div>
+    <div class="df-sys">EXOSKELETON™</div>
+  </div>
+</div>
+
+</main>
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id], div[id="hero"]');
+const navLinks = document.querySelectorAll('.sn-link');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.sn-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, {rootMargin: '-20% 0px -70% 0px'});
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
