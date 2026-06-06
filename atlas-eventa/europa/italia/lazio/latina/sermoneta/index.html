@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERMONETA · INDEX — ATLAS•EVENTA™ · CODE 3620</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Inconsolata:wght@300;400;500;700&display=swap');
+
+:root {
+  --gold: #B8962E;
+  --gold-light: #D4AF6A;
+  --gold-pale: #E8D49A;
+  --gold-dim: #5A4810;
+  --black: #080807;
+  --ink: #0E0E0C;
+  --surface: #121210;
+  --surface-2: #1A1A17;
+  --surface-3: #222220;
+  --border: #2A2A25;
+  --border-gold: #3A3218;
+  --text: #C8C4B0;
+  --text-dim: #6A6658;
+  --text-muted: #3A3830;
+  --green: #4A7A4A;
+  --green-light: #7AAA6A;
+  --serif: 'IM Fell English', Georgia, serif;
+  --mono: 'Inconsolata', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* GRAIN TEXTURE */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* DECORATIVE VERTICAL LINE */
+.vertical-rule {
+  position: fixed;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border-gold) 20%, var(--border-gold) 80%, transparent);
+  opacity: 0.4;
+}
+
+/* NAV BREADCRUMB */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 10px 60px 10px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcrumb {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb span { color: var(--gold-dim); }
+.breadcrumb strong { color: var(--gold); }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+}
+
+.cert-badge-nav {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gold);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+}
+
+.cert-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--green-light);
+  border-radius: 50%;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+/* HERO */
+.hero {
+  padding: 80px 60px 60px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+.hero-system-label {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-system-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 300px;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 8vw, 96px);
+  color: var(--gold-pale);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+
+.hero-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border-gold);
+  max-width: 700px;
+}
+
+.hero-meta-item {
+  padding: 12px 16px;
+  border-right: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.hero-meta-item:last-child { border-right: none; }
+
+.meta-label {
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.meta-val {
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+
+.meta-val.gold { color: var(--gold-light); }
+
+/* MAIN CONTENT */
+.content {
+  padding: 0 60px;
+  max-width: 1200px;
+}
+
+/* SECTION */
+.section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 0.6s ease both;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.section-count {
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* DATA TABLE */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.data-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border-gold);
+  font-weight: 500;
+  background: var(--surface);
+  text-transform: uppercase;
+}
+
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.4;
+  transition: background 0.15s;
+}
+
+.data-table tr:hover td { background: var(--surface-2); }
+
+.data-table td:first-child {
+  color: var(--text-dim);
+  font-size: 10px;
+  width: 36px;
+  text-align: right;
+  padding-right: 16px;
+}
+
+/* STATUS BADGES */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  padding: 3px 7px;
+  border-radius: 1px;
+}
+
+.badge-validated {
+  background: rgba(74,122,74,0.15);
+  color: var(--green-light);
+  border: 1px solid rgba(74,122,74,0.3);
+}
+
+.badge-validated::before {
+  content: '✓';
+  font-size: 8px;
+}
+
+/* CATEGORY PILLS */
+.cat-pill {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  display: inline-block;
+}
+
+.cat-sagra { border-color: #3A2A10; color: #AA7A40; }
+.cat-religiosa { border-color: #1A2A3A; color: #5A8AAA; }
+.cat-culturale { border-color: #2A1A3A; color: #8A5AAA; }
+.cat-musicale { border-color: #1A3A2A; color: #5AAA8A; }
+.cat-storica { border-color: #3A1A1A; color: #AA5A5A; }
+.cat-mercato { border-color: #3A3A1A; color: #AAAA5A; }
+
+/* STATS GRID */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border: 1px solid var(--border-gold);
+}
+
+.stat-cell {
+  padding: 20px 16px;
+  border-right: 1px solid var(--border-gold);
+  text-align: center;
+  position: relative;
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-val {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-style: italic;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-val.v-total { color: var(--gold-light); }
+.stat-val.v-validated { color: var(--green-light); }
+.stat-val.v-attesa { color: var(--text-dim); }
+.stat-val.v-rejected { color: #6A3A3A; }
+.stat-val.v-score { color: var(--gold-pale); }
+
+.stat-label {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+/* TERRITORY TABLE */
+.territory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.territory-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+}
+
+.territory-table td:first-child {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  width: 200px;
+}
+
+.territory-table td:last-child { color: var(--text); }
+
+.territory-table a {
+  color: var(--gold-dim);
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.territory-table a:hover { color: var(--gold); }
+
+/* FONTI */
+.fonti-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fonte-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.fonte-item:last-child { border-bottom: none; }
+
+.fonte-icon {
+  font-size: 8px;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+  letter-spacing: 0.1em;
+}
+
+.fonte-name {
+  font-size: 11px;
+  color: var(--text);
+  flex: 1;
+}
+
+.fonte-url {
+  font-size: 9px;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  word-break: break-all;
+}
+
+.fonte-url:hover { color: var(--gold-dim); }
+
+/* FILE DATA */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-gold);
+  margin-bottom: 8px;
+  background: var(--surface);
+  transition: background 0.2s;
+}
+
+.file-row:hover { background: var(--surface-2); }
+
+.file-icon {
+  font-size: 18px;
+  color: var(--gold-dim);
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.file-name {
+  font-size: 12px;
+  color: var(--gold-light);
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+
+.file-desc {
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+.file-badge {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  padding: 3px 8px;
+  background: rgba(74,122,74,0.1);
+  border: 1px solid rgba(74,122,74,0.25);
+  color: var(--green-light);
+}
+
+/* FOOTER */
+footer {
+  padding: 32px 60px;
+  border-top: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-dim);
+  letter-spacing: 0.05em;
+}
+
+.footer-meta {
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* EVENT NAME */
+.event-name {
+  color: var(--text);
+  font-size: 11px;
+}
+
+.event-period {
+  font-size: 9px;
+  color: var(--text-dim);
+  margin-top: 3px;
+  letter-spacing: 0.05em;
+}
+
+/* ISTAT CHIP */
+.istat-chip {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 9px;
+  color: var(--gold-dim);
+  border: 1px solid var(--border-gold);
+  padding: 2px 7px;
+  letter-spacing: 0.1em;
+}
+
+/* ANIMATE ROWS */
+.data-table tbody tr {
+  animation: rowIn 0.3s ease both;
+}
+.data-table tbody tr:nth-child(1) { animation-delay: 0.05s }
+.data-table tbody tr:nth-child(2) { animation-delay: 0.07s }
+.data-table tbody tr:nth-child(3) { animation-delay: 0.09s }
+.data-table tbody tr:nth-child(4) { animation-delay: 0.11s }
+.data-table tbody tr:nth-child(5) { animation-delay: 0.13s }
+.data-table tbody tr:nth-child(6) { animation-delay: 0.15s }
+.data-table tbody tr:nth-child(7) { animation-delay: 0.17s }
+.data-table tbody tr:nth-child(8) { animation-delay: 0.19s }
+.data-table tbody tr:nth-child(9) { animation-delay: 0.21s }
+.data-table tbody tr:nth-child(10) { animation-delay: 0.23s }
+.data-table tbody tr:nth-child(11) { animation-delay: 0.25s }
+.data-table tbody tr:nth-child(12) { animation-delay: 0.27s }
+.data-table tbody tr:nth-child(13) { animation-delay: 0.29s }
+.data-table tbody tr:nth-child(14) { animation-delay: 0.31s }
+.data-table tbody tr:nth-child(15) { animation-delay: 0.33s }
+.data-table tbody tr:nth-child(16) { animation-delay: 0.35s }
+.data-table tbody tr:nth-child(17) { animation-delay: 0.37s }
+.data-table tbody tr:nth-child(18) { animation-delay: 0.39s }
+.data-table tbody tr:nth-child(19) { animation-delay: 0.41s }
+.data-table tbody tr:nth-child(20) { animation-delay: 0.43s }
+.data-table tbody tr:nth-child(21) { animation-delay: 0.45s }
+.data-table tbody tr:nth-child(22) { animation-delay: 0.47s }
+.data-table tbody tr:nth-child(23) { animation-delay: 0.49s }
+
+@keyframes rowIn { from{opacity:0;transform:translateX(-8px)} to{opacity:1;transform:translateX(0)} }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav, .hero, .content, footer { padding-left: 24px; padding-right: 24px; }
+  .vertical-rule { display: none; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-meta-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="vertical-rule"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="breadcrumb">
+    <span>Europa</span> › <span>Italia</span> › <span>Lazio</span> › <span>Latina</span> › <strong>Sermoneta</strong>
+  </div>
+  <div class="nav-right">
+    <span>ATLAS•EVENTA™ · DOC-AE-003 · v1.0</span>
+    <div class="cert-badge-nav">
+      <span class="cert-dot"></span>
+      CODE 3620 · CERTIFIED
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-system-label">
+    ATLAS•EVENTA™ · KREATIO UNIVERSAL SYSTEM™ · SERMONETA · INDEX
+  </div>
+  <h1 class="hero-title">Sermoneta</h1>
+  <p class="hero-subtitle">Sistema di Verità Territoriale — Comune Pilota · Provincia di Latina</p>
+
+  <div class="hero-meta-grid">
+    <div class="hero-meta-item">
+      <div class="meta-label">ISTAT</div>
+      <div class="meta-val gold">059026</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Provincia</div>
+      <div class="meta-val">Latina (LT)</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Regione</div>
+      <div class="meta-val">Lazio</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Coordinate</div>
+      <div class="meta-val">41.550°N · 12.983°E</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Patrono</div>
+      <div class="meta-val">San Giuseppe</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Popolazione</div>
+      <div class="meta-val">~9.836</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Diocesi</div>
+      <div class="meta-val">Latina-Terracina-<br>Sezze-Priverno</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="meta-label">Ultimo aggiornamento</div>
+      <div class="meta-val gold">Giugno 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- STATO ATLAS EVENTA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">STATO ATLAS•EVENTA™</span>
+      <div class="section-rule"></div>
+      <span class="section-count">DATASET · DS-SERM-059026-2026-001</span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <span class="stat-val v-total">23</span>
+        <span class="stat-label">Identificati</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-val v-validated">23</span>
+        <span class="stat-label">Validated</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-val v-attesa">0</span>
+        <span class="stat-label">In Attesa</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-val v-rejected">0</span>
+        <span class="stat-label">Rejected</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-val v-score">100%</span>
+        <span class="stat-label">TCF Score</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATI TERRITORIALI -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">DATI TERRITORIALI</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <table class="territory-table">
+      <tr><td>Comune</td><td>Sermoneta</td></tr>
+      <tr><td>Codice ISTAT</td><td><span class="istat-chip">⬡ 059026</span></td></tr>
+      <tr><td>Provincia</td><td>Latina (LT)</td></tr>
+      <tr><td>Regione</td><td>Lazio</td></tr>
+      <tr><td>Nazione</td><td>Italia</td></tr>
+      <tr><td>Continente</td><td>Europa</td></tr>
+      <tr><td>Coordinate GPS</td><td>41.550°N · 12.983°E</td></tr>
+      <tr><td>Santo Patrono</td><td>San Giuseppe</td></tr>
+      <tr><td>Diocesi</td><td>Latina-Terracina-Sezze-Priverno</td></tr>
+      <tr><td>Popolazione</td><td>~9.836 abitanti</td></tr>
+      <tr><td>Sito Ufficiale</td><td><a href="https://comune.sermoneta.latina.it" target="_blank">https://comune.sermoneta.latina.it ↗</a></td></tr>
+    </table>
+  </div>
+
+  <!-- CALENDARIO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">CALENDARIO COMPLETO</span>
+      <div class="section-rule"></div>
+      <span class="section-count">23 EVENTI · T.C.F.™ VALIDATED</span>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>EVENTO</th>
+          <th>PERIODO</th>
+          <th>CATEGORIA</th>
+          <th>GSN</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><div class="event-name">Tradizionale Sagra della Polenta</div></td>
+          <td><div class="event-period">Gennaio</div></td>
+          <td><span class="cat-pill cat-sagra">sagra</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000001</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>02</td>
+          <td><div class="event-name">Festa di San Giuseppe e dei Faoni</div></td>
+          <td><div class="event-period">18–19 Marzo</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000002</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td><div class="event-name">Sermoneta si Tinge di Rosa</div></td>
+          <td><div class="event-period">Aprile / Giugno</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000003</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td><div class="event-name">Maggio Sermonetano — Spettacoli in Strada</div></td>
+          <td><div class="event-period">Maggio · XXXI edizione 2026</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000004</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>05</td>
+          <td><div class="event-name">Notte Europea dei Musei</div></td>
+          <td><div class="event-period">Maggio · III sabato</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000005</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>06</td>
+          <td><div class="event-name">Borgo Lepino Food Festival</div></td>
+          <td><div class="event-period">Giugno · I weekend</div></td>
+          <td><span class="cat-pill cat-sagra">sagra_territoriale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000006</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>07</td>
+          <td><div class="event-name">Sermonet'Amo — Festival Teatro Dialettale</div></td>
+          <td><div class="event-period">Giugno</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000007</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>08</td>
+          <td><div class="event-name">Venerdì Letterari di Unitre Sermoneta</div></td>
+          <td><div class="event-period">Giugno · ogni venerdì</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000008</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>09</td>
+          <td><div class="event-name">Valvisciolo in Festa — Sant'Antonio da Padova</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Abbazia di Valvisciolo</div></td>
+          <td><div class="event-period">Fine Giugno</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000009</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><div class="event-name">Festival Pontino di Musica</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Castello Caetani · dal 1963</div></td>
+          <td><div class="event-period">Luglio · 62ª edizione</div></td>
+          <td><span class="cat-pill cat-musicale">festival_musica</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000010</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><div class="event-name">Chitarra Festival — Campus Internazionale di Musica</div></td>
+          <td><div class="event-period">Luglio</div></td>
+          <td><span class="cat-pill cat-musicale">festival_musica</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000011</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><div class="event-name">Sermoneta Contemporary Art Festival</div></td>
+          <td><div class="event-period">Luglio / Agosto</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000012</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td><div class="event-name">Festa S. Maria Assunta — Doganella di Ninfa</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Frazione di Sermoneta</div></td>
+          <td><div class="event-period">1–10 Agosto</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000013</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td><div class="event-name">Solennità Santa Maria Assunta — Festa Patronale</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Collegiata romanico-gotica XII sec.</div></td>
+          <td><div class="event-period">15 Agosto</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000014</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td><div class="event-name">Caroso Festival — Chitarra Classica Internazionale</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Chiesa San Michele Arcangelo · XXX edizione 2025</div></td>
+          <td><div class="event-period">Agosto</div></td>
+          <td><span class="cat-pill cat-musicale">festival_musica</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000015</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td><div class="event-name">Il Cosmo in Festa — Festival delle Stelle</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Giardino degli Aranci · Ass. Astri di Circe</div></td>
+          <td><div class="event-period">Agosto · due serate</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000016</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td><div class="event-name">Festival Internazionale Sermoneta in Folklore</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Sbandieratori Ducato Caetani · IX edizione 2025</div></td>
+          <td><div class="event-period">Agosto · II metà</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000017</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td><div class="event-name">Festa di San Bernardo — Abbazia di Valvisciolo</div></td>
+          <td><div class="event-period">Fine Agosto · ~20 agosto</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000018</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td><div class="event-name">Festa Madonna di Lourdes — Tufette</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Borgata di Tufette</div></td>
+          <td><div class="event-period">30–31 Agosto</div></td>
+          <td><span class="cat-pill cat-religiosa">festa_religiosa</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000019</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td><div class="event-name">Secolare Fiera di San Michele</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Area Monticchio · Interesse storico Regione Lazio</div></td>
+          <td><div class="event-period">Settembre · ultima settimana</div></td>
+          <td><span class="cat-pill cat-mercato">mercato</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000020</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td><div class="event-name">Rievocazione Storica Battaglia di Lepanto</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Palio Madonna della Vittoria · 40ª edizione 2025</div></td>
+          <td><div class="event-period">Ottobre · II domenica</div></td>
+          <td><span class="cat-pill cat-storica">palio_rievocazione</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000021</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td><div class="event-name">Cammini DiVini — Abbazia di Valvisciolo</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Regione Lazio · vini, oli, cammini</div></td>
+          <td><div class="event-period">Autunno</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000022</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td><div class="event-name">Favole di Natale</div><div class="event-period" style="font-size:8px;color:var(--text-muted)">Comune + Pro Loco + Ass. Meraviglia · IV edizione</div></td>
+          <td><div class="event-period">6 Dic – 6 Gen</div></td>
+          <td><span class="cat-pill cat-culturale">festival_culturale</span></td>
+          <td style="font-size:8px;color:var(--text-muted);letter-spacing:0.03em">…000000023</td>
+          <td><span class="badge badge-validated">VALIDATED</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FONTI UFFICIALI -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">FONTI UFFICIALI CONSULTATE</span>
+      <div class="section-rule"></div>
+      <span class="section-count">5 FONTI · ZERO INVENTED DATA</span>
+    </div>
+
+    <ul class="fonti-list">
+      <li class="fonte-item">
+        <span class="fonte-icon">SRC·01</span>
+        <span class="fonte-name">Sito Comune di Sermoneta</span>
+        <a class="fonte-url" href="https://comune.sermoneta.latina.it" target="_blank">https://comune.sermoneta.latina.it ↗</a>
+      </li>
+      <li class="fonte-item">
+        <span class="fonte-icon">SRC·02</span>
+        <span class="fonte-name">Archivio storico Comune</span>
+        <a class="fonte-url" href="https://www.comunedisermoneta.it" target="_blank">https://www.comunedisermoneta.it ↗</a>
+      </li>
+      <li class="fonte-item">
+        <span class="fonte-icon">SRC·03</span>
+        <span class="fonte-name">Diocesi di Latina-Terracina-Sezze-Priverno</span>
+        <a class="fonte-url" href="https://diocesi.latina.it" target="_blank">https://diocesi.latina.it ↗</a>
+      </li>
+      <li class="fonte-item">
+        <span class="fonte-icon">SRC·04</span>
+        <span class="fonte-name">Comuni Italiani — ISTAT</span>
+        <a class="fonte-url" href="https://www.comuni-italiani.it/059/027/" target="_blank">https://www.comuni-italiani.it/059/027/ ↗</a>
+      </li>
+      <li class="fonte-item">
+        <span class="fonte-icon">SRC·05</span>
+        <span class="fonte-name">Sito ufficiale Maggio Sermonetano</span>
+        <a class="fonte-url" href="https://www.maggiosermonetano.it" target="_blank">https://www.maggiosermonetano.it ↗</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FILE DATI -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">FILE DATI</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="file-row">
+      <span class="file-icon">Ω</span>
+      <div>
+        <div class="file-name">eventi.json</div>
+        <div style="font-size:9px;color:var(--text-dim);margin-top:3px;letter-spacing:0.05em">
+          atlas-eventa/data/sermoneta/eventi.json · 23 records · schema v1.0.0
+        </div>
+      </div>
+      <span style="color:var(--text-dim);font-size:9px;letter-spacing:0.1em">T.C.F.™ VALIDATED</span>
+      <span class="file-badge">✓ 3620 CERTIFIED</span>
+    </div>
+
+    <div class="file-row">
+      <span class="file-icon" style="font-size:14px">◈</span>
+      <div>
+        <div class="file-name">index.html</div>
+        <div style="font-size:9px;color:var(--text-dim);margin-top:3px;letter-spacing:0.05em">
+          atlas-eventa/data/sermoneta/index.html · questo file · DOC-AE-003
+        </div>
+      </div>
+      <span style="color:var(--text-dim);font-size:9px;letter-spacing:0.1em">DEVELOPER PORTAL</span>
+      <span class="file-badge">✓ ACTIVE</span>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">ATLAS•EVENTA™ · Sistema di Verità Territoriale</div>
+  <div class="footer-meta">
+    KREATIO UNIVERSAL SYSTEM™ · CODE 3620<br>
+    Sermoneta · ISTAT 059026 · Giugno 2026<br>
+    T.C.F.™ Score: 100% · 23/23 VALIDATED
+  </div>
+</footer>
+
+</body>
+</html>
