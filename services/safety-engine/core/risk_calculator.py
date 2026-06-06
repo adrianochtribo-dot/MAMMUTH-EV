@@ -2,7 +2,7 @@
 MAMMUTH•EVENTS™ — Safety Engine
 Module: risk_calculator.py
 Scenario: A (Deterministico)
-Version: 1.0.0
+Version: 1.1.0
 Author: KREATIO UNIVERSAL SYSTEM™
 
 Implementa la valutazione deterministica del rischio crowd crush
@@ -10,6 +10,8 @@ basata sugli standard internazionali di John J. Fruin (Pedestrian
 Planning and Design, 1971) e SFPE Handbook of Fire Protection Engineering.
 
 Filosofia: INFORMARE, CONSIGLIARE, MITIGARE — mai vietare o censurare.
+v1.1.0: aggiunto DataInconsistencyError + OSM validation layer
+Ref: SYSTEM-ANTI-FRAGILE-V1.0 — Pattern "Synapse Collapse"
 """
 
 from __future__ import annotations
@@ -26,24 +28,135 @@ from numpy.linalg import norm
 # COSTANTI — Standard Fruin + letteratura crowd safety internazionale
 # ---------------------------------------------------------------------------
 
-# Soglie densità (persone/m²) — Fruin Level of Service (LoS)
-DENSITY_LOS_A = 0.5    # LoS A: libera circolazione, comfort massimo
-DENSITY_LOS_B = 1.0    # LoS B: movimento agevole
-DENSITY_LOS_C = 2.0    # LoS C: movimento limitato — ATTENZIONE
-DENSITY_LOS_D = 3.0    # LoS D: contatto fisico frequente — ALLERTA
-DENSITY_LOS_E = 4.0    # LoS E: immobilità parziale — CRITICO
-DENSITY_LOS_F = 6.0    # LoS F: pressione fisica — EMERGENZA (Piazza San Carlo: 6.2)
+DENSITY_LOS_A = 0.5
+DENSITY_LOS_B = 1.0
+DENSITY_LOS_C = 2.0
+DENSITY_LOS_D = 3.0
+DENSITY_LOS_E = 4.0
+DENSITY_LOS_F = 6.0
 
-# Capacità deflusso standard (persone/metro/minuto) — UK Guide to Safety at Sports Grounds
-FLOW_RATE_NORMAL = 82        # p/m/min — flusso normale in corridoio
-FLOW_RATE_BOTTLENECK = 60    # p/m/min — riduzione in strozzatura
-FLOW_RATE_PANIC = 25         # p/m/min — flusso in panico (crowd crush imminente)
+FLOW_RATE_NORMAL = 82
+FLOW_RATE_BOTTLENECK = 60
+FLOW_RATE_PANIC = 25
 
-# Pesi per il calcolo del risk score composito (somma = 1.0)
 WEIGHT_DENSITY = 0.40
 WEIGHT_BOTTLENECK = 0.30
 WEIGHT_HISTORICAL = 0.20
 WEIGHT_MODIFIERS = 0.10
+
+OSM_VARIANCE_THRESHOLD = 15.0
+
+
+# ---------------------------------------------------------------------------
+# ECCEZIONE CUSTOM — DataInconsistencyError
+# ---------------------------------------------------------------------------
+
+class DataInconsistencyError(Exception):
+    """
+    Sollevata quando i dati inseriti dall'utente differiscono di oltre
+    il 15% rispetto alla misurazione geometrica OSM verificata.
+
+    Blocca il calcolo del risk score per proteggere la difendibilità
+    legale del sistema. Un risk score calcolato su dati errati è
+    peggio di nessun risk score.
+
+    Filosofia: MAMMUTH genera Decision Intelligence per operatori
+    qualificati. Un dato inconsistente non è Decision Intelligence.
+    """
+    def __init__(
+        self,
+        field: str,
+        declared_value: float,
+        osm_value: float,
+        variance_percent: float,
+    ):
+        self.field = field
+        self.declared_value = declared_value
+        self.osm_value = osm_value
+        self.variance_percent = variance_percent
+        super().__init__(
+            f"DataInconsistencyError: campo '{field}' — "
+            f"valore dichiarato {declared_value} differisce del "
+            f"{variance_percent:.1f}% dal dato OSM verificato {osm_value}. "
+            f"Soglia massima consentita: {OSM_VARIANCE_THRESHOLD}%. "
+            f"Correggere il dato prima di procedere al calcolo del rischio."
+        )
+
+
+# ---------------------------------------------------------------------------
+# OSM VALIDATOR
+# ---------------------------------------------------------------------------
+
+@dataclass
+class OSMValidationResult:
+    field: str
+    declared_value: float
+    osm_value: float
+    variance_percent: float
+    is_consistent: bool
+    message: str
+
+
+def validate_against_osm(
+    field: str,
+    declared_value: float,
+    osm_value: float,
+    threshold_percent: float = OSM_VARIANCE_THRESHOLD,
+) -> OSMValidationResult:
+    """
+    Confronta un valore dichiarato con il dato OSM verificato.
+    Raises DataInconsistencyError se varianza > soglia.
+    """
+    if osm_value <= 0:
+        return OSMValidationResult(
+            field=field,
+            declared_value=declared_value,
+            osm_value=osm_value,
+            variance_percent=0.0,
+            is_consistent=True,
+            message=f"Dato OSM per '{field}' non disponibile — validazione saltata.",
+        )
+
+    variance = abs(declared_value - osm_value) / osm_value * 100
+
+    if variance > threshold_percent:
+        raise DataInconsistencyError(
+            field=field,
+            declared_value=declared_value,
+            osm_value=osm_value,
+            variance_percent=variance,
+        )
+
+    return OSMValidationResult(
+        field=field,
+        declared_value=declared_value,
+        osm_value=osm_value,
+        variance_percent=round(variance, 2),
+        is_consistent=True,
+        message=(
+            f"'{field}' validato: varianza {variance:.1f}% "
+            f"< soglia {threshold_percent}% — dato coerente con OSM."
+        ),
+    )
+
+
+def validate_venue_geometry(
+    venue: "VenueGeometry",
+    osm_area_sqm: float = 0.0,
+) -> list[OSMValidationResult]:
+    """
+    Valida la geometria del venue contro i dati OSM.
+    Raises DataInconsistencyError al primo campo inconsistente.
+    """
+    results = []
+    if osm_area_sqm > 0:
+        result = validate_against_osm(
+            field="area_sqm",
+            declared_value=venue.area_sqm,
+            osm_value=osm_area_sqm,
+        )
+        results.append(result)
+    return results
 
 
 # ---------------------------------------------------------------------------
@@ -51,19 +164,19 @@ WEIGHT_MODIFIERS = 0.10
 # ---------------------------------------------------------------------------
 
 class RiskLevel(str, Enum):
-    BASSO    = "BASSO"
-    MEDIO    = "MEDIO"
-    ALTO     = "ALTO"
-    CRITICO  = "CRITICO"
+    BASSO     = "BASSO"
+    MEDIO     = "MEDIO"
+    ALTO      = "ALTO"
+    CRITICO   = "CRITICO"
     EMERGENZA = "EMERGENZA"
 
 
 class RiskColor(str, Enum):
-    BASSO    = "#2ECC71"   # verde
-    MEDIO    = "#F39C12"   # arancio
-    ALTO     = "#E67E22"   # arancio scuro
-    CRITICO  = "#E74C3C"   # rosso
-    EMERGENZA = "#8E1A0E"  # rosso scuro
+    BASSO     = "#2ECC71"
+    MEDIO     = "#F39C12"
+    ALTO      = "#E67E22"
+    CRITICO   = "#E74C3C"
+    EMERGENZA = "#8E1A0E"
 
 
 # ---------------------------------------------------------------------------
@@ -72,18 +185,13 @@ class RiskColor(str, Enum):
 
 @dataclass
 class Bottleneck:
-    """Rappresenta un collo di bottiglia geometrico nell'area evento."""
     id: str
     label: str
-    width_m: float                      # larghezza netta in metri
-    is_bidirectional: bool = False      # flusso bidirezionale?
-    is_obstructed: bool = False         # ostruzione prevista/rilevata?
+    width_m: float
+    is_bidirectional: bool = False
+    is_obstructed: bool = False
 
     def effective_flow_rate(self) -> float:
-        """
-        Calcola la portata effettiva in persone/minuto.
-        Dimezza se bidirezionale (controflusso = fattore critico).
-        """
         base = self.width_m * FLOW_RATE_BOTTLENECK
         if self.is_bidirectional:
             base *= 0.5
@@ -94,21 +202,16 @@ class Bottleneck:
 
 @dataclass
 class EventModifiers:
-    """Fattori contestuali che amplificano il rischio base."""
     alcohol_expected: bool = False
     fireworks_planned: bool = False
     live_music: bool = False
     low_lighting: bool = False
     no_safety_plan: bool = False
-    mobility_impaired_percent: float = 0.0   # % pubblico a mobilità ridotta
+    mobility_impaired_percent: float = 0.0
     temperature_c: float = 20.0
     humidity_percent: float = 50.0
 
     def composite_modifier(self) -> float:
-        """
-        Restituisce un moltiplicatore [1.0 — 1.55] da applicare al score base.
-        Calibrato su analisi post-incidente Piazza San Carlo + letteratura SFPE.
-        """
         modifier = 1.0
         if self.alcohol_expected:
             modifier += 0.10
@@ -122,36 +225,27 @@ class EventModifiers:
             modifier += 0.15
         if self.mobility_impaired_percent > 5:
             modifier += 0.05
-
-        # Stress termico — heat index semplificato
         if self.temperature_c > 28 and self.humidity_percent > 65:
             modifier += 0.10
         elif self.temperature_c > 32:
             modifier += 0.08
-
-        return min(modifier, 1.55)   # cap al 55% di amplificazione
+        return min(modifier, 1.55)
 
 
 @dataclass
 class HistoricalIncident:
-    """
-    Vettore di features di un incidente storico verificato.
-    Usato per Cosine Similarity matching.
-    """
     id: str
     name: str
-    # Feature vector: [densità_picco, n_bottleneck, area_chiusa, alcol, fuochi]
     feature_vector: list[float]
-    risk_score_retrospective: float     # score 0.0–1.0 calcolato ex-post
+    risk_score_retrospective: float
 
 
 @dataclass
 class VenueGeometry:
-    """Geometria certificata dell'area evento."""
     name: str
     area_sqm: float
     bottlenecks: list[Bottleneck] = field(default_factory=list)
-    is_enclosed: bool = True            # area chiusa (piazza con imbuti)?
+    is_enclosed: bool = True
     escape_routes_count: int = 2
     escape_routes_obstructed: int = 0
 
@@ -165,6 +259,7 @@ class EventInput:
     venue: VenueGeometry
     modifiers: EventModifiers = field(default_factory=EventModifiers)
     has_safety_plan: bool = False
+    osm_area_sqm: float = 0.0    # area OSM verificata — 0 = non disponibile
 
 
 # ---------------------------------------------------------------------------
@@ -174,7 +269,7 @@ class EventInput:
 @dataclass
 class DensityAnalysis:
     persons_per_sqm: float
-    los_label: str                  # Fruin Level of Service (A–F)
+    los_label: str
     threshold_margin_percent: float
     status: str
     projected_peak_risk: bool
@@ -184,8 +279,8 @@ class DensityAnalysis:
 class BottleneckAnalysis:
     bottleneck_id: str
     label: str
-    effective_flow_ppm: float       # persone/minuto
-    time_to_clear_min: float        # minuti per evacuare l'intera folla
+    effective_flow_ppm: float
+    time_to_clear_min: float
     is_critical: bool
     recommendation: str
 
@@ -194,13 +289,13 @@ class BottleneckAnalysis:
 class HistoricalMatch:
     incident_id: str
     incident_name: str
-    similarity_score: float         # 0.0–1.0
+    similarity_score: float
     matched_factors: list[str]
 
 
 @dataclass
 class Recommendation:
-    priority: str                   # CRITICA / ALTA / MEDIA / BASSA
+    priority: str
     code: str
     message: str
     action_type: str
@@ -208,18 +303,18 @@ class Recommendation:
 
 @dataclass
 class RiskAssessment:
-    """Output strutturato completo della valutazione Scenario A."""
     event_id: str
     event_name: str
-    global_score: float             # 0.0–1.0
+    global_score: float
     risk_level: RiskLevel
     risk_color: RiskColor
-    confidence: float               # 0.0–1.0
+    confidence: float
     density_analysis: DensityAnalysis
     bottleneck_analyses: list[BottleneckAnalysis]
     historical_match: Optional[HistoricalMatch]
     recommendations: list[Recommendation]
     modifier_factor: float
+    osm_validation: list[OSMValidationResult] = field(default_factory=list)
     legal_disclaimer: str = (
         "Output a carattere esclusivamente informativo e consultivo. "
         "Non sostituisce la valutazione di un tecnico della sicurezza "
@@ -228,7 +323,7 @@ class RiskAssessment:
 
 
 # ---------------------------------------------------------------------------
-# DATABASE STORICO SEED — Scenario A (subset verificato)
+# DATABASE STORICO SEED
 # ---------------------------------------------------------------------------
 
 HISTORICAL_INCIDENTS_DB: list[HistoricalIncident] = [
@@ -304,9 +399,10 @@ def _analyze_bottlenecks(event: EventInput) -> list[BottleneckAnalysis]:
         )
         if is_critical:
             rec = (
-                f"CRITICO: '{bn.label}' — deflusso stimato {round(time_to_clear, 1)} min "
-                f"per {event.expected_attendance} persone. "
-                f"Imporre senso unico o ampliare a ≥{math.ceil(bn.width_m * 1.5)}m."
+                f"ATTENZIONE: '{bn.label}' — deflusso stimato "
+                f"{round(time_to_clear, 1)} min per {event.expected_attendance} "
+                f"persone. Valutare senso unico o ampliamento a "
+                f"≥{math.ceil(bn.width_m * 1.5)}m."
             )
         elif time_to_clear > 8:
             rec = (
@@ -390,9 +486,9 @@ def _build_recommendations(
             code="REC-CAP-01",
             message=(
                 f"Densità prevista {density_analysis.persons_per_sqm} p/m² supera "
-                f"la soglia critica Fruin LoS E ({DENSITY_LOS_E} p/m²). "
-                f"Ridurre il contingentamento a max {max_safe} presenze "
-                f"o espandere l'area evento."
+                f"soglia Fruin LoS E ({DENSITY_LOS_E} p/m²). "
+                f"Si suggerisce di valutare riduzione a max {max_safe} presenze "
+                f"o espansione area evento."
             ),
             action_type="CAPACITY_REDUCTION",
         ))
@@ -402,14 +498,14 @@ def _build_recommendations(
             code="REC-CAP-02",
             message=(
                 f"Densità {density_analysis.persons_per_sqm} p/m² — Fruin LoS D. "
-                f"Istituire sistema di contingentamento con counter fisici agli ingressi."
+                f"Si suggerisce sistema di contingentamento con counter fisici."
             ),
             action_type="CAPACITY_MONITORING",
         ))
     for bn in bottleneck_analyses:
         if bn.is_critical:
             recs.append(Recommendation(
-                priority="CRITICA",
+                priority="ALTA",
                 code=f"REC-BN-{bn.bottleneck_id}",
                 message=bn.recommendation,
                 action_type="FLOW_MANAGEMENT",
@@ -420,20 +516,19 @@ def _build_recommendations(
             code="REC-LEG-01",
             message=(
                 "Nessun piano di sicurezza certificato risulta allegato. "
-                "L'evento non è autorizzabile senza deposito in Prefettura "
+                "Si raccomanda il deposito in Prefettura prima dell'autorizzazione "
                 "(D.M. 18/03/1996 e successive modifiche)."
             ),
             action_type="COMPLIANCE",
         ))
-    obstructed = event.venue.escape_routes_obstructed
-    total = event.venue.escape_routes_count
-    if obstructed > 0:
+    if event.venue.escape_routes_obstructed > 0:
         recs.append(Recommendation(
             priority="CRITICA",
             code="REC-ESC-01",
             message=(
-                f"{obstructed}/{total} vie di fuga risultano ostruite. "
-                f"Rimozione ostruzioni obbligatoria prima dell'apertura."
+                f"{event.venue.escape_routes_obstructed}/"
+                f"{event.venue.escape_routes_count} vie di fuga risultano ostruite. "
+                f"Si raccomanda rimozione ostruzioni prima dell'apertura."
             ),
             action_type="EVACUATION",
         ))
@@ -444,7 +539,7 @@ def _build_recommendations(
             message=(
                 f"Heat index elevato (T={event.modifiers.temperature_c}°C, "
                 f"U={event.modifiers.humidity_percent}%). "
-                f"Prevedere min. 3 punti idratazione gratuita e 1 unità medica dedicata."
+                f"Si suggerisce min. 3 punti idratazione e 1 unità medica dedicata."
             ),
             action_type="MEDICAL_PREPAREDNESS",
         ))
@@ -454,8 +549,7 @@ def _build_recommendations(
             code="REC-FUO-01",
             message=(
                 "Fuochi artificiali pianificati con densità ≥ LoS C. "
-                "Istituire zona buffer di 50m attorno al punto di lancio "
-                "con barriere fisiche permeabili."
+                "Si suggerisce zona buffer di 50m con barriere fisiche permeabili."
             ),
             action_type="BARRIER_MANAGEMENT",
         ))
@@ -485,11 +579,24 @@ def calculate_risk(event: EventInput) -> RiskAssessment:
     """
     Calcola il rischio crowd crush per un evento pianificato.
     Entry point principale del Safety Engine — Scenario A.
+
+    BLOCCO OSM: se osm_area_sqm > 0 e differisce > 15% dal dato
+    dichiarato, solleva DataInconsistencyError prima di qualsiasi calcolo.
     """
+    # --- 0. Validazione OSM obbligatoria — blocca su dato inconsistente ---
+    osm_validation = []
+    if event.osm_area_sqm > 0:
+        osm_validation = validate_venue_geometry(
+            event.venue,
+            osm_area_sqm=event.osm_area_sqm,
+        )
+
+    # --- 1. Density Score ---
     density_analysis = _analyze_density(event)
     density = density_analysis.persons_per_sqm
     density_score = min(density / DENSITY_LOS_F, 1.0)
 
+    # --- 2. Bottleneck Score ---
     bottleneck_analyses = _analyze_bottlenecks(event)
     if bottleneck_analyses:
         critical_count = sum(1 for b in bottleneck_analyses if b.is_critical)
@@ -502,24 +609,24 @@ def calculate_risk(event: EventInput) -> RiskAssessment:
     else:
         bottleneck_score = 0.0
 
+    # --- 3. Historical Similarity Score ---
     historical_match = _find_historical_match(event, density)
-    if historical_match:
-        historical_score = historical_match.similarity_score * 0.8
-    else:
-        historical_score = 0.0
+    historical_score = historical_match.similarity_score * 0.8 if historical_match else 0.0
 
+    # --- 4. Modifier Score ---
     modifier_factor = event.modifiers.composite_modifier()
     modifier_score = min((modifier_factor - 1.0) / 0.55, 1.0)
 
+    # --- 5. Score Composito ---
     base_score = (
         density_score    * WEIGHT_DENSITY
         + bottleneck_score * WEIGHT_BOTTLENECK
         + historical_score * WEIGHT_HISTORICAL
         + modifier_score   * WEIGHT_MODIFIERS
     )
-
     final_score = min(base_score * modifier_factor, 1.0)
 
+    # --- 6. Confidence ---
     confidence = 0.65
     if event.venue.bottlenecks:
         confidence += 0.10
@@ -527,10 +634,11 @@ def calculate_risk(event: EventInput) -> RiskAssessment:
         confidence += 0.10
     if event.venue.area_sqm > 0 and event.expected_attendance > 0:
         confidence += 0.05
-    confidence = min(round(confidence, 2), 0.90)
+    if osm_validation:
+        confidence += 0.05
+    confidence = min(round(confidence, 2), 0.95)
 
     risk_level, risk_color = _score_to_level(final_score)
-
     recommendations = _build_recommendations(
         event, density_analysis, bottleneck_analyses, final_score
     )
@@ -547,4 +655,5 @@ def calculate_risk(event: EventInput) -> RiskAssessment:
         historical_match=historical_match,
         recommendations=recommendations,
         modifier_factor=round(modifier_factor, 3),
+        osm_validation=osm_validation,
     )
