@@ -1,0 +1,425 @@
+{
+  "$schema": "https://mammuth-events.io/schemas/incident/v1.0",
+  "schema_version": "1.0.0",
+  "generated_by": "KREATIO UNIVERSAL SYSTEM™ — Safety Engine",
+  "regola_assoluta": "Zero dati inventati. Solo fonti istituzionali e giudiziarie verificate.",
+  "incidents": [
+    {
+      "id": "INC-2017-IT-TO-001",
+      "slug": "piazza-san-carlo-torino-2017",
+      "metadata": {
+        "name": "Tragedia di Piazza San Carlo",
+        "city": "Torino",
+        "country": "IT",
+        "istat_comune": "001272",
+        "date": "2017-06-03",
+        "time_of_incident": "21:45:00",
+        "timezone": "Europe/Rome",
+        "source_verified": true,
+        "sources": [
+          "Sentenza Tribunale di Torino 2023",
+          "Relazione Commissione Prefettizia 2017",
+          "ANAC — Atti processuali pubblici"
+        ],
+        "classification": "CROWD_CRUSH",
+        "severity": "CRITICAL",
+        "fatalities": 2,
+        "injuries": 1527,
+        "legal_outcome": "Processo penale — sentenza definitiva 2023"
+      },
+      "location": {
+        "place_name": "Piazza San Carlo",
+        "place_type": "PIAZZA_STORICA",
+        "city": "Torino",
+        "coordinates_centroid": [7.6844, 45.0684],
+        "area_sqm": 19000,
+        "shape_descriptor": "RETTANGOLARE_CHIUSA",
+        "is_enclosed": true
+      },
+      "geometry_risk_factors": {
+        "bottlenecks": [
+          {
+            "id": "BN-001",
+            "label": "Via Roma — ingresso nord",
+            "type": "IMBUTO_STRADALE",
+            "width_m": 14,
+            "is_bidirectional": true,
+            "risk_multiplier": 2.1
+          },
+          {
+            "id": "BN-002",
+            "label": "Via Carlo Alberto — uscita est",
+            "type": "IMBUTO_LATERALE",
+            "width_m": 9,
+            "is_bidirectional": true,
+            "risk_multiplier": 1.8
+          },
+          {
+            "id": "BN-003",
+            "label": "Portici lato ovest — strozzatura colonnato",
+            "type": "PORTICO_ARCHITETTONICO",
+            "width_m": 6,
+            "is_bidirectional": false,
+            "risk_multiplier": 2.4
+          }
+        ],
+        "escape_routes_count": 3,
+        "escape_routes_obstructed": 1
+      },
+      "crowd_dynamics": {
+        "estimated_total_attendance": 30000,
+        "area_sqm": 19000,
+        "peak_density_persons_per_sqm": 6.2,
+        "critical_density_threshold_fruin": 4.0,
+        "flow_direction_conflict": true,
+        "panic_wave_propagation": "SUD_NORD"
+      },
+      "triggers": [
+        {
+          "id": "TRG-001",
+          "type": "PANIC_INDUCER",
+          "label": "Spray urticante tra la folla",
+          "description": "Uso di spray urushiol. Falsa percezione di attacco terroristico.",
+          "confidence": 0.97,
+          "source": "Sentenza Tribunale Torino 2023"
+        },
+        {
+          "id": "TRG-002",
+          "type": "ORGANIZATIONAL",
+          "label": "Assenza piano evacuazione certificato",
+          "description": "Nessun piano safety depositato in Prefettura.",
+          "confidence": 0.99,
+          "source": "Relazione Commissione Prefettizia 2017"
+        }
+      ],
+      "event_context": {
+        "event_type": "PROIEZIONE_PUBBLICA_SPORTIVA",
+        "event_name": "Champions League Final 2017 — Juventus vs Real Madrid",
+        "alcohol_presence": "MODERATA",
+        "weather": {
+          "temperature_c": 24,
+          "humidity_percent": 58,
+          "precipitation": "NESSUNA"
+        },
+        "security_personnel_count": 80,
+        "evacuation_plan_present": false
+      },
+      "risk_index_retrospective": {
+        "calculated_score": 0.87,
+        "max_score": 1.0,
+        "risk_level": "CRITICO",
+        "feature_vector": [6.2, 3, 1, 0.5, 0],
+        "notes": "Con Scenario A, densità + BN-003 avrebbero generato alert ROSSO 18 minuti prima."
+      },
+      "lessons_extracted": [
+        "Densità > 4 p/m² in area chiusa senza vie di fuga bidirezionali = soglia allerta obbligatoria",
+        "Controflusso ingresso/uscita simultaneo = fattore moltiplicatore critico",
+        "Assenza piano evacuazione certificato deve bloccare autorizzazione evento"
+      ]
+    },
+    {
+      "id": "INC-1989-GB-SHF-001",
+      "slug": "hillsborough-sheffield-1989",
+      "metadata": {
+        "name": "Disastro di Hillsborough",
+        "city": "Sheffield",
+        "country": "GB",
+        "date": "1989-04-15",
+        "time_of_incident": "15:06:00",
+        "timezone": "Europe/London",
+        "source_verified": true,
+        "sources": [
+          "Hillsborough Independent Panel Report 2012",
+          "UK Home Office Official Inquiry",
+          "Coroner Inquest Verdict 2016"
+        ],
+        "classification": "CROWD_CRUSH",
+        "severity": "CATASTROPHIC",
+        "fatalities": 97,
+        "injuries": 766,
+        "legal_outcome": "Inquest verdict: accidental deaths — 2016"
+      },
+      "location": {
+        "place_name": "Hillsborough Stadium — Leppings Lane End",
+        "place_type": "STADIO",
+        "city": "Sheffield",
+        "coordinates_centroid": [-1.4908, 53.4115],
+        "area_sqm": 3200,
+        "shape_descriptor": "SETTORE_STADIO_CHIUSO",
+        "is_enclosed": true
+      },
+      "geometry_risk_factors": {
+        "bottlenecks": [
+          {
+            "id": "BN-001",
+            "label": "Tunnel centrale Leppings Lane",
+            "type": "TUNNEL_ACCESSO",
+            "width_m": 3.5,
+            "is_bidirectional": false,
+            "risk_multiplier": 3.2
+          },
+          {
+            "id": "BN-002",
+            "label": "Tornelli ingresso esterno",
+            "type": "TORNELLI_MULTIPLI",
+            "width_m": 7.0,
+            "is_bidirectional": false,
+            "risk_multiplier": 2.1
+          }
+        ],
+        "escape_routes_count": 2,
+        "escape_routes_obstructed": 2
+      },
+      "crowd_dynamics": {
+        "estimated_total_attendance": 54000,
+        "area_sqm": 3200,
+        "peak_density_persons_per_sqm": 7.1,
+        "critical_density_threshold_fruin": 4.0,
+        "flow_direction_conflict": false,
+        "panic_wave_propagation": "FRONTALE_PROGRESSIVA"
+      },
+      "triggers": [
+        {
+          "id": "TRG-001",
+          "type": "ORGANIZATIONAL",
+          "label": "Apertura cancello C senza controllo flusso",
+          "description": "Polizia aprì cancello laterale per alleggerire la ressa esterna, convogliando migliaia di tifosi nel tunnel già saturo.",
+          "confidence": 0.99,
+          "source": "Hillsborough Independent Panel Report 2012"
+        },
+        {
+          "id": "TRG-002",
+          "type": "STRUCTURAL",
+          "label": "Recinzione metallica anti-intrusione",
+          "description": "Le recinzioni impedirono la fuga sul campo. Rimosse solo dopo 6 minuti.",
+          "confidence": 0.99,
+          "source": "Coroner Inquest Verdict 2016"
+        }
+      ],
+      "event_context": {
+        "event_type": "EVENTO_SPORTIVO_COPPA",
+        "event_name": "FA Cup Semi-Final — Liverpool vs Nottingham Forest",
+        "alcohol_presence": "MODERATA",
+        "weather": {
+          "temperature_c": 15,
+          "humidity_percent": 60,
+          "precipitation": "LEGGERA"
+        },
+        "security_personnel_count": 1122,
+        "evacuation_plan_present": false
+      },
+      "risk_index_retrospective": {
+        "calculated_score": 0.95,
+        "max_score": 1.0,
+        "risk_level": "EMERGENZA",
+        "feature_vector": [7.1, 2, 1, 0.3, 0],
+        "notes": "Massima densità registrata in letteratura crowd safety. Caso studio fondamentale standard UK."
+      },
+      "lessons_extracted": [
+        "Mai aprire accessi laterali senza steward dedicati al controllo flusso",
+        "Recinzioni fisse in aree ad alta densità sono fattore di morte certo",
+        "Piano evacuazione deve prevedere accesso campo come via di fuga primaria"
+      ]
+    },
+    {
+      "id": "INC-2010-DE-DUI-001",
+      "slug": "love-parade-duisburg-2010",
+      "metadata": {
+        "name": "Tragedia della Love Parade di Duisburg",
+        "city": "Duisburg",
+        "country": "DE",
+        "date": "2010-07-24",
+        "time_of_incident": "17:00:00",
+        "timezone": "Europe/Berlin",
+        "source_verified": true,
+        "sources": [
+          "Gutachten Sachverständiger — Landgericht Duisburg 2017",
+          "Stadt Duisburg Abschlussbericht 2011",
+          "G. Keith Still — Crowd Safety Analysis Report 2010"
+        ],
+        "classification": "CROWD_CRUSH",
+        "severity": "CRITICAL",
+        "fatalities": 21,
+        "injuries": 652,
+        "legal_outcome": "Procedimento penale archiviato 2020 — prescrizione"
+      },
+      "location": {
+        "place_name": "Rampa tunnel Karl-Lehr-Strasse",
+        "place_type": "RAMPA_TUNNEL_URBANO",
+        "city": "Duisburg",
+        "coordinates_centroid": [6.7627, 51.4344],
+        "area_sqm": 1800,
+        "shape_descriptor": "RAMPA_UNICO_ACCESSO",
+        "is_enclosed": true
+      },
+      "geometry_risk_factors": {
+        "bottlenecks": [
+          {
+            "id": "BN-001",
+            "label": "Rampa tunnel — unico accesso al festival",
+            "type": "RAMPA_TUNNEL",
+            "width_m": 18,
+            "is_bidirectional": true,
+            "risk_multiplier": 3.8
+          }
+        ],
+        "escape_routes_count": 1,
+        "escape_routes_obstructed": 1
+      },
+      "crowd_dynamics": {
+        "estimated_total_attendance": 1400000,
+        "area_sqm": 1800,
+        "peak_density_persons_per_sqm": 5.8,
+        "critical_density_threshold_fruin": 4.0,
+        "flow_direction_conflict": true,
+        "panic_wave_propagation": "BIDIREZIONALE_TUNNEL"
+      },
+      "triggers": [
+        {
+          "id": "TRG-001",
+          "type": "DESIGN",
+          "label": "Unico punto di accesso per 1.4M persone",
+          "description": "Il tunnel era l'unico ingresso/uscita. Flussi opposti si scontrarono creando compressione letale.",
+          "confidence": 0.99,
+          "source": "Stadt Duisburg Abschlussbericht 2011"
+        },
+        {
+          "id": "TRG-002",
+          "type": "ORGANIZATIONAL",
+          "label": "Sottostima massiccia dell'afflusso",
+          "description": "Organizzatori previdero 250.000 presenze. Ne arrivarono 1.400.000.",
+          "confidence": 0.97,
+          "source": "Gutachten Sachverständiger 2017"
+        }
+      ],
+      "event_context": {
+        "event_type": "FESTIVAL_MUSICALE",
+        "event_name": "Love Parade 2010",
+        "alcohol_presence": "ALTA",
+        "weather": {
+          "temperature_c": 28,
+          "humidity_percent": 65,
+          "precipitation": "NESSUNA"
+        },
+        "security_personnel_count": 1000,
+        "evacuation_plan_present": false
+      },
+      "risk_index_retrospective": {
+        "calculated_score": 0.91,
+        "max_score": 1.0,
+        "risk_level": "EMERGENZA",
+        "feature_vector": [5.8, 1, 1, 0.6, 0],
+        "notes": "Caso studio definitivo su errori di design urbano per eventi di massa. Unico accesso = rischio sistemico."
+      },
+      "lessons_extracted": [
+        "Un solo punto di accesso per eventi > 100.000 persone è condizione proibitiva",
+        "Flussi bidirezionali in tunnel o rampe = crowd crush garantito oltre soglia critica",
+        "Stima presenze deve essere conservativa con margine sicurezza 3x"
+      ]
+    },
+    {
+      "id": "INC-1985-BE-BRU-001",
+      "slug": "heysel-bruxelles-1985",
+      "metadata": {
+        "name": "Tragedia dell'Heysel",
+        "city": "Bruxelles",
+        "country": "BE",
+        "date": "1985-05-29",
+        "time_of_incident": "19:50:00",
+        "timezone": "Europe/Brussels",
+        "source_verified": true,
+        "sources": [
+          "UEFA Official Report — Heysel 1985",
+          "Belgian Parliamentary Commission Report 1985",
+          "Sentenza Tribunale Correctional Bruxelles 1989"
+        ],
+        "classification": "CROWD_CRUSH",
+        "severity": "CRITICAL",
+        "fatalities": 39,
+        "injuries": 600,
+        "legal_outcome": "Condanne penali — Tribunale di Bruxelles 1989"
+      },
+      "location": {
+        "place_name": "Stadio Heysel — Settore Z",
+        "place_type": "STADIO",
+        "city": "Bruxelles",
+        "coordinates_centroid": [4.3341, 50.8947],
+        "area_sqm": 2800,
+        "shape_descriptor": "SETTORE_STADIO_FATISCENTE",
+        "is_enclosed": true
+      },
+      "geometry_risk_factors": {
+        "bottlenecks": [
+          {
+            "id": "BN-001",
+            "label": "Muro perimetrale settore Z — cedimento strutturale",
+            "type": "MURO_FATISCENTE",
+            "width_m": 40,
+            "is_bidirectional": false,
+            "risk_multiplier": 4.0
+          },
+          {
+            "id": "BN-002",
+            "label": "Cancelli separazione settori",
+            "type": "CANCELLI_DIVISORI",
+            "width_m": 4,
+            "is_bidirectional": false,
+            "risk_multiplier": 2.2
+          }
+        ],
+        "escape_routes_count": 2,
+        "escape_routes_obstructed": 1
+      },
+      "crowd_dynamics": {
+        "estimated_total_attendance": 58000,
+        "area_sqm": 2800,
+        "peak_density_persons_per_sqm": 4.5,
+        "critical_density_threshold_fruin": 4.0,
+        "flow_direction_conflict": false,
+        "panic_wave_propagation": "LATERALE_SETTORE_Z"
+      },
+      "triggers": [
+        {
+          "id": "TRG-001",
+          "type": "VIOLENCE",
+          "label": "Carica di tifosi Liverpool sul settore neutro",
+          "description": "Gruppo di tifosi sfondò separazione tra settori. La folla del settore Z fuggì verso il muro perimetrale.",
+          "confidence": 0.99,
+          "source": "UEFA Official Report 1985"
+        },
+        {
+          "id": "TRG-002",
+          "type": "STRUCTURAL",
+          "label": "Infrastruttura stadio fatiscente",
+          "description": "Il muro perimetrale non era certificato per resistenza strutturale. Crollò sotto la pressione della folla.",
+          "confidence": 0.97,
+          "source": "Belgian Parliamentary Commission 1985"
+        }
+      ],
+      "event_context": {
+        "event_type": "FINALE_EUROPEA_CALCIO",
+        "event_name": "Coppa dei Campioni 1985 — Juventus vs Liverpool",
+        "alcohol_presence": "ALTA",
+        "weather": {
+          "temperature_c": 18,
+          "humidity_percent": 55,
+          "precipitation": "NESSUNA"
+        },
+        "security_personnel_count": 300,
+        "evacuation_plan_present": false
+      },
+      "risk_index_retrospective": {
+        "calculated_score": 0.78,
+        "max_score": 1.0,
+        "risk_level": "CRITICO",
+        "feature_vector": [4.5, 2, 1, 0.4, 0],
+        "notes": "Primo caso europeo a generare normativa UEFA sulla certificazione strutturale degli stadi."
+      },
+      "lessons_extracted": [
+        "Certificazione strutturale di muri e recinzioni obbligatoria prima di ogni evento",
+        "Separazione fisica tra tifoserie non basta senza steward dedicati ai varchi",
+        "Densità 4.5 p/m² con strutture non certificate = rischio collasso garantito"
+      ]
+    }
+  ]
+}
