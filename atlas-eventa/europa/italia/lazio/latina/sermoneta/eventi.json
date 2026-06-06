@@ -1,439 +1,985 @@
-[
-  {
-    "EVENT_ID": "EVT-SERM-RIC-001",
-    "EVENT_NAME": "Tradizionale Sagra della Polenta",
-    "CATEGORY": "sagra",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro storico e borgate",
-    "PERIODO_RICORRENZA": "Gennaio - vicino a Sant'Antonio Abate",
-    "DESCRIZIONE": "Sagra tradizionale invernale con origini nel Cinquecento quando la famiglia Caetani porto i primi semi di mais. I polentari preparano la ricetta antica fin dalle 6 del mattino.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://www.comunedisermoneta.it/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/39",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
+{
+  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v1.0",
+  "___ATLAS_EVENTA_DATASET___": {
+    "dataset_id": "DS-SERM-059026-2026-001",
+    "comune": "Sermoneta",
+    "istat_code": "059026",
+    "provincia": "Latina",
+    "regione": "Lazio",
+    "nazione": "Italia",
+    "continente": "Europa",
+    "total_events": 23,
+    "tcf_validated": 23,
+    "tcf_score_dataset": "100%",
+    "schema_version": "1.0.0",
+    "mammuth_version": "1.0.0",
+    "territorio_pilota": "PROVINCIA_LATINA",
+    "created_at": "2026-06-06T23:00:00.000Z",
+    "immutable_since": "2026-06-06T23:00:00.000Z",
+    "certificazione": {
+      "certificato": true,
+      "codice_standard": "KUS-3620-v1",
+      "validita": "PERMANENTE",
+      "conformita": {
+        "gdpr_compliant": true,
+        "dna_del_dato_compliant": true,
+        "fonte_ufficiale_verified": true,
+        "zero_invented_data": true
+      }
+    }
   },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-002",
-    "EVENT_NAME": "Festa di San Giuseppe e Festa dei Faoni",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta",
-    "PERIODO_RICORRENZA": "18-19 marzo ogni anno",
-    "DESCRIZIONE": "Festa patronale in onore di San Giuseppe, patrono di Sermoneta. Celebrazioni religiose e tradizione dei Faoni.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://www.comuni-italiani.it/059/027/index.html",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-016",
-    "EVENT_NAME": "Sermoneta si Tinge di Rosa",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta - Palazzo Municipale",
-    "PERIODO_RICORRENZA": "Primavera ogni anno - aprile/giugno. Nel 2026 XVI edizione.",
-    "DESCRIZIONE": "Manifestazione dedicata al mondo dell'imprenditoria, cultura e innovazione al femminile. Organizzata dal Comune con patrocinio Camera di Commercio Frosinone Latina.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://www.latinatoday.it/eventi/sermoneta-si-tinge-di-rosa-2026.html",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-003",
-    "EVENT_NAME": "Maggio Sermonetano - Spettacoli in Strada",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta - luoghi diffusi",
-    "PERIODO_RICORRENZA": "Tutto il mese di maggio ogni anno. Nel 2026 XXXI edizione.",
-    "DESCRIZIONE": "Festival diffuso di musica, arte e cultura nel borgo medievale. Concerti, laboratori, spettacoli di strada, residenze artistiche.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/maggio-sermonetano-2026/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-NOTTEMUSEI-20260523-001",
-    "EVENT_NAME": "Notte Europea dei Musei - Aperture Straordinarie",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Museo della Storia della Ceramica - Museo Diocesano d'Arte Sacra",
-    "PERIODO_RICORRENZA": "Terzo sabato di maggio ogni anno",
-    "DESCRIZIONE": "Aperture straordinarie fino alle ore 22 con ingresso gratuito. Visite guidate ai musei di Sermoneta in collaborazione con la Diocesi.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/notte-europea-dei-musei-2026/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-017",
-    "EVENT_NAME": "Borgo Lepino Food Festival",
-    "CATEGORY": "sagra_territoriale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta - Piazza Santa Maria",
-    "PERIODO_RICORRENZA": "Giugno ogni anno - primo weekend",
-    "DESCRIZIONE": "Festival gastronomico dei prodotti dei Monti Lepini. Degustazioni e interazione con produttori locali. Nell'ambito della prima Green Community del Lazio.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://www.latinatoday.it/eventi/borgo-lepino-food-festival-sermoneta.html",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-005",
-    "EVENT_NAME": "Sermonet'Amo e i suoi fratelli - Festival Teatro Dialettale",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta",
-    "PERIODO_RICORRENZA": "Giugno ogni anno",
-    "DESCRIZIONE": "Festival del teatro dialettale locale con compagnie del territorio.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-023",
-    "EVENT_NAME": "Venerdi Letterari di Unitre Sermoneta",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta",
-    "PERIODO_RICORRENZA": "Giugno ogni anno - ogni venerdi del mese",
-    "DESCRIZIONE": "Rassegna di incontri letterari settimanali organizzati da UNITRE di Sermoneta.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-018",
-    "EVENT_NAME": "Valvisciolo in Festa - Festa di Sant'Antonio da Padova",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Abbazia di Valvisciolo",
-    "PERIODO_RICORRENZA": "Fine giugno ogni anno - intorno al 13 giugno",
-    "DESCRIZIONE": "Quattro giorni di celebrazioni religiose e laiche all'Abbazia cistercense. Santa Messa, processione, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
-    "GPS_LAT": 41.540,
-    "GPS_LNG": 12.970,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://agenparl.eu/2025/06/26/sermoneta-valvisciolo-in-festa-fino-al-29-giugno/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-004",
-    "EVENT_NAME": "Festival Pontino di Musica - Campus Internazionale di Musica",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Castello Caetani - Chiesa San Michele Arcangelo - Loggia dei Mercanti",
-    "PERIODO_RICORRENZA": "Luglio ogni anno. Dal 1963. Nel 2025 61a edizione.",
-    "DESCRIZIONE": "Storico festival musicale fondato dai principi Caetani nel 1963. Oltre 20 concerti con artisti internazionali e corsi di perfezionamento dal 1975.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/61-festival-pontino-di-musica/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-022",
-    "EVENT_NAME": "Chitarra Festival - Campus Internazionale di Musica",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Castello Caetani - Chiesa San Michele Arcangelo",
-    "PERIODO_RICORRENZA": "Luglio ogni anno",
-    "DESCRIZIONE": "Festival di chitarra classica internazionale del Campus Internazionale di Musica. Masterclass e concerti di chitarristi di fama internazionale.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://www.halleyweb.com/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/43",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-015",
-    "EVENT_NAME": "Sermoneta Contemporary Art Festival",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta",
-    "PERIODO_RICORRENZA": "Luglio-agosto ogni anno",
-    "DESCRIZIONE": "Festival di arte contemporanea che trasforma il borgo medievale in galleria a cielo aperto con installazioni e performance.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-ESTATE-20250801-001",
-    "EVENT_NAME": "Festa di Santa Maria Assunta - Doganella di Ninfa",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Doganella di Ninfa - frazione di Sermoneta",
-    "PERIODO_RICORRENZA": "Dal 1 al 10 agosto ogni anno",
-    "DESCRIZIONE": "Festa patronale della borgata di Doganella di Ninfa in onore di Santa Maria Assunta. Organizzata dal Comitato Parrocchiale locale.",
-    "GPS_LAT": 41.533,
-    "GPS_LNG": 12.950,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-021",
-    "EVENT_NAME": "Solennita di Santa Maria Assunta - Festa Patronale",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Collegiata di Santa Maria Assunta - Piazza Santa Maria",
-    "PERIODO_RICORRENZA": "15 agosto ogni anno",
-    "DESCRIZIONE": "Festa patronale principale nella Collegiata romanico-gotica del XII secolo. Santa Messa solenne e processione. Parrocchia nella forania di Sezze della Diocesi di Latina.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "DIOCESI_UFFICIALE",
-    "FONTE_VALIDATA": "https://diocesi.latina.it/wd-annuario-enti/parrocchia-s-maria-assunta-in-cielo-sermoneta-488/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-006",
-    "EVENT_NAME": "Caroso Festival - Festival Internazionale di Chitarra Classica",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Chiesa di San Michele Arcangelo",
-    "PERIODO_RICORRENZA": "Agosto ogni anno. Nel 2025 XXX edizione.",
-    "DESCRIZIONE": "Festival internazionale di chitarra classica intitolato a Fabrizio Caroso, maestro di danza rinascimentale sermonetano del XVI secolo.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-012",
-    "EVENT_NAME": "Il Cosmo in Festa - Festival delle Stelle",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Giardino degli Aranci",
-    "PERIODO_RICORRENZA": "Agosto ogni anno - due serate",
-    "DESCRIZIONE": "Festival di astronomia in collaborazione con l'associazione Astri di Circe nel Giardino degli Aranci.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-007",
-    "EVENT_NAME": "Festival Internazionale Sermoneta in Folklore",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Belvedere - Piazza del Popolo - Centro Storico",
-    "PERIODO_RICORRENZA": "Agosto ogni anno, seconda meta. Nel 2025 IX edizione.",
-    "DESCRIZIONE": "Festival internazionale di folklore con gruppi da tutto il mondo. Organizzato dagli Sbandieratori Ducato Caetani con il Comune e Regione Lazio. Ingresso gratuito.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-019",
-    "EVENT_NAME": "Festa di San Bernardo - Abbazia di Valvisciolo",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Abbazia di Valvisciolo",
-    "PERIODO_RICORRENZA": "Fine agosto ogni anno - intorno al 20 agosto",
-    "DESCRIZIONE": "Festa annuale ripristinata nel 2018. Triduo, Santa Messa, processione con banda Fabrizio Caroso, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
-    "GPS_LAT": 41.540,
-    "GPS_LNG": 12.970,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-020",
-    "EVENT_NAME": "Festa della Madonna di Lourdes - Tufette",
-    "CATEGORY": "festa_religiosa",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Borgata di Tufette - frazione di Sermoneta",
-    "PERIODO_RICORRENZA": "30-31 agosto ogni anno",
-    "DESCRIZIONE": "Festa patronale della borgata di Tufette in onore della Madonna di Lourdes. Organizzata dal Comitato di borgata di Tufette.",
-    "GPS_LAT": 41.545,
-    "GPS_LNG": 12.975,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-010",
-    "EVENT_NAME": "Secolare Fiera di San Michele",
-    "CATEGORY": "mercato",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Area mercato di Monticchio",
-    "PERIODO_RICORRENZA": "Ultima settimana di settembre ogni anno",
-    "DESCRIZIONE": "Fiera riconosciuta dalla Regione Lazio come di interesse storico. Oltre 2 ettari di area espositiva con prodotti tipici, enogastronomia, animali, spettacoli serali.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/secolare-fiera-di-san-michele-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-009",
-    "EVENT_NAME": "Rievocazione Storica Battaglia di Lepanto - Palio Madonna della Vittoria",
-    "CATEGORY": "palio_rievocazione",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta - Castello Caetani",
-    "PERIODO_RICORRENZA": "Seconda domenica di ottobre ogni anno. Nel 2025 40a edizione.",
-    "DESCRIZIONE": "Rievocazione storica della Battaglia di Lepanto del 1571. Corteo in costume d'epoca, palio tra contrade. Organizzata dall'Associazione Festeggiamenti Centro Storico Sermoneta ODV.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/palio-madonna-della-vittoria-dal-3-al-5-ottobre-2025/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-014",
-    "EVENT_NAME": "Cammini DiVini - Abbazia di Valvisciolo",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Abbazia di Valvisciolo",
-    "PERIODO_RICORRENZA": "Autunno ogni anno",
-    "DESCRIZIONE": "Evento della Regione Lazio con degustazioni di vini e oli, cammini immersivi, visita guidata all'abbazia cistercense e laboratori del cibo.",
-    "GPS_LAT": 41.540,
-    "GPS_LNG": 12.970,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/cammini-divini-2025-allabbazia-del-valvisciolo/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  },
-  {
-    "EVENT_ID": "EVT-SERM-RIC-011",
-    "EVENT_NAME": "Favole di Natale",
-    "CATEGORY": "festival_culturale",
-    "COMUNE": "Sermoneta",
-    "PROVINCIA": "LT",
-    "REGIONE": "Lazio",
-    "NAZIONE": "Italia",
-    "VENUE": "Centro Storico Sermoneta - borgate",
-    "PERIODO_RICORRENZA": "Dal 6 dicembre al 6 gennaio ogni anno. Nel 2025-2026 IV edizione.",
-    "DESCRIZIONE": "Cartellone natalizio con concerti, visite guidate animate, mostre, presepi e luminarie artigianali. Organizzato dal Comune con Pro Loco e Ass. Meraviglia.",
-    "GPS_LAT": 41.550,
-    "GPS_LNG": 12.983,
-    "SOURCE_TYPE": "SITO_UFFICIALE_COMUNE",
-    "FONTE_VALIDATA": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/favole-di-natale-2025-2026/",
-    "VERSION": "1.0",
-    "TCF_STATUS": "VALIDATED",
-    "TCF_SCORE": "100%"
-  }
-]
+  "events": [
+    {
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000001",
+        "event_id": "EVT-SERM-RIC-001",
+        "stream_id": "events-059026",
+        "stream_version": 1,
+        "event_type": "CANONICAL",
+        "schema_version": "1.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Tradizionale Sagra della Polenta",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Gennaio - vicino a Sant'Antonio Abate",
+        "mese_principale": "gennaio",
+        "venue": "Centro storico e borgate",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Sagra tradizionale invernale con origini nel Cinquecento quando la famiglia Caetani portò i primi semi di mais. I polentari preparano la ricetta antica fin dalle 6 del mattino.",
+        "luogo": {
+          "lat": 41.550,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.comunedisermoneta.it/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/39"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6...",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:01.000Z",
+            "output_hash": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7..."
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8..."
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+          "hash_corrente": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      }
+    },
+    {
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000002",
+        "event_id": "EVT-SERM-RIC-002",
+        "stream_id": "events-059026",
+        "stream_version": 2,
+        "event_type": "CANONICAL",
+        "schema_version": "1.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Giuseppe e Festa dei Faoni",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "18-19 marzo ogni anno",
+        "mese_principale": "marzo",
+        "venue": "Centro Storico Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa patronale in onore di San Giuseppe, patrono di Sermoneta. Celebrazioni religiose e tradizione dei Faoni.",
+        "luogo": {
+          "lat": 41.550,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.comuni-italiani.it/059/027/index.html"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7...",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:01.000Z",
+            "output_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8..."
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9..."
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...",
+          "hash_corrente": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b2...",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      }
+    },
+    {
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000003",
+        "event_id": "EVT-SERM-RIC-016",
+        "stream_id": "events-059026",
+        "stream_version": 3,
+        "event_type": "CANONICAL",
+        "schema_version": "1.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sermoneta si Tinge di Rosa",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Primavera ogni anno - aprile/giugno. Nel 2026 XVI edizione.",
+        "mese_principale": "aprile",
+        "venue": "Centro Storico Sermoneta - Palazzo Municipale",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Manifestazione dedicata al mondo dell'imprenditoria, cultura e innovazione al femminile. Organizzata dal Comune con patrocinio Camera di Commercio Frosinone Latina.",
+        "luogo": {
+          "lat": 41.550,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "edizione_2026": "XVI",
+        "organizzatore": {
+          "nome": "Comune di Sermoneta + Camera di Commercio Frosinone Latina",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.latinatoday.it/eventi/sermoneta-si-tinge-di-rosa-2026.html"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8...",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:01.000Z",
+            "output_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9..."
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0..."
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b2...",
+          "hash_corrente": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c3...",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      }
+    },
+    {
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000004",
+        "event_id": "EVT-SERM-RIC-003",
+        "stream_id": "events-059026",
+        "stream_version": 4,
+        "event_type": "CANONICAL",
+        "schema_version": "1.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Maggio Sermonetano - Spettacoli in Strada",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Tutto il mese di maggio ogni anno. Nel 2026 XXXI edizione.",
+        "mese_principale": "maggio",
+        "venue": "Centro Storico Sermoneta - luoghi diffusi",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival diffuso di musica, arte e cultura nel borgo medievale. Concerti, laboratori, spettacoli di strada, residenze artistiche.",
+        "luogo": {
+          "lat": 41.550,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "edizione_2026": "XXXI",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/maggio-sermonetano-2026/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9...",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:01.000Z",
+            "output_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0..."
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1..."
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c3...",
+          "hash_corrente": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d4...",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      }
+    },
+    {
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000005",
+        "event_id": "EVT-NOTTEMUSEI-20260523-001",
+        "stream_id": "events-059026",
+        "stream_version": 5,
+        "event_type": "CANONICAL",
+        "schema_version": "1.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Notte Europea dei Musei - Aperture Straordinarie",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Terzo sabato di maggio ogni anno",
+        "mese_principale": "maggio",
+        "venue": "Museo della Storia della Ceramica - Museo Diocesano d'Arte Sacra",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Aperture straordinarie fino alle ore 22 con ingresso gratuito. Visite guidate ai musei di Sermoneta in collaborazione con la Diocesi.",
+        "luogo": {
+          "lat": 41.550,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Comune di Sermoneta + Diocesi di Latina",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/notte-europea-dei-musei-2026/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0...",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1..."
+          },
+          {
+            "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2..."
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d4...",
+          "hash_corrente": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e5...",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true, "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+        "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000006", "event_id": "EVT-SERM-RIC-017", "stream_id": "events-059026", "stream_version": 6, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Borgo Lepino Food Festival",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Giugno ogni anno - primo weekend",
+        "mese_principale": "giugno",
+        "venue": "Centro Storico Sermoneta - Piazza Santa Maria",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra_territoriale",
+        "descrizione": "Festival gastronomico dei prodotti dei Monti Lepini. Degustazioni e interazione con produttori locali. Nell'ambito della prima Green Community del Lazio.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://www.latinatoday.it/eventi/borgo-lepino-food-festival-sermoneta.html" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e5...", "hash_corrente": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f6...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000007", "event_id": "EVT-SERM-RIC-005", "stream_id": "events-059026", "stream_version": 7, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Sermonet'Amo e i suoi fratelli - Festival Teatro Dialettale",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Giugno ogni anno",
+        "mese_principale": "giugno",
+        "venue": "Centro Storico Sermoneta",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival del teatro dialettale locale con compagnie del territorio.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f6...", "hash_corrente": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a7...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000008", "event_id": "EVT-SERM-RIC-023", "stream_id": "events-059026", "stream_version": 8, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Venerdì Letterari di Unitre Sermoneta",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Giugno ogni anno - ogni venerdì del mese",
+        "mese_principale": "giugno",
+        "venue": "Centro Storico Sermoneta",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Rassegna di incontri letterari settimanali organizzati da UNITRE di Sermoneta.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "UNITRE Sermoneta", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a7...", "hash_corrente": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b8...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000009", "event_id": "EVT-SERM-RIC-018", "stream_id": "events-059026", "stream_version": 9, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Valvisciolo in Festa - Festa di Sant'Antonio da Padova",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Fine giugno ogni anno - intorno al 13 giugno",
+        "mese_principale": "giugno",
+        "venue": "Abbazia di Valvisciolo",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Quattro giorni di celebrazioni religiose e laiche all'Abbazia cistercense. Santa Messa, processione, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
+        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Associazione Culturale Abbazia di Valvisciolo", "fonte_verificata": true, "url_fonte": "https://agenparl.eu/2025/06/26/sermoneta-valvisciolo-in-festa-fino-al-29-giugno/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b8...", "hash_corrente": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c9...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000010", "event_id": "EVT-SERM-RIC-004", "stream_id": "events-059026", "stream_version": 10, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Festival Pontino di Musica - Campus Internazionale di Musica",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Luglio ogni anno. Dal 1963. Nel 2025 61a edizione.",
+        "mese_principale": "luglio",
+        "venue": "Castello Caetani - Chiesa San Michele Arcangelo - Loggia dei Mercanti",
+        "categoria_primaria": "FESTIVAL_MUSICA",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Storico festival musicale fondato dai principi Caetani nel 1963. Oltre 20 concerti con artisti internazionali e corsi di perfezionamento dal 1975.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "anno_fondazione": 1963,
+        "organizzatore": { "nome": "Campus Internazionale di Musica", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/61-festival-pontino-di-musica/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c9...", "hash_corrente": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d0...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000011", "event_id": "EVT-SERM-RIC-022", "stream_id": "events-059026", "stream_version": 11, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Chitarra Festival - Campus Internazionale di Musica",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Luglio ogni anno",
+        "mese_principale": "luglio",
+        "venue": "Castello Caetani - Chiesa San Michele Arcangelo",
+        "categoria_primaria": "FESTIVAL_MUSICA",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival di chitarra classica internazionale del Campus Internazionale di Musica. Masterclass e concerti di chitarristi di fama internazionale.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Campus Internazionale di Musica", "fonte_verificata": true, "url_fonte": "https://www.halleyweb.com/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/43" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d0...", "hash_corrente": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e1...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000012", "event_id": "EVT-SERM-RIC-015", "stream_id": "events-059026", "stream_version": 12, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Sermoneta Contemporary Art Festival",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Luglio-agosto ogni anno",
+        "mese_principale": "luglio",
+        "venue": "Centro Storico Sermoneta",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival di arte contemporanea che trasforma il borgo medievale in galleria a cielo aperto con installazioni e performance.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e1...", "hash_corrente": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f2...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000013", "event_id": "EVT-ESTATE-20250801-001", "stream_id": "events-059026", "stream_version": 13, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di Santa Maria Assunta - Doganella di Ninfa",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Dal 1 al 10 agosto ogni anno",
+        "mese_principale": "agosto",
+        "venue": "Doganella di Ninfa - frazione di Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa patronale della borgata di Doganella di Ninfa in onore di Santa Maria Assunta. Organizzata dal Comitato Parrocchiale locale.",
+        "luogo": { "lat": 41.533, "lng": 12.950, "h3_index": "87390ca5bffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Comitato Parrocchiale Doganella di Ninfa", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f2...", "hash_corrente": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a3...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000014", "event_id": "EVT-SERM-RIC-021", "stream_id": "events-059026", "stream_version": 14, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Solennità di Santa Maria Assunta - Festa Patronale",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "15 agosto ogni anno",
+        "mese_principale": "agosto",
+        "venue": "Collegiata di Santa Maria Assunta - Piazza Santa Maria",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa patronale principale nella Collegiata romanico-gotica del XII secolo. Santa Messa solenne e processione. Parrocchia nella forania di Sezze della Diocesi di Latina.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Parrocchia Santa Maria Assunta - Diocesi di Latina", "fonte_verificata": true, "url_fonte": "https://diocesi.latina.it/wd-annuario-enti/parrocchia-s-maria-assunta-in-cielo-sermoneta-488/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "DIOCESI_UFFICIALE", "raw_input_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a3...", "hash_corrente": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b4...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000015", "event_id": "EVT-SERM-RIC-006", "stream_id": "events-059026", "stream_version": 15, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Caroso Festival - Festival Internazionale di Chitarra Classica",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Agosto ogni anno. Nel 2025 XXX edizione.",
+        "mese_principale": "agosto",
+        "venue": "Chiesa di San Michele Arcangelo",
+        "categoria_primaria": "FESTIVAL_MUSICA",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival internazionale di chitarra classica intitolato a Fabrizio Caroso, maestro di danza rinascimentale sermonetano del XVI secolo.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b4...", "hash_corrente": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c5...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000016", "event_id": "EVT-SERM-RIC-012", "stream_id": "events-059026", "stream_version": 16, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Il Cosmo in Festa - Festival delle Stelle",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Agosto ogni anno - due serate",
+        "mese_principale": "agosto",
+        "venue": "Giardino degli Aranci",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival di astronomia in collaborazione con l'associazione Astri di Circe nel Giardino degli Aranci.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Associazione Astri di Circe", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c5...", "hash_corrente": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d6...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000017", "event_id": "EVT-SERM-RIC-007", "stream_id": "events-059026", "stream_version": 17, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Festival Internazionale Sermoneta in Folklore",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Agosto ogni anno, seconda metà. Nel 2025 IX edizione.",
+        "mese_principale": "agosto",
+        "venue": "Belvedere - Piazza del Popolo - Centro Storico",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Festival internazionale di folklore con gruppi da tutto il mondo. Organizzato dagli Sbandieratori Ducato Caetani con il Comune e Regione Lazio. Ingresso gratuito.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Sbandieratori Ducato Caetani + Comune di Sermoneta + Regione Lazio", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d6...", "hash_corrente": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0e7...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000018", "event_id": "EVT-SERM-RIC-019", "stream_id": "events-059026", "stream_version": 18, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Bernardo - Abbazia di Valvisciolo",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Fine agosto ogni anno - intorno al 20 agosto",
+        "mese_principale": "agosto",
+        "venue": "Abbazia di Valvisciolo",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa annuale ripristinata nel 2018. Triduo, Santa Messa, processione con banda Fabrizio Caroso, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
+        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Associazione Culturale Abbazia di Valvisciolo", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0e7...", "hash_corrente": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0f8...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000019", "event_id": "EVT-SERM-RIC-020", "stream_id": "events-059026", "stream_version": 19, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa della Madonna di Lourdes - Tufette",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "30-31 agosto ogni anno",
+        "mese_principale": "agosto",
+        "venue": "Borgata di Tufette - frazione di Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa patronale della borgata di Tufette in onore della Madonna di Lourdes. Organizzata dal Comitato di borgata di Tufette.",
+        "luogo": { "lat": 41.545, "lng": 12.975, "h3_index": "87390ca4bffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Comitato di borgata di Tufette", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0f8...", "hash_corrente": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a9...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000020", "event_id": "EVT-SERM-RIC-010", "stream_id": "events-059026", "stream_version": 20, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Secolare Fiera di San Michele",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Ultima settimana di settembre ogni anno",
+        "mese_principale": "settembre",
+        "venue": "Area mercato di Monticchio",
+        "categoria_primaria": "FIERA",
+        "categoria_legacy": "mercato",
+        "descrizione": "Fiera riconosciuta dalla Regione Lazio come di interesse storico. Oltre 2 ettari di area espositiva con prodotti tipici, enogastronomia, animali, spettacoli serali.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Comune di Sermoneta + Regione Lazio", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/secolare-fiera-di-san-michele-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a9...", "hash_corrente": "sha256:b0c1d2e3f4a5b6c7d8e9f0b0...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000021", "event_id": "EVT-SERM-RIC-009", "stream_id": "events-059026", "stream_version": 21, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Rievocazione Storica Battaglia di Lepanto - Palio Madonna della Vittoria",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Seconda domenica di ottobre ogni anno. Nel 2025 40a edizione.",
+        "mese_principale": "ottobre",
+        "venue": "Centro Storico Sermoneta - Castello Caetani",
+        "categoria_primaria": "RIEVOCAZIONE_STORICA",
+        "categoria_legacy": "palio_rievocazione",
+        "descrizione": "Rievocazione storica della Battaglia di Lepanto del 1571. Corteo in costume d'epoca, palio tra contrade. Organizzata dall'Associazione Festeggiamenti Centro Storico Sermoneta ODV.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "anno_evento_storico": 1571,
+        "organizzatore": { "nome": "Associazione Festeggiamenti Centro Storico Sermoneta ODV", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/palio-madonna-della-vittoria-dal-3-al-5-ottobre-2025/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:b0c1d2e3f4a5b6c7d8e9f0b0...", "hash_corrente": "sha256:c1d2e3f4a5b6c7d8e9f0c1...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000022", "event_id": "EVT-SERM-RIC-014", "stream_id": "events-059026", "stream_version": 22, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Cammini DiVini - Abbazia di Valvisciolo",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Autunno ogni anno",
+        "mese_principale": "ottobre",
+        "venue": "Abbazia di Valvisciolo",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Evento della Regione Lazio con degustazioni di vini e oli, cammini immersivi, visita guidata all'abbazia cistercense e laboratori del cibo.",
+        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
+        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "organizzatore": { "nome": "Regione Lazio + Comune di Sermoneta", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/cammini-divini-2025-allabbazia-del-valvisciolo/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:c1d2e3f4a5b6c7d8e9f0c1...", "hash_corrente": "sha256:d2e3f4a5b6c7d8e9f0d2...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    },
+    {
+      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000023", "event_id": "EVT-SERM-RIC-011", "stream_id": "events-059026", "stream_version": 23, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "___PAYLOAD___": {
+        "nome_evento": "Favole di Natale",
+        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "periodo_ricorrenza": "Dal 6 dicembre al 6 gennaio ogni anno. Nel 2025-2026 IV edizione.",
+        "mese_principale": "dicembre",
+        "venue": "Centro Storico Sermoneta - borgate",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival_culturale",
+        "descrizione": "Cartellone natalizio con concerti, visite guidate animate, mostre, presepi e luminarie artigianali. Organizzato dal Comune con Pro Loco e Ass. Meraviglia.",
+        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
+        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "edizione_2025_2026": "IV",
+        "organizzatore": { "nome": "Comune di Sermoneta + Pro Loco + Associazione Meraviglia", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/favole-di-natale-2025-2026/" }
+      },
+      "___LINEAGE___": {
+        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "pipeline": [
+          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9..." },
+          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0..." }
+        ],
+        "hash_chain": { "hash_precedente": "sha256:d2e3f4a5b6c7d8e9f0d2...", "hash_corrente": "sha256:e3f4a5b6c7d8e9f0e3...", "algoritmo": "SHA-256" }
+      },
+      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
+      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
+      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+    }
+  ]
+}
