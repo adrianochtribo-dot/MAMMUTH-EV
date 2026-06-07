@@ -1,137 +1,272 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAMMUTH•EV™ | GLOBAL FOLK & TRADITIONS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Georgia', serif; background: #0a0a0a; color: #f0e6d3; }
-    header {
-      padding: 20px 30px;
-      background: #171717
-      border-bottom: 1px solid #2a2a2a;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 { font-size: 1.2rem; letter-spacing: 0.2em; color: #c9a96e; }
-    header p { font-size: 0.75rem; color: #888; letter-spacing: 0.1em; }
-    #map { width: 100%; height: calc(100vh - 120px); }
-    .legend {
-      padding: 15px 30px;
-      background: #0a0a0a;
-      border-top: 1px solid #2a2a2a;
-      display: flex;
-      gap: 30px;
-      font-size: 0.75rem;
-      color: #888;
-    }
-    .legend span { display: flex; align-items: center; gap: 8px; }
-    .dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .dot.religiosa { background: #c9a96e; }
-    .dot.sagra { background: #e07b39; }
-    .dot.palio { background: #6e9ec9; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAMMUTH•EV | Global Folklore & Traditions</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap');
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px 60px;
+}
+
+.hero {
+  text-align:center;
+  margin-bottom:48px;
+  animation:fadeUp 0.5s ease both;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:16px;
+}
+
+.logo-text {
+  font-size:28px;
+  font-weight:300;
+  letter-spacing:0.18em;
+  color:#1A1A1E;
+  text-transform:uppercase;
+}
+
+.dot {
+  width:8px;
+  height:8px;
+  background:#E8221A;
+  border-radius:50%;
+  margin:0 4px;
+}
+
+.divider {
+  height:1px;
+  background:#D8D4CC;
+  width:200px;
+  margin:12px auto;
+}
+
+.tagline {
+  font-size:13px;
+  font-weight:700;
+  color:#1A1A1E;
+  letter-spacing:-0.01em;
+  margin-bottom:4px;
+}
+
+.sub {
+  font-size:9px;
+  font-family:'DM Mono',monospace;
+  font-weight:300;
+  letter-spacing:0.22em;
+  color:#B8B0A4;
+  text-transform:uppercase;
+}
+
+.screens {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  width:100%;
+  max-width:400px;
+  margin-bottom:32px;
+}
+
+.screen-card {
+  background:#FFF;
+  border:1.5px solid #EDE8E0;
+  border-radius:20px;
+  padding:20px 16px;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+  box-shadow:3px 3px 0 #D8D4CC;
+  transition:all 0.12s ease;
+  cursor:pointer;
+  animation:fadeUp 0.4s ease both;
+}
+
+.screen-card:hover {
+  transform:translate(-1px,-1px);
+  box-shadow:4px 4px 0 #C8C4BC;
+}
+
+.screen-card:active {
+  transform:translate(2px,2px);
+  box-shadow:1px 1px 0 #D8D4CC;
+}
+
+.screen-emoji { font-size:28px; }
+
+.screen-label {
+  font-size:9px;
+  font-family:'DM Mono',monospace;
+  font-weight:400;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:#AAA;
+}
+
+.screen-title {
+  font-size:14px;
+  font-weight:800;
+  color:#1A1A1E;
+  line-height:1.2;
+  letter-spacing:-0.01em;
+}
+
+.screen-desc {
+  font-size:11px;
+  color:#888;
+  line-height:1.4;
+}
+
+.screen-card.featured {
+  grid-column:1/-1;
+  flex-direction:row;
+  align-items:center;
+  gap:16px;
+  border-color:#70D6FF;
+  box-shadow:3px 3px 0 #70D6FF88;
+}
+
+.screen-card.featured .screen-emoji { font-size:36px; }
+
+.badge-new {
+  display:inline-block;
+  background:#E9FF70;
+  color:#1A1A1E;
+  border-radius:20px;
+  padding:2px 8px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+.status-bar {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:32px;
+}
+
+.status-pill {
+  background:#FFF;
+  border:1.5px solid #EDE8E0;
+  border-radius:20px;
+  padding:5px 12px;
+  font-size:10px;
+  font-family:'DM Mono',monospace;
+  color:#888;
+  letter-spacing:0.06em;
+}
+
+.status-pill.active {
+  background:#1A1A1E;
+  color:#FFF;
+  border-color:#1A1A1E;
+}
+
+.footer {
+  font-size:8px;
+  font-family:'DM Mono',monospace;
+  color:#C8C4BC;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
 </head>
 <body>
 
-<header>
-  <div style="display:flex; align-items:center; gap:15px;">
-  <img src="MAMMUTH_ev_logo.png"
-         alt="MAMMUTH•ev™" 
-        style="height:50px; width:auto; mix-blend-mode: lighten;"
-    <div>
-      <h1>MAMMUTH•EV™</h1>
-      <p>GLOBAL FOLK & TRADITIONS — Where Communities Come Alive</p>
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:9px;font-family:'DM Mono',monospace;color:#B8B0A4;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:12px">
+    Borghi · Valli · Sentieri
   </div>
-  <div style="text-align:right; font-size:0.75rem; color:#888;">
-    <p>KREATIO UNIVERSAL SYSTEM™</p>
-    <p>Code 3620</p>
+  <div class="logo">
+    <span style="font-size:32px">🦣</span>
+    <span class="logo-text">MAMMUTH</span>
+    <span class="dot"></span>
+    <span class="logo-text">EV</span>
   </div>
-</header>
-
-<div id="map"></div>
-
-<div class="legend">
-  <span><span class="dot religiosa"></span> Festa religiosa / Heritage</span>
-  <span><span class="dot sagra"></span> Sagra enogastronomica</span>
-  <span><span class="dot palio"></span> Palio / Rievocazione storica</span>
+  <div class="divider"></div>
+  <div class="tagline">Il territorio come non l'hai mai visto.</div>
+  <div class="sub">Global Folklore & Traditions · Where Communities Come Alive™</div>
 </div>
 
-<script>
-  const map = L.map('map', {
-    center: [41.9, 12.8],
-    zoom: 8,
-    zoomControl: true
-  });
+<!-- STATUS -->
+<div class="status-bar">
+  <div class="status-pill active">✓ MVP v1.0</div>
+  <div class="status-pill active">✓ Sermoneta Pilot</div>
+  <div class="status-pill">Vercel deploy →</div>
+</div>
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap contributors © CARTO',
-    maxZoom: 19
-  }).addTo(map);
+<!-- SCHERMATE -->
+<div class="screens">
 
-  const colori = {
-    'festa_religiosa': '#c9a96e',
-    'sagra': '#e07b39',
-    'palio': '#6e9ec9'
-  };
+  <!-- Home — featured -->
+  <a href="src/frontend/home/mammuth-home-mvp.jsx" class="screen-card featured" style="animation-delay:0.1s">
+    <div class="screen-emoji">🏠</div>
+    <div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <div class="screen-label">Schermata 1</div>
+        <div class="badge-new">LIVE</div>
+      </div>
+      <div class="screen-title">Home MVP</div>
+      <div class="screen-desc">Lista eventi · FOMO badges · Filtri micro-territorio · UX Apple+GYG</div>
+    </div>
+  </a>
 
-  const geojsonFiles = [
-    'data/lazio/latina.geojson',
-    'data/lazio/data/lazio/roma.geojson',
-   'data/lazio/data/viterbo.geojson'
-];
+  <!-- Mappa -->
+  <a href="src/frontend/mappa/mammuth-mappa.html" class="screen-card" style="animation-delay:0.15s;border-color:#FF70A6;box-shadow:3px 3px 0 #FF70A688">
+    <div class="screen-emoji">🗺️</div>
+    <div class="screen-label">Schermata 2</div>
+    <div class="screen-title">Mappa Interattiva</div>
+    <div class="screen-desc">OpenStreetMap · 5 pin · Bottom sheet</div>
+  </a>
 
-  geojsonFiles.forEach(file => {
-    fetch(file)
-      .then(r => r.json())
-      .then(data => {
-        L.geoJSON(data, {
-          pointToLayer: function(feature, latlng) {
-            const colore = colori[feature.properties.tipo] || '#ffffff';
-            return L.circleMarker(latlng, {
-              radius: 10,
-              fillColor: colore,
-              color: '#ffffff',
-              weight: 1.5,
-              opacity: 0.9,
-              fillOpacity: 0.85
-            });
-          },
-          onEachFeature: function(feature, layer) {
-            const p = feature.properties;
-            layer.bindPopup(`
-              <div style="font-family:Georgia,serif; min-width:220px;">
-                <h3 style="color:#c9a96e; font-size:0.9rem; margin-bottom:8px;">
-                  ${p.nome}
-                </h3>
-                <p style="font-size:0.75rem; color:#555; margin-bottom:4px;">
-                  📍 ${p.comune} (${p.provincia})
-                </p>
-                <p style="font-size:0.75rem; color:#555; margin-bottom:4px;">
-                  🗓 ${p.periodo || p.data_inizio || 'N/D'}
-                </p>
-                <p style="font-size:0.75rem; color:#555; margin-bottom:8px;">
-                  🏛 ${p.ente_organizzatore}
-                </p>
-                <p style="font-size:0.72rem; color:#777; line-height:1.4;">
-                  ${p.descrizione_storica}
-                </p>
-              </div>
-            `);
-          }
-        }).addTo(map);
-      });
-  });
-</script>
+  <!-- Dettaglio -->
+  <a href="src/frontend/evento/mammuth-evento-detail.html" class="screen-card" style="animation-delay:0.2s;border-color:#FFB830;box-shadow:3px 3px 0 #FFB83088">
+    <div class="screen-emoji">🎟️</div>
+    <div class="screen-label">Schermata 3</div>
+    <div class="screen-title">Scheda Evento</div>
+    <div class="screen-desc">Dettaglio · Programma · Prenota</div>
+  </a>
+
+  <!-- Passaporto -->
+  <a href="src/frontend/passaporto/mammuth-passaporto.html" class="screen-card" style="animation-delay:0.25s;border-color:#C9B1FF;box-shadow:3px 3px 0 #C9B1FF88">
+    <div class="screen-emoji">📖</div>
+    <div class="screen-label">Schermata 4</div>
+    <div class="screen-title">Passaporto del Borgo</div>
+    <div class="screen-desc">Timbri · Premi · Gamification</div>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · ATLAS·EVENTA™<br>
+  <span style="color:#D8D4CC">adrianochtribo-dot/MAMMUTH-EV · main</span>
+</div>
 
 </body>
 </html>
