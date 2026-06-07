@@ -108,24 +108,19 @@ const eventiMock = [
 
 const FILTRI = [
   { label: "Tutti", emoji: "✦", colore: "#1A1A1E", bg: "#E9FF70" },
-  { label: "Cultura", emoji: "🏰", colore: "#1A1A1E", bg: "#70D6FF" },
-  { label: "Enogastronomia", emoji: "🍷", colore: "#1A1A1E", bg: "#FFB830" },
+  { label: "Borghi", emoji: "🏰", colore: "#1A1A1E", bg: "#70D6FF" },
+  { label: "Sapori", emoji: "🍷", colore: "#1A1A1E", bg: "#FFB830" },
   { label: "Musica", emoji: "🎵", colore: "#1A1A1E", bg: "#FF70A6" },
-  { label: "Sagra", emoji: "🌾", colore: "#1A1A1E", bg: "#B5EAD7" },
-  { label: "Religioso", emoji: "⛪", colore: "#1A1A1E", bg: "#C9B1FF" },
+  { label: "Sagre", emoji: "🌾", colore: "#1A1A1E", bg: "#B5EAD7" },
+  { label: "Spirituale", emoji: "⛪", colore: "#1A1A1E", bg: "#C9B1FF" },
 ];
 
 function FomoBadge({ label, color, bg }) {
   return (
     <div style={{
-      background: bg,
-      border: `1.5px solid ${color}`,
-      borderRadius: "20px",
-      padding: "4px 10px",
-      fontSize: 11,
-      fontWeight: 700,
-      color: "#1A1A1E",
-      whiteSpace: "nowrap",
+      background: bg, border: `1.5px solid ${color}`,
+      borderRadius: "20px", padding: "4px 10px",
+      fontSize: 11, fontWeight: 700, color: "#1A1A1E", whiteSpace: "nowrap",
     }}>
       {label}
     </div>
@@ -134,43 +129,28 @@ function FomoBadge({ label, color, bg }) {
 
 function EventCard({ evento, index }) {
   const [pressed, setPressed] = useState(false);
-
   return (
     <div
-      onMouseDown={() => setPressed(true)}
-      onMouseUp={() => setPressed(false)}
-      onMouseLeave={() => setPressed(false)}
-      onTouchStart={() => setPressed(true)}
+      onMouseDown={() => setPressed(true)} onMouseUp={() => setPressed(false)}
+      onMouseLeave={() => setPressed(false)} onTouchStart={() => setPressed(true)}
       onTouchEnd={() => setPressed(false)}
       style={{
-        background: "#FFFFFF",
-        borderRadius: "20px",
-        overflow: "hidden",
+        background: "#FFFFFF", borderRadius: "20px", overflow: "hidden",
         border: `1.5px solid ${pressed ? evento.colore : "#EDE8E0"}`,
         boxShadow: pressed ? `4px 4px 0px ${evento.colore}` : "3px 3px 0px #D8D4CC",
         transform: pressed ? "translate(2px,2px)" : "translate(0,0)",
-        transition: "all 0.1s ease",
-        cursor: "pointer",
+        transition: "all 0.1s ease", cursor: "pointer",
         animation: "fadeUp 0.3s ease both",
         animationDelay: `${index * 0.07}s`,
       }}
     >
-      {/* Striscia colore top */}
       <div style={{ height: 4, background: evento.colore, width: "100%" }} />
-
       <div style={{ padding: "14px 16px 16px" }}>
-
-        {/* Row 1: categoria + data */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
           <div style={{
-            background: evento.colore,
-            color: "#1A1A1E",
-            borderRadius: "8px",
-            padding: "4px 12px",
-            fontSize: 11,
-            fontWeight: 800,
-            letterSpacing: "0.04em",
-            textTransform: "uppercase",
+            background: evento.colore, color: "#1A1A1E", borderRadius: "8px",
+            padding: "4px 12px", fontSize: 11, fontWeight: 800,
+            letterSpacing: "0.04em", textTransform: "uppercase",
           }}>
             {evento.categoria}
           </div>
@@ -178,88 +158,46 @@ function EventCard({ evento, index }) {
             background: evento.data === "Oggi" ? "#1A1A1E" : "#F5F3EF",
             color: evento.data === "Oggi" ? "#FFF" : "#888",
             border: `1.5px solid ${evento.data === "Oggi" ? "#1A1A1E" : "#E8E4DC"}`,
-            borderRadius: "8px",
-            padding: "3px 10px",
-            fontSize: 11,
-            fontWeight: 700,
+            borderRadius: "8px", padding: "3px 10px", fontSize: 11, fontWeight: 700,
           }}>
             {evento.data === "Oggi" ? "🔴 Oggi" : evento.data} · {evento.orario}
           </div>
         </div>
-
-        {/* Titolo */}
-        <div style={{
-          fontSize: 17,
-          fontWeight: 800,
-          color: "#1A1A1E",
-          lineHeight: 1.25,
-          marginBottom: 6,
-          letterSpacing: "-0.02em",
-        }}>
+        <div style={{ fontSize: 17, fontWeight: 800, color: "#1A1A1E", lineHeight: 1.25, marginBottom: 6, letterSpacing: "-0.02em" }}>
           {evento.titolo}
         </div>
-
-        {/* Descrizione */}
         <div style={{ fontSize: 13, color: "#888", lineHeight: 1.5, marginBottom: 12 }}>
           {evento.descrizione}
         </div>
-
-        {/* FOMO badges */}
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
-          {evento.fomo.map((f, i) => (
-            <FomoBadge key={i} {...f} />
-          ))}
+          {evento.fomo.map((f, i) => <FomoBadge key={i} {...f} />)}
         </div>
-
-        {/* Badge locale */}
         <div style={{
-          display: "inline-flex",
-          alignItems: "center",
-          background: evento.badgeColor + "33",
-          border: `1.5px solid ${evento.badgeColor}`,
-          borderRadius: "20px",
-          padding: "4px 12px",
-          fontSize: 11,
-          fontWeight: 700,
-          color: "#1A1A1E",
-          marginBottom: 12,
+          display: "inline-flex", alignItems: "center",
+          background: evento.badgeColor + "33", border: `1.5px solid ${evento.badgeColor}`,
+          borderRadius: "20px", padding: "4px 12px",
+          fontSize: 11, fontWeight: 700, color: "#1A1A1E", marginBottom: 12,
         }}>
           {evento.badge}
         </div>
-
-        {/* Info + prezzo */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div>
-            <div style={{ fontSize: 12, color: "#333", fontWeight: 600, marginBottom: 2 }}>
-              📍 {evento.luogo}
-            </div>
-            <div style={{ fontSize: 11, color: "#AAA" }}>
-              🚶 {evento.walkMin}
-            </div>
+            <div style={{ fontSize: 12, color: "#333", fontWeight: 600, marginBottom: 2 }}>📍 {evento.luogo}</div>
+            <div style={{ fontSize: 11, color: "#AAA" }}>🚶 {evento.walkMin}</div>
           </div>
           <div style={{
             background: evento.gratuito ? "#B5EAD7" : evento.colore,
-            color: "#1A1A1E",
-            borderRadius: "12px",
-            padding: "7px 16px",
-            fontSize: 15,
-            fontWeight: 900,
-            boxShadow: `2px 2px 0px ${evento.colore}88`,
+            color: "#1A1A1E", borderRadius: "12px", padding: "7px 16px",
+            fontSize: 15, fontWeight: 900, boxShadow: `2px 2px 0px ${evento.colore}88`,
           }}>
             {evento.gratuito ? "🎉 FREE" : `Da ${evento.prezzo}`}
           </div>
         </div>
-
-        {/* Tag */}
         <div style={{ display: "flex", gap: 6, marginTop: 12, flexWrap: "wrap" }}>
           {evento.tag.map(t => (
             <span key={t} style={{
-              background: "#F5F3EF",
-              color: "#999",
-              borderRadius: "6px",
-              padding: "2px 8px",
-              fontSize: 10,
-              fontWeight: 500,
+              background: "#F5F3EF", color: "#999", borderRadius: "6px",
+              padding: "2px 8px", fontSize: 10, fontWeight: 500,
             }}>#{t}</span>
           ))}
         </div>
@@ -273,7 +211,11 @@ export default function App() {
   const [cerca, setCerca] = useState("");
 
   const eventiFiltrati = eventiMock.filter(e => {
-    const matchCat = filtro === "Tutti" || e.categoria === filtro;
+    const matchCat = filtro === "Tutti" || e.categoria === filtro ||
+      (filtro === "Borghi" && e.categoria === "Cultura") ||
+      (filtro === "Sapori" && e.categoria === "Enogastronomia") ||
+      (filtro === "Sagre" && e.categoria === "Sagra") ||
+      (filtro === "Spirituale" && e.categoria === "Religioso");
     const matchSearch = cerca === "" ||
       e.titolo.toLowerCase().includes(cerca.toLowerCase()) ||
       e.luogo.toLowerCase().includes(cerca.toLowerCase()) ||
@@ -295,18 +237,17 @@ export default function App() {
       {/* HEADER */}
       <div style={{
         position: "sticky", top: 0, zIndex: 10,
-        background: "rgba(250,248,245,0.96)",
-        backdropFilter: "blur(16px)",
-        padding: "48px 20px 16px",
-        borderBottom: "1.5px solid #EDE8E0",
+        background: "rgba(250,248,245,0.96)", backdropFilter: "blur(16px)",
+        padding: "48px 20px 16px", borderBottom: "1.5px solid #EDE8E0",
       }}>
-        {/* Logo row */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
           <div>
-            <div style={{ fontSize: 10, color: "#B8B0A4", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 4 }}>
-              Sermoneta · Provincia di Latina
+            {/* Soprattitolo micro-territorio */}
+            <div style={{ fontSize: 9, color: "#B8B0A4", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 4 }}>
+              Borghi · Valli · Sentieri
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
+            {/* Logo */}
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 5 }}>
               <span style={{ fontSize: 22 }}>🦣</span>
               <div style={{ display: "flex", alignItems: "center" }}>
                 <span style={{ fontSize: 20, fontWeight: 300, letterSpacing: "0.16em", color: "#1A1A1E", textTransform: "uppercase" }}>MAMMUTH</span>
@@ -314,16 +255,21 @@ export default function App() {
                 <span style={{ fontSize: 20, fontWeight: 300, letterSpacing: "0.16em", color: "#1A1A1E", textTransform: "uppercase" }}>EV</span>
               </div>
             </div>
+            {/* Divider */}
             <div style={{ height: 1, background: "#D8D4CC", marginBottom: 5 }} />
-            <div style={{ fontSize: 9, fontFamily: "'DM Mono',monospace", fontWeight: 300, letterSpacing: "0.2em", color: "#B8B0A4", textTransform: "uppercase" }}>
-              Global Folklore &amp; Traditions · Where Communities Come Alive™
+            {/* Hero tagline — Apple */}
+            <div style={{ fontSize: 12, fontWeight: 700, color: "#1A1A1E", letterSpacing: "-0.01em", marginBottom: 2 }}>
+              Il territorio come non l'hai mai visto.
+            </div>
+            {/* Sub tagline — GYG */}
+            <div style={{ fontSize: 9, fontFamily: "'DM Mono',monospace", fontWeight: 300, letterSpacing: "0.16em", color: "#B8B0A4", textTransform: "uppercase" }}>
+              Where Communities Come Alive™
             </div>
           </div>
           <div style={{
             background: "#E8221A", color: "#FFF",
             borderRadius: "10px", padding: "5px 11px",
-            fontSize: 11, fontWeight: 700,
-            marginTop: 20,
+            fontSize: 11, fontWeight: 700, marginTop: 20,
           }}>
             {eventiFiltrati.length} eventi
           </div>
@@ -331,24 +277,19 @@ export default function App() {
 
         {/* Search */}
         <div style={{
-          background: "#FFF",
-          border: "1.5px solid #EDE8E0",
-          borderRadius: "13px",
-          padding: "10px 16px",
-          display: "flex", alignItems: "center", gap: 8,
-          marginBottom: 14,
-          boxShadow: "2px 2px 0 #D8D4CC",
+          background: "#FFF", border: "1.5px solid #EDE8E0", borderRadius: "13px",
+          padding: "10px 16px", display: "flex", alignItems: "center", gap: 8,
+          marginBottom: 14, boxShadow: "2px 2px 0 #D8D4CC",
         }}>
           <span style={{ fontSize: 14, color: "#C0BCB4" }}>🔍</span>
           <input
-            value={cerca}
-            onChange={e => setCerca(e.target.value)}
-            placeholder="cerca eventi, luoghi, tag..."
+            value={cerca} onChange={e => setCerca(e.target.value)}
+            placeholder="Cosa succede oggi intorno a te..."
             style={{ background: "transparent", border: "none", color: "#1A1A1E", fontSize: 14, width: "100%", fontWeight: 400 }}
           />
         </div>
 
-        {/* Filtri */}
+        {/* Filtri — micro-territorio taxonomy */}
         <div style={{ display: "flex", gap: 7, overflowX: "auto", paddingBottom: 2 }}>
           {FILTRI.map(f => {
             const attivo = filtro === f.label;
@@ -356,15 +297,11 @@ export default function App() {
               <button key={f.label} onClick={() => setFiltro(f.label)} style={{
                 background: attivo ? f.bg : "#FFF",
                 border: `1.5px solid ${attivo ? f.bg : "#EDE8E0"}`,
-                borderRadius: "20px",
-                padding: "6px 14px",
-                fontSize: 11,
-                fontWeight: attivo ? 800 : 500,
+                borderRadius: "20px", padding: "6px 14px",
+                fontSize: 11, fontWeight: attivo ? 800 : 500,
                 color: attivo ? "#1A1A1E" : "#888",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
+                cursor: "pointer", whiteSpace: "nowrap",
                 transition: "all 0.12s ease",
-                boxShadow: attivo ? `2px 2px 0 ${f.bg}AA` : "none",
                 display: "flex", alignItems: "center", gap: 4,
               }}>
                 {f.emoji} {f.label}
@@ -377,57 +314,55 @@ export default function App() {
       {/* Lista */}
       <div style={{ padding: "20px 20px 60px", display: "flex", flexDirection: "column", gap: 14 }}>
 
-        {/* "Si esaurisce facilmente" row — ispirato GYG */}
+        {/* Banner urgenza */}
         <div style={{
           display: "flex", alignItems: "center", gap: 8,
-          background: "#FFF0F0",
-          border: "1.5px solid #FFB3B3",
-          borderRadius: "12px",
-          padding: "10px 14px",
-          fontSize: 12,
-          fontWeight: 700,
-          color: "#CC3333",
+          background: "#FFF0F0", border: "1.5px solid #FFB3B3",
+          borderRadius: "12px", padding: "10px 14px",
+          fontSize: 12, fontWeight: 700, color: "#CC3333",
         }}>
-          🔥 2 eventi si esauriscono nelle prossime ore — prenota subito
+          🔥 Memorie che durano più del weekend — 2 eventi si esauriscono oggi
         </div>
 
+        {/* Section label — GYG style */}
         <div style={{ fontSize: 10, fontFamily: "'DM Mono',monospace", color: "#B8B0A4", fontWeight: 300, letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          {eventiFiltrati.length} eventi questa settimana · Sermoneta
+          Quello che i locali amano davvero · {eventiFiltrati.length} esperienze
         </div>
 
         {eventiFiltrati.length === 0
-          ? <div style={{ textAlign: "center", padding: "60px 20px", color: "#C8C0B4", fontSize: 15 }}>Nessun evento trovato</div>
+          ? <div style={{ textAlign: "center", padding: "60px 20px", color: "#C8C0B4", fontSize: 15 }}>
+              Nessuna esperienza trovata
+            </div>
           : eventiFiltrati.map((e, i) => <EventCard key={e.id} evento={e} index={i} />)
         }
       </div>
 
-      {/* Footer ispirato GYG — perché scegliere MAMMUTH•EV */}
-      <div style={{
-        background: "#1A1A1E",
-        padding: "32px 20px",
-        display: "flex",
-        flexDirection: "column",
-        gap: 20,
-      }}>
-        <div style={{ fontSize: 14, fontWeight: 700, color: "#FFF", letterSpacing: "0.04em" }}>
-          Perché scegliere MAMMUTH•EV?
+      {/* Footer */}
+      <div style={{ background: "#1A1A1E", padding: "32px 20px", display: "flex", flexDirection: "column", gap: 20 }}>
+        {/* Headline Apple */}
+        <div style={{ fontSize: 18, fontWeight: 800, color: "#FFF", letterSpacing: "-0.02em", lineHeight: 1.3 }}>
+          Piccoli comuni.<br/>Storie enormi.
         </div>
         {[
-          { emoji: "🗺️", titolo: "Zero barriere", desc: "Nessun download. Apri il link e sei dentro." },
-          { emoji: "🤝", titolo: "100% locale", desc: "Ogni evento è verificato da residenti di Sermoneta." },
-          { emoji: "⚡", titolo: "Real-time spontaneo", desc: "Esperienze che durano ore, non mesi. Scoprile prima degli altri." },
+          { emoji: "🗺️", titolo: "Vivi il territorio", desc: "Prenota in 30 secondi. Nessun download." },
+          { emoji: "🤝", titolo: "100% locale", desc: "Ogni esperienza è verificata da chi ci abita." },
+          { emoji: "⚡", titolo: "Real-time spontaneo", desc: "I borghi che meritano il viaggio — oggi." },
         ].map(item => (
           <div key={item.titolo} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-            <span style={{ fontSize: 24 }}>{item.emoji}</span>
+            <span style={{ fontSize: 22 }}>{item.emoji}</span>
             <div>
               <div style={{ fontSize: 13, fontWeight: 700, color: "#FFF", marginBottom: 2 }}>{item.titolo}</div>
               <div style={{ fontSize: 12, color: "#5A5A54", lineHeight: 1.5 }}>{item.desc}</div>
             </div>
           </div>
         ))}
-        <div style={{ height: 1, background: "#2A2A24", marginTop: 4 }} />
-        <div style={{ fontSize: 8, fontFamily: "'DM Mono',monospace", color: "#3A3A30", letterSpacing: "0.1em", textTransform: "uppercase", textAlign: "center" }}>
-          KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · ATLAS•EVENTA™
+        <div style={{ height: 1, background: "#2A2A24" }} />
+        {/* Più cercato ora — GYG */}
+        <div style={{ fontSize: 10, fontFamily: "'DM Mono',monospace", color: "#4A4A40", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+          Più cercato ora: Sagre · Artigianato · Visite guidate
+        </div>
+        <div style={{ fontSize: 7, fontFamily: "'DM Mono',monospace", color: "#2A2A20", letterSpacing: "0.12em", textTransform: "uppercase", textAlign: "center" }}>
+          KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · ATLAS·EVENTA™
         </div>
       </div>
     </div>
