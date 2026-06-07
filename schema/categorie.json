@@ -1,19 +1,626 @@
 {
-  "categorie": [
-    "festa_religiosa",
-    "sagra",
-    "sagra_territoriale",
-    "palio",
-    "palio_rievocazione",
-    "rito_agrario",
-    "mercato",
-    "festival_culturale",
-    "laboratorio_artistico",
-    "concerto",
-    "spettacolo_strada",
-    "mostra",
-    "workshop",
-    "residenza_artistica",
-    "evento_musicale"
+  "meta": {
+    "versione": "2.0.0",
+    "data_aggiornamento": "2026-06-07",
+    "autore": "KREATIO UNIVERSAL SYSTEM™ — Code 3620",
+    "descrizione": "Tassonomia universale eventi MAMMUTH•EVENTS™ — copertura globale, tutte le tradizioni religiose, culturali e territoriali del mondo",
+    "totale_macro": 16,
+    "nota": "Zero invented data. Ogni categoria riflette tradizioni reali verificate."
+  },
+  "tassonomia": [
+    {
+      "macro_id": "REL",
+      "macro_nome": "Religioso e Spirituale",
+      "descrizione": "Eventi legati a tutte le tradizioni religiose e spirituali del mondo, senza distinzione o gerarchia tra fedi",
+      "categorie": [
+        {
+          "id": "REL-CAT",
+          "nome": "Cristianesimo Cattolico",
+          "sottocategorie": [
+            "festa_patronale",
+            "processione",
+            "pellegrinaggio",
+            "settimana_santa",
+            "corpus_domini",
+            "natale_tradizionale",
+            "presepe_vivente",
+            "via_crucis",
+            "festa_mariana",
+            "canonizzazione"
+          ]
+        },
+        {
+          "id": "REL-ORT",
+          "nome": "Cristianesimo Ortodosso",
+          "sottocategorie": [
+            "pasqua_ortodossa",
+            "epifania_ortodossa",
+            "festa_icona",
+            "processione_ortodossa",
+            "pellegrinaggio_ortodosso"
+          ]
+        },
+        {
+          "id": "REL-PRO",
+          "nome": "Cristianesimo Protestante",
+          "sottocategorie": [
+            "riforma_protestante",
+            "gospel_festival",
+            "raduno_evangelico",
+            "cerimonia_battesimo"
+          ]
+        },
+        {
+          "id": "REL-ISL",
+          "nome": "Islam",
+          "sottocategorie": [
+            "eid_al_fitr",
+            "eid_al_adha",
+            "mawlid_al_nabi",
+            "ramadan_eventi",
+            "laylat_al_qadr",
+            "ashura",
+            "hijra_capodanno_islamico",
+            "pellegrinaggio_locale"
+          ]
+        },
+        {
+          "id": "REL-EBR",
+          "nome": "Ebraismo",
+          "sottocategorie": [
+            "rosh_hashanah",
+            "yom_kippur",
+            "sukkot",
+            "hanukkah",
+            "purim",
+            "pesach",
+            "shavuot",
+            "simchat_torah"
+          ]
+        },
+        {
+          "id": "REL-BUD",
+          "nome": "Buddhismo",
+          "sottocategorie": [
+            "vesak",
+            "capodanno_buddhista",
+            "festa_dei_lanternini",
+            "celebrazione_dalai_lama",
+            "obon_giappone",
+            "kathina",
+            "meditazione_collettiva",
+            "processione_buddhista"
+          ]
+        },
+        {
+          "id": "REL-IND",
+          "nome": "Induismo",
+          "sottocategorie": [
+            "diwali",
+            "holi",
+            "navratri",
+            "durga_puja",
+            "ganesh_chaturthi",
+            "kumbh_mela",
+            "rama_navami",
+            "janmashtami",
+            "pongal",
+            "onam"
+          ]
+        },
+        {
+          "id": "REL-SIK",
+          "nome": "Sikhismo",
+          "sottocategorie": [
+            "vaisakhi",
+            "gurpurab",
+            "hola_mohalla",
+            "bandi_chhor_divas"
+          ]
+        },
+        {
+          "id": "REL-SHI",
+          "nome": "Shintoismo",
+          "sottocategorie": [
+            "matsuri",
+            "hatsumode",
+            "setsubun",
+            "tanabata",
+            "obon_shinto",
+            "festival_santuario"
+          ]
+        },
+        {
+          "id": "REL-TAO",
+          "nome": "Taoismo e Religioni Cinesi",
+          "sottocategorie": [
+            "capodanno_cinese",
+            "festival_luna",
+            "qingming",
+            "chongyang",
+            "dragon_boat_festival",
+            "festa_dei_fantasmi"
+          ]
+        },
+        {
+          "id": "REL-ANI",
+          "nome": "Tradizioni Animiste e Indigene",
+          "sottocategorie": [
+            "cerimonia_terra",
+            "danza_spiriti",
+            "rito_stagionale_indigeno",
+            "cerimonia_fuoco",
+            "rito_acqua",
+            "festa_antenati",
+            "cerimonia_guarigione",
+            "rito_passaggio"
+          ]
+        },
+        {
+          "id": "REL-AFR",
+          "nome": "Tradizioni Spirituali Africane",
+          "sottocategorie": [
+            "vodou",
+            "candomble",
+            "santeria",
+            "festa_yoruba",
+            "cerimonia_zulu",
+            "rito_masai"
+          ]
+        },
+        {
+          "id": "REL-INT",
+          "nome": "Interreligioso e Spiritualità Universale",
+          "sottocategorie": [
+            "dialogo_interreligioso",
+            "preghiera_universale",
+            "meditazione_interconfessionale",
+            "incontro_pace_religioni",
+            "festival_spiritualita"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "TRA",
+      "macro_nome": "Tradizioni e Folklore",
+      "descrizione": "Manifestazioni della cultura popolare, tradizioni locali e patrimonio immateriale",
+      "categorie": [
+        {
+          "id": "TRA-SAG",
+          "nome": "Sagre e Feste Gastronomiche",
+          "sottocategorie": [
+            "sagra_prodotto_tipico",
+            "sagra_territoriale",
+            "festival_enogastronomico",
+            "sagra_medievale",
+            "festa_raccolto",
+            "sagra_mare",
+            "sagra_montagna"
+          ]
+        },
+        {
+          "id": "TRA-RIT",
+          "nome": "Riti Agrari e Stagionali",
+          "sottocategorie": [
+            "rito_semina",
+            "rito_vendemmia",
+            "rito_mietitura",
+            "festa_primavera",
+            "falò_invernale",
+            "rito_solstizio",
+            "rito_equinozio"
+          ]
+        },
+        {
+          "id": "TRA-STO",
+          "nome": "Rievocazioni Storiche",
+          "sottocategorie": [
+            "palio",
+            "rievocazione_medievale",
+            "rievocazione_rinascimentale",
+            "rievocazione_romana",
+            "rievocazione_napoleonica",
+            "torneo_storico",
+            "corteo_storico"
+          ]
+        },
+        {
+          "id": "TRA-FOL",
+          "nome": "Folklore e Danze Tradizionali",
+          "sottocategorie": [
+            "danza_folk_italiana",
+            "danza_folk_europea",
+            "danza_folk_africana",
+            "danza_folk_asiatica",
+            "danza_folk_latinoamericana",
+            "costume_tradizionale",
+            "musica_popolare"
+          ]
+        },
+        {
+          "id": "TRA-CAR",
+          "nome": "Carnevale e Maschere",
+          "sottocategorie": [
+            "carnevale_storico",
+            "carnevale_popolare",
+            "sfilata_maschere",
+            "festa_mascherata",
+            "carnevale_infantile"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "MUS",
+      "macro_nome": "Musica e Performing Arts",
+      "descrizione": "Concerti, festival musicali, teatro, danza contemporanea e arti performative",
+      "categorie": [
+        {
+          "id": "MUS-CON",
+          "nome": "Concerti e Festival Musicali",
+          "sottocategorie": [
+            "concerto_classico",
+            "concerto_rock",
+            "concerto_jazz",
+            "festival_musica_etnica",
+            "musica_sacra",
+            "concerto_camera",
+            "opera_lirica",
+            "concerto_pop"
+          ]
+        },
+        {
+          "id": "MUS-TEA",
+          "nome": "Teatro e Spettacolo",
+          "sottocategorie": [
+            "teatro_classico",
+            "teatro_contemporaneo",
+            "teatro_strada",
+            "teatro_ragazzi",
+            "teatro_sperimentale",
+            "commedia_dellarte",
+            "burattini_marionette"
+          ]
+        },
+        {
+          "id": "MUS-DAN",
+          "nome": "Danza Contemporanea e Classica",
+          "sottocategorie": [
+            "balletto",
+            "danza_contemporanea",
+            "danza_urbana",
+            "flamenco",
+            "tango",
+            "danza_orientale"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "ART",
+      "macro_nome": "Arte e Cultura Visiva",
+      "descrizione": "Mostre, esposizioni, installazioni, arte pubblica e cultura visiva",
+      "categorie": [
+        {
+          "id": "ART-MOS",
+          "nome": "Mostre ed Esposizioni",
+          "sottocategorie": [
+            "mostra_pittura",
+            "mostra_scultura",
+            "mostra_fotografia",
+            "mostra_arte_digitale",
+            "installazione_artistica",
+            "arte_pubblica",
+            "street_art"
+          ]
+        },
+        {
+          "id": "ART-LAB",
+          "nome": "Laboratori e Workshop Creativi",
+          "sottocategorie": [
+            "laboratorio_ceramica",
+            "laboratorio_pittura",
+            "workshop_fotografia",
+            "laboratorio_artigianato",
+            "residenza_artistica",
+            "atelier_aperto"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "SPO",
+      "macro_nome": "Sport e Competizioni",
+      "descrizione": "Eventi sportivi, competizioni tradizionali e manifestazioni atletiche",
+      "categorie": [
+        {
+          "id": "SPO-TRA",
+          "nome": "Sport Tradizionali",
+          "sottocategorie": [
+            "palio_cavalli",
+            "tiro_con_arco_storico",
+            "giochi_storici",
+            "sport_folk"
+          ]
+        },
+        {
+          "id": "SPO-MOD",
+          "nome": "Sport Moderni",
+          "sottocategorie": [
+            "maratona",
+            "ciclismo",
+            "trail_running",
+            "torneo_calcio",
+            "gara_nuoto",
+            "competizione_arrampicata"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "GAA",
+      "macro_nome": "Gastronomia e Artigianato",
+      "descrizione": "Mercati, fiere artigianali, enogastronomia e prodotti tipici",
+      "categorie": [
+        {
+          "id": "GAA-MER",
+          "nome": "Mercati e Fiere",
+          "sottocategorie": [
+            "mercato_antiquariato",
+            "mercato_artigianato",
+            "fiera_prodotti_tipici",
+            "mercato_biologico",
+            "fiera_medievale",
+            "mercatino_natale"
+          ]
+        },
+        {
+          "id": "GAA-ENO",
+          "nome": "Enogastronomia",
+          "sottocategorie": [
+            "degustazione_vini",
+            "festival_olio",
+            "concorso_gastronomico",
+            "street_food",
+            "cena_medievale",
+            "festival_birra_artigianale"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "NAT",
+      "macro_nome": "Natura e Ambiente",
+      "descrizione": "Escursioni, eventi naturalistici, astronomia e cultura ambientale",
+      "categorie": [
+        {
+          "id": "NAT-ECO",
+          "nome": "Eco-eventi e Ambiente",
+          "sottocategorie": [
+            "pulizia_territorio",
+            "piantumazione_collettiva",
+            "festival_sostenibilita",
+            "giornata_terra"
+          ]
+        },
+        {
+          "id": "NAT-ESC",
+          "nome": "Escursioni e Natura",
+          "sottocategorie": [
+            "escursione_guidata",
+            "birdwatching",
+            "osservazione_astronomica",
+            "trekking_culturale",
+            "visita_riserva_naturale"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "EDU",
+      "macro_nome": "Educazione e Formazione",
+      "descrizione": "Convegni, conferenze, eventi formativi e divulgativi",
+      "categorie": [
+        {
+          "id": "EDU-CON",
+          "nome": "Conferenze e Convegni",
+          "sottocategorie": [
+            "convegno_accademico",
+            "conferenza_pubblica",
+            "lectio_magistralis",
+            "tavola_rotonda",
+            "hackathon"
+          ]
+        },
+        {
+          "id": "EDU-FOR",
+          "nome": "Formazione e Workshop",
+          "sottocategorie": [
+            "corso_lingua",
+            "workshop_tecnologia",
+            "formazione_professionale",
+            "summer_school"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "SOC",
+      "macro_nome": "Sociale e Comunitario",
+      "descrizione": "Eventi di coesione sociale, volontariato e comunità",
+      "categorie": [
+        {
+          "id": "SOC-COM",
+          "nome": "Eventi Comunitari",
+          "sottocategorie": [
+            "festa_quartiere",
+            "festa_paese",
+            "raduno_associazioni",
+            "giornata_porte_aperte",
+            "evento_inclusione"
+          ]
+        },
+        {
+          "id": "SOC-VOL",
+          "nome": "Volontariato e Solidarietà",
+          "sottocategorie": [
+            "raccolta_fondi",
+            "evento_beneficenza",
+            "marcia_solidarieta",
+            "giornata_donazione"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "DIG",
+      "macro_nome": "Digitale e Innovazione",
+      "descrizione": "Gaming, tecnologia, innovazione e cultura digitale",
+      "categorie": [
+        {
+          "id": "DIG-GAM",
+          "nome": "Gaming e E-sport",
+          "sottocategorie": [
+            "torneo_videogiochi",
+            "lan_party",
+            "esport_competition",
+            "retrogaming_fair"
+          ]
+        },
+        {
+          "id": "DIG-INN",
+          "nome": "Innovazione e Startup",
+          "sottocategorie": [
+            "startup_weekend",
+            "demo_day",
+            "maker_faire",
+            "open_source_event"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "TUR",
+      "macro_nome": "Turismo e Territorio",
+      "descrizione": "Aperture straordinarie, visite guidate, turismo culturale e valorizzazione territoriale",
+      "categorie": [
+        {
+          "id": "TUR-APE",
+          "nome": "Aperture Straordinarie",
+          "sottocategorie": [
+            "apertura_castello",
+            "apertura_abbazia",
+            "visita_sito_archeologico",
+            "apertura_museo_notturna",
+            "fai_giornate"
+          ]
+        },
+        {
+          "id": "TUR-GUI",
+          "nome": "Visite Guidate e Tour",
+          "sottocategorie": [
+            "tour_centro_storico",
+            "visita_guidata_tematica",
+            "tour_enogastronomico",
+            "tour_fotografico",
+            "tour_notturno"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "CIN",
+      "macro_nome": "Cinema e Audiovisivo",
+      "descrizione": "Festival cinematografici, proiezioni, documentari e cultura audiovisiva",
+      "categorie": [
+        {
+          "id": "CIN-FES",
+          "nome": "Festival e Rassegne",
+          "sottocategorie": [
+            "festival_cinema",
+            "cinema_arena_estiva",
+            "rassegna_documentari",
+            "cineforum",
+            "proiezione_cortometraggi"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "LET",
+      "macro_nome": "Letteratura e Editoria",
+      "descrizione": "Fiere del libro, presentazioni, festival letterari e cultura della lettura",
+      "categorie": [
+        {
+          "id": "LET-FES",
+          "nome": "Festival e Fiere Letterarie",
+          "sottocategorie": [
+            "fiera_libro",
+            "festival_letteratura",
+            "presentazione_libro",
+            "reading_pubblico",
+            "festival_poesia"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "MEM",
+      "macro_nome": "Memoria e Commemorazioni",
+      "descrizione": "Anniversari, commemorazioni storiche, giornate della memoria",
+      "categorie": [
+        {
+          "id": "MEM-COM",
+          "nome": "Commemorazioni e Anniversari",
+          "sottocategorie": [
+            "giornata_memoria_shoah",
+            "anniversario_liberazione",
+            "commemorazione_caduti",
+            "giornata_vittime",
+            "anniversario_fondazione_citta"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "INF",
+      "macro_nome": "Infanzia e Famiglia",
+      "descrizione": "Eventi dedicati a bambini, famiglie e giovani generazioni",
+      "categorie": [
+        {
+          "id": "INF-FAM",
+          "nome": "Famiglia e Bambini",
+          "sottocategorie": [
+            "festa_bambini",
+            "laboratorio_ragazzi",
+            "spettacolo_famiglie",
+            "giochi_tradizionali_bambini",
+            "festival_giovani"
+          ]
+        }
+      ]
+    },
+    {
+      "macro_id": "INT",
+      "macro_nome": "Internazionale e Interculturale",
+      "descrizione": "Festival multiculturali, scambi internazionali e celebrazioni diaspora",
+      "categorie": [
+        {
+          "id": "INT-MUL",
+          "nome": "Festival Multiculturali",
+          "sottocategorie": [
+            "festival_popoli",
+            "festa_diaspora",
+            "scambio_culturale",
+            "gemellaggio_citta",
+            "festival_lingue_mondo",
+            "capodanno_cinese_italia",
+            "diwali_italia",
+            "eid_celebrazione_italia"
+          ]
+        }
+      ]
+    }
   ]
 }
