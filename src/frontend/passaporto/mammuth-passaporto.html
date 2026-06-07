@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400&family=IM+Fell+English:ital@0;1&display=swap');
 * { box-sizing:border-box; margin:0; padding:0; font-family:'DM Sans',system-ui,sans-serif; }
 body { background:#FAF8F5; max-width:430px; margin:0 auto; min-height:100vh; }
 ::-webkit-scrollbar{display:none}
@@ -14,10 +14,9 @@ body { background:#FAF8F5; max-width:430px; margin:0 auto; min-height:100vh; }
 </style>
 </head>
 <body>
-
 <div id="app"></div>
-
 <script>
+
 const TIMBRI = [
   { id:"t1", evento:"Festa del Cammeo", luogo:"Castello Caetani", data:"7 Giu 2026", categoria:"Cultura", colore:"#70D6FF", emoji:"🏰", sbloccato:true },
   { id:"t2", evento:"Degustazione Vini", luogo:"Loggia dei Mercanti", data:"20 Giu 2026", categoria:"Enogastronomia", colore:"#FFB830", emoji:"🍷", sbloccato:true },
@@ -27,27 +26,27 @@ const TIMBRI = [
   { id:"t6", evento:"Mercato Artigianato", luogo:"Piazza del Comune", data:"19 Lug 2026", categoria:"Artigianato", colore:"#E9FF70", emoji:"🎨", sbloccato:false },
 ];
 
-const PREMI = [
-  { id:"p1", titolo:"Caffè Gratis", desc:"Bar del Borgo · via del Castello 4", emoji:"☕", soglia:2, colore:"#FFB830" },
-  { id:"p2", titolo:"Sconto 20% in Bottega", desc:"Ceramiche Caetani · artigianato locale", emoji:"🏺", soglia:3, colore:"#70D6FF" },
-  { id:"p3", titolo:"Degustazione Gratuita", desc:"Cantina Lepina · 3 calici DOC", emoji:"🍷", soglia:4, colore:"#FF70A6" },
-  { id:"p4", titolo:"Borgo Legend", desc:"Il tuo nome nel Registro del Castello Caetani", emoji:"📜", soglia:6, colore:"#C9B1FF" },
-];
-
 let currentTab = 'timbri';
 let modalTimbro = null;
 
 const timbriSbloccati = TIMBRI.filter(t => t.sbloccato).length;
 const totale = TIMBRI.length;
 const pct = (timbriSbloccati / totale) * 100;
-const livello = timbriSbloccati <= 0 ? "Nuovo Viandante"
-  : timbriSbloccati <= 2 ? "Esploratore del Borgo"
-  : timbriSbloccati <= 4 ? "Custode delle Tradizioni"
-  : "Leggenda di Sermoneta";
-const livelloColore = timbriSbloccati <= 0 ? "#AAA"
+
+const titolo = timbriSbloccati === 0 ? "Peregrinus"
+  : timbriSbloccati <= 2 ? "Explorator Borgi"
+  : timbriSbloccati <= 4 ? "Custos Traditionis"
+  : "Legenda Sermonetae";
+
+const titoloColore = timbriSbloccati === 0 ? "#AAA"
   : timbriSbloccati <= 2 ? "#70D6FF"
   : timbriSbloccati <= 4 ? "#FFB830"
   : "#C9B1FF";
+
+const sigillo = timbriSbloccati === 0 ? "◌"
+  : timbriSbloccati <= 2 ? "◑"
+  : timbriSbloccati <= 4 ? "●"
+  : "✦";
 
 function render() {
   document.getElementById('app').innerHTML = `
@@ -62,26 +61,47 @@ function render() {
           <span style="font-size:18px;font-weight:300;letter-spacing:0.16em;color:#1A1A1E;text-transform:uppercase">EV</span>
         </div>
 
-        <!-- HERO PASSAPORTO -->
-        <div style="background:linear-gradient(135deg,#1A1A1E 0%,#2A2A24 100%);border-radius:20px;padding:24px 20px;color:#FFF;position:relative;overflow:hidden">
+        <!-- HERO CODEX -->
+        <div style="background:linear-gradient(135deg,#1A1A1E 0%,#2A2A24 100%);border-radius:20px;padding:28px 24px;color:#FFF;position:relative;overflow:hidden">
           <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:#C9B1FF18;border-radius:50%"></div>
           <div style="position:absolute;bottom:-30px;right:40px;width:80px;height:80px;background:#FFB83018;border-radius:50%"></div>
+
           <div style="position:relative">
-            <div style="font-size:9px;font-family:'DM Mono',monospace;letter-spacing:0.2em;color:#5A5A54;text-transform:uppercase;margin-bottom:8px">PASSAPORTO DEL BORGO</div>
-            <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-bottom:8px">Sermoneta 2026</div>
-            <div style="display:inline-flex;align-items:center;background:${livelloColore}22;border:1px solid ${livelloColore};border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;color:${livelloColore};margin-bottom:20px">
-              ⭐ ${livello}
+            <!-- Titolo Codex -->
+            <div style="font-size:9px;font-family:'DM Mono',monospace;letter-spacing:0.28em;color:#5A5A54;text-transform:uppercase;margin-bottom:6px">
+              CODEX ITINERIS™
             </div>
-            <div style="margin-bottom:8px">
+            <div style="font-size:20px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px">
+              Il Codice del Viandante
+            </div>
+
+            <!-- Citazione -->
+            <div style="font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:13px;color:#8A8A78;line-height:1.6;margin-bottom:20px;border-left:2px solid #3A3A2E;padding-left:12px">
+              Where Communities Come Alive™
+            </div>
+
+            <!-- Titolo utente -->
+            <div style="display:inline-flex;align-items:center;gap:8px;background:${titoloColore}22;border:1px solid ${titoloColore};border-radius:20px;padding:5px 14px;margin-bottom:20px">
+              <span style="font-size:14px">${sigillo}</span>
+              <span style="font-size:11px;font-weight:700;color:${titoloColore};font-family:'DM Mono',monospace;letter-spacing:0.06em">${titolo}</span>
+            </div>
+
+            <!-- Barra progresso -->
+            <div style="margin-bottom:6px">
               <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                <span style="font-size:12px;color:#AAA">Timbri collezionati</span>
-                <span style="font-size:12px;font-weight:800;color:#FFF">${timbriSbloccati} / ${totale}</span>
+                <span style="font-size:11px;color:#AAA;font-family:'DM Mono',monospace">Sigilli raccolti</span>
+                <span style="font-size:11px;font-weight:800;color:#FFF;font-family:'DM Mono',monospace">${timbriSbloccati} / ${totale}</span>
               </div>
-              <div style="height:8px;background:#2A2A24;border-radius:4px;overflow:hidden">
-                <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,${livelloColore},#FFB830);border-radius:4px;transition:width 0.6s ease"></div>
+              <div style="height:6px;background:#2A2A24;border-radius:3px;overflow:hidden">
+                <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,${titoloColore},#FFB830);border-radius:3px"></div>
               </div>
             </div>
-            <div style="font-size:11px;color:#5A5A54">🎁 Prossimo: <span style="color:#FFB830;font-weight:700">Sconto 20% in bottega</span> — ancora ${3-timbriSbloccati} timbri</div>
+
+            <!-- Descrizione -->
+            <div style="font-size:11px;color:#4A4A40;line-height:1.5;margin-top:12px">
+              Ogni borgo ha una memoria. Ogni visita lascia un segno.<br>
+              <span style="color:#3A3A30">Non è una raccolta punti. È una cronaca. La tua.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -89,18 +109,17 @@ function render() {
       <!-- TAB -->
       <div style="display:flex;background:#FFF;border-bottom:1.5px solid #EDE8E0;padding:0 20px">
         <button onclick="switchTab('timbri')" style="flex:1;background:transparent;border:none;border-bottom:3px solid ${currentTab==='timbri'?'#1A1A1E':'transparent'};padding:14px 0;font-size:13px;font-weight:${currentTab==='timbri'?800:500};color:${currentTab==='timbri'?'#1A1A1E':'#AAA'};cursor:pointer;font-family:inherit">
-          🗺️ Timbri
+          ✦ Sigilli
         </button>
-        <button onclick="switchTab('premi')" style="flex:1;background:transparent;border:none;border-bottom:3px solid ${currentTab==='premi'?'#1A1A1E':'transparent'};padding:14px 0;font-size:13px;font-weight:${currentTab==='premi'?800:500};color:${currentTab==='premi'?'#1A1A1E':'#AAA'};cursor:pointer;font-family:inherit">
-          🎁 Premi
+        <button onclick="switchTab('titoli')" style="flex:1;background:transparent;border:none;border-bottom:3px solid ${currentTab==='titoli'?'#1A1A1E':'transparent'};padding:14px 0;font-size:13px;font-weight:${currentTab==='titoli'?800:500};color:${currentTab==='titoli'?'#1A1A1E':'#AAA'};cursor:pointer;font-family:inherit">
+          📜 Titoli
         </button>
       </div>
 
       <!-- CONTENUTO -->
       <div style="padding:20px">
-        ${currentTab === 'timbri' ? renderTimbri() : renderPremi()}
+        ${currentTab === 'timbri' ? renderTimbri() : renderTitoli()}
       </div>
-
     </div>
 
     <!-- BOTTOM NAV -->
@@ -108,7 +127,7 @@ function render() {
       ${[
         {emoji:'🏠',label:'Home',active:false},
         {emoji:'🗺️',label:'Mappa',active:false},
-        {emoji:'📖',label:'Passaporto',active:true},
+        {emoji:'📖',label:'Codex',active:true},
         {emoji:'👤',label:'Profilo',active:false},
       ].map(item=>`
         <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer">
@@ -127,56 +146,57 @@ function render() {
 function renderTimbri() {
   return `
     <div style="font-size:10px;font-family:'DM Mono',monospace;color:#B8B0A4;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">
-      Tocca un timbro per i dettagli
+      Ogni sigillo è una memoria. Ogni memoria è reale.
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
       ${TIMBRI.map(t => `
-        <div onclick="openModal('${t.id}')" style="background:${t.sbloccato ? t.colore+'22' : '#F5F3EF'};border:2px solid ${t.sbloccato ? t.colore : '#E8E4DC'};border-radius:16px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;opacity:${t.sbloccato?1:0.5};position:relative;transition:all 0.15s ease">
-          <div style="font-size:28px;filter:${t.sbloccato?'none':'grayscale(1)'};line-height:1">${t.sbloccato?t.emoji:'🔒'}</div>
-          <div style="font-size:9px;font-weight:700;color:${t.sbloccato?t.colore:'#BBB'};text-transform:uppercase;letter-spacing:0.06em;text-align:center;line-height:1.2">${t.categoria}</div>
+        <div onclick="openModal('${t.id}')" style="background:${t.sbloccato ? t.colore+'22' : '#F5F3EF'};border:2px solid ${t.sbloccato ? t.colore : '#E8E4DC'};border-radius:16px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;opacity:${t.sbloccato?1:0.45};position:relative;transition:all 0.15s ease">
+          <div style="font-size:28px;filter:${t.sbloccato?'none':'grayscale(1)'};line-height:1">${t.sbloccato?t.emoji:'◌'}</div>
+          <div style="font-size:9px;font-weight:700;color:${t.sbloccato?t.colore:'#CCC'};text-transform:uppercase;letter-spacing:0.06em;text-align:center;line-height:1.2">${t.categoria}</div>
           ${t.sbloccato ? `<div style="font-size:8px;color:#AAA;font-family:monospace">${t.data.split(' ')[0]} ${t.data.split(' ')[1]}</div>` : ''}
           ${t.sbloccato ? `<div style="position:absolute;top:6px;right:6px;width:16px;height:16px;background:${t.colore};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#FFF">✓</div>` : ''}
-        </div>
-      `).join('')}
-    </div>
-
-    <div style="margin-top:20px;background:#FFF;border:1.5px solid #EDE8E0;border-radius:14px;padding:16px">
-      <div style="font-size:13px;font-weight:800;color:#1A1A1E;margin-bottom:10px">Come funziona?</div>
-      ${[
-        {n:'1️⃣',t:'Partecipa a un evento MAMMUTH•EV a Sermoneta'},
-        {n:'2️⃣',t:'Mostra il QR code all\'organizzatore locale'},
-        {n:'3️⃣',t:'Ricevi il timbro digitale istantaneamente'},
-        {n:'4️⃣',t:'Accumula timbri e sblocca premi esclusivi'},
-      ].map(i=>`
-        <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px">
-          <span style="font-size:16px;flex-shrink:0">${i.n}</span>
-          <span style="font-size:12px;color:#666;line-height:1.5">${i.t}</span>
         </div>
       `).join('')}
     </div>
   `;
 }
 
-function renderPremi() {
+function renderTitoli() {
+  const titoli = [
+    { sigillo:"◌", titolo:"Peregrinus", condizione:"Primo passo nel territorio", soglia:0, colore:"#AAA" },
+    { sigillo:"◑", titolo:"Explorator Borgi", condizione:"2 luoghi visitati", soglia:2, colore:"#70D6FF" },
+    { sigillo:"●", titolo:"Custos Traditionis", condizione:"4 luoghi visitati", soglia:4, colore:"#FFB830" },
+    { sigillo:"✦", titolo:"Legenda Sermonetae", condizione:"Tutti i luoghi del Codex", soglia:6, colore:"#C9B1FF" },
+  ];
+
   return `
     <div style="font-size:10px;font-family:'DM Mono',monospace;color:#B8B0A4;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">
-      Premi esclusivi dai commercianti locali
+      I Titoli del Viandante
     </div>
-    ${PREMI.map(p => {
-      const ok = timbriSbloccati >= p.soglia;
+    ${titoli.map(t => {
+      const raggiunto = timbriSbloccati >= t.soglia;
+      const corrente = titolo === t.titolo;
       return `
-        <div style="background:${ok?'#FFF':'#F5F3EF'};border:1.5px solid ${ok?p.colore:'#E8E4DC'};border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:10px;opacity:${ok?1:0.6};box-shadow:${ok?`3px 3px 0 ${p.colore}44`:'none'}">
-          <div style="font-size:28px;filter:${ok?'none':'grayscale(1)'};flex-shrink:0">${p.emoji}</div>
+        <div style="background:${corrente?'#1A1A1E':raggiunto?'#FFF':'#F5F3EF'};border:1.5px solid ${corrente?'#1A1A1E':raggiunto?t.colore:'#E8E4DC'};border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:14px;margin-bottom:10px;opacity:${raggiunto?1:0.5}">
+          <div style="font-size:28px;color:${t.colore};flex-shrink:0;width:36px;text-align:center">${t.sigillo}</div>
           <div style="flex:1">
-            <div style="font-size:13px;font-weight:800;color:${ok?'#1A1A1E':'#AAA'};margin-bottom:2px">${p.titolo}</div>
-            <div style="font-size:11px;color:#AAA;line-height:1.4">${p.desc}</div>
+            <div style="font-size:14px;font-weight:800;color:${corrente?'#FFF':raggiunto?'#1A1A1E':'#AAA'};margin-bottom:3px;font-family:'DM Mono',monospace;letter-spacing:0.04em">${t.titolo}</div>
+            <div style="font-size:11px;color:${corrente?'#5A5A50':'#AAA'}">${t.condizione}</div>
           </div>
-          <div style="background:${ok?p.colore:'#E8E4DC'};color:${ok?'#1A1A1E':'#BBB'};border-radius:20px;padding:4px 10px;font-size:10px;font-weight:800;white-space:nowrap;flex-shrink:0">
-            ${ok ? '🎉 Riscatta' : `${p.soglia} timbri`}
-          </div>
+          ${corrente ? `<div style="background:${t.colore};color:#1A1A1E;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:800;font-family:'DM Mono',monospace;text-transform:uppercase;flex-shrink:0">Attivo</div>` : ''}
         </div>
       `;
     }).join('')}
+
+    <!-- Citazione finale -->
+    <div style="margin-top:24px;padding:20px;background:#FFF;border:1.5px solid #EDE8E0;border-radius:14px;text-align:center">
+      <div style="font-family:'IM Fell English',Georgia,serif;font-style:italic;font-size:14px;color:#666;line-height:1.7;margin-bottom:10px">
+        "Ogni sigillo è una memoria.<br>Ogni memoria è reale."
+      </div>
+      <div style="font-size:8px;font-family:'DM Mono',monospace;color:#CCC;letter-spacing:0.14em;text-transform:uppercase">
+        CODEX ITINERIS™ · MAMMUTH•EVENTS™ · ANNO DOMINI MMXXVI
+      </div>
+    </div>
   `;
 }
 
@@ -185,14 +205,14 @@ function renderModal(t) {
     <div onclick="closeModal()" style="position:fixed;inset:0;z-index:100;background:rgba(0,0,0,0.5);display:flex;align-items:flex-end;justify-content:center;padding:0 0 20px">
       <div onclick="event.stopPropagation()" style="background:#FAF8F5;border-radius:24px 24px 16px 16px;padding:28px 24px;width:100%;max-width:430px;animation:slideUp 0.2s ease">
         <div style="text-align:center;margin-bottom:16px">
-          <div style="font-size:56px;margin-bottom:8px">${t.emoji}</div>
+          <div style="font-size:52px;margin-bottom:8px">${t.emoji}</div>
           <div style="display:inline-block;background:${t.colore};border-radius:8px;padding:3px 12px;font-size:11px;font-weight:800;color:#1A1A1E;text-transform:uppercase;margin-bottom:10px">${t.categoria}</div>
-          <div style="font-size:18px;font-weight:800;color:#1A1A1E;margin-bottom:6px">${t.evento}</div>
-          <div style="font-size:13px;color:#888">📍 ${t.luogo} · ${t.data}</div>
+          <div style="font-size:18px;font-weight:800;color:#1A1A1E;margin-bottom:4px">${t.evento}</div>
+          <div style="font-size:12px;color:#888">📍 ${t.luogo} · ${t.data}</div>
         </div>
         ${t.sbloccato
-          ? `<div style="background:#EEFAF3;border:1.5px solid #B5EAD7;border-radius:12px;padding:12px 16px;text-align:center;font-size:13px;font-weight:700;color:#2A7A48">✓ Timbro ottenuto il ${t.data}</div>`
-          : `<div style="background:#F5F3EF;border:1.5px solid #E8E4DC;border-radius:12px;padding:12px 16px;text-align:center;font-size:13px;color:#AAA">🔒 Visita questo evento per sbloccare il timbro</div>`
+          ? `<div style="background:#EEFAF3;border:1.5px solid #B5EAD7;border-radius:12px;padding:12px 16px;text-align:center;font-size:13px;font-weight:700;color:#2A7A48">✓ Sigillo ottenuto · ${t.data}</div>`
+          : `<div style="background:#F5F3EF;border:1.5px solid #E8E4DC;border-radius:12px;padding:12px 16px;text-align:center;font-size:13px;color:#AAA;line-height:1.5">◌ Visita questo luogo<br>per aggiungere il sigillo al tuo Codex</div>`
         }
         <button onclick="closeModal()" style="width:100%;margin-top:14px;background:#1A1A1E;color:#FFF;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">Chiudi</button>
       </div>
