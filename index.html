@@ -17,13 +17,11 @@ body {
   justify-content:center;
   padding:40px 20px 60px;
 }
-
 .hero {
   text-align:center;
   margin-bottom:48px;
   animation:fadeUp 0.5s ease both;
 }
-
 .logo {
   display:flex;
   align-items:center;
@@ -31,7 +29,6 @@ body {
   gap:8px;
   margin-bottom:16px;
 }
-
 .logo-text {
   font-size:28px;
   font-weight:300;
@@ -39,7 +36,6 @@ body {
   color:#1A1A1E;
   text-transform:uppercase;
 }
-
 .dot {
   width:8px;
   height:8px;
@@ -47,14 +43,12 @@ body {
   border-radius:50%;
   margin:0 4px;
 }
-
 .divider {
   height:1px;
   background:#D8D4CC;
   width:200px;
   margin:12px auto;
 }
-
 .tagline {
   font-size:13px;
   font-weight:700;
@@ -62,7 +56,6 @@ body {
   letter-spacing:-0.01em;
   margin-bottom:4px;
 }
-
 .sub {
   font-size:9px;
   font-family:'DM Mono',monospace;
@@ -71,7 +64,6 @@ body {
   color:#B8B0A4;
   text-transform:uppercase;
 }
-
 .screens {
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -80,7 +72,6 @@ body {
   max-width:400px;
   margin-bottom:32px;
 }
-
 .screen-card {
   background:#FFF;
   border:1.5px solid #EDE8E0;
@@ -96,19 +87,15 @@ body {
   cursor:pointer;
   animation:fadeUp 0.4s ease both;
 }
-
 .screen-card:hover {
   transform:translate(-1px,-1px);
   box-shadow:4px 4px 0 #C8C4BC;
 }
-
 .screen-card:active {
   transform:translate(2px,2px);
   box-shadow:1px 1px 0 #D8D4CC;
 }
-
 .screen-emoji { font-size:28px; }
-
 .screen-label {
   font-size:9px;
   font-family:'DM Mono',monospace;
@@ -117,7 +104,6 @@ body {
   text-transform:uppercase;
   color:#AAA;
 }
-
 .screen-title {
   font-size:14px;
   font-weight:800;
@@ -125,13 +111,11 @@ body {
   line-height:1.2;
   letter-spacing:-0.01em;
 }
-
 .screen-desc {
   font-size:11px;
   color:#888;
   line-height:1.4;
 }
-
 .screen-card.featured {
   grid-column:1/-1;
   flex-direction:row;
@@ -140,9 +124,7 @@ body {
   border-color:#70D6FF;
   box-shadow:3px 3px 0 #70D6FF88;
 }
-
 .screen-card.featured .screen-emoji { font-size:36px; }
-
 .badge-new {
   display:inline-block;
   background:#E9FF70;
@@ -154,7 +136,6 @@ body {
   letter-spacing:0.06em;
   text-transform:uppercase;
 }
-
 .status-bar {
   display:flex;
   gap:8px;
@@ -162,7 +143,6 @@ body {
   justify-content:center;
   margin-bottom:32px;
 }
-
 .status-pill {
   background:#FFF;
   border:1.5px solid #EDE8E0;
@@ -173,13 +153,11 @@ body {
   color:#888;
   letter-spacing:0.06em;
 }
-
 .status-pill.active {
   background:#1A1A1E;
   color:#FFF;
   border-color:#1A1A1E;
 }
-
 .footer {
   font-size:8px;
   font-family:'DM Mono',monospace;
@@ -188,7 +166,6 @@ body {
   text-transform:uppercase;
   text-align:center;
 }
-
 @keyframes fadeUp {
   from{opacity:0;transform:translateY(12px)}
   to{opacity:1;transform:translateY(0)}
@@ -197,7 +174,6 @@ body {
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div style="font-size:9px;font-family:'DM Mono',monospace;color:#B8B0A4;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:12px">
     Borghi · Valli · Sentieri
@@ -213,30 +189,26 @@ body {
   <div class="sub">Global Folklore & Traditions · Where Communities Come Alive™</div>
 </div>
 
-<!-- STATUS -->
 <div class="status-bar">
   <div class="status-pill active">✓ MVP v1.0</div>
   <div class="status-pill active">✓ Sermoneta Pilot</div>
-  <div class="status-pill">Vercel deploy →</div>
+  <div class="status-pill active">✓ Supabase LIVE</div>
 </div>
 
-<!-- SCHERMATE -->
 <div class="screens">
 
-  <!-- Home — featured -->
-  <a href="src/frontend/home/mammuth-home-mvp.jsx" class="screen-card featured" style="animation-delay:0.1s">
+  <a href="mammuth-home-live.html" class="screen-card featured" style="animation-delay:0.1s">
     <div class="screen-emoji">🏠</div>
     <div>
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
         <div class="screen-label">Schermata 1</div>
         <div class="badge-new">LIVE</div>
       </div>
-      <div class="screen-title">Home MVP</div>
-      <div class="screen-desc">Lista eventi · FOMO badges · Filtri micro-territorio · UX Apple+GYG</div>
+      <div class="screen-title">Home MVP LIVE</div>
+      <div class="screen-desc">Dati reali Supabase · FOMO badges · Filtri · Ricerca</div>
     </div>
   </a>
 
-  <!-- Mappa -->
   <a href="src/frontend/mappa/mammuth-mappa.html" class="screen-card" style="animation-delay:0.15s;border-color:#FF70A6;box-shadow:3px 3px 0 #FF70A688">
     <div class="screen-emoji">🗺️</div>
     <div class="screen-label">Schermata 2</div>
@@ -244,7 +216,6 @@ body {
     <div class="screen-desc">OpenStreetMap · 5 pin · Bottom sheet</div>
   </a>
 
-  <!-- Dettaglio -->
   <a href="src/frontend/evento/mammuth-evento-detail.html" class="screen-card" style="animation-delay:0.2s;border-color:#FFB830;box-shadow:3px 3px 0 #FFB83088">
     <div class="screen-emoji">🎟️</div>
     <div class="screen-label">Schermata 3</div>
@@ -252,7 +223,6 @@ body {
     <div class="screen-desc">Dettaglio · Programma · Prenota</div>
   </a>
 
-  <!-- Passaporto -->
   <a href="src/frontend/passaporto/mammuth-passaporto.html" class="screen-card" style="animation-delay:0.25s;border-color:#C9B1FF;box-shadow:3px 3px 0 #C9B1FF88">
     <div class="screen-emoji">📖</div>
     <div class="screen-label">Schermata 4</div>
@@ -262,7 +232,6 @@ body {
 
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
   KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · ATLAS·EVENTA™<br>
   <span style="color:#D8D4CC">adrianochtribo-dot/MAMMUTH-EV · main</span>
