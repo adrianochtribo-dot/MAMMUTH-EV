@@ -241,6 +241,41 @@
     z-index: 1;
   }
   .card-exo-badge:hover { background: rgba(74,222,128,.08); }
+  .card-safety {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #030a0d 0%, #061218 100%);
+    border: 1px solid #1a2f3a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-safety::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: #60a5fa;
+  }
+  .card-safety .card-title { font-size: 1.3rem; color: #60a5fa; }
+  .card-safety .card-tag { color: rgba(96,165,250,0.5); }
+  .card-safety-badge {
+    flex-shrink: 0;
+    padding: 10px 24px;
+    border: 1px solid #60a5fa;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: #60a5fa;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: background .2s;
+    z-index: 1;
+  }
+  .card-safety-badge:hover { background: rgba(96,165,250,.08); }
   footer {
     border-top: 1px solid var(--border);
     padding: 30px 40px;
@@ -268,7 +303,7 @@
   <h1>Developer Portal</h1>
   <p class="hero-sub">Architettura completa, protocolli di validazione e pipeline operative</p>
   <div class="hero-meta">
-    <div>Pagine · <span>17</span></div>
+    <div>Pagine · <span>19</span></div>
     <div>Sistema · <span>ACTIVE</span></div>
     <div>Versione · <span>v2.0</span></div>
     <div>Code · <span>KWF-3620</span></div>
@@ -377,7 +412,26 @@
     </a>
   </div>
 
-  <div class="section-label">04 · Ricerca & Sviluppo</div>
+  <div class="section-label">04 · Safety Engine — API Live</div>
+  <div class="grid">
+    <a href="https://mammuth-ev-production.up.railway.app/docs" target="_blank" class="card card-safety">
+      <div style="position:relative;z-index:1">
+        <div class="card-tag">API Live · Railway.app · Python 3.12 · FastAPI 0.111.0</div>
+        <div class="card-title">Safety Engine™ — Scenario A</div>
+        <div class="card-desc">Motore predittivo crowd crush basato su standard Fruin LoS. Calcola risk score 0–1, livello rischio, analisi bottleneck e match storico su incidenti reali. Filosofia: INFORMARE, CONSIGLIARE, MITIGARE — mai vietare.</div>
+        <div class="card-status" style="color:#60a5fa">● LIVE · mammuth-ev-production.up.railway.app</div>
+      </div>
+      <div class="card-safety-badge">Apri Swagger →</div>
+    </a>
+    <a href="https://mammuth-ev-production.up.railway.app/api/v1/safety/health" target="_blank" class="card">
+      <div class="card-tag">Health Check · GET</div>
+      <div class="card-title">Safety Engine · Health</div>
+      <div class="card-desc">Endpoint di monitoring. Restituisce status, scenario e versione del Safety Engine in produzione.</div>
+      <div class="card-status dot-green">● /api/v1/safety/health</div>
+    </a>
+  </div>
+
+  <div class="section-label">05 · Ricerca & Sviluppo</div>
   <div class="grid">
     <a href="ANTHROPIC-HOLE.html" class="card">
       <div class="card-tag">AI · Integrazione</div>
