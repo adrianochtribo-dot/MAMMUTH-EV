@@ -276,6 +276,41 @@
     z-index: 1;
   }
   .card-safety-badge:hover { background: rgba(96,165,250,.08); }
+  .card-geonode {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #08060f 0%, #0d0a1a 100%);
+    border: 1px solid #2a1a4a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-geonode::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: #8B7CF6;
+  }
+  .card-geonode .card-title { font-size: 1.3rem; color: #8B7CF6; }
+  .card-geonode .card-tag { color: rgba(139,124,246,0.5); }
+  .card-geonode-badge {
+    flex-shrink: 0;
+    padding: 10px 24px;
+    border: 1px solid #8B7CF6;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: #8B7CF6;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: background .2s;
+    z-index: 1;
+  }
+  .card-geonode-badge:hover { background: rgba(139,124,246,.08); }
   footer {
     border-top: 1px solid var(--border);
     padding: 30px 40px;
@@ -303,7 +338,7 @@
   <h1>Developer Portal</h1>
   <p class="hero-sub">Architettura completa, protocolli di validazione e pipeline operative</p>
   <div class="hero-meta">
-    <div>Pagine · <span>19</span></div>
+    <div>Pagine · <span>20</span></div>
     <div>Sistema · <span>ACTIVE</span></div>
     <div>Versione · <span>v2.0</span></div>
     <div>Code · <span>KWF-3620</span></div>
@@ -456,6 +491,19 @@
       <div class="card-title">Just One Click Away</div>
       <div class="card-desc">Interfaccia di inserimento rapido eventi per operatori territoriali. Riduce il tempo di inserimento a un click certificato.</div>
       <div class="card-status dot-amber">● BETA</div>
+    </a>
+  </div>
+
+  <div class="section-label">06 · Global Territory Architecture</div>
+  <div class="grid">
+    <a href="geonode.html" class="card card-geonode">
+      <div style="position:relative;z-index:1">
+        <div class="card-tag">Data Architecture · Global · Open Data · 249 Paesi</div>
+        <div class="card-title">MAMMUTH•GEONODE™</div>
+        <div class="card-desc">Layer di identificazione territoriale universale. Da Sermoneta a Tahiti — 249 paesi, 15+ identificatori per territorio, architettura Worker Python/Redpanda/Redis. ISTAT · LAU · NUTS · ISO 3166 · INSEE DOM-TOM · ISO 4217. Qualsiasi punto del globo, zero adattamenti.</div>
+        <div class="card-status" style="color:#8B7CF6">● v1.0 · 5-PHASE ROADMAP · GLOBAL EXPANSION READY</div>
+      </div>
+      <div class="card-geonode-badge">Apri GEONODE™ →</div>
     </a>
   </div>
 
