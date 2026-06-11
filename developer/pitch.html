@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* SLIDE BASE */
     .slide {
       min-height: 100vh;
       display: flex;
@@ -40,7 +39,6 @@
       border-bottom: 1px solid #1A1A28;
     }
 
-    /* SLIDE COUNTER */
     .slide-counter {
       position: absolute;
       top: 32px;
@@ -65,9 +63,6 @@
       line-height: 1.05;
     }
 
-    /* =====================
-       SLIDE 0 — COVER
-    ===================== */
     .slide-cover {
       background: #06060D;
       align-items: center;
@@ -137,9 +132,6 @@
       letter-spacing: 0.1em;
     }
 
-    /* =====================
-       SLIDE 1 — PROBLEMA
-    ===================== */
     .slide-1 { background: #080810; }
 
     .problem-grid {
@@ -156,23 +148,9 @@
       padding: 28px;
     }
 
-    .problem-icon {
-      font-size: 28px;
-      margin-bottom: 14px;
-    }
-
-    .problem-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .problem-desc {
-      font-size: 13px;
-      color: #7070A0;
-      line-height: 1.7;
-    }
+    .problem-icon { font-size: 28px; margin-bottom: 14px; }
+    .problem-title { font-size: 15px; font-weight: 600; color: white; margin-bottom: 10px; }
+    .problem-desc { font-size: 13px; color: #7070A0; line-height: 1.7; }
 
     .problem-stat {
       margin-top: 12px;
@@ -185,9 +163,6 @@
       display: inline-block;
     }
 
-    /* =====================
-       SLIDE 2 — SOLUZIONE
-    ===================== */
     .slide-2 { background: #060D08; }
 
     .solution-hero {
@@ -212,26 +187,10 @@
     }
 
     .kus-icon { font-size: 32px; }
+    .kus-name { font-size: 18px; font-weight: 700; color: var(--violet); letter-spacing: 0.05em; }
+    .kus-sub { font-size: 11px; color: #5A4A8A; letter-spacing: 0.1em; }
 
-    .kus-name {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--violet);
-      letter-spacing: 0.05em;
-    }
-
-    .kus-sub {
-      font-size: 11px;
-      color: #5A4A8A;
-      letter-spacing: 0.1em;
-    }
-
-    .moat-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    .moat-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
 
     .moat-item {
       display: flex;
@@ -243,20 +202,8 @@
       border-radius: 12px;
     }
 
-    .moat-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 4px;
-    }
-
-    .moat-text {
-      font-size: 13px;
-      color: #AAAACC;
-      line-height: 1.6;
-    }
-
+    .moat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+    .moat-text { font-size: 13px; color: #AAAACC; line-height: 1.6; }
     .moat-text strong { color: white; }
 
     .stat-box {
@@ -267,23 +214,9 @@
       text-align: center;
     }
 
-    .stat-big {
-      font-size: 56px;
-      font-weight: 800;
-      color: var(--mint);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
+    .stat-big { font-size: 56px; font-weight: 800; color: var(--mint); line-height: 1; margin-bottom: 8px; }
+    .stat-desc { font-size: 13px; color: #5A7A5A; line-height: 1.6; }
 
-    .stat-desc {
-      font-size: 13px;
-      color: #5A7A5A;
-      line-height: 1.6;
-    }
-
-    /* =====================
-       SLIDE 3 — ARCHITETTURA
-    ===================== */
     .slide-3 { background: #060810; }
 
     .arch-grid {
@@ -300,25 +233,9 @@
       padding: 24px;
     }
 
-    .arch-card-accent {
-      width: 32px;
-      height: 3px;
-      border-radius: 2px;
-      margin-bottom: 16px;
-    }
-
-    .arch-card-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .arch-card-desc {
-      font-size: 12px;
-      color: #6A6A8A;
-      line-height: 1.7;
-    }
+    .arch-card-accent { width: 32px; height: 3px; border-radius: 2px; margin-bottom: 16px; }
+    .arch-card-title { font-size: 14px; font-weight: 600; color: white; margin-bottom: 8px; }
+    .arch-card-desc { font-size: 12px; color: #6A6A8A; line-height: 1.7; }
 
     .safety-highlight {
       margin-top: 32px;
@@ -332,30 +249,10 @@
       gap: 24px;
     }
 
-    .safety-score {
-      font-size: 48px;
-      font-weight: 800;
-      color: var(--mint);
-      flex-shrink: 0;
-      line-height: 1;
-    }
+    .safety-score { font-size: 48px; font-weight: 800; color: var(--mint); flex-shrink: 0; line-height: 1; }
+    .safety-text h4 { font-size: 15px; font-weight: 600; color: white; margin-bottom: 6px; }
+    .safety-text p { font-size: 12px; color: #5A7A9A; line-height: 1.6; }
 
-    .safety-text h4 {
-      font-size: 15px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 6px;
-    }
-
-    .safety-text p {
-      font-size: 12px;
-      color: #5A7A9A;
-      line-height: 1.6;
-    }
-
-    /* =====================
-       SLIDE 4 — MORPHEUS
-    ===================== */
     .slide-4 { background: #090608; }
 
     .morpheus-flow {
@@ -378,26 +275,9 @@
     }
 
     .flow-node-icon { font-size: 24px; margin-bottom: 8px; }
-
-    .flow-node-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 4px;
-    }
-
-    .flow-node-sub {
-      font-size: 10px;
-      color: #5A4A6A;
-      line-height: 1.4;
-    }
-
-    .flow-arrow {
-      font-size: 20px;
-      color: #2A1A3A;
-      padding: 0 8px;
-      flex-shrink: 0;
-    }
+    .flow-node-title { font-size: 12px; font-weight: 600; color: white; margin-bottom: 4px; }
+    .flow-node-sub { font-size: 10px; color: #5A4A6A; line-height: 1.4; }
+    .flow-arrow { font-size: 20px; color: #2A1A3A; padding: 0 8px; flex-shrink: 0; }
 
     .pillars {
       display: grid;
@@ -414,30 +294,10 @@
       text-align: center;
     }
 
-    .pillar-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--rose);
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-    }
+    .pillar-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--rose); letter-spacing: 0.1em; margin-bottom: 8px; }
+    .pillar-name { font-size: 13px; font-weight: 600; color: white; margin-bottom: 6px; }
+    .pillar-desc { font-size: 11px; color: #5A4A6A; line-height: 1.5; }
 
-    .pillar-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 6px;
-    }
-
-    .pillar-desc {
-      font-size: 11px;
-      color: #5A4A6A;
-      line-height: 1.5;
-    }
-
-    /* =====================
-       SLIDE 5 — PA / COMUNI
-    ===================== */
     .slide-5 { background: #080A06; }
 
     .partner-grid {
@@ -454,55 +314,24 @@
       padding: 28px;
     }
 
-    .partner-card-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
+    .partner-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 
     .partner-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
     }
 
-    .partner-card-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: white;
-    }
-
-    .partner-card-sub {
-      font-size: 11px;
-      color: #5A6A4A;
-    }
-
-    .partner-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .partner-card-title { font-size: 15px; font-weight: 600; color: white; }
+    .partner-card-sub { font-size: 11px; color: #5A6A4A; }
+    .partner-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
     .partner-feature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      color: #8A9A7A;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: #8A9A7A;
     }
 
-    .partner-feature::before {
-      content: '→';
-      color: var(--mint);
-      flex-shrink: 0;
-    }
+    .partner-feature::before { content: '→'; color: var(--mint); flex-shrink: 0; }
 
     .vs-box {
       background: #0A0C08;
@@ -513,12 +342,8 @@
     }
 
     .vs-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #141A10;
-      font-size: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0; border-bottom: 1px solid #141A10; font-size: 12px;
     }
 
     .vs-row:last-child { border-bottom: none; }
@@ -526,9 +351,6 @@
     .vs-them { color: #EF4444; font-weight: 500; }
     .vs-us { color: var(--mint); font-weight: 600; }
 
-    /* =====================
-       SLIDE 6 — UNIVERSITÀ
-    ===================== */
     .slide-6 { background: #080608; }
 
     .uni-split {
@@ -545,38 +367,16 @@
       padding: 28px;
     }
 
-    .uni-card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--violet);
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
-    }
+    .uni-card h3 { font-size: 16px; font-weight: 600; color: var(--violet); margin-bottom: 20px; letter-spacing: -0.01em; }
 
-    .uni-item {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
-      align-items: flex-start;
-    }
+    .uni-item { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
 
     .uni-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--violet);
-      background: #1A1028;
-      padding: 2px 8px;
-      border-radius: 4px;
-      flex-shrink: 0;
-      margin-top: 2px;
+      font-family: 'DM Mono', monospace; font-size: 11px; color: var(--violet);
+      background: #1A1028; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 2px;
     }
 
-    .uni-text {
-      font-size: 13px;
-      color: #8A8AAA;
-      line-height: 1.6;
-    }
-
+    .uni-text { font-size: 13px; color: #8A8AAA; line-height: 1.6; }
     .uni-text strong { color: white; }
 
     .thesis-box {
@@ -588,71 +388,36 @@
     }
 
     .thesis-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--violet);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
+      font-size: 12px; font-weight: 600; color: var(--violet);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px;
     }
 
     .thesis-item {
-      font-size: 12px;
-      color: #6A5A8A;
-      padding: 6px 0;
-      border-bottom: 1px solid #1A1228;
-      line-height: 1.5;
+      font-size: 12px; color: #6A5A8A; padding: 6px 0;
+      border-bottom: 1px solid #1A1228; line-height: 1.5;
     }
 
     .thesis-item:last-child { border-bottom: none; }
 
-    /* =====================
-       SLIDE 7 — ROADMAP
-    ===================== */
     .slide-7 { background: #060A08; }
 
-    .roadmap-track {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      margin-top: 40px;
-    }
+    .roadmap-track { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
 
     .roadmap-row {
-      display: flex;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid #0E1810;
-      align-items: flex-start;
+      display: flex; gap: 24px; padding: 20px 0;
+      border-bottom: 1px solid #0E1810; align-items: flex-start;
     }
 
     .roadmap-row:last-child { border-bottom: none; }
 
     .roadmap-phase-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 6px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      margin-top: 2px;
+      font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 600;
+      padding: 4px 12px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
     }
 
     .roadmap-content { flex: 1; }
-
-    .roadmap-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 6px;
-    }
-
-    .roadmap-items {
-      font-size: 12px;
-      color: #5A6A5A;
-      line-height: 1.7;
-    }
+    .roadmap-title { font-size: 14px; font-weight: 600; color: white; margin-bottom: 6px; }
+    .roadmap-items { font-size: 12px; color: #5A6A5A; line-height: 1.7; }
 
     .roadmap-cta {
       margin-top: 40px;
@@ -666,142 +431,60 @@
       gap: 24px;
     }
 
-    .roadmap-cta-text h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .roadmap-cta-text p {
-      font-size: 13px;
-      color: #5A7A5A;
-    }
-
-    .roadmap-cta-badges {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+    .roadmap-cta-text h3 { font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .roadmap-cta-text p { font-size: 13px; color: #5A7A5A; }
+    .roadmap-cta-badges { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .cta-badge {
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
+      padding: 8px 16px; border-radius: 20px; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.05em; white-space: nowrap;
     }
 
-    /* =====================
-       SLIDE 8 — CHIUSURA
-    ===================== */
-    .slide-8 {
-      background: #06060D;
-      align-items: center;
-      text-align: center;
-    }
+    .slide-8 { background: #06060D; align-items: center; text-align: center; }
 
     .closing-title {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: white;
-      margin-bottom: 16px;
+      font-size: clamp(32px, 5vw, 56px); font-weight: 800;
+      letter-spacing: -0.03em; color: white; margin-bottom: 16px;
     }
 
-    .closing-sub {
-      font-size: 16px;
-      color: #5A5A7A;
-      margin-bottom: 48px;
-      max-width: 500px;
-    }
+    .closing-sub { font-size: 16px; color: #5A5A7A; margin-bottom: 48px; max-width: 500px; }
 
     .closing-links {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 48px;
     }
 
     .closing-link {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      letter-spacing: 0.02em;
+      padding: 12px 24px; border-radius: 12px; font-size: 13px;
+      font-weight: 600; text-decoration: none; letter-spacing: 0.02em;
     }
 
-    .closing-link-primary {
-      background: var(--violet);
-      color: white;
-    }
+    .closing-link-primary { background: var(--violet); color: white; }
+    .closing-link-secondary { border: 1px solid #2A2A4A; color: #7A7AAA; }
+    .closing-footnote { font-size: 11px; color: #2A2A4A; letter-spacing: 0.1em; }
 
-    .closing-link-secondary {
-      border: 1px solid #2A2A4A;
-      color: #7A7AAA;
-    }
-
-    .closing-footnote {
-      font-size: 11px;
-      color: #2A2A4A;
-      letter-spacing: 0.1em;
-    }
-
-    /* NAV */
     .nav-pills {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
-      background: rgba(10,10,20,0.9);
-      border: 1px solid #1A1A2A;
-      border-radius: 20px;
-      padding: 8px 12px;
-      backdrop-filter: blur(12px);
-      z-index: 100;
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+      background: rgba(10,10,20,0.9); border: 1px solid #1A1A2A;
+      border-radius: 20px; padding: 8px 12px;
+      backdrop-filter: blur(12px); z-index: 100;
     }
 
     .nav-pill {
-      width: 24px;
-      height: 6px;
-      border-radius: 3px;
-      background: #1A1A2A;
-      text-decoration: none;
-      transition: background 0.2s;
+      width: 24px; height: 6px; border-radius: 3px;
+      background: #1A1A2A; text-decoration: none; transition: background 0.2s;
     }
 
     .nav-pill:hover { background: var(--violet); }
 
-    /* SECTION HEADING */
-    .section-heading {
-      max-width: 700px;
-    }
+    .section-heading { max-width: 700px; }
+    .section-heading h2 { font-size: clamp(28px, 4vw, 48px); color: white; margin-bottom: 14px; }
+    .section-heading p { font-size: 15px; color: #5A5A7A; line-height: 1.7; }
 
-    .section-heading h2 {
-      font-size: clamp(28px, 4vw, 48px);
-      color: white;
-      margin-bottom: 14px;
-    }
-
-    .section-heading p {
-      font-size: 15px;
-      color: #5A5A7A;
-      line-height: 1.7;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .slide { padding: 60px 6vw; }
-      .problem-grid,
-      .solution-hero,
-      .arch-grid,
-      .partner-grid,
-      .uni-split { grid-template-columns: 1fr; }
+      .problem-grid, .solution-hero, .arch-grid, .partner-grid, .uni-split { grid-template-columns: 1fr; }
       .pillars { grid-template-columns: 1fr 1fr; }
       .morpheus-flow { flex-wrap: wrap; gap: 8px; }
       .flow-arrow { display: none; }
@@ -811,7 +494,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav-pills">
   <a href="#s0" class="nav-pill"></a>
   <a href="#s1" class="nav-pill"></a>
@@ -824,34 +506,22 @@
   <a href="#s8" class="nav-pill"></a>
 </nav>
 
-<!-- ==================== SLIDE 0 — COVER ==================== -->
+<!-- SLIDE 0 — COVER -->
 <section class="slide slide-cover" id="s0">
   <span class="slide-counter">00 / 08</span>
   <div class="cover-tag">Pitch Deck 2026 · Confidenziale</div>
   <div class="cover-title">MAMMUTH•EVENTS™</div>
   <p class="cover-sub">Il primo ecosistema globale di scoperta eventi culturali certificati — dal borgo medievale all'atollo del Pacifico.</p>
   <div class="cover-meta">
-    <div class="cover-meta-item">
-      <span class="cover-meta-value">28</span>
-      <span class="cover-meta-label">Eventi certificati</span>
-    </div>
-    <div class="cover-meta-item">
-      <span class="cover-meta-value">KUS-3620</span>
-      <span class="cover-meta-label">Standard proprietario</span>
-    </div>
-    <div class="cover-meta-item">
-      <span class="cover-meta-value">249</span>
-      <span class="cover-meta-label">Paesi mappabili</span>
-    </div>
-    <div class="cover-meta-item">
-      <span class="cover-meta-value">7.900+</span>
-      <span class="cover-meta-label">Comuni italiani</span>
-    </div>
+    <div class="cover-meta-item"><span class="cover-meta-value">28</span><span class="cover-meta-label">Eventi certificati</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-value">KUS-3620</span><span class="cover-meta-label">Standard proprietario</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-value">249</span><span class="cover-meta-label">Paesi mappabili</span></div>
+    <div class="cover-meta-item"><span class="cover-meta-value">7.900+</span><span class="cover-meta-label">Comuni italiani</span></div>
   </div>
   <div class="cover-pilot">Territorio pilota — Sermoneta, Provincia di Latina, Lazio, Italia</div>
 </section>
 
-<!-- ==================== SLIDE 1 — PROBLEMA ==================== -->
+<!-- SLIDE 1 — PROBLEMA -->
 <section class="slide slide-1" id="s1">
   <span class="slide-counter">01 / 08</span>
   <div class="slide-label" style="color:#EF4444">Il Problema</div>
@@ -887,7 +557,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 2 — SOLUZIONE ==================== -->
+<!-- SLIDE 2 — SOLUZIONE -->
 <section class="slide slide-2" id="s2">
   <span class="slide-counter">02 / 08</span>
   <div class="slide-label" style="color:var(--mint)">La Soluzione</div>
@@ -943,7 +613,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 3 — ARCHITETTURA ==================== -->
+<!-- SLIDE 3 — ARCHITETTURA -->
 <section class="slide slide-3" id="s3">
   <span class="slide-counter">03 / 08</span>
   <div class="slide-label" style="color:var(--sky)">Architettura & Sicurezza</div>
@@ -992,7 +662,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 4 — MORPHEUS ==================== -->
+<!-- SLIDE 4 — TCF -->
 <section class="slide slide-4" id="s4">
   <span class="slide-counter">04 / 08</span>
   <div class="slide-label" style="color:var(--rose)">Integrità del Dato</div>
@@ -1001,35 +671,15 @@
     <p>Il T.C.F.™ è il sistema immunitario del database. Quattro pilastri che garantiscono che ogni evento pubblicato sia reale, unico e verificato.</p>
   </div>
   <div class="morpheus-flow">
-    <div class="flow-node">
-      <div class="flow-node-icon">📱</div>
-      <div class="flow-node-title">Input</div>
-      <div class="flow-node-sub">WhatsApp · Web · PA diretta</div>
-    </div>
+    <div class="flow-node"><div class="flow-node-icon">📱</div><div class="flow-node-title">Input</div><div class="flow-node-sub">WhatsApp · Web · PA diretta</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-node">
-      <div class="flow-node-icon">🔍</div>
-      <div class="flow-node-title">COLOR-TRIAGE™</div>
-      <div class="flow-node-sub">Pre-classificazione Verde/Giallo/Rosso</div>
-    </div>
+    <div class="flow-node"><div class="flow-node-icon">🔍</div><div class="flow-node-title">COLOR-TRIAGE™</div><div class="flow-node-sub">Pre-classificazione Verde/Giallo/Rosso</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-node">
-      <div class="flow-node-icon">🧬</div>
-      <div class="flow-node-title">MORPHEUS·JLX™</div>
-      <div class="flow-node-sub">Deduplicazione semantica</div>
-    </div>
+    <div class="flow-node"><div class="flow-node-icon">🧬</div><div class="flow-node-title">MORPHEUS·JLX™</div><div class="flow-node-sub">Deduplicazione semantica</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-node">
-      <div class="flow-node-icon">✅</div>
-      <div class="flow-node-title">T.C.F.™ Validation</div>
-      <div class="flow-node-sub">4 pilastri · TCF 100%</div>
-    </div>
+    <div class="flow-node"><div class="flow-node-icon">✅</div><div class="flow-node-title">T.C.F.™ Validation</div><div class="flow-node-sub">4 pilastri · TCF 100%</div></div>
     <div class="flow-arrow">→</div>
-    <div class="flow-node">
-      <div class="flow-node-icon">🦣</div>
-      <div class="flow-node-title">ATLAS•EVENTA™</div>
-      <div class="flow-node-sub">Certificazione KUS-3620</div>
-    </div>
+    <div class="flow-node"><div class="flow-node-icon">🦣</div><div class="flow-node-title">ATLAS•EVENTA™</div><div class="flow-node-sub">Certificazione KUS-3620</div></div>
   </div>
   <div class="pillars">
     <div class="pillar">
@@ -1055,7 +705,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 5 — PA / COMUNI ==================== -->
+<!-- SLIDE 5 — PA / COMUNI -->
 <section class="slide slide-5" id="s5">
   <span class="slide-counter">05 / 08</span>
   <div class="slide-label" style="color:var(--mint)">Modello B2B / Pubblica Amministrazione</div>
@@ -1099,36 +749,20 @@
   </div>
   <div class="vs-box">
     <div style="font-size:11px;color:#4A6A4A;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px">Confronto strategico con aggregatori esistenti</div>
-    <div class="vs-row">
-      <span class="vs-label">Acquisizione utenti</span>
-      <span class="vs-them">Uno per uno</span>
-      <span class="vs-us">Per comune intero →</span>
-    </div>
-    <div class="vs-row">
-      <span class="vs-label">Fonte dati</span>
-      <span class="vs-them">Dipende da organizzatori</span>
-      <span class="vs-us">Autonoma + certificata →</span>
-    </div>
-    <div class="vs-row">
-      <span class="vs-label">Mercato target</span>
-      <span class="vs-them">Locale commerciale</span>
-      <span class="vs-us">Folklore globale →</span>
-    </div>
-    <div class="vs-row">
-      <span class="vs-label">Replicabilità</span>
-      <span class="vs-them">Facilmente copiabile</span>
-      <span class="vs-us">Fossato difendibile →</span>
-    </div>
+    <div class="vs-row"><span class="vs-label">Acquisizione utenti</span><span class="vs-them">Uno per uno</span><span class="vs-us">Per comune intero →</span></div>
+    <div class="vs-row"><span class="vs-label">Fonte dati</span><span class="vs-them">Dipende da organizzatori</span><span class="vs-us">Autonoma + certificata →</span></div>
+    <div class="vs-row"><span class="vs-label">Mercato target</span><span class="vs-them">Locale commerciale</span><span class="vs-us">Folklore globale →</span></div>
+    <div class="vs-row"><span class="vs-label">Replicabilità</span><span class="vs-them">Facilmente copiabile</span><span class="vs-us">Fossato difendibile →</span></div>
   </div>
 </section>
 
-<!-- ==================== SLIDE 6 — UNIVERSITÀ ==================== -->
+<!-- SLIDE 6 — UNIVERSITÀ -->
 <section class="slide slide-6" id="s6">
   <span class="slide-counter">06 / 08</span>
   <div class="slide-label" style="color:var(--violet)">Partnership Accademica</div>
   <div class="section-heading">
-    <h2>Sapienza · Tor Vergata · e oltre</h2>
-    <p>MAMMUTH•EVENTS™ è un laboratorio applicato di ricerca su sicurezza degli eventi, patrimonio culturale digitale e sistemi di dati territoriali.</p>
+    <h2>Obiettivo: università italiane</h2>
+    <p>Obiettivo: avviare collaborazioni con università italiane per tesi sperimentali su ATLAS•EVENTA™ e Safety Engine. Il sistema è già live con dati reali — un caso studio unico nel suo genere.</p>
   </div>
   <div class="uni-split">
     <div class="uni-card">
@@ -1165,7 +799,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 7 — ROADMAP ==================== -->
+<!-- SLIDE 7 — ROADMAP -->
 <section class="slide slide-7" id="s7">
   <span class="slide-counter">07 / 08</span>
   <div class="slide-label" style="color:var(--amber)">Prossimi Passi & Partnership</div>
@@ -1192,7 +826,7 @@
       <span class="roadmap-phase-badge" style="background:#100A0A;color:#8B7CF6">FASE 3</span>
       <div class="roadmap-content">
         <div class="roadmap-title">Lazio → Italia Completa</div>
-        <div class="roadmap-items">7.900 comuni italiani · Gerarchia NUTS 1/2/3 completa · Partnership universitarie Sapienza/Tor Vergata · Safety Engine validato scientificamente</div>
+        <div class="roadmap-items">7.900 comuni italiani · Gerarchia NUTS 1/2/3 completa · Obiettivo: collaborazioni universitarie italiane · Safety Engine da validare scientificamente</div>
       </div>
     </div>
     <div class="roadmap-row">
@@ -1223,7 +857,7 @@
   </div>
 </section>
 
-<!-- ==================== SLIDE 8 — CHIUSURA ==================== -->
+<!-- SLIDE 8 — CHIUSURA -->
 <section class="slide slide-8" id="s8">
   <span class="slide-counter">08 / 08</span>
   <div class="closing-title">Where Communities<br>Come Alive™</div>
