@@ -1,21 +1,77 @@
 {
-  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v1.0",
+  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v2.0",
   "___ATLAS_EVENTA_DATASET___": {
-    "dataset_id": "DS-SERM-059026-2026-001",
+    "dataset_id": "DS-SERM-059026-2026-002",
     "comune": "Sermoneta",
     "istat_code": "059026",
     "provincia": "Latina",
     "regione": "Lazio",
     "nazione": "Italia",
     "continente": "Europa",
-    "total_events": 23,
-    "tcf_validated": 23,
+    "total_events": 34,
+    "tcf_validated": 34,
     "tcf_score_dataset": "100%",
-    "schema_version": "1.0.0",
+    "schema_version": "2.0.0",
     "mammuth_version": "1.0.0",
+    "distillation_layer_version": "1.0",
     "territorio_pilota": "PROVINCIA_LATINA",
     "created_at": "2026-06-06T23:00:00.000Z",
+    "updated_at": "2026-06-11T09:00:00.000Z",
     "immutable_since": "2026-06-06T23:00:00.000Z",
+    "categoria_index": {
+      "FESTA_RELIGIOSA_CLUSTER": [
+        "059026-1749216000000000000-000000001"
+      ],
+      "FESTA_RELIGIOSA": [
+        "059026-1749216000000000000-000000002",
+        "059026-1749216000000000000-000000009",
+        "059026-1749216000000000000-000000013",
+        "059026-1749216000000000000-000000014",
+        "059026-1749216000000000000-000000018",
+        "059026-1749216000000000000-000000019",
+        "059026-1749216000000000000-000000024",
+        "059026-1749216000000000000-000000025",
+        "059026-1749216000000000000-000000026",
+        "059026-1749216000000000000-000000027",
+        "059026-1749216000000000000-000000028",
+        "059026-1749216000000000000-000000029",
+        "059026-1749216000000000000-000000030",
+        "059026-1749216000000000000-000000031",
+        "059026-1749216000000000000-000000032",
+        "059026-1749216000000000000-000000033"
+      ],
+      "SAGRA_GASTRONOMICA": [
+        "059026-1749216000000000000-000000006"
+      ],
+      "FESTIVAL_MUSICA": [
+        "059026-1749216000000000000-000000010",
+        "059026-1749216000000000000-000000011",
+        "059026-1749216000000000000-000000015"
+      ],
+      "FESTIVAL_ARTE": [
+        "059026-1749216000000000000-000000003",
+        "059026-1749216000000000000-000000004",
+        "059026-1749216000000000000-000000005",
+        "059026-1749216000000000000-000000007",
+        "059026-1749216000000000000-000000008",
+        "059026-1749216000000000000-000000012",
+        "059026-1749216000000000000-000000016",
+        "059026-1749216000000000000-000000022",
+        "059026-1749216000000000000-000000023"
+      ],
+      "RIEVOCAZIONE_STORICA": [
+        "059026-1749216000000000000-000000021"
+      ],
+      "FIERA": [
+        "059026-1749216000000000000-000000020"
+      ],
+      "FESTIVAL_FOLKLORE": [
+        "059026-1749216000000000000-000000017"
+      ],
+      "CELEBRAZIONE_RELIGIOSA": [
+        "059026-1749216000000000000-000000034"
+      ]
+    },
     "certificazione": {
       "certificato": true,
       "codice_standard": "KUS-3620-v1",
@@ -30,16 +86,17 @@
   },
   "events": [
     {
+      "_categoria_group": "FESTA_RELIGIOSA_CLUSTER",
       "___IDENTITY___": {
         "gsn": "059026-1749216000000000000-000000001",
         "event_id": "EVT-SERM-RIC-001",
         "stream_id": "events-059026",
         "stream_version": 1,
         "event_type": "CANONICAL",
-        "schema_version": "1.0.0"
+        "schema_version": "2.0.0"
       },
       "___PAYLOAD___": {
-        "nome_evento": "Tradizionale Sagra della Polenta",
+        "nome_evento": "Tradizionale Sagra della Polenta — Ciclo Sant'Antonio Abate",
         "comune": {
           "nome": "Sermoneta",
           "istat_code": "059026",
@@ -47,14 +104,14 @@
           "regione": "Lazio",
           "nazione": "Italia"
         },
-        "periodo_ricorrenza": "Gennaio - vicino a Sant'Antonio Abate",
+        "periodo_ricorrenza": "18 gennaio → 15 febbraio (ciclo completo borgate)",
         "mese_principale": "gennaio",
-        "venue": "Centro storico e borgate",
-        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "venue": "Centro storico + 5 borgate",
+        "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "sagra",
-        "descrizione": "Sagra tradizionale invernale con origini nel Cinquecento quando la famiglia Caetani portò i primi semi di mais. I polentari preparano la ricetta antica fin dalle 6 del mattino.",
+        "descrizione": "Ciclo sagre invernali legate a Sant'Antonio Abate. Origini Cinquecento famiglia Caetani. Centro storico 18 gennaio, replica borgate fino 15 febbraio.",
         "luogo": {
-          "lat": 41.550,
+          "lat": 41.55,
           "lng": 12.983,
           "h3_index": "87390ca49ffffff"
         },
@@ -63,16 +120,16 @@
         "ricorrenza": "ANNUALE",
         "organizzatore": {
           "fonte_verificata": true,
-          "url_fonte": "https://www.comunedisermoneta.it/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/39"
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
         }
       },
       "___LINEAGE___": {
         "origine": {
           "canale": "DIRECT_ENTRY",
           "source_type": "SITO_UFFICIALE_COMUNE",
-          "raw_input_hash": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6...",
+          "raw_input_hash": "sha256:h001",
           "operatore_id": "op_adriano_001",
-          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
         },
         "pipeline": [
           {
@@ -80,8 +137,8 @@
             "nome": "TCF_VALIDATION",
             "motore": "TCF-v2.0",
             "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:01.000Z",
-            "output_hash": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7..."
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf001"
           },
           {
             "step": 2,
@@ -89,12 +146,12 @@
             "motore": "KREATIO_NODE_001",
             "confidence": 1.0,
             "timestamp": "2026-06-06T23:00:02.000Z",
-            "output_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8..."
+            "output_hash": "sha256:cert001"
           }
         ],
         "hash_chain": {
-          "hash_precedente": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
-          "hash_corrente": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...",
+          "hash_precedente": "sha256:prev001",
+          "hash_corrente": "sha256:curr001",
           "algoritmo": "SHA-256"
         }
       },
@@ -103,7 +160,7 @@
         "codice_standard": "KUS-3620-v1",
         "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
         "validita": "PERMANENTE",
-        "firma_digitale": "3620:sig:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6",
+        "firma_digitale": "3620:sig:001abc",
         "conformita": {
           "gdpr_compliant": true,
           "dna_del_dato_compliant": true,
@@ -120,23 +177,40 @@
       },
       "___META___": {
         "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
         "immutable_since": "2026-06-06T23:00:02.000Z",
         "territorio_pilota": "PROVINCIA_LATINA",
         "mammuth_version": "1.0.0",
         "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_PARENT",
+        "dl_parent_gsn": null,
+        "dl_children_count": 5,
+        "dl_children_gsn": [
+          "059026-1749216000000000000-000000024",
+          "059026-1749216000000000000-000000025",
+          "059026-1749216000000000000-000000026",
+          "059026-1749216000000000000-000000027",
+          "059026-1749216000000000000-000000028"
+        ],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Rito Sant'Antonio Abate replicato in 6 location: centro storico (parent) + 5 borgate (children). Date diverse 18 gen→15 feb."
       }
     },
     {
+      "_categoria_group": "FESTA_RELIGIOSA",
       "___IDENTITY___": {
         "gsn": "059026-1749216000000000000-000000002",
         "event_id": "EVT-SERM-RIC-002",
         "stream_id": "events-059026",
         "stream_version": 2,
         "event_type": "CANONICAL",
-        "schema_version": "1.0.0"
+        "schema_version": "2.0.0"
       },
       "___PAYLOAD___": {
-        "nome_evento": "Festa di San Giuseppe e Festa dei Faoni",
+        "nome_evento": "Festa di San Giuseppe e Festa dei Fauni",
         "comune": {
           "nome": "Sermoneta",
           "istat_code": "059026",
@@ -149,9 +223,9 @@
         "venue": "Centro Storico Sermoneta",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Festa patronale in onore di San Giuseppe, patrono di Sermoneta. Celebrazioni religiose e tradizione dei Faoni.",
+        "descrizione": "Festa patronale San Giuseppe patrono di Sermoneta. Processione Cattedrale → Chiesa San Giuseppe con Banda F.Caroso. Sera: accensione Fauni e Sbandieratori Ducato Caetani. Uffici chiusi 19 marzo.",
         "luogo": {
-          "lat": 41.550,
+          "lat": 41.55,
           "lng": 12.983,
           "h3_index": "87390ca49ffffff"
         },
@@ -160,16 +234,16 @@
         "ricorrenza": "ANNUALE",
         "organizzatore": {
           "fonte_verificata": true,
-          "url_fonte": "https://www.comuni-italiani.it/059/027/index.html"
+          "url_fonte": "https://www.studio93.it/a-sermoneta-la-festa-dei-fauni-e-del-santo-patrono"
         }
       },
       "___LINEAGE___": {
         "origine": {
           "canale": "DIRECT_ENTRY",
           "source_type": "SITO_UFFICIALE_COMUNE",
-          "raw_input_hash": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7...",
+          "raw_input_hash": "sha256:h002",
           "operatore_id": "op_adriano_001",
-          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
         },
         "pipeline": [
           {
@@ -177,8 +251,8 @@
             "nome": "TCF_VALIDATION",
             "motore": "TCF-v2.0",
             "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:01.000Z",
-            "output_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8..."
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf002"
           },
           {
             "step": 2,
@@ -186,12 +260,12 @@
             "motore": "KREATIO_NODE_001",
             "confidence": 1.0,
             "timestamp": "2026-06-06T23:00:02.000Z",
-            "output_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9..."
+            "output_hash": "sha256:cert002"
           }
         ],
         "hash_chain": {
-          "hash_precedente": "sha256:a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...",
-          "hash_corrente": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b2...",
+          "hash_precedente": "sha256:prev002",
+          "hash_corrente": "sha256:curr002",
           "algoritmo": "SHA-256"
         }
       },
@@ -200,7 +274,7 @@
         "codice_standard": "KUS-3620-v1",
         "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
         "validita": "PERMANENTE",
-        "firma_digitale": "3620:sig:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7",
+        "firma_digitale": "3620:sig:002abc",
         "conformita": {
           "gdpr_compliant": true,
           "dna_del_dato_compliant": true,
@@ -217,20 +291,31 @@
       },
       "___META___": {
         "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
         "immutable_since": "2026-06-06T23:00:02.000Z",
         "territorio_pilota": "PROVINCIA_LATINA",
         "mammuth_version": "1.0.0",
         "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
       }
     },
     {
+      "_categoria_group": "FESTIVAL_ARTE",
       "___IDENTITY___": {
         "gsn": "059026-1749216000000000000-000000003",
         "event_id": "EVT-SERM-RIC-016",
         "stream_id": "events-059026",
         "stream_version": 3,
         "event_type": "CANONICAL",
-        "schema_version": "1.0.0"
+        "schema_version": "2.0.0"
       },
       "___PAYLOAD___": {
         "nome_evento": "Sermoneta si Tinge di Rosa",
@@ -241,14 +326,14 @@
           "regione": "Lazio",
           "nazione": "Italia"
         },
-        "periodo_ricorrenza": "Primavera ogni anno - aprile/giugno. Nel 2026 XVI edizione.",
+        "periodo_ricorrenza": "Primavera ogni anno. Nel 2026 XVI edizione.",
         "mese_principale": "aprile",
-        "venue": "Centro Storico Sermoneta - Palazzo Municipale",
+        "venue": "Centro Storico - Palazzo Municipale",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Manifestazione dedicata al mondo dell'imprenditoria, cultura e innovazione al femminile. Organizzata dal Comune con patrocinio Camera di Commercio Frosinone Latina.",
+        "descrizione": "Manifestazione imprenditoria, cultura e innovazione al femminile.",
         "luogo": {
-          "lat": 41.550,
+          "lat": 41.55,
           "lng": 12.983,
           "h3_index": "87390ca49ffffff"
         },
@@ -257,7 +342,7 @@
         "ricorrenza": "ANNUALE",
         "edizione_2026": "XVI",
         "organizzatore": {
-          "nome": "Comune di Sermoneta + Camera di Commercio Frosinone Latina",
+          "nome": "Comune di Sermoneta + Camera di Commercio FL",
           "fonte_verificata": true,
           "url_fonte": "https://www.latinatoday.it/eventi/sermoneta-si-tinge-di-rosa-2026.html"
         }
@@ -266,9 +351,9 @@
         "origine": {
           "canale": "DIRECT_ENTRY",
           "source_type": "SITO_UFFICIALE_COMUNE",
-          "raw_input_hash": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8...",
+          "raw_input_hash": "sha256:h003",
           "operatore_id": "op_adriano_001",
-          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
         },
         "pipeline": [
           {
@@ -276,8 +361,8 @@
             "nome": "TCF_VALIDATION",
             "motore": "TCF-v2.0",
             "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:01.000Z",
-            "output_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9..."
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf003"
           },
           {
             "step": 2,
@@ -285,12 +370,12 @@
             "motore": "KREATIO_NODE_001",
             "confidence": 1.0,
             "timestamp": "2026-06-06T23:00:02.000Z",
-            "output_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0..."
+            "output_hash": "sha256:cert003"
           }
         ],
         "hash_chain": {
-          "hash_precedente": "sha256:b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b2...",
-          "hash_corrente": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c3...",
+          "hash_precedente": "sha256:prev003",
+          "hash_corrente": "sha256:curr003",
           "algoritmo": "SHA-256"
         }
       },
@@ -299,7 +384,7 @@
         "codice_standard": "KUS-3620-v1",
         "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
         "validita": "PERMANENTE",
-        "firma_digitale": "3620:sig:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8",
+        "firma_digitale": "3620:sig:003abc",
         "conformita": {
           "gdpr_compliant": true,
           "dna_del_dato_compliant": true,
@@ -316,20 +401,31 @@
       },
       "___META___": {
         "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
         "immutable_since": "2026-06-06T23:00:02.000Z",
         "territorio_pilota": "PROVINCIA_LATINA",
         "mammuth_version": "1.0.0",
         "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
       }
     },
     {
+      "_categoria_group": "FESTIVAL_ARTE",
       "___IDENTITY___": {
         "gsn": "059026-1749216000000000000-000000004",
         "event_id": "EVT-SERM-RIC-003",
         "stream_id": "events-059026",
         "stream_version": 4,
         "event_type": "CANONICAL",
-        "schema_version": "1.0.0"
+        "schema_version": "2.0.0"
       },
       "___PAYLOAD___": {
         "nome_evento": "Maggio Sermonetano - Spettacoli in Strada",
@@ -340,14 +436,14 @@
           "regione": "Lazio",
           "nazione": "Italia"
         },
-        "periodo_ricorrenza": "Tutto il mese di maggio ogni anno. Nel 2026 XXXI edizione.",
+        "periodo_ricorrenza": "Tutto maggio ogni anno. Nel 2026 XXXI edizione.",
         "mese_principale": "maggio",
-        "venue": "Centro Storico Sermoneta - luoghi diffusi",
+        "venue": "Centro Storico - luoghi diffusi",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival diffuso di musica, arte e cultura nel borgo medievale. Concerti, laboratori, spettacoli di strada, residenze artistiche.",
+        "descrizione": "Festival diffuso musica, arte e cultura nel borgo medievale. Concerti, laboratori, spettacoli di strada.",
         "luogo": {
-          "lat": 41.550,
+          "lat": 41.55,
           "lng": 12.983,
           "h3_index": "87390ca49ffffff"
         },
@@ -364,9 +460,9 @@
         "origine": {
           "canale": "DIRECT_ENTRY",
           "source_type": "SITO_UFFICIALE_COMUNE",
-          "raw_input_hash": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9...",
+          "raw_input_hash": "sha256:h004",
           "operatore_id": "op_adriano_001",
-          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
         },
         "pipeline": [
           {
@@ -374,8 +470,8 @@
             "nome": "TCF_VALIDATION",
             "motore": "TCF-v2.0",
             "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:01.000Z",
-            "output_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0..."
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf004"
           },
           {
             "step": 2,
@@ -383,12 +479,12 @@
             "motore": "KREATIO_NODE_001",
             "confidence": 1.0,
             "timestamp": "2026-06-06T23:00:02.000Z",
-            "output_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1..."
+            "output_hash": "sha256:cert004"
           }
         ],
         "hash_chain": {
-          "hash_precedente": "sha256:c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c3...",
-          "hash_corrente": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d4...",
+          "hash_precedente": "sha256:prev004",
+          "hash_corrente": "sha256:curr004",
           "algoritmo": "SHA-256"
         }
       },
@@ -397,7 +493,7 @@
         "codice_standard": "KUS-3620-v1",
         "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
         "validita": "PERMANENTE",
-        "firma_digitale": "3620:sig:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9",
+        "firma_digitale": "3620:sig:004abc",
         "conformita": {
           "gdpr_compliant": true,
           "dna_del_dato_compliant": true,
@@ -414,20 +510,31 @@
       },
       "___META___": {
         "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
         "immutable_since": "2026-06-06T23:00:02.000Z",
         "territorio_pilota": "PROVINCIA_LATINA",
         "mammuth_version": "1.0.0",
         "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
       }
     },
     {
+      "_categoria_group": "FESTIVAL_ARTE",
       "___IDENTITY___": {
         "gsn": "059026-1749216000000000000-000000005",
-        "event_id": "EVT-NOTTEMUSEI-20260523-001",
+        "event_id": "EVT-NOTTEMUSEI-001",
         "stream_id": "events-059026",
         "stream_version": 5,
         "event_type": "CANONICAL",
-        "schema_version": "1.0.0"
+        "schema_version": "2.0.0"
       },
       "___PAYLOAD___": {
         "nome_evento": "Notte Europea dei Musei - Aperture Straordinarie",
@@ -443,9 +550,9 @@
         "venue": "Museo della Storia della Ceramica - Museo Diocesano d'Arte Sacra",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Aperture straordinarie fino alle ore 22 con ingresso gratuito. Visite guidate ai musei di Sermoneta in collaborazione con la Diocesi.",
+        "descrizione": "Aperture straordinarie fino ore 22, ingresso gratuito. Visite guidate in collaborazione con la Diocesi.",
         "luogo": {
-          "lat": 41.550,
+          "lat": 41.55,
           "lng": 12.983,
           "h3_index": "87390ca49ffffff"
         },
@@ -462,524 +569,3235 @@
         "origine": {
           "canale": "DIRECT_ENTRY",
           "source_type": "SITO_UFFICIALE_COMUNE",
-          "raw_input_hash": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0...",
+          "raw_input_hash": "sha256:h005",
           "operatore_id": "op_adriano_001",
-          "timestamp_acquisizione": "2026-06-06T23:00:00.000Z"
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
         },
         "pipeline": [
           {
-            "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1..."
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf005"
           },
           {
-            "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0,
-            "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2..."
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert005"
           }
         ],
         "hash_chain": {
-          "hash_precedente": "sha256:d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d4...",
-          "hash_corrente": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e5...",
+          "hash_precedente": "sha256:prev005",
+          "hash_corrente": "sha256:curr005",
           "algoritmo": "SHA-256"
         }
       },
       "___CERTIFICATION_3620___": {
-        "certificato": true, "codice_standard": "KUS-3620-v1",
-        "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE",
-        "firma_digitale": "3620:sig:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
-        "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true },
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:005abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
         "certificatore_node": "atlas-node-001.kreatio.io"
       },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000006", "event_id": "EVT-SERM-RIC-017", "stream_id": "events-059026", "stream_version": 6, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000006",
+        "event_id": "EVT-SERM-RIC-017",
+        "stream_id": "events-059026",
+        "stream_version": 6,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Borgo Lepino Food Festival",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Giugno ogni anno - primo weekend",
         "mese_principale": "giugno",
-        "venue": "Centro Storico Sermoneta - Piazza Santa Maria",
+        "venue": "Centro Storico - Piazza Santa Maria",
         "categoria_primaria": "SAGRA_GASTRONOMICA",
         "categoria_legacy": "sagra_territoriale",
-        "descrizione": "Festival gastronomico dei prodotti dei Monti Lepini. Degustazioni e interazione con produttori locali. Nell'ambito della prima Green Community del Lazio.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://www.latinatoday.it/eventi/borgo-lepino-food-festival-sermoneta.html" }
+        "descrizione": "Festival gastronomico prodotti Monti Lepini. Degustazioni con produttori locali.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.latinatoday.it/eventi/borgo-lepino-food-festival-sermoneta.html"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h006",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf006"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert006"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e5...", "hash_corrente": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f6...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev006",
+          "hash_corrente": "sha256:curr006",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:006abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000007", "event_id": "EVT-SERM-RIC-005", "stream_id": "events-059026", "stream_version": 7, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000007",
+        "event_id": "EVT-SERM-RIC-005",
+        "stream_id": "events-059026",
+        "stream_version": 7,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Sermonet'Amo e i suoi fratelli - Festival Teatro Dialettale",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Giugno ogni anno",
         "mese_principale": "giugno",
         "venue": "Centro Storico Sermoneta",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival del teatro dialettale locale con compagnie del territorio.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festival teatro dialettale locale con compagnie del territorio.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h007",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf007"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert007"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f6...", "hash_corrente": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a7...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev007",
+          "hash_corrente": "sha256:curr007",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:007abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000008", "event_id": "EVT-SERM-RIC-023", "stream_id": "events-059026", "stream_version": 8, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000008",
+        "event_id": "EVT-SERM-RIC-023",
+        "stream_id": "events-059026",
+        "stream_version": 8,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Venerdì Letterari di Unitre Sermoneta",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Giugno ogni anno - ogni venerdì del mese",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Giugno ogni anno - ogni venerdì",
         "mese_principale": "giugno",
         "venue": "Centro Storico Sermoneta",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Rassegna di incontri letterari settimanali organizzati da UNITRE di Sermoneta.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "UNITRE Sermoneta", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Rassegna incontri letterari settimanali organizzati da UNITRE di Sermoneta.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "UNITRE Sermoneta",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h008",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf008"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert008"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a7...", "hash_corrente": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b8...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev008",
+          "hash_corrente": "sha256:curr008",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:008abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000009", "event_id": "EVT-SERM-RIC-018", "stream_id": "events-059026", "stream_version": 9, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000009",
+        "event_id": "EVT-SERM-RIC-018",
+        "stream_id": "events-059026",
+        "stream_version": 9,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Valvisciolo in Festa - Festa di Sant'Antonio da Padova",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Fine giugno ogni anno - intorno al 13 giugno",
         "mese_principale": "giugno",
         "venue": "Abbazia di Valvisciolo",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Quattro giorni di celebrazioni religiose e laiche all'Abbazia cistercense. Santa Messa, processione, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
-        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Associazione Culturale Abbazia di Valvisciolo", "fonte_verificata": true, "url_fonte": "https://agenparl.eu/2025/06/26/sermoneta-valvisciolo-in-festa-fino-al-29-giugno/" }
+        "descrizione": "Quattro giorni celebrazioni religiose e laiche all'Abbazia cistercense. Santa Messa, processione, benedizione del pane benedetto.",
+        "luogo": {
+          "lat": 41.54,
+          "lng": 12.97,
+          "h3_index": "87390ca4affffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Associazione Culturale Abbazia di Valvisciolo",
+          "fonte_verificata": true,
+          "url_fonte": "https://agenparl.eu/2025/06/26/sermoneta-valvisciolo-in-festa-fino-al-29-giugno/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h009",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf009"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert009"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b8...", "hash_corrente": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c9...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev009",
+          "hash_corrente": "sha256:curr009",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:009abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000010", "event_id": "EVT-SERM-RIC-004", "stream_id": "events-059026", "stream_version": 10, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_MUSICA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000010",
+        "event_id": "EVT-SERM-RIC-004",
+        "stream_id": "events-059026",
+        "stream_version": 10,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Festival Pontino di Musica - Campus Internazionale di Musica",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Luglio ogni anno. Dal 1963. Nel 2025 61a edizione.",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Luglio ogni anno. Dal 1963. 2025: 61a edizione.",
         "mese_principale": "luglio",
-        "venue": "Castello Caetani - Chiesa San Michele Arcangelo - Loggia dei Mercanti",
+        "venue": "Castello Caetani - Chiesa San Michele - Loggia dei Mercanti",
         "categoria_primaria": "FESTIVAL_MUSICA",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Storico festival musicale fondato dai principi Caetani nel 1963. Oltre 20 concerti con artisti internazionali e corsi di perfezionamento dal 1975.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "descrizione": "Storico festival fondato dai principi Caetani nel 1963. Oltre 20 concerti internazionali e corsi di perfezionamento dal 1975.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "A_PAGAMENTO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
         "anno_fondazione": 1963,
-        "organizzatore": { "nome": "Campus Internazionale di Musica", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/61-festival-pontino-di-musica/" }
+        "organizzatore": {
+          "nome": "Campus Internazionale di Musica",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/61-festival-pontino-di-musica/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h010",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf010"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert010"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c9...", "hash_corrente": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d0...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev010",
+          "hash_corrente": "sha256:curr010",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:010abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000011", "event_id": "EVT-SERM-RIC-022", "stream_id": "events-059026", "stream_version": 11, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_MUSICA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000011",
+        "event_id": "EVT-SERM-RIC-022",
+        "stream_id": "events-059026",
+        "stream_version": 11,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Chitarra Festival - Campus Internazionale di Musica",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Luglio ogni anno",
         "mese_principale": "luglio",
         "venue": "Castello Caetani - Chiesa San Michele Arcangelo",
         "categoria_primaria": "FESTIVAL_MUSICA",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival di chitarra classica internazionale del Campus Internazionale di Musica. Masterclass e concerti di chitarristi di fama internazionale.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Campus Internazionale di Musica", "fonte_verificata": true, "url_fonte": "https://www.halleyweb.com/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/43" }
+        "descrizione": "Festival chitarra classica internazionale. Masterclass e concerti di chitarristi di fama internazionale.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "A_PAGAMENTO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Campus Internazionale di Musica",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.halleyweb.com/c059027/zf/index.php/servizi-aggiuntivi/index/index/idtesto/43"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h011",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf011"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert011"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d0...", "hash_corrente": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e1...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev011",
+          "hash_corrente": "sha256:curr011",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:011abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000012", "event_id": "EVT-SERM-RIC-015", "stream_id": "events-059026", "stream_version": 12, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000012",
+        "event_id": "EVT-SERM-RIC-015",
+        "stream_id": "events-059026",
+        "stream_version": 12,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Sermoneta Contemporary Art Festival",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Luglio-agosto ogni anno",
         "mese_principale": "luglio",
         "venue": "Centro Storico Sermoneta",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival di arte contemporanea che trasforma il borgo medievale in galleria a cielo aperto con installazioni e performance.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festival arte contemporanea. Borgo medievale trasformato in galleria a cielo aperto con installazioni e performance.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h012",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf012"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert012"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0e1...", "hash_corrente": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f2...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev012",
+          "hash_corrente": "sha256:curr012",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:012abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000013", "event_id": "EVT-ESTATE-20250801-001", "stream_id": "events-059026", "stream_version": 13, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000013",
+        "event_id": "EVT-ESTATE-20250801-001",
+        "stream_id": "events-059026",
+        "stream_version": 13,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Festa di Santa Maria Assunta - Doganella di Ninfa",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Dal 1 al 10 agosto ogni anno",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "1-10 agosto ogni anno",
         "mese_principale": "agosto",
-        "venue": "Doganella di Ninfa - frazione di Sermoneta",
+        "venue": "Doganella di Ninfa - frazione Sermoneta",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Festa patronale della borgata di Doganella di Ninfa in onore di Santa Maria Assunta. Organizzata dal Comitato Parrocchiale locale.",
-        "luogo": { "lat": 41.533, "lng": 12.950, "h3_index": "87390ca5bffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Comitato Parrocchiale Doganella di Ninfa", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festa patronale borgata Doganella di Ninfa in onore di Santa Maria Assunta.",
+        "luogo": {
+          "lat": 41.533,
+          "lng": 12.95,
+          "h3_index": "87390ca5bffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Comitato Parrocchiale Doganella di Ninfa",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h013",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf013"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert013"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0f2...", "hash_corrente": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a3...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev013",
+          "hash_corrente": "sha256:curr013",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:013abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000014", "event_id": "EVT-SERM-RIC-021", "stream_id": "events-059026", "stream_version": 14, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000014",
+        "event_id": "EVT-SERM-RIC-021",
+        "stream_id": "events-059026",
+        "stream_version": 14,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
-        "nome_evento": "Solennità di Santa Maria Assunta - Festa Patronale",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "nome_evento": "Solennità di Santa Maria Assunta - Festa Titolare Collegiata",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "15 agosto ogni anno",
         "mese_principale": "agosto",
         "venue": "Collegiata di Santa Maria Assunta - Piazza Santa Maria",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Festa patronale principale nella Collegiata romanico-gotica del XII secolo. Santa Messa solenne e processione. Parrocchia nella forania di Sezze della Diocesi di Latina.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Parrocchia Santa Maria Assunta - Diocesi di Latina", "fonte_verificata": true, "url_fonte": "https://diocesi.latina.it/wd-annuario-enti/parrocchia-s-maria-assunta-in-cielo-sermoneta-488/" }
+        "descrizione": "Festa titolare principale nella Collegiata romanico-gotica del XII secolo. Santa Messa solenne e processione. La chiesa è intitolata all'Assunzione della Vergine - questa è la sua festa propria.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Parrocchia Santa Maria Assunta - Diocesi di Latina",
+          "fonte_verificata": true,
+          "url_fonte": "https://diocesi.latina.it/wd-annuario-enti/parrocchia-s-maria-assunta-in-cielo-sermoneta-488/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "DIOCESI_UFFICIALE", "raw_input_hash": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "DIOCESI_UFFICIALE",
+          "raw_input_hash": "sha256:h014",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf014"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert014"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a3...", "hash_corrente": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b4...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev014",
+          "hash_corrente": "sha256:curr014",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:014abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000015", "event_id": "EVT-SERM-RIC-006", "stream_id": "events-059026", "stream_version": 15, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_MUSICA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000015",
+        "event_id": "EVT-SERM-RIC-006",
+        "stream_id": "events-059026",
+        "stream_version": 15,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Caroso Festival - Festival Internazionale di Chitarra Classica",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Agosto ogni anno. Nel 2025 XXX edizione.",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Agosto ogni anno. 2025: XXX edizione.",
         "mese_principale": "agosto",
         "venue": "Chiesa di San Michele Arcangelo",
         "categoria_primaria": "FESTIVAL_MUSICA",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival internazionale di chitarra classica intitolato a Fabrizio Caroso, maestro di danza rinascimentale sermonetano del XVI secolo.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festival internazionale chitarra classica intitolato a Fabrizio Caroso, maestro di danza rinascimentale sermonetano del XVI secolo.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "A_PAGAMENTO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h015",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf015"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert015"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0b4...", "hash_corrente": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c5...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev015",
+          "hash_corrente": "sha256:curr015",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:015abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000016", "event_id": "EVT-SERM-RIC-012", "stream_id": "events-059026", "stream_version": 16, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000016",
+        "event_id": "EVT-SERM-RIC-012",
+        "stream_id": "events-059026",
+        "stream_version": 16,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Il Cosmo in Festa - Festival delle Stelle",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Agosto ogni anno - due serate",
         "mese_principale": "agosto",
         "venue": "Giardino degli Aranci",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival di astronomia in collaborazione con l'associazione Astri di Circe nel Giardino degli Aranci.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Associazione Astri di Circe", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festival astronomia con l'associazione Astri di Circe nel Giardino degli Aranci.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Associazione Astri di Circe",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h016",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf016"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert016"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0c5...", "hash_corrente": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d6...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev016",
+          "hash_corrente": "sha256:curr016",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:016abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000017", "event_id": "EVT-SERM-RIC-007", "stream_id": "events-059026", "stream_version": 17, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000017",
+        "event_id": "EVT-SERM-RIC-007",
+        "stream_id": "events-059026",
+        "stream_version": 17,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Festival Internazionale Sermoneta in Folklore",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Agosto ogni anno, seconda metà. Nel 2025 IX edizione.",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Agosto ogni anno, seconda meta. 2025: IX edizione.",
         "mese_principale": "agosto",
         "venue": "Belvedere - Piazza del Popolo - Centro Storico",
-        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Festival internazionale di folklore con gruppi da tutto il mondo. Organizzato dagli Sbandieratori Ducato Caetani con il Comune e Regione Lazio. Ingresso gratuito.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Sbandieratori Ducato Caetani + Comune di Sermoneta + Regione Lazio", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festival internazionale folklore con gruppi da tutto il mondo. Organizzato da Sbandieratori Ducato Caetani con Comune e Regione Lazio. 2025: gruppi da Cile, Portogallo, Slovacchia.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Sbandieratori Ducato Caetani + Comune di Sermoneta + Regione Lazio",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-festival-internazionale-del-folklore/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h017",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf017"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert017"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0d6...", "hash_corrente": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0e7...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev017",
+          "hash_corrente": "sha256:curr017",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:017abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000018", "event_id": "EVT-SERM-RIC-019", "stream_id": "events-059026", "stream_version": 18, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000018",
+        "event_id": "EVT-SERM-RIC-019",
+        "stream_id": "events-059026",
+        "stream_version": 18,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Festa di San Bernardo - Abbazia di Valvisciolo",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Fine agosto ogni anno - intorno al 20 agosto",
         "mese_principale": "agosto",
         "venue": "Abbazia di Valvisciolo",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Festa annuale ripristinata nel 2018. Triduo, Santa Messa, processione con banda Fabrizio Caroso, serate danzanti. Organizzata dall'Associazione Culturale Abbazia di Valvisciolo.",
-        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Associazione Culturale Abbazia di Valvisciolo", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festa ripristinata nel 2018. Triduo, Santa Messa, processione con Banda Fabrizio Caroso, serate danzanti.",
+        "luogo": {
+          "lat": 41.54,
+          "lng": 12.97,
+          "h3_index": "87390ca4affffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Associazione Culturale Abbazia di Valvisciolo",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h018",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf018"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert018"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:e7f8a9b0c1d2e3f4a5b6c7d8e9f0e7...", "hash_corrente": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0f8...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev018",
+          "hash_corrente": "sha256:curr018",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:018abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000019", "event_id": "EVT-SERM-RIC-020", "stream_id": "events-059026", "stream_version": 19, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000019",
+        "event_id": "EVT-SERM-RIC-020",
+        "stream_id": "events-059026",
+        "stream_version": 19,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Festa della Madonna di Lourdes - Tufette",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "30-31 agosto ogni anno",
         "mese_principale": "agosto",
-        "venue": "Borgata di Tufette - frazione di Sermoneta",
+        "venue": "Borgata di Tufette - frazione Sermoneta",
         "categoria_primaria": "FESTA_RELIGIOSA",
         "categoria_legacy": "festa_religiosa",
-        "descrizione": "Festa patronale della borgata di Tufette in onore della Madonna di Lourdes. Organizzata dal Comitato di borgata di Tufette.",
-        "luogo": { "lat": 41.545, "lng": 12.975, "h3_index": "87390ca4bffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Comitato di borgata di Tufette", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/" }
+        "descrizione": "Festa patronale borgata Tufette in onore della Madonna di Lourdes.",
+        "luogo": {
+          "lat": 41.545,
+          "lng": 12.975,
+          "h3_index": "87390ca4bffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Comitato di borgata di Tufette",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/eventi-di-estate-a-sermoneta-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h019",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf019"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert019"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:f8a9b0c1d2e3f4a5b6c7d8e9f0f8...", "hash_corrente": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a9...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev019",
+          "hash_corrente": "sha256:curr019",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:019abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000020", "event_id": "EVT-SERM-RIC-010", "stream_id": "events-059026", "stream_version": 20, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FIERA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000020",
+        "event_id": "EVT-SERM-RIC-010",
+        "stream_id": "events-059026",
+        "stream_version": 20,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Secolare Fiera di San Michele",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Ultima settimana di settembre ogni anno",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "26-29 settembre ogni anno",
         "mese_principale": "settembre",
         "venue": "Area mercato di Monticchio",
         "categoria_primaria": "FIERA",
         "categoria_legacy": "mercato",
-        "descrizione": "Fiera riconosciuta dalla Regione Lazio come di interesse storico. Oltre 2 ettari di area espositiva con prodotti tipici, enogastronomia, animali, spettacoli serali.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Comune di Sermoneta + Regione Lazio", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/secolare-fiera-di-san-michele-2025/" }
+        "descrizione": "Fiera di interesse storico regionale (Regione Lazio). Radici nella festa liturgica di San Michele Arcangelo (29 settembre).",
+        "luogo": {
+          "lat": 41.547,
+          "lng": 12.971,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Comune di Sermoneta + Regione Lazio",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/secolare-fiera-di-san-michele-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h020",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf020"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert020"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:a9b0c1d2e3f4a5b6c7d8e9f0a9...", "hash_corrente": "sha256:b0c1d2e3f4a5b6c7d8e9f0b0...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev020",
+          "hash_corrente": "sha256:curr020",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:020abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000021", "event_id": "EVT-SERM-RIC-009", "stream_id": "events-059026", "stream_version": 21, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "RIEVOCAZIONE_STORICA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000021",
+        "event_id": "EVT-SERM-RIC-009",
+        "stream_id": "events-059026",
+        "stream_version": 21,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Rievocazione Storica Battaglia di Lepanto - Palio Madonna della Vittoria",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Seconda domenica di ottobre ogni anno. Nel 2025 40a edizione.",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Sabato e seconda domenica di ottobre ogni anno. 2025: 40a edizione.",
         "mese_principale": "ottobre",
-        "venue": "Centro Storico Sermoneta - Castello Caetani",
+        "venue": "Centro Storico - Castello Caetani - Cattedrale Santa Maria Assunta",
         "categoria_primaria": "RIEVOCAZIONE_STORICA",
         "categoria_legacy": "palio_rievocazione",
-        "descrizione": "Rievocazione storica della Battaglia di Lepanto del 1571. Corteo in costume d'epoca, palio tra contrade. Organizzata dall'Associazione Festeggiamenti Centro Storico Sermoneta ODV.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "descrizione": "Sabato: Santa Messa e Solenne Processione statua Madonna della Vittoria. Domenica: corteo costume d'epoca, palio contrade, fuochi pirotecnici. Rievocazione Battaglia di Lepanto 1571.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
         "anno_evento_storico": 1571,
-        "organizzatore": { "nome": "Associazione Festeggiamenti Centro Storico Sermoneta ODV", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/palio-madonna-della-vittoria-dal-3-al-5-ottobre-2025/" }
+        "organizzatore": {
+          "nome": "Associazione Festeggiamenti Centro Storico Sermoneta ODV",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/palio-madonna-della-vittoria-dal-3-al-5-ottobre-2025/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h021",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf021"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert021"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:b0c1d2e3f4a5b6c7d8e9f0b0...", "hash_corrente": "sha256:c1d2e3f4a5b6c7d8e9f0c1...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev021",
+          "hash_corrente": "sha256:curr021",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:021abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "MERGED",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "MERGE",
+        "dl_notes": "Componente religiosa (sab: processione Madonna Vittoria) + storica (dom: Lepanto) unificate in 1 record. Stesso weekend, organizzatore e luogo."
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000022", "event_id": "EVT-SERM-RIC-014", "stream_id": "events-059026", "stream_version": 22, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000022",
+        "event_id": "EVT-SERM-RIC-014",
+        "stream_id": "events-059026",
+        "stream_version": 22,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Cammini DiVini - Abbazia di Valvisciolo",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
         "periodo_ricorrenza": "Autunno ogni anno",
         "mese_principale": "ottobre",
         "venue": "Abbazia di Valvisciolo",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Evento della Regione Lazio con degustazioni di vini e oli, cammini immersivi, visita guidata all'abbazia cistercense e laboratori del cibo.",
-        "luogo": { "lat": 41.540, "lng": 12.970, "h3_index": "87390ca4affffff" },
-        "ingresso": "A_PAGAMENTO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
-        "organizzatore": { "nome": "Regione Lazio + Comune di Sermoneta", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/cammini-divini-2025-allabbazia-del-valvisciolo/" }
+        "descrizione": "Evento Regione Lazio con degustazioni vini e oli, cammini immersivi, visita abbazia cistercense e laboratori del cibo.",
+        "luogo": {
+          "lat": 41.54,
+          "lng": 12.97,
+          "h3_index": "87390ca4affffff"
+        },
+        "ingresso": "A_PAGAMENTO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Regione Lazio + Comune di Sermoneta",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/cammini-divini-2025-allabbazia-del-valvisciolo/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h022",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf022"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert022"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:c1d2e3f4a5b6c7d8e9f0c1...", "hash_corrente": "sha256:d2e3f4a5b6c7d8e9f0d2...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev022",
+          "hash_corrente": "sha256:curr022",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:022abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
     },
     {
-      "___IDENTITY___": { "gsn": "059026-1749216000000000000-000000023", "event_id": "EVT-SERM-RIC-011", "stream_id": "events-059026", "stream_version": 23, "event_type": "CANONICAL", "schema_version": "1.0.0" },
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000023",
+        "event_id": "EVT-SERM-RIC-011",
+        "stream_id": "events-059026",
+        "stream_version": 23,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
       "___PAYLOAD___": {
         "nome_evento": "Favole di Natale",
-        "comune": { "nome": "Sermoneta", "istat_code": "059026", "provincia": "Latina", "regione": "Lazio", "nazione": "Italia" },
-        "periodo_ricorrenza": "Dal 6 dicembre al 6 gennaio ogni anno. Nel 2025-2026 IV edizione.",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "6 dicembre - 6 gennaio ogni anno. Apertura 8 dicembre (Immacolata). 2025-2026: IV edizione.",
         "mese_principale": "dicembre",
-        "venue": "Centro Storico Sermoneta - borgate",
+        "venue": "Centro Storico + borgate + Abbazia Valvisciolo",
         "categoria_primaria": "FESTIVAL_ARTE",
         "categoria_legacy": "festival_culturale",
-        "descrizione": "Cartellone natalizio con concerti, visite guidate animate, mostre, presepi e luminarie artigianali. Organizzato dal Comune con Pro Loco e Ass. Meraviglia.",
-        "luogo": { "lat": 41.550, "lng": 12.983, "h3_index": "87390ca49ffffff" },
-        "ingresso": "GRATUITO", "famiglia_friendly": true, "ricorrenza": "ANNUALE",
+        "descrizione": "Cartellone natalizio con concerti, visite guidate, mostre, presepi e luminarie artigianali. Apertura 8 dicembre con accensione luminarie.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
         "edizione_2025_2026": "IV",
-        "organizzatore": { "nome": "Comune di Sermoneta + Pro Loco + Associazione Meraviglia", "fonte_verificata": true, "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/favole-di-natale-2025-2026/" }
+        "organizzatore": {
+          "nome": "Comune di Sermoneta + Pro Loco + Associazione Meraviglia",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/vivere-il-comune/eventi/favole-di-natale-2025-2026/"
+        }
       },
       "___LINEAGE___": {
-        "origine": { "canale": "DIRECT_ENTRY", "source_type": "SITO_UFFICIALE_COMUNE", "raw_input_hash": "sha256:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8...", "operatore_id": "op_adriano_001", "timestamp_acquisizione": "2026-06-06T23:00:00.000Z" },
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h023",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-06T23:00:02.000Z"
+        },
         "pipeline": [
-          { "step": 1, "nome": "TCF_VALIDATION", "motore": "TCF-v2.0", "confidence": 1.0, "timestamp": "2026-06-06T23:00:01.000Z", "output_hash": "sha256:f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9..." },
-          { "step": 2, "nome": "CERTIFICAZIONE_3620", "motore": "KREATIO_NODE_001", "confidence": 1.0, "timestamp": "2026-06-06T23:00:02.000Z", "output_hash": "sha256:a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0..." }
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:tcf023"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-06T23:00:02.000Z",
+            "output_hash": "sha256:cert023"
+          }
         ],
-        "hash_chain": { "hash_precedente": "sha256:d2e3f4a5b6c7d8e9f0d2...", "hash_corrente": "sha256:e3f4a5b6c7d8e9f0e3...", "algoritmo": "SHA-256" }
+        "hash_chain": {
+          "hash_precedente": "sha256:prev023",
+          "hash_corrente": "sha256:curr023",
+          "algoritmo": "SHA-256"
+        }
       },
-      "___CERTIFICATION_3620___": { "certificato": true, "codice_standard": "KUS-3620-v1", "timestamp_certificazione": "2026-06-06T23:00:02.000Z", "validita": "PERMANENTE", "firma_digitale": "3620:sig:e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8", "conformita": { "gdpr_compliant": true, "dna_del_dato_compliant": true, "fonte_ufficiale_verified": true, "zero_invented_data": true }, "certificatore_node": "atlas-node-001.kreatio.io" },
-      "___VOID_FILL___": { "is_void_fill_event": false, "compensates_gsn": null, "void_fill_type": null, "stato_corrente": "ATTIVO" },
-      "___META___": { "created_at": "2026-06-06T23:00:02.000Z", "immutable_since": "2026-06-06T23:00:02.000Z", "territorio_pilota": "PROVINCIA_LATINA", "mammuth_version": "1.0.0", "tcf_score": "100%" }
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-06T23:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:023abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-06T23:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-06T23:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "ABSORBED",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "ABSORB",
+        "dl_notes": "Cartellone ombrello che assorbe tutte le iniziative natalizie. Apertura 8 dic (Immacolata) incorporata. Non duplicare con evento separato per l'8 dicembre."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000024",
+        "event_id": "EVT-SERM-POLENTA-DOGANELLA-001",
+        "stream_id": "events-059026",
+        "stream_version": 24,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra della Polenta - Doganella di Ninfa",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "18 gennaio ogni anno",
+        "mese_principale": "gennaio",
+        "venue": "Doganella di Ninfa - frazione Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Replica Sagra della Polenta per Sant'Antonio Abate a Doganella di Ninfa. Organizzata dalla parrocchia S. Maria Assunta con patrocinio Comuni Cisterna e Sermoneta.",
+        "luogo": {
+          "lat": 41.533,
+          "lng": 12.95,
+          "h3_index": "87390ca5bffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Parrocchia S. Maria Assunta + Comuni Cisterna e Sermoneta",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "VISIT_LAZIO_UFFICIALE",
+          "raw_input_hash": "sha256:h024",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf024"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert024"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev024",
+          "hash_corrente": "sha256:curr024",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:024abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_CHILD",
+        "dl_parent_gsn": "059026-1749216000000000000-000000001",
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Replica borgata Doganella del ciclo Sant'Antonio Abate. Parent: stream_version 1."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000025",
+        "event_id": "EVT-SERM-POLENTA-SCALO-001",
+        "stream_id": "events-059026",
+        "stream_version": 25,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra della Polenta - Sermoneta Scalo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "25 gennaio ogni anno",
+        "mese_principale": "gennaio",
+        "venue": "Sermoneta Scalo - frazione Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Replica Sagra della Polenta per Sant'Antonio Abate a Sermoneta Scalo.",
+        "luogo": {
+          "lat": 41.538,
+          "lng": 12.965,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "VISIT_LAZIO_UFFICIALE",
+          "raw_input_hash": "sha256:h025",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf025"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert025"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev025",
+          "hash_corrente": "sha256:curr025",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:025abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_CHILD",
+        "dl_parent_gsn": "059026-1749216000000000000-000000001",
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Replica borgata Sermoneta Scalo del ciclo Sant'Antonio Abate. Parent: stream_version 1."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000026",
+        "event_id": "EVT-SERM-POLENTA-TUFETTE-001",
+        "stream_id": "events-059026",
+        "stream_version": 26,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra della Polenta - Tufette",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "2 febbraio ogni anno",
+        "mese_principale": "febbraio",
+        "venue": "Borgata di Tufette - frazione Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Replica Sagra della Polenta per Sant'Antonio Abate a Tufette.",
+        "luogo": {
+          "lat": 41.545,
+          "lng": 12.975,
+          "h3_index": "87390ca4bffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "VISIT_LAZIO_UFFICIALE",
+          "raw_input_hash": "sha256:h026",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf026"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert026"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev026",
+          "hash_corrente": "sha256:curr026",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:026abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_CHILD",
+        "dl_parent_gsn": "059026-1749216000000000000-000000001",
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Replica borgata Tufette del ciclo Sant'Antonio Abate. Parent: stream_version 1."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000027",
+        "event_id": "EVT-SERM-POLENTA-PONTENUOVO-001",
+        "stream_id": "events-059026",
+        "stream_version": 27,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra della Polenta - Pontenuovo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "8 febbraio ogni anno",
+        "mese_principale": "febbraio",
+        "venue": "Borgata di Pontenuovo - frazione Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Replica Sagra della Polenta per Sant'Antonio Abate a Pontenuovo.",
+        "luogo": {
+          "lat": 41.542,
+          "lng": 12.968,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "VISIT_LAZIO_UFFICIALE",
+          "raw_input_hash": "sha256:h027",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf027"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert027"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev027",
+          "hash_corrente": "sha256:curr027",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:027abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_CHILD",
+        "dl_parent_gsn": "059026-1749216000000000000-000000001",
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Replica borgata Pontenuovo del ciclo Sant'Antonio Abate. Parent: stream_version 1."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000028",
+        "event_id": "EVT-SERM-POLENTA-MONTICCHIO-001",
+        "stream_id": "events-059026",
+        "stream_version": 28,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra della Polenta - Monticchio",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "15 febbraio ogni anno",
+        "mese_principale": "febbraio",
+        "venue": "Borgata di Monticchio - sede distaccata Comune Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Replica Sagra della Polenta per Sant'Antonio Abate a Monticchio, sede distaccata del Comune.",
+        "luogo": {
+          "lat": 41.547,
+          "lng": 12.971,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.visitlazio.com/eventi-lazio/a-sermoneta-la-sagra-della-polenta/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "VISIT_LAZIO_UFFICIALE",
+          "raw_input_hash": "sha256:h028",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf028"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert028"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev028",
+          "hash_corrente": "sha256:curr028",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:028abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "CLUSTER_CHILD",
+        "dl_parent_gsn": "059026-1749216000000000000-000000001",
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": "CLUSTER",
+        "dl_notes": "Replica borgata Monticchio (sede distaccata Comune) del ciclo Sant'Antonio Abate. Parent: stream_version 1."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000029",
+        "event_id": "EVT-SERM-VENERDI-SANTO-001",
+        "stream_id": "events-059026",
+        "stream_version": 29,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Processione del Venerdi Santo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Venerdi Santo ogni anno (mobile). 2026: 3 aprile.",
+        "mese_principale": "aprile",
+        "venue": "Centro storico Sermoneta - Cattedrale Santa Maria Assunta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "processione",
+        "descrizione": "Processione solenne Venerdi Santo per le vie del centro storico medievale. Verificata dal Safety Engine MAMMUTH con analisi crowd risk (Fruin Level of Service).",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "safety_engine_verified": true,
+        "organizzatore": {
+          "nome": "Parrocchia Santa Maria Assunta - Diocesi di Latina",
+          "fonte_verificata": true,
+          "url_fonte": "https://diocesi.latina.it"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "SAFETY_ENGINE_VERIFIED",
+          "source_type": "DIOCESI_UFFICIALE",
+          "raw_input_hash": "sha256:h029",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf029"
+          },
+          {
+            "step": 2,
+            "nome": "SAFETY_ENGINE_CROWD_ANALYSIS",
+            "motore": "MAMMUTH-SAFETY-v1.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:safety029"
+          },
+          {
+            "step": 3,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert029"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev029",
+          "hash_corrente": "sha256:curr029",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:029abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:02.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "Unico evento con safety_engine_verified: true. Pipeline include step SAFETY_ENGINE_CROWD_ANALYSIS."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000030",
+        "event_id": "EVT-SERM-CORPUS-CENTRO-001",
+        "stream_id": "events-059026",
+        "stream_version": 30,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Corpus Domini - Processione Centro Storico",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Domenica Corpus Domini ogni anno (mobile). 2026: 7 giugno.",
+        "mese_principale": "giugno",
+        "venue": "Centro storico Sermoneta",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "processione",
+        "descrizione": "Processione eucaristica Corpus Domini per le vie del centro storico. Parrocchia Santa Maria Assunta, forania di Sezze, Diocesi di Latina.",
+        "luogo": {
+          "lat": 41.55,
+          "lng": 12.983,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Parrocchia Santa Maria Assunta - Diocesi di Latina",
+          "fonte_verificata": true,
+          "url_fonte": "https://diocesi.latina.it/chiese-in-festa-per-il-corpus-domini-celebrazione-e-processione-con-benedizione-eucaristica/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "DIOCESI_UFFICIALE",
+          "raw_input_hash": "sha256:h030",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf030"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert030"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev030",
+          "hash_corrente": "sha256:curr030",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:030abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "Distinto da stream_version 31 (Valvisciolo): stesso giorno ma organizzatori e location diversi."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000031",
+        "event_id": "EVT-SERM-CORPUS-VALVISCIOLO-001",
+        "stream_id": "events-059026",
+        "stream_version": 31,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Corpus Domini - Processione Abbazia Valvisciolo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Domenica Corpus Domini ogni anno (mobile). 2026: 7 giugno.",
+        "mese_principale": "giugno",
+        "venue": "Abbazia di Valvisciolo + Pontenuovo + Tufette",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "processione",
+        "descrizione": "Processione eucaristica Corpus Domini organizzata dall'Abbazia di Valvisciolo con le parrocchie di Pontenuovo e Tufette. Distinta dalla processione del centro storico.",
+        "luogo": {
+          "lat": 41.54,
+          "lng": 12.97,
+          "h3_index": "87390ca4affffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Abbazia di Valvisciolo + Parrocchie Pontenuovo e Tufette",
+          "fonte_verificata": true,
+          "url_fonte": "https://diocesi.latina.it/chiese-in-festa-per-il-corpus-domini-celebrazione-e-processione-con-benedizione-eucaristica/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "DIOCESI_UFFICIALE",
+          "raw_input_hash": "sha256:h031",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf031"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert031"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev031",
+          "hash_corrente": "sha256:curr031",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:031abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "Distinto da stream_version 30 (centro storico): stesso giorno ma organizzatori diversi (Abbazia) e location diversa."
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000032",
+        "event_id": "EVT-SERM-SANT-ANTONIO-PONTENUOVO-001",
+        "stream_id": "events-059026",
+        "stream_version": 32,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di Sant'Antonio da Padova - Pontenuovo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "23-25 giugno ogni anno",
+        "mese_principale": "giugno",
+        "venue": "Parrocchia San Tommaso d'Aquino - Pontenuovo",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Tre giorni celebrazioni per Sant'Antonio da Padova. Santa Messa solenne, benedizione dei pani, processione con Banda Musicale Fabrizio Caroso. Patrocinio Comune di Sermoneta.",
+        "luogo": {
+          "lat": 41.542,
+          "lng": 12.968,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Associazione Volontari Parrocchia San Tommaso d'Aquino + Comune di Sermoneta",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.latinaoggi.eu/cultura-e-spettacoli/tempo-libero/211728/festa-di-santantonio-il-programma-a-pontenuovo"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "TESTATA_GIORNALISTICA_LOCALE",
+          "raw_input_hash": "sha256:h032",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf032"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert032"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev032",
+          "hash_corrente": "sha256:curr032",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:032abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000033",
+        "event_id": "EVT-SERM-PIETRO-STEFANO-001",
+        "stream_id": "events-059026",
+        "stream_version": 33,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa Santi Pietro e Stefano - Abbazia Valvisciolo",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "25-26 giugno ogni anno",
+        "mese_principale": "giugno",
+        "venue": "Abbazia di Valvisciolo - Piazza Caracupa",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "festa_religiosa",
+        "descrizione": "Festa titolari dell'Abbazia cistercense. Santa Messa, processione solenne da Piazza Caracupa fino all'Abbazia, benedizione del pane benedetto.",
+        "luogo": {
+          "lat": 41.54,
+          "lng": 12.97,
+          "h3_index": "87390ca4affffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Associazione Culturale Abbazia di Valvisciolo",
+          "fonte_verificata": true,
+          "url_fonte": "https://www.latinatoday.it/eventi/valvisciolo-in-festa-2022-sermoneta.html"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "TESTATA_GIORNALISTICA_LOCALE",
+          "raw_input_hash": "sha256:h033",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf033"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert033"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev033",
+          "hash_corrente": "sha256:curr033",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:033abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "CELEBRAZIONE_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059026-1749216000000000000-000000034",
+        "event_id": "EVT-SERM-RINGRAZIAMENTO-001",
+        "stream_id": "events-059026",
+        "stream_version": 34,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Giornata del Ringraziamento",
+        "comune": {
+          "nome": "Sermoneta",
+          "istat_code": "059026",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Ultima domenica di novembre ogni anno. 2026: 22 novembre.",
+        "mese_principale": "novembre",
+        "venue": "Chiesa San Tommaso d'Aquino - Pontenuovo",
+        "categoria_primaria": "CELEBRAZIONE_RELIGIOSA",
+        "categoria_legacy": "celebrazione_religiosa",
+        "descrizione": "Messa del Ringraziamento nella chiesa di San Tommaso d'Aquino a Pontenuovo. Celebrazione religiosa del mondo agricolo. Fonte: sito ufficiale Comune di Sermoneta.",
+        "luogo": {
+          "lat": 41.542,
+          "lng": 12.968,
+          "h3_index": "87390ca49ffffff"
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.sermoneta.latina.it/tipi_evento/celebrazione-religiosa/"
+        }
+      },
+      "___LINEAGE___": {
+        "origine": {
+          "canale": "DIRECT_ENTRY",
+          "source_type": "SITO_UFFICIALE_COMUNE",
+          "raw_input_hash": "sha256:h034",
+          "operatore_id": "op_adriano_001",
+          "timestamp_acquisizione": "2026-06-11T09:00:02.000Z"
+        },
+        "pipeline": [
+          {
+            "step": 1,
+            "nome": "TCF_VALIDATION",
+            "motore": "TCF-v2.0",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:tcf034"
+          },
+          {
+            "step": 2,
+            "nome": "CERTIFICAZIONE_3620",
+            "motore": "KREATIO_NODE_001",
+            "confidence": 1.0,
+            "timestamp": "2026-06-11T09:00:02.000Z",
+            "output_hash": "sha256:cert034"
+          }
+        ],
+        "hash_chain": {
+          "hash_precedente": "sha256:prev034",
+          "hash_corrente": "sha256:curr034",
+          "algoritmo": "SHA-256"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-11T09:00:02.000Z",
+        "validita": "PERMANENTE",
+        "firma_digitale": "3620:sig:034abc",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-11T09:00:02.000Z",
+        "updated_at": "2026-06-11T09:00:00.000Z",
+        "immutable_since": "2026-06-11T09:00:02.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "Unico evento classificato CELEBRAZIONE_RELIGIOSA nel portale ufficiale Comune di Sermoneta."
+      }
     }
   ]
 }
