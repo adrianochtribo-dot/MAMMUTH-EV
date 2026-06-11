@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMMUTH•EVENTS™ — Pitch Deck 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --violet: #8B7CF6;
+      --rose: #E879A0;
+      --sky: #38BDF8;
+      --mint: #34D399;
+      --amber: #FBBF24;
+      --ink: #1D1D1F;
+      --titanium: #F5F5F7;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0A0A0F;
+      color: #E8E8ED;
+      overflow-x: hidden;
+    }
+
+    /* SLIDE BASE */
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10vw;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #1A1A28;
+    }
+
+    /* SLIDE COUNTER */
+    .slide-counter {
+      position: absolute;
+      top: 32px;
+      right: 40px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #3A3A5A;
+      letter-spacing: 0.1em;
+    }
+
+    .slide-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    /* =====================
+       SLIDE 0 — COVER
+    ===================== */
+    .slide-cover {
+      background: #06060D;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 32px;
+    }
+
+    .cover-title {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--violet) 0%, var(--rose) 35%, var(--sky) 70%, var(--mint) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+    }
+
+    .cover-sub {
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 300;
+      color: #7070A0;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .cover-meta-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .cover-meta-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #4A4A6A;
+      text-transform: uppercase;
+    }
+
+    .cover-pilot {
+      margin-top: 48px;
+      font-size: 12px;
+      color: #3A3A5A;
+      letter-spacing: 0.1em;
+    }
+
+    /* =====================
+       SLIDE 1 — PROBLEMA
+    ===================== */
+    .slide-1 { background: #080810; }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .problem-item {
+      background: #0F0F1A;
+      border: 1px solid #1E1E30;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .problem-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .problem-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .problem-desc {
+      font-size: 13px;
+      color: #7070A0;
+      line-height: 1.7;
+    }
+
+    .problem-stat {
+      margin-top: 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #EF4444;
+      background: #1A0D0D;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* =====================
+       SLIDE 2 — SOLUZIONE
+    ===================== */
+    .slide-2 { background: #060D08; }
+
+    .solution-hero {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .solution-left { flex: 1; }
+    .solution-right { flex: 1; }
+
+    .kus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #1A0D30, #0D1A30);
+      border: 1px solid #3A2A6A;
+      border-radius: 14px;
+      padding: 16px 24px;
+      margin-bottom: 28px;
+    }
+
+    .kus-icon { font-size: 32px; }
+
+    .kus-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--violet);
+      letter-spacing: 0.05em;
+    }
+
+    .kus-sub {
+      font-size: 11px;
+      color: #5A4A8A;
+      letter-spacing: 0.1em;
+    }
+
+    .moat-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .moat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
+      background: #0A0A14;
+      border: 1px solid #1A1A28;
+      border-radius: 12px;
+    }
+
+    .moat-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .moat-text {
+      font-size: 13px;
+      color: #AAAACC;
+      line-height: 1.6;
+    }
+
+    .moat-text strong { color: white; }
+
+    .stat-box {
+      background: linear-gradient(135deg, #0A0F0A, #0F1A0F);
+      border: 1px solid #1A3A1A;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .stat-big {
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--mint);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-desc {
+      font-size: 13px;
+      color: #5A7A5A;
+      line-height: 1.6;
+    }
+
+    /* =====================
+       SLIDE 3 — ARCHITETTURA
+    ===================== */
+    .slide-3 { background: #060810; }
+
+    .arch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .arch-card {
+      background: #0A0C18;
+      border: 1px solid #1A1E30;
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .arch-card-accent {
+      width: 32px;
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .arch-card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .arch-card-desc {
+      font-size: 12px;
+      color: #6A6A8A;
+      line-height: 1.7;
+    }
+
+    .safety-highlight {
+      margin-top: 32px;
+      background: linear-gradient(135deg, #060C14, #0A1220);
+      border: 1px solid #1A2A3A;
+      border-left: 4px solid var(--sky);
+      border-radius: 0 14px 14px 0;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .safety-score {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--mint);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .safety-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .safety-text p {
+      font-size: 12px;
+      color: #5A7A9A;
+      line-height: 1.6;
+    }
+
+    /* =====================
+       SLIDE 4 — MORPHEUS
+    ===================== */
+    .slide-4 { background: #090608; }
+
+    .morpheus-flow {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 40px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .flow-node {
+      background: #100D14;
+      border: 1px solid #2A1A3A;
+      border-radius: 12px;
+      padding: 20px 22px;
+      flex-shrink: 0;
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .flow-node-icon { font-size: 24px; margin-bottom: 8px; }
+
+    .flow-node-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .flow-node-sub {
+      font-size: 10px;
+      color: #5A4A6A;
+      line-height: 1.4;
+    }
+
+    .flow-arrow {
+      font-size: 20px;
+      color: #2A1A3A;
+      padding: 0 8px;
+      flex-shrink: 0;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .pillar {
+      background: #0A080C;
+      border: 1px solid #1A1420;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .pillar-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--rose);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .pillar-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .pillar-desc {
+      font-size: 11px;
+      color: #5A4A6A;
+      line-height: 1.5;
+    }
+
+    /* =====================
+       SLIDE 5 — PA / COMUNI
+    ===================== */
+    .slide-5 { background: #080A06; }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .partner-card {
+      background: #0A0C08;
+      border: 1px solid #1A2014;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .partner-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .partner-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .partner-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .partner-card-sub {
+      font-size: 11px;
+      color: #5A6A4A;
+    }
+
+    .partner-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .partner-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #8A9A7A;
+    }
+
+    .partner-feature::before {
+      content: '→';
+      color: var(--mint);
+      flex-shrink: 0;
+    }
+
+    .vs-box {
+      background: #0A0C08;
+      border: 1px solid #1A3A14;
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 0;
+    }
+
+    .vs-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #141A10;
+      font-size: 12px;
+    }
+
+    .vs-row:last-child { border-bottom: none; }
+    .vs-label { color: #6A7A5A; }
+    .vs-them { color: #EF4444; font-weight: 500; }
+    .vs-us { color: var(--mint); font-weight: 600; }
+
+    /* =====================
+       SLIDE 6 — UNIVERSITÀ
+    ===================== */
+    .slide-6 { background: #080608; }
+
+    .uni-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .uni-card {
+      background: #0C080C;
+      border: 1px solid #201420;
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .uni-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--violet);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .uni-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+
+    .uni-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--violet);
+      background: #1A1028;
+      padding: 2px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .uni-text {
+      font-size: 13px;
+      color: #8A8AAA;
+      line-height: 1.6;
+    }
+
+    .uni-text strong { color: white; }
+
+    .thesis-box {
+      background: linear-gradient(135deg, #0D0A18, #18102A);
+      border: 1px solid #2A1A4A;
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    .thesis-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--violet);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .thesis-item {
+      font-size: 12px;
+      color: #6A5A8A;
+      padding: 6px 0;
+      border-bottom: 1px solid #1A1228;
+      line-height: 1.5;
+    }
+
+    .thesis-item:last-child { border-bottom: none; }
+
+    /* =====================
+       SLIDE 7 — ROADMAP
+    ===================== */
+    .slide-7 { background: #060A08; }
+
+    .roadmap-track {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+
+    .roadmap-row {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid #0E1810;
+      align-items: flex-start;
+    }
+
+    .roadmap-row:last-child { border-bottom: none; }
+
+    .roadmap-phase-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .roadmap-content { flex: 1; }
+
+    .roadmap-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .roadmap-items {
+      font-size: 12px;
+      color: #5A6A5A;
+      line-height: 1.7;
+    }
+
+    .roadmap-cta {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #0A100A, #0F1A0F);
+      border: 1px solid #1A3A1A;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .roadmap-cta-text h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-cta-text p {
+      font-size: 13px;
+      color: #5A7A5A;
+    }
+
+    .roadmap-cta-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-badge {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* =====================
+       SLIDE 8 — CHIUSURA
+    ===================== */
+    .slide-8 {
+      background: #06060D;
+      align-items: center;
+      text-align: center;
+    }
+
+    .closing-title {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .closing-sub {
+      font-size: 16px;
+      color: #5A5A7A;
+      margin-bottom: 48px;
+      max-width: 500px;
+    }
+
+    .closing-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .closing-link {
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .closing-link-primary {
+      background: var(--violet);
+      color: white;
+    }
+
+    .closing-link-secondary {
+      border: 1px solid #2A2A4A;
+      color: #7A7AAA;
+    }
+
+    .closing-footnote {
+      font-size: 11px;
+      color: #2A2A4A;
+      letter-spacing: 0.1em;
+    }
+
+    /* NAV */
+    .nav-pills {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      background: rgba(10,10,20,0.9);
+      border: 1px solid #1A1A2A;
+      border-radius: 20px;
+      padding: 8px 12px;
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-pill {
+      width: 24px;
+      height: 6px;
+      border-radius: 3px;
+      background: #1A1A2A;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-pill:hover { background: var(--violet); }
+
+    /* SECTION HEADING */
+    .section-heading {
+      max-width: 700px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      font-size: 15px;
+      color: #5A5A7A;
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .slide { padding: 60px 6vw; }
+      .problem-grid,
+      .solution-hero,
+      .arch-grid,
+      .partner-grid,
+      .uni-split { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .morpheus-flow { flex-wrap: wrap; gap: 8px; }
+      .flow-arrow { display: none; }
+      .roadmap-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-pills">
+  <a href="#s0" class="nav-pill"></a>
+  <a href="#s1" class="nav-pill"></a>
+  <a href="#s2" class="nav-pill"></a>
+  <a href="#s3" class="nav-pill"></a>
+  <a href="#s4" class="nav-pill"></a>
+  <a href="#s5" class="nav-pill"></a>
+  <a href="#s6" class="nav-pill"></a>
+  <a href="#s7" class="nav-pill"></a>
+  <a href="#s8" class="nav-pill"></a>
+</nav>
+
+<!-- ==================== SLIDE 0 — COVER ==================== -->
+<section class="slide slide-cover" id="s0">
+  <span class="slide-counter">00 / 08</span>
+  <div class="cover-tag">Pitch Deck 2026 · Confidenziale</div>
+  <div class="cover-title">MAMMUTH•EVENTS™</div>
+  <p class="cover-sub">Il primo ecosistema globale di scoperta eventi culturali certificati — dal borgo medievale all'atollo del Pacifico.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="cover-meta-value">28</span>
+      <span class="cover-meta-label">Eventi certificati</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-value">KUS-3620</span>
+      <span class="cover-meta-label">Standard proprietario</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-value">249</span>
+      <span class="cover-meta-label">Paesi mappabili</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="cover-meta-value">7.900+</span>
+      <span class="cover-meta-label">Comuni italiani</span>
+    </div>
+  </div>
+  <div class="cover-pilot">Territorio pilota — Sermoneta, Provincia di Latina, Lazio, Italia</div>
+</section>
+
+<!-- ==================== SLIDE 1 — PROBLEMA ==================== -->
+<section class="slide slide-1" id="s1">
+  <span class="slide-counter">01 / 08</span>
+  <div class="slide-label" style="color:#EF4444">Il Problema</div>
+  <div class="section-heading">
+    <h2>Il paradosso dei dati locali</h2>
+    <p>Gli aggregatori di eventi esistenti falliscono sistematicamente su 4 dimensioni critiche — le stesse che i Comuni e le famiglie considerano prioritarie.</p>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-item">
+      <div class="problem-icon">🕳️</div>
+      <div class="problem-title">Feed dipendenti da terzi</div>
+      <div class="problem-desc">Se nessun organizzatore pubblica nella tua zona, il feed è vuoto. Borghi, pro loco e sagre storiche sono invisibili perché nessuno ha tempo di pubblicare.</div>
+      <span class="problem-stat">ZERO dati autonomi</span>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">🗑️</div>
+      <div class="problem-title">Zero controllo qualità</div>
+      <div class="problem-desc">Qualsiasi organizzatore pubblica qualsiasi cosa. Nessuna validazione territoriale, nessuna verifica delle fonti, nessun sistema di deduplicazione.</div>
+      <span class="problem-stat">Nessun gatekeeping</span>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">📭</div>
+      <div class="problem-title">Nessuna memoria storica</div>
+      <div class="problem-desc">Dopo l'evento, tutto scompare. Nessuna traccia della storia pluriennale di una sagra, di un'edizione XXXI di un festival, di una tradizione centenaria.</div>
+      <span class="problem-stat">Zero heritage digitale</span>
+    </div>
+    <div class="problem-item">
+      <div class="problem-icon">⚠️</div>
+      <div class="problem-title">Nessuna gestione sicurezza</div>
+      <div class="problem-desc">Piazza San Carlo 2017, Love Parade 2010. Nessun aggregatore al mondo mostra il rischio affollamento agli utenti prima di partecipare a un evento.</div>
+      <span class="problem-stat">Safety score: assente</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 2 — SOLUZIONE ==================== -->
+<section class="slide slide-2" id="s2">
+  <span class="slide-counter">02 / 08</span>
+  <div class="slide-label" style="color:var(--mint)">La Soluzione</div>
+  <div class="section-heading">
+    <h2>Il moat di MAMMUTH•EVENTS™</h2>
+    <p>Un fossato tecnologico difendibile costruito su certificazione, autonomia del dato e infrastruttura proprietaria.</p>
+  </div>
+  <div class="solution-hero">
+    <div class="solution-left">
+      <div class="kus-badge">
+        <span class="kus-icon">🦣</span>
+        <div>
+          <div class="kus-name">KUS-3620</div>
+          <div class="kus-sub">KREATIO UNIVERSAL SYSTEM™</div>
+        </div>
+      </div>
+      <ul class="moat-list">
+        <li class="moat-item">
+          <div class="moat-dot" style="background:var(--violet)"></div>
+          <div class="moat-text"><strong>Certificazione autonoma</strong> — MAMMUTH genera dati verificati indipendentemente dagli organizzatori. Ogni evento certificato è un asset permanente.</div>
+        </li>
+        <li class="moat-item">
+          <div class="moat-dot" style="background:var(--mint)"></div>
+          <div class="moat-text"><strong>Verità territoriale</strong> — Zero dati inventati. Fonti ufficiali obbligatorie. Ogni record tracciato con timestamp nanosecondo e firma KUS-3620.</div>
+        </li>
+        <li class="moat-item">
+          <div class="moat-dot" style="background:var(--sky)"></div>
+          <div class="moat-text"><strong>ATLAS•EVENTA™</strong> — Database immutabile di eventi culturali certificati. La Wikipedia del folklore mondiale — costruita dal basso, un territorio alla volta.</div>
+        </li>
+        <li class="moat-item">
+          <div class="moat-dot" style="background:var(--amber)"></div>
+          <div class="moat-text"><strong>Stack globale</strong> — ISTAT · LAU Eurostat · ISO 3166 · INSEE DOM-TOM. Da Sermoneta a Tahiti — stessa architettura, zero adattamenti.</div>
+        </li>
+      </ul>
+    </div>
+    <div class="solution-right">
+      <div class="stat-box">
+        <div class="stat-big">28</div>
+        <div class="stat-desc">eventi certificati KUS-3620 a <strong style="color:white">Sermoneta</strong> — territorio pilota. Dati verificati su fonti ufficiali, coordinate PostGIS precise, safety score live.</div>
+      </div>
+      <div style="margin-top:16px;background:#080C08;border:1px solid #1A2A1A;border-radius:14px;padding:20px;">
+        <div style="font-size:11px;color:#4A6A4A;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px">Competitor analysis</div>
+        <div style="font-size:12px;color:#5A7A5A;line-height:1.8">
+          ✗ &nbsp;Feed dipendente da organizzatori<br>
+          ✗ &nbsp;Zero certificazione territoriale<br>
+          ✗ &nbsp;Nessuna storia eventi ricorrenti<br>
+          ✗ &nbsp;Safety score assente<br>
+          ✗ &nbsp;Solo mercato italiano commerciale<br><br>
+          <span style="color:var(--mint)">→ MAMMUTH risolve tutti e 5 i punti</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 3 — ARCHITETTURA ==================== -->
+<section class="slide slide-3" id="s3">
+  <span class="slide-counter">03 / 08</span>
+  <div class="slide-label" style="color:var(--sky)">Architettura & Sicurezza</div>
+  <div class="section-heading">
+    <h2>Da tabelle statiche a ecosistema certificato</h2>
+    <p>Stack Graph-Based ed Event-Driven con Safety Engine live — il primo al mondo per eventi culturali di territorio.</p>
+  </div>
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:var(--violet)"></div>
+      <div class="arch-card-title">ATLAS•EVENTA™</div>
+      <div class="arch-card-desc">Store immutabile certificato. Struttura JSON con blocchi ___IDENTITY___, ___PAYLOAD___, ___CERTIFICATION_3620___. GSN: codice univoco nanosecondo per ogni evento nel mondo.</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:var(--sky)"></div>
+      <div class="arch-card-title">Safety Engine™ v1.0</div>
+      <div class="arch-card-desc">FastAPI su Railway. Analisi Fruin Level of Service, Cosine Similarity su incidenti storici (Piazza San Carlo 2017, Hillsborough 1989). Risk score 0–1 in tempo reale.</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:var(--mint)"></div>
+      <div class="arch-card-title">MAMMUTH•GEONODE™</div>
+      <div class="arch-card-desc">Layer territoriale universale. ISTAT + LAU Eurostat + ISO 3166 + INSEE DOM-TOM. 249 paesi, 15+ identificatori per territorio. Worker Python/Redpanda/Redis.</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:var(--rose)"></div>
+      <div class="arch-card-title">MORPHEUS·JLX™</div>
+      <div class="arch-card-desc">Engine di deduplicazione semantica. Pilastro Anti-Rumore del T.C.F.™ — elimina duplicati, eventi falsi e anomalie contestuali prima della certificazione.</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:var(--amber)"></div>
+      <div class="arch-card-title">TO FILL THE VOID™</div>
+      <div class="arch-card-desc">Pipeline WhatsApp → Claude Vision → JSON certificato. Gli organizzatori inviano una foto via WhatsApp — il sistema estrae, valida e certifica l'evento automaticamente.</div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-accent" style="background:#E879A0"></div>
+      <div class="arch-card-title">Frontend Live</div>
+      <div class="arch-card-desc">Next.js 14 su Vercel. Mappa Leaflet/OSM con 28 pin certificati, MAMMUTH•KeySLIDE™ bottom sheet, filtri per categoria, meteo iperlocale Open-Meteo, pagina dettaglio evento.</div>
+    </div>
+  </div>
+  <div class="safety-highlight">
+    <div class="safety-score">0.0–1.0</div>
+    <div class="safety-text">
+      <h4>Safety Engine™ — Unico al mondo per eventi folklorici</h4>
+      <p>Calcola il rischio di crowd crush basato su densità stimata, geometria OSM del venue e match storico su 4 incidenti di riferimento. Filosofia: informare e consigliare — mai vietare. Output in linguaggio consultivo ("si raccomanda").</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 4 — MORPHEUS ==================== -->
+<section class="slide slide-4" id="s4">
+  <span class="slide-counter">04 / 08</span>
+  <div class="slide-label" style="color:var(--rose)">Integrità del Dato</div>
+  <div class="section-heading">
+    <h2>Verità territoriale certificata</h2>
+    <p>Il T.C.F.™ è il sistema immunitario del database. Quattro pilastri che garantiscono che ogni evento pubblicato sia reale, unico e verificato.</p>
+  </div>
+  <div class="morpheus-flow">
+    <div class="flow-node">
+      <div class="flow-node-icon">📱</div>
+      <div class="flow-node-title">Input</div>
+      <div class="flow-node-sub">WhatsApp · Web · PA diretta</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-node-icon">🔍</div>
+      <div class="flow-node-title">COLOR-TRIAGE™</div>
+      <div class="flow-node-sub">Pre-classificazione Verde/Giallo/Rosso</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-node-icon">🧬</div>
+      <div class="flow-node-title">MORPHEUS·JLX™</div>
+      <div class="flow-node-sub">Deduplicazione semantica</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-node-icon">✅</div>
+      <div class="flow-node-title">T.C.F.™ Validation</div>
+      <div class="flow-node-sub">4 pilastri · TCF 100%</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-node">
+      <div class="flow-node-icon">🦣</div>
+      <div class="flow-node-title">ATLAS•EVENTA™</div>
+      <div class="flow-node-sub">Certificazione KUS-3620</div>
+    </div>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">PILASTRO 01</div>
+      <div class="pillar-name">Coerenza Territoriale</div>
+      <div class="pillar-desc">L'evento deve appartenere al territorio dichiarato. Verifica ISTAT + PostGIS.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">PILASTRO 02</div>
+      <div class="pillar-name">Anti-Rumore</div>
+      <div class="pillar-desc">MORPHEUS·JLX™ elimina duplicati, varianti semantiche e eventi falsi.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">PILASTRO 03</div>
+      <div class="pillar-name">Validazione Ontologica</div>
+      <div class="pillar-desc">Classificazione KWF — 16 macro-aree, 200+ sottocategorie culturali globali.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">PILASTRO 04</div>
+      <div class="pillar-name">Auditabilità</div>
+      <div class="pillar-desc">Ogni record ha timestamp nanosecondo, fonte dichiarata e firma KUS-3620 immutabile.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 5 — PA / COMUNI ==================== -->
+<section class="slide slide-5" id="s5">
+  <span class="slide-counter">05 / 08</span>
+  <div class="slide-label" style="color:var(--mint)">Modello B2B / Pubblica Amministrazione</div>
+  <div class="section-heading">
+    <h2>I Comuni come canale di distribuzione</h2>
+    <p>Un accordo con un comune porta automaticamente tutti i cittadini e i turisti. 7.900 comuni italiani — ognuno è un potenziale partner.</p>
+  </div>
+  <div class="partner-grid">
+    <div class="partner-card">
+      <div class="partner-card-header">
+        <div class="partner-card-icon" style="background:#0A1A0A">🏛️</div>
+        <div>
+          <div class="partner-card-title">Per i Comuni</div>
+          <div class="partner-card-sub">Pubblica Amministrazione</div>
+        </div>
+      </div>
+      <ul class="partner-features">
+        <li class="partner-feature">Widget embed gratuito per il sito istituzionale</li>
+        <li class="partner-feature">Mappa certificata degli eventi del territorio</li>
+        <li class="partner-feature">Safety score pubblico per la sicurezza delle feste</li>
+        <li class="partner-feature">Archivio storico eventi certificati KUS-3620</li>
+        <li class="partner-feature">Strumento di promozione turistica iperlocale</li>
+      </ul>
+    </div>
+    <div class="partner-card">
+      <div class="partner-card-header">
+        <div class="partner-card-icon" style="background:#0A0A1A">🎪</div>
+        <div>
+          <div class="partner-card-title">MAMMUTH•PARTNER™</div>
+          <div class="partner-card-sub">Organizzatori & Imprenditori</div>
+        </div>
+      </div>
+      <ul class="partner-features">
+        <li class="partner-feature">Livello Base — pubblicazione evento gratuita</li>
+        <li class="partner-feature">Livello Certificato — sigillo KUS-3620 visibile</li>
+        <li class="partner-feature">Livello Premium — analytics, widget, vetrina prodotti tipici</li>
+        <li class="partner-feature">Produttori locali — vino, formaggi, salumi, artigianato</li>
+        <li class="partner-feature">Sponsorizzazioni eventi per imprenditori locali</li>
+      </ul>
+    </div>
+  </div>
+  <div class="vs-box">
+    <div style="font-size:11px;color:#4A6A4A;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px">Confronto strategico con aggregatori esistenti</div>
+    <div class="vs-row">
+      <span class="vs-label">Acquisizione utenti</span>
+      <span class="vs-them">Uno per uno</span>
+      <span class="vs-us">Per comune intero →</span>
+    </div>
+    <div class="vs-row">
+      <span class="vs-label">Fonte dati</span>
+      <span class="vs-them">Dipende da organizzatori</span>
+      <span class="vs-us">Autonoma + certificata →</span>
+    </div>
+    <div class="vs-row">
+      <span class="vs-label">Mercato target</span>
+      <span class="vs-them">Locale commerciale</span>
+      <span class="vs-us">Folklore globale →</span>
+    </div>
+    <div class="vs-row">
+      <span class="vs-label">Replicabilità</span>
+      <span class="vs-them">Facilmente copiabile</span>
+      <span class="vs-us">Fossato difendibile →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 6 — UNIVERSITÀ ==================== -->
+<section class="slide slide-6" id="s6">
+  <span class="slide-counter">06 / 08</span>
+  <div class="slide-label" style="color:var(--violet)">Partnership Accademica</div>
+  <div class="section-heading">
+    <h2>Sapienza · Tor Vergata · e oltre</h2>
+    <p>MAMMUTH•EVENTS™ è un laboratorio applicato di ricerca su sicurezza degli eventi, patrimonio culturale digitale e sistemi di dati territoriali.</p>
+  </div>
+  <div class="uni-split">
+    <div class="uni-card">
+      <h3>Cosa offriamo alle università</h3>
+      <div class="uni-item">
+        <span class="uni-num">01</span>
+        <div class="uni-text"><strong>Dataset reale certificato</strong> — ATLAS•EVENTA™ è un database di eventi verificati con geolocalizzazione PostGIS, accessibile per ricerca accademica.</div>
+      </div>
+      <div class="uni-item">
+        <span class="uni-num">02</span>
+        <div class="uni-text"><strong>Safety Engine aperto</strong> — Il modello Fruin LoS applicato a eventi folklorici è inedito nella letteratura. Opportunità di pubblicazione scientifica.</div>
+      </div>
+      <div class="uni-item">
+        <span class="uni-num">03</span>
+        <div class="uni-text"><strong>Progetto pilota reale</strong> — Sermoneta è già live. Le università possono collaborare su un caso studio con dati reali, non simulati.</div>
+      </div>
+      <div class="uni-item">
+        <span class="uni-num">04</span>
+        <div class="uni-text"><strong>Tesi sperimentali</strong> — Il sistema supporta tesi magistrali in informatica, sociologia, beni culturali, sicurezza pubblica, architettura dei dati.</div>
+      </div>
+    </div>
+    <div class="uni-card">
+      <h3>Aree di ricerca disponibili</h3>
+      <div class="thesis-box">
+        <div class="thesis-title">Tesi magistrali — argomenti aperti</div>
+        <div class="thesis-item">Algoritmi di crowd density prediction per eventi folklorici italiani</div>
+        <div class="thesis-item">Architetture Graph-Based per la gestione del patrimonio culturale immateriale</div>
+        <div class="thesis-item">Sistemi di certificazione dei dati territoriali open source</div>
+        <div class="thesis-item">Deduplicazione semantica di eventi culturali in linguaggio naturale</div>
+        <div class="thesis-item">Digital heritage e turismo esperienziale nei borghi medievali italiani</div>
+        <div class="thesis-item">Espansione del folklore index a scala europea con dati LAU/NUTS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 7 — ROADMAP ==================== -->
+<section class="slide slide-7" id="s7">
+  <span class="slide-counter">07 / 08</span>
+  <div class="slide-label" style="color:var(--amber)">Prossimi Passi & Partnership</div>
+  <div class="section-heading">
+    <h2>Da Sermoneta al mondo</h2>
+    <p>5 fasi di espansione progressive. Ogni fase costruisce il fondamento per la successiva — senza dipendenze esterne.</p>
+  </div>
+  <div class="roadmap-track">
+    <div class="roadmap-row">
+      <span class="roadmap-phase-badge" style="background:#0A1A0A;color:#34D399">✅ LIVE</span>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Sermoneta — Territorio Pilota</div>
+        <div class="roadmap-items">28 eventi certificati · Safety Engine v1.0 · Frontend live · MAMMUTH•KeySLIDE™ · Meteo iperlocale · Pagina dettaglio evento</div>
+      </div>
+    </div>
+    <div class="roadmap-row">
+      <span class="roadmap-phase-badge" style="background:#0A100A;color:#38BDF8">FASE 2</span>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Provincia di Latina — 33 Comuni</div>
+        <div class="roadmap-items">Espansione ATLAS•EVENTA™ · Pipeline TO FILL THE VOID™ attiva · Widget embed per i comuni · MAMMUTH•PARTNER™ B2B launch · Accordo pilota con 1-3 comuni</div>
+      </div>
+    </div>
+    <div class="roadmap-row">
+      <span class="roadmap-phase-badge" style="background:#100A0A;color:#8B7CF6">FASE 3</span>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Lazio → Italia Completa</div>
+        <div class="roadmap-items">7.900 comuni italiani · Gerarchia NUTS 1/2/3 completa · Partnership universitarie Sapienza/Tor Vergata · Safety Engine validato scientificamente</div>
+      </div>
+    </div>
+    <div class="roadmap-row">
+      <span class="roadmap-phase-badge" style="background:#0A080A;color:#E879A0">FASE 4</span>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Europa — 27 Paesi UE</div>
+        <div class="roadmap-items">Borghi medievali spagnoli · Feste tradizionali portoghesi · Folklore balcanico · LAU come chiave universale · MAMMUTH•PARTNER™ internazionale</div>
+      </div>
+    </div>
+    <div class="roadmap-row">
+      <span class="roadmap-phase-badge" style="background:#080808;color:#FBBF24">FASE 5</span>
+      <div class="roadmap-content">
+        <div class="roadmap-title">Globale — 249 Paesi</div>
+        <div class="roadmap-items">ISO 3166 · INSEE DOM-TOM · ISO 4217 multivaluta · MAMMUTH•ROAR™ proximity social · App nativa iOS/Android · Qualsiasi punto del globo</div>
+      </div>
+    </div>
+  </div>
+  <div class="roadmap-cta">
+    <div class="roadmap-cta-text">
+      <h3>Cosa cerchiamo ora</h3>
+      <p>Partner istituzionali, ricercatori e comuni pionieri per la Fase 2.</p>
+    </div>
+    <div class="roadmap-cta-badges">
+      <span class="cta-badge" style="background:#0A1A0A;color:#34D399;border:1px solid #1A3A1A">🏛️ Comuni pilota</span>
+      <span class="cta-badge" style="background:#0A0A1A;color:#8B7CF6;border:1px solid #1A1A3A">🎓 Università</span>
+      <span class="cta-badge" style="background:#1A0D0A;color:#FBBF24;border:1px solid #2A1A0A">💼 Investitori</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 8 — CHIUSURA ==================== -->
+<section class="slide slide-8" id="s8">
+  <span class="slide-counter">08 / 08</span>
+  <div class="closing-title">Where Communities<br>Come Alive™</div>
+  <p class="closing-sub">Il folklore non muore. Viene dimenticato. MAMMUTH•EVENTS™ è la memoria digitale certificata delle comunità del mondo.</p>
+  <div class="closing-links">
+    <a href="https://mammuth-frontend.vercel.app" target="_blank" class="closing-link closing-link-primary">🌐 Vedi la piattaforma live</a>
+    <a href="https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/developer-index.html" target="_blank" class="closing-link closing-link-secondary">📐 Developer Portal</a>
+    <a href="https://mammuth-ev-production.up.railway.app/docs" target="_blank" class="closing-link closing-link-secondary">⚙️ Safety Engine API</a>
+  </div>
+  <div class="closing-footnote">
+    MAMMUTH•EVENTS™ · KREATIO UNIVERSAL SYSTEM™ Code 3620<br>
+    Territorio pilota: Sermoneta (LT) · mammuth.ev@gmail.com<br>
+    Pitch Deck v1.0 · Giugno 2026 · Confidenziale
+  </div>
+</section>
+
+</body>
+</html>
