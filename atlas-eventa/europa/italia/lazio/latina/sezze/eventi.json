@@ -1,0 +1,701 @@
+{
+  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v2.0",
+  "___ATLAS_EVENTA_DATASET___": {
+    "dataset_id": "DS-SEZZ-059028-2026-001",
+    "comune": "Sezze",
+    "istat_code": "059028",
+    "provincia": "Latina",
+    "regione": "Lazio",
+    "nazione": "Italia",
+    "continente": "Europa",
+    "total_events": 9,
+    "tcf_validated": 7,
+    "tcf_score_dataset": "100%",
+    "schema_version": "2.0.0",
+    "mammuth_version": "1.0.0",
+    "distillation_layer_version": "1.0",
+    "territorio_pilota": "PROVINCIA_LATINA",
+    "created_at": "2026-06-12T21:30:00.000Z",
+    "updated_at": "2026-06-12T21:30:00.000Z",
+    "immutable_since": "2026-06-12T21:30:00.000Z",
+    "certificazione": {
+      "certificato": true,
+      "codice_standard": "KUS-3620-v1",
+      "validita": "PERMANENTE",
+      "conformita": {
+        "gdpr_compliant": true,
+        "dna_del_dato_compliant": true,
+        "fonte_ufficiale_verified": true,
+        "zero_invented_data": true
+      }
+    }
+  },
+  "events": [
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000001",
+        "event_id": "EVT-SEZZ-001",
+        "stream_id": "events-059028",
+        "stream_version": 1,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Carlo da Sezze",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Gennaio (data variabile)",
+        "mese_principale": "gennaio",
+        "venue": "Centro Storico di Sezze",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa patronale religiosa in onore di San Carlo da Sezze, celebrata nel centro storico.",
+        "luogo": {
+          "lat": 41.5009,
+          "lng": 13.0628
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": false,
+          "url_fonte": null
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000002",
+        "event_id": "EVT-SEZZ-002",
+        "stream_id": "events-059028",
+        "stream_version": 2,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Carnevale Pontino",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Febbraio (sfilate coordinate a livello locale, date variabili)",
+        "mese_principale": "febbraio",
+        "venue": "Vie del centro e quartieri di Sezze",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
+        "categoria_legacy": "folkloristica",
+        "descrizione": "Sfilate di carri allegorici del Carnevale Pontino, con partecipazione coordinata a livello locale.",
+        "luogo": {
+          "lat": 41.5012,
+          "lng": 13.0631
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.instagram.com/p/DUDgVHIjEnP/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000003",
+        "event_id": "EVT-SEZZ-003",
+        "stream_id": "events-059028",
+        "stream_version": 3,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sacra Rappresentazione della Passione di Cristo",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Venerdì Santo (variabile)",
+        "mese_principale": "aprile",
+        "venue": "Centro storico di Sezze",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Rappresentazione storica della Passione di Cristo nel Venerdì Santo, evento di risonanza anche internazionale, nel centro storico di Sezze.",
+        "luogo": {
+          "lat": 41.5008,
+          "lng": 13.0625
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.comune.sezze.lt.it/notizie/parcheggio.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000004",
+        "event_id": "EVT-SEZZ-004",
+        "stream_id": "events-059028",
+        "stream_version": 4,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra del Carciofo di Sezze",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Aprile (data variabile)",
+        "mese_principale": "aprile",
+        "venue": "Centro storico di Sezze",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Storica sagra enogastronomica dedicata al carciofo di Sezze, principale evento gastronomico del territorio.",
+        "luogo": {
+          "lat": 41.501,
+          "lng": 13.063
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.lazionascosto.it/sagre-lazio/sagra-del-carciofo-sezze/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000005",
+        "event_id": "EVT-SEZZ-005",
+        "stream_id": "events-059028",
+        "stream_version": 5,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Rosso Visciola - Il Cibo nella Terra del Mito",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Metà Giugno",
+        "mese_principale": "giugno",
+        "venue": "Centro storico di Sezze",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "enogastronomica",
+        "descrizione": "Festa dedicata alla visciola e ai prodotti tipici, allestita nel centro storico di Sezze.",
+        "luogo": {
+          "lat": 41.5009,
+          "lng": 13.0628
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.instagram.com/p/DZPafGzDeWM/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000006",
+        "event_id": "EVT-SEZZ-006",
+        "stream_id": "events-059028",
+        "stream_version": 6,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Lidano",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "2 Luglio",
+        "mese_principale": "luglio",
+        "venue": "Centro storico di Sezze",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa patronale in onore di San Lidano, Santo Patrono di Sezze.",
+        "luogo": {
+          "lat": 41.5009,
+          "lng": 13.0628
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.comune.sezze.lt.it/home/vivere/eventi.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000007",
+        "event_id": "EVT-SEZZ-007",
+        "stream_id": "events-059028",
+        "stream_version": 7,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Estate Setina",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Agosto (rassegna mensile)",
+        "mese_principale": "agosto",
+        "venue": "Auditorium San Michele Arcangelo e centro storico",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival",
+        "descrizione": "Rassegna estiva annuale con concerti, teatro all'aperto e sfilate, presso l'Auditorium San Michele Arcangelo e il centro storico.",
+        "luogo": {
+          "lat": 41.4998,
+          "lng": 13.0641
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.halleyweb.com/c059028/zf/index.php/servizi-aggiuntivi/index/index/idtesto/10076"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000008",
+        "event_id": "EVT-SEZZ-008",
+        "stream_id": "events-059028",
+        "stream_version": 8,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra dell'Uva e rassegne dell'agricoltura locale",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Settembre/Ottobre (data variabile)",
+        "mese_principale": "settembre",
+        "venue": "Centro storico di Sezze",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Rassegna dedicata all'uva e ai prodotti dell'agricoltura locale.",
+        "luogo": {
+          "lat": 41.5009,
+          "lng": 13.0628
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": false,
+          "url_fonte": null
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    },
+    {
+      "_categoria_group": "EVENTO_SOCIALE",
+      "___IDENTITY___": {
+        "gsn": "059028-1749600000000000000-000000009",
+        "event_id": "EVT-SEZZ-009",
+        "stream_id": "events-059028",
+        "stream_version": 9,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Trekking Urbano nel Borgo Antico",
+        "comune": {
+          "nome": "Sezze",
+          "istat_code": "059028",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Dicembre (data variabile, periodo natalizio/Giubileo)",
+        "mese_principale": "dicembre",
+        "venue": "Vicoli e centro storico di Sezze",
+        "categoria_primaria": "EVENTO_SOCIALE",
+        "categoria_legacy": "sociale",
+        "descrizione": "Trekking urbano tra i vicoli del borgo antico di Sezze, in occasione del periodo natalizio/Giubileo.",
+        "luogo": {
+          "lat": 41.5009,
+          "lng": 13.0628
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.compagniadeilepini.it/evento/sezze-quale-speranza-cammino-del-giubileo-implicazioni-carattere-storico-filosofico-teologico-spirituale/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T21:30:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T21:30:00.000Z",
+        "updated_at": "2026-06-12T21:30:00.000Z",
+        "immutable_since": "2026-06-12T21:30:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    }
+  ]
+}
