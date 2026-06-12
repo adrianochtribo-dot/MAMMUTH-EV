@@ -1,0 +1,1146 @@
+{
+  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v2.0",
+  "___ATLAS_EVENTA_DATASET___": {
+    "dataset_id": "DS-BASS-059004-2026-001",
+    "comune": "Bassiano",
+    "istat_code": "059004",
+    "provincia": "Latina",
+    "regione": "Lazio",
+    "nazione": "Italia",
+    "continente": "Europa",
+    "total_events": 15,
+    "tcf_validated": 11,
+    "tcf_score_dataset": "100%",
+    "schema_version": "2.0.0",
+    "mammuth_version": "1.0.0",
+    "distillation_layer_version": "1.0",
+    "territorio_pilota": "PROVINCIA_LATINA",
+    "created_at": "2026-06-12T20:00:00.000Z",
+    "updated_at": "2026-06-12T20:00:00.000Z",
+    "immutable_since": "2026-06-12T20:00:00.000Z",
+    "certificazione": {
+      "certificato": true,
+      "codice_standard": "KUS-3620-v1",
+      "validita": "PERMANENTE",
+      "conformita": {
+        "gdpr_compliant": true,
+        "dna_del_dato_compliant": true,
+        "fonte_ufficiale_verified": true,
+        "zero_invented_data": true
+      }
+    }
+  },
+  "events": [
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000001",
+        "event_id": "EVT-BASS-001",
+        "stream_id": "events-059004",
+        "stream_version": 1,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di Sant'Antonio Abate",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "17 Gennaio",
+        "mese_principale": "gennaio",
+        "venue": "Sagrato della Chiesa di San Erasmo",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa di Sant'Antonio Abate, celebrazione religiosa con benedizione presso il sagrato della Chiesa di San Erasmo.",
+        "luogo": {
+          "lat": 41.5494,
+          "lng": 13.0325
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "nome": "Parrocchia di San Erasmo Vescovo e Martire",
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.bassiano.lt.it"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000002",
+        "event_id": "EVT-BASS-002",
+        "stream_id": "events-059004",
+        "stream_version": 2,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Carnevale Bassianese",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Domenica di Carnevale (variabile)",
+        "mese_principale": "febbraio",
+        "venue": "Piazza Giacomo Matteotti e centro storico",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
+        "categoria_legacy": "folkloristica",
+        "descrizione": "Carnevale tradizionale bassianese con corteo e festa in Piazza Giacomo Matteotti e nel centro storico.",
+        "luogo": {
+          "lat": 41.5491,
+          "lng": 13.0331
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.facebook.com/prolocobassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000003",
+        "event_id": "EVT-BASS-003",
+        "stream_id": "events-059004",
+        "stream_version": 3,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Incontri Culturali \"Aldo Manuzio\"",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Fine Marzo (date variabili)",
+        "mese_principale": "marzo",
+        "venue": "Auditorium Comunale, Via Aldo Manuzio",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "teatrale",
+        "descrizione": "Rassegna di incontri culturali dedicati ad Aldo Manuzio, presso l'Auditorium Comunale.",
+        "luogo": {
+          "lat": 41.5487,
+          "lng": 13.032
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": false,
+          "url_fonte": null
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000004",
+        "event_id": "EVT-BASS-004",
+        "stream_id": "events-059004",
+        "stream_version": 4,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Fiera in Fattoria - Come Allora",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Seconda settimana di Aprile (Sabato e Domenica)",
+        "mese_principale": "aprile",
+        "venue": "Valle Pepe, Via Carpinetana Vecchia",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "enogastronomica",
+        "descrizione": "Fiera enogastronomica con prodotti tipici e attività rievocative, a Valle Pepe.",
+        "luogo": {
+          "lat": 41.5562,
+          "lng": 13.0285
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.fattivivo.com/eventi/fiera-in-fattoria-come-allora-2026-valle-pepe-bassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000005",
+        "event_id": "EVT-BASS-005",
+        "stream_id": "events-059004",
+        "stream_version": 5,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "La Passione Vivente di Gesù Cristo",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Venerdì Santo (variabile)",
+        "mese_principale": "aprile",
+        "venue": "Percorso itinerante nel borgo medievale",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Rappresentazione itinerante della Passione di Gesù Cristo nel borgo medievale di Bassiano, in occasione del Venerdì Santo.",
+        "luogo": {
+          "lat": 41.5496,
+          "lng": 13.0328
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.facebook.com/Latinatodaynotizielatina"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000006",
+        "event_id": "EVT-BASS-006",
+        "stream_id": "events-059004",
+        "stream_version": 6,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa dei Fauni di Bassiano",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Metà Maggio (Sabato e Domenica)",
+        "mese_principale": "maggio",
+        "venue": "Piazza Giacomo Matteotti",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
+        "categoria_legacy": "folkloristica",
+        "descrizione": "Festa folkloristica dei Fauni in Piazza Giacomo Matteotti, con tradizioni locali e spettacoli.",
+        "luogo": {
+          "lat": 41.5491,
+          "lng": 13.0331
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.facebook.com/prolocobassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000007",
+        "event_id": "EVT-BASS-007",
+        "stream_id": "events-059004",
+        "stream_version": 7,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa Patronale di San Vincenzo Ferreri",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Seconda settimana di Giugno",
+        "mese_principale": "giugno",
+        "venue": "Chiesa Matrice di San Erasmo e Centro Storico",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa patronale in onore di San Vincenzo Ferreri, con celebrazioni religiose presso la Chiesa Matrice di San Erasmo e nel centro storico.",
+        "luogo": {
+          "lat": 41.5494,
+          "lng": 13.0325
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.bassiano.lt.it"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "EVENTO_SOCIALE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000008",
+        "event_id": "EVT-BASS-008",
+        "stream_id": "events-059004",
+        "stream_version": 8,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Laboratori di Creatività e Sostenibilità - LepiniLab",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Prima e quarta settimana di Giugno",
+        "mese_principale": "giugno",
+        "venue": "Centro Sociale Anziani APS, Via Aldo Manuzio 13",
+        "categoria_primaria": "EVENTO_SOCIALE",
+        "categoria_legacy": "sociale",
+        "descrizione": "Laboratori di creatività e sostenibilità organizzati da LepiniLab presso il Centro Sociale Anziani APS.",
+        "luogo": {
+          "lat": 41.5488,
+          "lng": 13.0319
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.instagram.com/prolocobassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000009",
+        "event_id": "EVT-BASS-009",
+        "stream_id": "events-059004",
+        "stream_version": 9,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra del Prosciutto di Bassiano",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Ultimo fine settimana di Luglio (Ven-Sab-Dom)",
+        "mese_principale": "luglio",
+        "venue": "Piazza Giacomo Matteotti e Parcheggio Grandi Eventi \"Prato del Principe\"",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Storica sagra dedicata al prosciutto di Bassiano, con stand gastronomici e spettacoli serali.",
+        "luogo": {
+          "lat": 41.5475,
+          "lng": 13.0338
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://sagreautentiche.it/sagre/sagra-del-prosciutto-bassiano/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000010",
+        "event_id": "EVT-BASS-010",
+        "stream_id": "events-059004",
+        "stream_version": 10,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "L'Estate Bassianese (Rassegna Estiva)",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Dal 1 al 25 Agosto",
+        "mese_principale": "agosto",
+        "venue": "Anfiteatro Comunale / Piazza Giacomo Matteotti",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "festival",
+        "descrizione": "Rassegna estiva di spettacoli ed eventi culturali presso l'Anfiteatro Comunale e Piazza Giacomo Matteotti.",
+        "luogo": {
+          "lat": 41.5491,
+          "lng": 13.0331
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.bassiano.lt.it"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000011",
+        "event_id": "EVT-BASS-011",
+        "stream_id": "events-059004",
+        "stream_version": 11,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa della Madonna del Carmo",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Metà Settembre",
+        "mese_principale": "settembre",
+        "venue": "Chiesa di San Erasmo e Vie del Borgo",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa religiosa in onore della Madonna del Carmo, con processione nelle vie del borgo.",
+        "luogo": {
+          "lat": 41.5494,
+          "lng": 13.0325
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://comune.bassiano.lt.it"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000012",
+        "event_id": "EVT-BASS-012",
+        "stream_id": "events-059004",
+        "stream_version": 12,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa d'Autunno e dei Prodotti Locali",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Terza Domenica di Ottobre",
+        "mese_principale": "ottobre",
+        "venue": "Centro Storico e Via Aldo Manuzio",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Festa d'autunno con esposizione e degustazione dei prodotti locali nel centro storico.",
+        "luogo": {
+          "lat": 41.5489,
+          "lng": 13.0322
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": false,
+          "url_fonte": null
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_ARTE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000013",
+        "event_id": "EVT-BASS-013",
+        "stream_id": "events-059004",
+        "stream_version": 13,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Mostra Documentaria al Museo delle Scritture",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Date variabili nel mese",
+        "mese_principale": "novembre",
+        "venue": "Museo delle Scritture \"Aldo Manuzio\", Via Sezze",
+        "categoria_primaria": "FESTIVAL_ARTE",
+        "categoria_legacy": "mostra",
+        "descrizione": "Mostra documentaria temporanea ospitata dal Museo delle Scritture \"Aldo Manuzio\".",
+        "luogo": {
+          "lat": 41.5483,
+          "lng": 13.0315
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": false,
+          "url_fonte": null
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000014",
+        "event_id": "EVT-BASS-014",
+        "stream_id": "events-059004",
+        "stream_version": 14,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Il Mercatino Enogastronomico delle Eccellenze Natalizie",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Fine settimana antecedente il Natale (es. 19-21 Dicembre)",
+        "mese_principale": "dicembre",
+        "venue": "Mura Medievali di Bassiano",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "enogastronomica",
+        "descrizione": "Mercatino enogastronomico natalizio con eccellenze locali, allestito lungo le Mura Medievali.",
+        "luogo": {
+          "lat": 41.5495,
+          "lng": 13.0327
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.instagram.com/prolocobassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059004-1749600000000000000-000000015",
+        "event_id": "EVT-BASS-015",
+        "stream_id": "events-059004",
+        "stream_version": 15,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Presepe Vivente di Bassiano",
+        "comune": {
+          "nome": "Bassiano",
+          "istat_code": "059004",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "26 Dicembre (Santo Stefano)",
+        "mese_principale": "dicembre",
+        "venue": "Piazza Giacomo Matteotti e vicoli del borgo",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
+        "categoria_legacy": "folkloristica",
+        "descrizione": "Presepe vivente tradizionale allestito nei vicoli del borgo e in Piazza Giacomo Matteotti, il giorno di Santo Stefano.",
+        "luogo": {
+          "lat": 41.5491,
+          "lng": 13.0331
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.facebook.com/comunedibassiano"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T20:00:01.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T20:00:01.000Z",
+        "updated_at": "2026-06-12T20:00:01.000Z",
+        "immutable_since": "2026-06-12T20:00:01.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    }
+  ]
+}
