@@ -1,0 +1,30 @@
+name: Import Territorio in Supabase
+
+on:
+  workflow_dispatch:
+    inputs:
+      json_path:
+        description: 'Percorso del file JSON da importare (es. atlas-eventa/europa/italia/lazio/latina/bassiano/bassiano-MAMMUT-LAZ-LT-002.json)'
+        required: true
+        type: string
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run import script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: python3 scripts/import_territorio.py "${{ inputs.json_path }}"
