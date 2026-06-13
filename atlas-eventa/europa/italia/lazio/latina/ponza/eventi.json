@@ -1,0 +1,923 @@
+{
+  "$schema": "https://atlas-eventa.kreatio.io/schemas/certified-event/v2.0",
+  "___ATLAS_EVENTA_DATASET___": {
+    "dataset_id": "DS-PONZ-059018-2026-001",
+    "comune": "Ponza",
+    "istat_code": "059018",
+    "provincia": "Latina",
+    "regione": "Lazio",
+    "nazione": "Italia",
+    "continente": "Europa",
+    "total_events": 12,
+    "tcf_validated": 11,
+    "tcf_score_dataset": "100%",
+    "schema_version": "2.0.0",
+    "mammuth_version": "1.0.0",
+    "distillation_layer_version": "1.0",
+    "territorio_pilota": "PROVINCIA_LATINA",
+    "created_at": "2026-06-12T23:00:00.000Z",
+    "updated_at": "2026-06-12T23:00:00.000Z",
+    "immutable_since": "2026-06-12T23:00:00.000Z",
+    "certificazione": {
+      "certificato": true,
+      "codice_standard": "KUS-3620-v1",
+      "validita": "PERMANENTE",
+      "conformita": {
+        "gdpr_compliant": true,
+        "dna_del_dato_compliant": true,
+        "fonte_ufficiale_verified": true,
+        "zero_invented_data": true
+      }
+    }
+  },
+  "events": [
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000001",
+        "event_id": "EVT-PONZ-001",
+        "stream_id": "events-059018",
+        "stream_version": 1,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Silverio (Le Forna)",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Ultima Domenica di Febbraio",
+        "mese_principale": "febbraio",
+        "venue": "Le Forna, Ponza",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa di San Silverio in localita' Le Forna, con benedizione dei pescatori ponzesi, processione e fuochi pirotecnici.",
+        "luogo": {
+          "lat": 40.918,
+          "lng": 12.945
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "EVENTO_SOCIALE",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000002",
+        "event_id": "EVT-PONZ-002",
+        "stream_id": "events-059018",
+        "stream_version": 2,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Karaoke dei Bambini",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "17 Marzo",
+        "mese_principale": "marzo",
+        "venue": "Santa Maria, Ponza",
+        "categoria_primaria": "EVENTO_SOCIALE",
+        "categoria_legacy": "sociale",
+        "descrizione": "Karaoke dedicato ai bambini, localita' Santa Maria.",
+        "luogo": {
+          "lat": 40.902,
+          "lng": 12.965
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000003",
+        "event_id": "EVT-PONZ-003",
+        "stream_id": "events-059018",
+        "stream_version": 3,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra delle Zeppole",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "18 Marzo",
+        "mese_principale": "marzo",
+        "venue": "Santa Maria, Ponza",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Sagra delle zeppole con serata musicale, localita' Santa Maria.",
+        "luogo": {
+          "lat": 40.902,
+          "lng": 12.965
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000004",
+        "event_id": "EVT-PONZ-004",
+        "stream_id": "events-059018",
+        "stream_version": 4,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa di San Giuseppe",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "19 Marzo",
+        "mese_principale": "marzo",
+        "venue": "Santa Maria, Ponza",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa di San Giuseppe in localita' Santa Maria, con processione, concerto musicale e fuochi d'artificio.",
+        "luogo": {
+          "lat": 40.902,
+          "lng": 12.965
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "SAGRA_GASTRONOMICA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000005",
+        "event_id": "EVT-PONZ-005",
+        "stream_id": "events-059018",
+        "stream_version": 5,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Sagra del Casatiello",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Giorno di Pasqua",
+        "mese_principale": "aprile",
+        "venue": "Piazza Carlo Pisacane, Ponza",
+        "categoria_primaria": "SAGRA_GASTRONOMICA",
+        "categoria_legacy": "sagra",
+        "descrizione": "Sagra del casatiello in Piazza Carlo Pisacane dalle ore 18:00, con serata musicale.",
+        "luogo": {
+          "lat": 40.899,
+          "lng": 12.96
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_MUSICA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000006",
+        "event_id": "EVT-PONZ-006",
+        "stream_id": "events-059018",
+        "stream_version": 6,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "SONIK - Festival Musica Elettronica",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "30 Maggio",
+        "mese_principale": "maggio",
+        "venue": "Piazzale Mamozio, Ponza",
+        "categoria_primaria": "FESTIVAL_MUSICA",
+        "categoria_legacy": "festival",
+        "descrizione": "Grande evento di musica elettronica al Piazzale Mamozio, con DJ set, riprese TV nazionali e afterparty all'Azul Club.",
+        "luogo": {
+          "lat": 40.899,
+          "lng": 12.961
+        },
+        "ingresso": "PAGAMENTO",
+        "famiglia_friendly": false,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://viviponza.com/eventi/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000007",
+        "event_id": "EVT-PONZ-007",
+        "stream_id": "events-059018",
+        "stream_version": 7,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Pellegrinaggio a Palmarola (San Silverio)",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Inizi Giugno (data variabile)",
+        "mese_principale": "giugno",
+        "venue": "Isola di Palmarola",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Pellegrinaggio annuale dei ponzesi a Palmarola in onore del patrono San Silverio, con Messa celebrata alla base del Faraglione.",
+        "luogo": {
+          "lat": 40.942,
+          "lng": 12.85
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000008",
+        "event_id": "EVT-PONZ-008",
+        "stream_id": "events-059018",
+        "stream_version": 8,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Arrivo dello Stendardo di San Silverio",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "9 Giugno",
+        "mese_principale": "giugno",
+        "venue": "Spiaggia di Santa Maria, Ponza",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Arrivo a mezzanotte dello stendardo di San Silverio da Palmarola, falo' sulla spiaggia di Santa Maria e solenne processione fino alla Chiesa Madre.",
+        "luogo": {
+          "lat": 40.902,
+          "lng": 12.965
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_MUSICA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000009",
+        "event_id": "EVT-PONZ-009",
+        "stream_id": "events-059018",
+        "stream_version": 9,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Serate Musicali Festeggiamenti San Silverio",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "18-19 Giugno",
+        "mese_principale": "giugno",
+        "venue": "Centro storico di Ponza",
+        "categoria_primaria": "FESTIVAL_MUSICA",
+        "categoria_legacy": "festival",
+        "descrizione": "Serate musicali con vari concerti per i festeggiamenti del Santo Patrono San Silverio.",
+        "luogo": {
+          "lat": 40.899,
+          "lng": 12.96
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTA_RELIGIOSA",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000010",
+        "event_id": "EVT-PONZ-010",
+        "stream_id": "events-059018",
+        "stream_version": 10,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Festa Patronale di San Silverio",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "20 Giugno",
+        "mese_principale": "giugno",
+        "venue": "Chiesa Madre di Ponza",
+        "categoria_primaria": "FESTA_RELIGIOSA",
+        "categoria_legacy": "religiosa",
+        "descrizione": "Festa patronale di San Silverio: Solenne Messa alle 10:30 seguita alle 12:00 dalla processione via terra e via mare per la benedizione dei pescatori ponzesi.",
+        "luogo": {
+          "lat": 40.899,
+          "lng": 12.96
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://www.prolocodiponza.it/it/cosa-fare/eventi-e-sagre.html"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "EVENTO_SOCIALE",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000011",
+        "event_id": "EVT-PONZ-011",
+        "stream_id": "events-059018",
+        "stream_version": 11,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "ARIA - Convegno Giovani Imprenditori Unindustria",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "9-10 Luglio",
+        "mese_principale": "luglio",
+        "venue": "Ponza (sede da definire)",
+        "categoria_primaria": "EVENTO_SOCIALE",
+        "categoria_legacy": "sociale",
+        "descrizione": "Convegno dei Giovani Imprenditori di Unindustria dedicato a Intelligenza Artificiale, innovazione e futuro delle imprese.",
+        "luogo": {
+          "lat": 40.899,
+          "lng": 12.96
+        },
+        "ingresso": "PAGAMENTO",
+        "famiglia_friendly": false,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://viviponza.com/eventi/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": true,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": "2026-06-12T23:00:00.000Z",
+        "validita": "PERMANENTE",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": true,
+          "zero_invented_data": true
+        },
+        "certificatore_node": "atlas-node-001.kreatio.io"
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "ATTIVO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": "2026-06-12T23:00:00.000Z",
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "100%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": null
+      }
+    },
+    {
+      "_categoria_group": "FESTIVAL_FOLKLORE",
+      "___IDENTITY___": {
+        "gsn": "059018-1749600000000000000-000000012",
+        "event_id": "EVT-PONZ-012",
+        "stream_id": "events-059018",
+        "stream_version": 12,
+        "event_type": "CANONICAL",
+        "schema_version": "2.0.0"
+      },
+      "___PAYLOAD___": {
+        "nome_evento": "Settimana di Ferragosto a Le Forna",
+        "comune": {
+          "nome": "Ponza",
+          "istat_code": "059018",
+          "provincia": "Latina",
+          "regione": "Lazio",
+          "nazione": "Italia"
+        },
+        "periodo_ricorrenza": "Agosto (settimana di Ferragosto)",
+        "mese_principale": "agosto",
+        "venue": "Le Forna, Ponza",
+        "categoria_primaria": "FESTIVAL_FOLKLORE",
+        "categoria_legacy": "folkloristica",
+        "descrizione": "Settimana di Ferragosto a Le Forna, uno dei momenti piu' sentiti e affascinanti dell'estate ponzese.",
+        "luogo": {
+          "lat": 40.918,
+          "lng": 12.945
+        },
+        "ingresso": "GRATUITO",
+        "famiglia_friendly": true,
+        "ricorrenza": "ANNUALE",
+        "organizzatore": {
+          "fonte_verificata": true,
+          "url_fonte": "https://viviponza.com/eventi/"
+        }
+      },
+      "___CERTIFICATION_3620___": {
+        "certificato": false,
+        "codice_standard": "KUS-3620-v1",
+        "timestamp_certificazione": null,
+        "validita": "IN_ATTESA_FONTE_PRIMARIA",
+        "conformita": {
+          "gdpr_compliant": true,
+          "dna_del_dato_compliant": true,
+          "fonte_ufficiale_verified": false,
+          "zero_invented_data": true
+        },
+        "certificatore_node": null
+      },
+      "___VOID_FILL___": {
+        "is_void_fill_event": false,
+        "compensates_gsn": null,
+        "void_fill_type": null,
+        "stato_corrente": "NON_CERTIFICATO"
+      },
+      "___META___": {
+        "created_at": "2026-06-12T23:00:00.000Z",
+        "updated_at": "2026-06-12T23:00:00.000Z",
+        "immutable_since": null,
+        "territorio_pilota": "PROVINCIA_LATINA",
+        "mammuth_version": "1.0.0",
+        "tcf_score": "0%"
+      },
+      "___DISTILLATION_LAYER___": {
+        "dl_flag": "STANDALONE",
+        "dl_parent_gsn": null,
+        "dl_children_count": 0,
+        "dl_children_gsn": [],
+        "dl_version": "1.0",
+        "dl_trigger": null,
+        "dl_notes": "In attesa di fonte primaria diretta prima della certificazione."
+      }
+    }
+  ]
+}
