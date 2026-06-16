@@ -312,6 +312,20 @@
     z-index: 1;
   }
   .card-geonode-badge:hover { background: rgba(139,124,246,.08); }
+  .card-devguide-badge {
+    flex-shrink: 0;
+    padding: 8px 18px;
+    border: 1px dashed var(--gold-dim);
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 14px;
+    transition: background .2s, border-color .2s;
+  }
+  .card-devguide-badge:hover { background: var(--bg-3); border-color: var(--gold); }
   footer {
     border-top: 1px solid var(--border);
     padding: 30px 40px;
@@ -333,8 +347,7 @@
 
 <header>
   <div class="header-left" style="display:flex;align-items:center;gap:10px">
-    <img src="favicon.jpeg" alt="KREATIO power icon" style="width:24px;height:24px;object-fit:contain;flex-shrink:0;border-radius:4px">
-    KREATIO UNIVERSAL SYSTEM™ · CODE 3620
+    <img src="https://mammuth-frontend.vercel.app/kreatio-badge.png" alt="Timbro KREATIO · Nero Kaelum" style="height:38px;width:auto;object-fit:contain;flex-shrink:0">
   </div>
   <div class="header-right">
     <div class="status-dot"></div>
@@ -358,7 +371,7 @@
 
   <div class="section-label">00 · Master Architecture Document</div>
   <div class="grid">
-    <a href="exoskeleton.html" class="card card-exo">
+    <a href="exoskeleton-dev.html" class="card card-exo">
       <div style="position:relative;z-index:1">
         <div class="card-tag">Developer Reference · Architettura Completa</div>
         <div class="card-title">EXOSKELETON™</div>
@@ -379,6 +392,13 @@
         <div class="card-status dot-green">● LIVE · Where Communities Come Alive</div>
       </div>
       <div class="card-featured-badge">Apri Mappa →</div>
+    </a>
+    <a href="interfaces-dev.html" class="card">
+      <div class="card-tag">Developer Guide · Livello UI</div>
+      <div class="card-title">Interfacce Principali — Guida Sviluppatore</div>
+      <div class="card-desc">Documentazione tecnica del livello frontend: home, mappa, scheda evento, passaporto. Build status, superfici e lavoro aperto.</div>
+      <div class="card-status dot-amber">● IN PROGRESS</div>
+      <span class="card-devguide-badge">Apri Guida 01 →</span>
     </a>
     <a href="ATLAS-EVENTA.html" class="card">
       <div class="card-tag">Archivio · Database</div>
