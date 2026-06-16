@@ -1,1 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MORPHEUS•JLX™ — Sanification Engine | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a96e; --gold-light: #e8c98a; --gold-dim: #7a6240;
+      --bg: #080808; --bg-2: #0f0f0f; --bg-3: #161616;
+      --border: #222; --border-gold: #3a2e1a;
+      --text: #d4c4a8; --text-dim: #6a5f4e;
+      --red: #c0392b; --blue: #6e9ec9; --green: #7ab88a; --amber: #d4a017;
+      --purple: #9b7fc7;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Fraunces', serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
 
+    .sys-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,8,0.95); border-bottom: 1px solid var(--border-gold); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(12px); }
+    .sys-header .brand { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.3em; color: var(--gold); }
+    .sys-header .code { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.15em; }
+    .sys-header .status { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--purple); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 120px 40px 80px; position: relative; z-index: 1; }
+
+    .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--border-gold); margin-bottom: 80px; position: relative; overflow: hidden; }
+    .hero::after { content: 'M•JLX'; position: absolute; right: -20px; top: 40%; transform: translateY(-50%); font-family: 'Cinzel', serif; font-size: 7rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1px rgba(155,127,199,0.06); pointer-events: none; letter-spacing: -0.02em; }
+    .hero-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; color: var(--gold); line-height: 1.1; letter-spacing: 0.05em; margin-bottom: 8px; }
+    .hero h1 span { display: block; font-size: 0.38em; font-weight: 400; letter-spacing: 0.3em; color: var(--text-dim); margin-top: 12px; }
+    .hero-desc { max-width: 640px; margin-top: 32px; font-size: 1.05rem; color: var(--text); line-height: 1.8; font-style: italic; }
+    .hero-meta { margin-top: 40px; display: flex; gap: 40px; flex-wrap: wrap; }
+    .hero-meta-item { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); }
+    .hero-meta-item strong { display: block; color: var(--gold); font-size: 0.75rem; margin-bottom: 4px; }
+
+    section { margin-bottom: 80px; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .section-title { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 32px; }
+
+    .definition { background: var(--bg-2); border: 1px solid var(--border-gold); border-left: 3px solid var(--purple); padding: 32px 36px; margin-bottom: 40px; position: relative; }
+    .definition::before { content: '§'; position: absolute; top: 24px; right: 28px; font-family: 'Cinzel', serif; font-size: 2rem; color: var(--border-gold); }
+    .definition p { font-size: 1rem; line-height: 1.9; color: var(--text); }
+
+    /* VS BLOCK */
+    .vs-block { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
+    .vs-item { background: var(--bg-2); padding: 28px 32px; }
+    .vs-label { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: var(--text-dim); margin-bottom: 12px; text-transform: uppercase; }
+    .vs-name { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: 0.1em; }
+    .vs-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* FUNCTIONS GRID */
+    .functions { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
+    .func { background: var(--bg-2); padding: 36px 32px; transition: background 0.3s; position: relative; border-top: 2px solid transparent; }
+    .func:hover { background: var(--bg-3); border-top-color: var(--purple); }
+    .func-index { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--text-dim); margin-bottom: 16px; }
+    .func-name { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 600; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 12px; line-height: 1.3; }
+    .func-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+    .func-tag { display: inline-block; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; padding: 4px 10px; border: 1px solid rgba(155,127,199,0.3); color: var(--purple); }
+
+    /* SCHEMA FIELDS */
+    .schema-fields { background: var(--bg-2); border: 1px solid var(--border-gold); padding: 32px; margin-bottom: 40px; }
+    .schema-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold-dim); margin-bottom: 24px; text-transform: uppercase; }
+    .field-row { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .field-row:last-child { border-bottom: none; }
+    .field-name { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--gold); min-width: 220px; }
+    .field-type { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--blue); min-width: 80px; }
+    .field-desc { font-size: 0.8rem; color: var(--text-dim); line-height: 1.4; }
+    .field-req { font-family: 'DM Mono', monospace; font-size: 0.5rem; padding: 2px 6px; border: 1px solid var(--red); color: var(--red); margin-left: auto; flex-shrink: 0; }
+
+    /* GUARANTEES */
+    .guarantees { margin-bottom: 40px; }
+    .guarantee { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .guarantee:last-child { border-bottom: none; }
+    .guarantee-num { font-family: 'Cinzel', serif; font-size: 1.8rem; font-weight: 900; color: var(--border-gold); min-width: 40px; line-height: 1; padding-top: 4px; }
+    .guarantee-content { flex: 1; }
+    .guarantee-title { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold-light); letter-spacing: 0.1em; margin-bottom: 6px; }
+    .guarantee-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* CODE BLOCK */
+    .code-block { background: #050505; border: 1px solid var(--border); border-left: 3px solid var(--purple); padding: 28px 32px; margin: 24px 0; overflow-x: auto; }
+    .code-block pre { font-family: 'DM Mono', monospace; font-size: 0.78rem; line-height: 1.8; color: #8ea8c0; }
+    .comment { color: #3a4a3a; } .key { color: var(--gold); } .value { color: var(--green); }
+    .string { color: #a0c8a0; } .label { color: var(--blue); } .num { color: var(--amber); }
+    .purple { color: var(--purple); }
+
+    /* PASS FAIL */
+    .pass-fail { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border: 1px solid var(--border); margin-bottom: 40px; }
+    .pass { background: rgba(122,184,138,0.05); padding: 28px; border-top: 2px solid var(--green); }
+    .fail { background: rgba(192,57,43,0.05); padding: 28px; border-top: 2px solid var(--red); }
+    .pf-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; margin-bottom: 16px; text-transform: uppercase; }
+    .pass .pf-label { color: var(--green); }
+    .fail .pf-label { color: var(--red); }
+    .pf-item { font-size: 0.83rem; color: var(--text-dim); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .pf-item:last-child { border-bottom: none; }
+
+    footer { border-top: 1px solid var(--border-gold); padding: 40px; display: flex; justify-content: space-between; align-items: flex-end; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .footer-sig { font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.2em; line-height: 2; }
+    .footer-sig strong { display: block; color: var(--gold); font-size: 0.85rem; margin-bottom: 4px; }
+    .footer-links { display: flex; gap: 20px; margin-top: 12px; }
+    .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.15em; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-glyph { font-size: 1.2rem; color: var(--border-gold); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; } .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; } .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+    @media (max-width: 768px) { main { padding: 100px 20px 60px; } .functions { grid-template-columns: 1fr; } .vs-block { grid-template-columns: 1fr; } .pass-fail { grid-template-columns: 1fr; } .hero::after { display: none; } footer { flex-direction: column; gap: 20px; } }
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-MJX-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>ENGINE ACTIVE</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">Core Engine Document</div>
+    <h1>MORPHEUS•JLX™<span>Sanification · Deduplication · Normalization Engine</span></h1>
+    <p class="hero-desc">Il motore che veglia sul flusso informativo. Se T.C.F.™ è la mente normativa, MORPHEUS•JLX™ è la mano operativa che esegue la pulizia assoluta del database ATLAS•EVENTA™.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>TIPO</strong>Core Engine</div>
+      <div class="hero-meta-item"><strong>SISTEMA</strong>KREATIO UNIVERSAL SYSTEM™</div>
+      <div class="hero-meta-item"><strong>INTEGRAZIONE</strong>T.C.F.™ · ATLAS•EVENTA™</div>
+      <div class="hero-meta-item"><strong>MODALITÀ</strong>Pass-or-Fail</div>
+    </div>
+  </div>
+
+  <!-- DEFINIZIONE -->
+  <section class="fade-in">
+    <div class="section-label">01 · Definizione</div>
+    <h2 class="section-title">Cos'è MORPHEUS•JLX™</h2>
+    <div class="definition">
+      <p><strong style="color:var(--gold)">MORPHEUS•JLX™</strong> è il motore di sanificazione, deduplicazione e normalizzazione del KREATIO UNIVERSAL SYSTEM™. Il suo nome richiama la sua capacità di "vegliare" sul flusso informativo, garantendo che ogni record che entra nel database sia <em>puro, univoco e conforme</em> alle stringenti regole di ATLAS•EVENTA™. Agisce come filtro <strong style="color:var(--purple)">pass-or-fail</strong>: o il dato supera il controllo, o non entra nel database.</p>
+    </div>
+
+    <div class="vs-block">
+      <div class="vs-item">
+        <div class="vs-label">T.C.F.™ — La Mente</div>
+        <div class="vs-name" style="color:var(--gold);">Normativa</div>
+        <div class="vs-desc">Definisce le regole di coerenza. Stabilisce <em>cosa è giusto</em>: criteri culturali, territoriali, ontologici. È il guardiano concettuale del sistema.</div>
+      </div>
+      <div class="vs-item" style="border-left: 2px solid var(--border-gold);">
+        <div class="vs-label">MORPHEUS•JLX™ — La Mano</div>
+        <div class="vs-name" style="color:var(--purple);">Operativa</div>
+        <div class="vs-desc">Implementa la logica sul flusso di dati. Esegue <em>come viene pulito e integrato</em>: deduplicazione, normalizzazione, versioning. È l'esecutore operativo del sistema.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNZIONI CORE -->
+  <section class="fade-in">
+    <div class="section-label">02 · Funzioni Core</div>
+    <h2 class="section-title">I Quattro Motori Operativi</h2>
+
+    <div class="functions">
+      <div class="func">
+        <div class="func-index">FUNC · 01</div>
+        <div class="func-name">Deduplicazione Intelligente<br>Parent–Child</div>
+        <div class="func-desc">Analizza in tempo reale ogni nuova immissione per verificare se l'entità esiste già. Se il record è già presente, impedisce la creazione di un duplicato e forza il sistema a generare esclusivamente una nuova Istanza Temporale collegata al <code style="font-family:'DM Mono',monospace;color:var(--gold);font-size:0.8em">PARENT_ID</code> esistente.</div>
+        <span class="func-tag">PARENT_ID · INSTANCE LINK</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 02</div>
+        <div class="func-name">Anti-Rumore</div>
+        <div class="func-desc">Applica filtri algoritmici per eliminare elementi di disturbo: articoli inutili, caratteri speciali, formattazioni errate, testo non normalizzato. È il responsabile della pulizia che rende il database "Clean" e leggibile da qualsiasi sistema downstream.</div>
+        <span class="func-tag">NOISE FILTER · CLEAN OUTPUT</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 03</div>
+        <div class="func-name">Normalizzazione Rigorosa</div>
+        <div class="func-desc">Forza ogni dato a rispettare il set chiuso di campi definiti. Se un dato non può essere ricondotto alla struttura canonica, viene scartato o parcheggiato per revisione, ma <strong style="color:var(--red)">mai inserito in forma corrotta</strong>. Un evento deve avere lo stesso Nome Normalizzato indipendentemente dalla fonte.</div>
+        <span class="func-tag">CLOSED FIELD SET · STRICT SCHEMA</span>
+      </div>
+      <div class="func">
+        <div class="func-index">FUNC · 04</div>
+        <div class="func-name">Gestione del Versioning</div>
+        <div class="func-desc">Poiché non è consentito sovrascrivere i dati (per mantenere la tracciabilità storica), gestisce il versioning di ogni modifica. Ogni aggiornamento è registrato con timestamp e fonte, creando una <em>catena di custodia del dato</em> che garantisce l'auditabilità totale.</div>
+        <span class="func-tag">IMMUTABLE · CHAIN OF CUSTODY</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEMA CAMPI -->
+  <section class="fade-in">
+    <div class="section-label">03 · Schema</div>
+    <h2 class="section-title">Set Chiuso di Campi Normalizzati</h2>
+
+    <div class="schema-fields">
+      <div class="schema-title">Struttura Canonica · MORPHEUS•JLX™ Output Schema</div>
+      <div class="field-row">
+        <span class="field-name">EVENT_ID</span>
+        <span class="field-type">STRING</span>
+        <span class="field-desc">Identificativo univoco progressivo dell'entità logica. Non riassegnabile. Non sovrascrivibile.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">INSTANCE_ID</span>
+        <span class="field-type">STRING</span>
+        <span class="field-desc">Identificativo dell'occorrenza temporale. Collegato al PARENT_ID (EVENT_ID) dell'entità madre.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">PLACE_ID</span>
+        <span class="field-type">STRING</span>
+        <span class="field-desc">Riferimento al luogo certificato. Deve corrispondere a un codice ISTAT verificato nel database territoriale.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">EVENT_NAME_NORMALIZED</span>
+        <span class="field-type">STRING</span>
+        <span class="field-desc">Nome dell'evento dopo normalizzazione: rimozione articoli, capitalizzazione standard, eliminazione caratteri speciali non ammessi.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">CATEGORY</span>
+        <span class="field-type">ENUM</span>
+        <span class="field-desc">Categoria tassonomica chiusa: FESTA_RELIGIOSA | SAGRA | PALIO | RITO_AGRARIO | MERCATO.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">DATE_START</span>
+        <span class="field-type">ISO 8601</span>
+        <span class="field-desc">Data di inizio dell'istanza temporale. Formato obbligatorio: YYYY-MM-DD.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">DATE_END</span>
+        <span class="field-type">ISO 8601</span>
+        <span class="field-desc">Data di fine dell'istanza temporale. Può coincidere con DATE_START per eventi di un giorno.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">MORPHEUS_VERSION</span>
+        <span class="field-type">STRING</span>
+        <span class="field-desc">Versione del motore che ha processato il record. Per audit trail.</span>
+        <span class="field-req">REQUIRED</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre><span class="comment">// MORPHEUS•JLX™ — Normalized Output Record</span>
+{
+  <span class="key">"EVENT_ID"</span>: <span class="string">"ev-laz-0042"</span>,
+  <span class="key">"INSTANCE_ID"</span>: <span class="string">"inst-laz-0042-2026"</span>,
+  <span class="key">"PARENT_ID"</span>: <span class="string">"ev-laz-0042"</span>, <span class="comment">// link entità → istanza</span>
+  <span class="key">"PLACE_ID"</span>: <span class="string">"istat-058041"</span>,
+  <span class="key">"EVENT_NAME_NORMALIZED"</span>: <span class="string">"Infiorata di Genzano"</span>,
+  <span class="key">"CATEGORY"</span>: <span class="value">FESTA_RELIGIOSA</span>,
+  <span class="key">"DATE_START"</span>: <span class="string">"2026-06-14"</span>,
+  <span class="key">"DATE_END"</span>: <span class="string">"2026-06-15"</span>,
+  <span class="key">"MORPHEUS_STATUS"</span>: <span class="value">CLEAN</span>,
+  <span class="key">"MORPHEUS_VERSION"</span>: <span class="string">"1.0.0"</span>,
+  <span class="key">"MORPHEUS_TIMESTAMP"</span>: <span class="string">"2026-06-02T14:00:00Z"</span>,
+  <span class="key">"VERSION"</span>: <span class="num">1</span>,
+  <span class="key">"PREVIOUS_VERSION"</span>: <span class="value">null</span>
+}</pre>
+    </div>
+  </section>
+
+  <!-- GARANZIE -->
+  <section class="fade-in">
+    <div class="section-label">04 · Garanzie</div>
+    <h2 class="section-title">Le Tre Garanzie Inviolabili</h2>
+    <div class="guarantees">
+      <div class="guarantee">
+        <div class="guarantee-num">1</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">ID Non Consumato Inutilmente</div>
+          <div class="guarantee-desc">Se un record è uno scarto, l'ID non avanza. La VINCOLO DI NUMERAZIONE ID è rispettata in modo assoluto: ogni ID progressivo corrisponde a un'entità certificata e di valore, mai a un duplicato o a un dato corrotto.</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee-num">2</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">Coerenza del Nome Normalizzato</div>
+          <div class="guarantee-desc">Un evento deve avere lo stesso <code style="font-family:'DM Mono',monospace;color:var(--gold);font-size:0.85em">EVENT_NAME_NORMALIZED</code> indipendentemente dalla fonte che lo riporta. MORPHEUS•JLX™ garantisce che "Festa del SS. Crocifisso" e "Fest. del Santissimo Crocifisso" vengano ricondotti alla stessa entità canonica.</div>
+        </div>
+      </div>
+      <div class="guarantee">
+        <div class="guarantee-num">3</div>
+        <div class="guarantee-content">
+          <div class="guarantee-title">Integrità del Sistema Inviolabile</div>
+          <div class="guarantee-desc">Filtro <strong style="color:var(--purple)">pass-or-fail</strong> assoluto: o il dato supera il controllo di pulizia e deduplicazione, o non entra nel database. Non esiste una via di mezzo. I record parcheggiati per revisione umana sono tracciati con status <code style="font-family:'DM Mono',monospace;color:var(--amber);font-size:0.85em">FLAGGED</code>, mai inseriti come <code style="font-family:'DM Mono',monospace;color:var(--green);font-size:0.85em">VALIDATED</code>.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASS / FAIL -->
+  <section class="fade-in">
+    <div class="section-label">05 · Logica Operativa</div>
+    <h2 class="section-title">Pass-or-Fail · Casistiche</h2>
+    <div class="pass-fail">
+      <div class="pass">
+        <div class="pf-label">✓ PASS → STATUS: CLEAN</div>
+        <div class="pf-item">Record con tutti i campi obbligatori compilati correttamente</div>
+        <div class="pf-item">Nome normalizzabile secondo le regole del motore</div>
+        <div class="pf-item">Coordinate e ISTAT verificati nel database territoriale</div>
+        <div class="pf-item">Entità non presente come duplicato nel database</div>
+        <div class="pf-item">Categoria appartenente al set chiuso ammesso</div>
+        <div class="pf-item">Date in formato ISO 8601 valido</div>
+      </div>
+      <div class="fail">
+        <div class="pf-label">✗ FAIL → STATUS: REJECTED / FLAGGED</div>
+        <div class="pf-item">Campo obbligatorio assente o nullo → REJECTED</div>
+        <div class="pf-item">Duplicato esatto rilevato → REJECTED (istanza collegata a PARENT)</div>
+        <div class="pf-item">Duplicato sospetto (similarity > 85%) → FLAGGED per revisione</div>
+        <div class="pf-item">Categoria non appartenente al set chiuso → REJECTED</div>
+        <div class="pf-item">Coordinate non verificabili con ISTAT → FLAGGED</div>
+        <div class="pf-item">Testo non normalizzabile automaticamente → FLAGGED</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+    <div class="footer-links">
+      <a href="developer-index.html">← Developer Portal</a>
+      <a href="TCF-framework.html">→ T.C.F.™</a>
+      <a href="ATLAS-EVENTA.html">→ ATLAS•EVENTA™</a>
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+
+<!-- KUS-NAV · barra navigazione portale (autoportante) -->
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="JLX.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">JLX™</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="BRAIN-BOX.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">Brain Box</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  .kusnav-disabled{opacity:.38;pointer-events:none}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>
