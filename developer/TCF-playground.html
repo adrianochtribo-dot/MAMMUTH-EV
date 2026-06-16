@@ -438,6 +438,6 @@ setMode('single');
   .kusnav-disabled{opacity:.38;pointer-events:none}
   body{padding-bottom:88px}
 </style>
-<script>document.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
 </body>
 </html>
