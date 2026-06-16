@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXOSKELETON™ — Developer Guide · MAMMUTH•EVENTS™</title>
+<style>
+  :root{
+    --bg:#0a0c10;
+    --panel:#11141b;
+    --panel-2:#161a23;
+    --line:#222836;
+    --ink:#e8ebf2;
+    --ink-dim:#8b93a7;
+    --ink-faint:#5b6276;
+    --g1:#8b5cf6;  /* viola */
+    --g2:#3b82f6;  /* blu */
+    --g3:#22d3ee;  /* ciano */
+    --g4:#2dd4bf;  /* teal */
+    --live:#34d399;
+    --dev:#fbbf24;
+    --plan:#64748b;
+    --warn:#f87171;
+    --warn-bg:#1c1416;
+    --mono:'SF Mono',ui-monospace,'JetBrains Mono','Roboto Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+    padding:0 20px 120px;
+  }
+  .wrap{max-width:820px;margin:0 auto}
+
+  /* ---- header ---- */
+  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px;
+  }
+  h1{
+    font-size:clamp(38px,9vw,68px);font-weight:800;letter-spacing:-.03em;
+    line-height:.96;
+    background:linear-gradient(100deg,var(--g1),var(--g2) 38%,var(--g3) 68%,var(--g4));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .role{
+    font-family:var(--mono);font-size:13px;color:var(--ink-dim);
+    margin-top:18px;letter-spacing:.04em;
+  }
+  .lede{font-size:18px;color:var(--ink-dim);margin-top:24px;max-width:62ch}
+
+  /* ---- sections ---- */
+  section{padding:48px 0;border-bottom:1px solid var(--line)}
+  .snum{
+    font-family:var(--mono);font-size:12px;color:var(--g3);
+    letter-spacing:.18em;margin-bottom:14px;
+  }
+  h2{font-size:25px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px}
+  h3{font-size:16px;font-weight:650;margin:26px 0 10px}
+  p{color:var(--ink-dim);margin-bottom:14px}
+  p strong{color:var(--ink);font-weight:600}
+  .lead-line{color:var(--ink);font-size:17px;font-weight:500;margin-bottom:18px}
+
+  /* ---- is / is-not cards ---- */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+  @media(max-width:560px){.pair{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:10px}
+  .card.is .tag{color:var(--live)}
+  .card.isnot .tag{color:var(--warn)}
+  .card p{margin:0;font-size:14px;color:var(--ink-dim)}
+
+  /* ---- truth panel (signature) ---- */
+  .truth{
+    background:var(--warn-bg);border:1px solid #3a2326;border-radius:14px;
+    padding:24px;margin-top:8px;
+  }
+  .truth .th{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .truth .dot{width:9px;height:9px;border-radius:50%;background:var(--warn);
+    box-shadow:0 0 12px var(--warn)}
+  .truth .th span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--warn)}
+  .truth h3{margin:0 0 12px;color:var(--ink)}
+  .counts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
+  .count{background:#0c0e13;border:1px solid var(--line);border-radius:10px;
+    padding:12px 16px;min-width:96px}
+  .count .n{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--ink)}
+  .count .src{font-family:var(--mono);font-size:10px;color:var(--ink-faint);
+    margin-top:4px;letter-spacing:.04em}
+  .count.q .n{color:var(--g3)}
+
+  /* ---- contents list ---- */
+  .toc{list-style:none;margin-top:6px}
+  .toc li{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .toc li:last-child{border-bottom:none}
+  .toc .k{font-family:var(--mono);font-size:12px;color:var(--g3);
+    min-width:30px;padding-top:2px}
+  .toc .d strong{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+  .toc .d span{font-size:13px;color:var(--ink-faint)}
+
+  /* ---- todo / do list ---- */
+  ol.do{list-style:none;counter-reset:do;margin-top:6px}
+  ol.do li{counter-increment:do;position:relative;padding:14px 0 14px 44px;
+    border-bottom:1px solid var(--line)}
+  ol.do li:last-child{border-bottom:none}
+  ol.do li::before{
+    content:counter(do);position:absolute;left:0;top:13px;
+    width:28px;height:28px;border-radius:8px;background:var(--panel-2);
+    border:1px solid var(--line);color:var(--g3);font-family:var(--mono);
+    font-size:13px;display:flex;align-items:center;justify-content:center;
+  }
+  ol.do li strong{color:var(--ink)}
+  ol.do li p{margin:4px 0 0;font-size:14px}
+
+  /* ---- status legend ---- */
+  .legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:6px}
+  .legend div{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-dim)}
+  .sdot{width:8px;height:8px;border-radius:50%}
+  .sdot.l{background:var(--live)} .sdot.d{background:var(--dev)} .sdot.p{background:var(--plan)}
+
+  /* ---- code/key ---- */
+  code{font-family:var(--mono);font-size:13px;background:var(--panel-2);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--g3)}
+  .note{font-size:13px;color:var(--ink-faint);font-style:italic;margin-top:18px}
+
+  footer{padding:40px 0 0;color:var(--ink-faint);font-family:var(--mono);font-size:12px}
+  footer .gr{
+    background:linear-gradient(100deg,var(--g1),var(--g3));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    font-weight:700;
+  }
+  @media(prefers-reduced-motion:no-preference){
+    header,section{animation:rise .6s ease both}
+    section:nth-child(2){animation-delay:.05s}
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · Developer Guide</div>
+    <h1>EXOSKELETON™</h1>
+    <div class="role">Master Architecture Document — la mappa, non il motore</div>
+    <p class="lede">Questo è il documento di riferimento da cui ogni sviluppatore parte.
+    Non è un servizio che gira: è la mappa che spiega tutti gli altri moduli, come si
+    connettono e in che stato sono. Lo usi per orientarti, non lo "esegui".</p>
+  </header>
+
+  <section>
+    <div class="snum">01 — Definizione</div>
+    <h2>Cos'è</h2>
+    <p class="lead-line">EXOSKELETON™ è il <strong>documento-mappa</strong> del sistema:
+    descrive l'architettura completa di MAMMUTH•EVENTS™ in un solo posto.</p>
+    <p>Tiene insieme quattro cose che altrimenti vivrebbero sparse: l'elenco dei moduli
+    KREATIO e il loro stato, il flusso dei dati dall'ingestione alla pubblicazione, lo
+    stack tecnico, e la roadmap. Per un nuovo sviluppatore è la pagina "parti da qui":
+    legge EXOSKELETON e capisce dov'è ogni pezzo prima di toccare il codice.</p>
+
+    <div class="pair">
+      <div class="card is">
+        <div class="tag">È questo</div>
+        <p>Una mappa di riferimento. Descrive, indicizza, collega. Si aggiorna a mano
+        quando l'architettura cambia.</p>
+      </div>
+      <div class="card isnot">
+        <div class="tag">Non è questo</div>
+        <p>Non è un sistema eseguibile. Non ha un endpoint, non si "avvia", non valida
+        dati da solo. La validazione la fanno T.C.F.™, MORPHEUS·JLX™, COLOR-TRIAGE.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="snum">02 — Punto critico</div>
+    <h2>La verità sullo stato</h2>
+    <p class="lead-line">Una mappa scritta a mano <strong>si disallinea dalla
+    realtà</strong>. È già successo, ed è il primo rischio che ogni sviluppatore deve
+    conoscere.</p>
+    <p>Lo stesso dato — il numero di eventi in ATLAS•EVENTA — appare con quattro valori
+    diversi a seconda di dove guardi. Questo non significa che qualcuno menta: significa
+    che <strong>i numeri scritti nel documento non sono una fonte di verità</strong>.
+    La fonte di verità è una sola: una query letta dal vivo sul database.</p>
+
+    <div class="truth">
+      <div class="th"><div class="dot"></div><span>Disallineamento noto</span></div>
+      <h3>Quanti eventi ci sono davvero?</h3>
+      <div class="counts">
+        <div class="count"><div class="n">190</div><div class="src">EXOSKELETON dice</div></div>
+        <div class="count"><div class="n">68</div><div class="src">UI frontend mostra</div></div>
+        <div class="count"><div class="n">23</div><div class="src">index Sermoneta</div></div>
+        <div class="count q"><div class="n">?</div><div class="src">SELECT count(*) — verità</div></div>
+      </div>
+      <p style="margin-top:14px;font-size:14px;color:var(--ink-dim)">Regola operativa:
+      ogni numero di stato in EXOSKELETON è un <strong>segnaposto</strong> finché non è
+      confermato da <code>select count(*) from …</code>. Mai citare un conteggio del
+      documento come fatto.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="snum">03 — Struttura</div>
+    <h2>Cosa contiene (8 sezioni)</h2>
+    <p>EXOSKELETON è organizzato in blocchi fissi. Quando aggiorni l'architettura,
+    aggiorni qui, nella sezione giusta.</p>
+    <ul class="toc">
+      <li><div class="k">01</div><div class="d"><strong>Mappa Moduli</strong><span>Elenco dei moduli KREATIO con stato LIVE / in sviluppo / pianificato</span></div></li>
+      <li><div class="k">02</div><div class="d"><strong>Pipeline</strong><span>Flusso dati: foto WhatsApp → ingestione → triage → validazione → archivio → pubblicazione</span></div></li>
+      <li><div class="k">03</div><div class="d"><strong>Tech Stack</strong><span>Tecnologie per ogni livello: frontend, mobile, backend, DB, geo, search, AI, messaging</span></div></li>
+      <li><div class="k">04</div><div class="d"><strong>Schema KWF</strong><span>Struttura del record evento — i campi "DNA del dato" obbligatori</span></div></li>
+      <li><div class="k">05</div><div class="d"><strong>Validazione</strong><span>Le 4 fasi della pipeline KWF e quale modulo presidia ciascuna</span></div></li>
+      <li><div class="k">06</div><div class="d"><strong>Geografia</strong><span>Gerarchia ISTAT: Nazione → Regione → Provincia → Comune</span></div></li>
+      <li><div class="k">07</div><div class="d"><strong>Developer Portal</strong><span>Indice delle pagine di documentazione attive in <code>developer/</code></span></div></li>
+      <li><div class="k">08</div><div class="d"><strong>Roadmap</strong><span>Stato di avanzamento: operativi, in sviluppo, pianificati</span></div></li>
+    </ul>
+    <div class="legend">
+      <div><span class="sdot l"></span> LIVE — dichiarato operativo (da verificare)</div>
+      <div><span class="sdot d"></span> In sviluppo</div>
+      <div><span class="sdot p"></span> Pianificato</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="snum">04 — Responsabilità</div>
+    <h2>Cosa deve fare lo sviluppatore</h2>
+    <p>EXOSKELETON resta utile solo se chi lavora rispetta queste regole. Sono il
+    contratto di manutenzione del documento.</p>
+    <ol class="do">
+      <li><strong>Trattalo come fonte unica per l'architettura, non per i numeri.</strong>
+        <p>Struttura, nomi dei moduli, flusso: qui. Conteggi e metriche: solo dal database.</p></li>
+      <li><strong>Verifica lo stato prima di citarlo.</strong>
+        <p>Prima di scrivere "LIVE" o un numero, conferma con una query di sola lettura.
+        Se non l'hai verificato, marcalo <code>DA VERIFICARE</code>.</p></li>
+      <li><strong>Aggiorna qui quando cambia l'architettura.</strong>
+        <p>Nuovo modulo, nuovo campo, cambio di flusso → si riflette in EXOSKELETON nella
+        stessa PR, non "dopo".</p></li>
+      <li><strong>Non duplicare la logica nel documento.</strong>
+        <p>EXOSKELETON rimanda alle pagine dei singoli moduli. Le regole di validazione
+        vivono in T.C.F.™, non riscritte qui.</p></li>
+      <li><strong>Ogni modifica con Extended Description completa.</strong>
+        <p>Regola assoluta del progetto: ogni commit documenta cosa è cambiato e perché,
+        in ogni sua parte.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="snum">05 — Punti aperti</div>
+    <h2>Da risolvere (TODO tracciati)</h2>
+    <p>Questi sono i disallineamenti noti tra documento e realtà. Restano qui, visibili,
+    finché non sono chiusi — non si nascondono.</p>
+    <ol class="do">
+      <li><strong>Nome tabella: <code>eventi</code> o <code>eventi_territoriali</code>?</strong>
+        <p>Lo schema KWF dice <code>eventi_territoriali</code>; le funzioni di ingestione
+        usavano <code>eventi</code>. Da allineare con un controllo sullo schema reale.</p></li>
+      <li><strong>Conteggio eventi reale.</strong>
+        <p>Chiudere il disallineamento 190 / 68 / 23 con <code>select count(*)</code> e
+        distribuzione per <code>istat_code</code>.</p></li>
+      <li><strong>Identità per il caricamento di massa.</strong>
+        <p><code>id_sequence</code> progressivo va bene per l'inserimento manuale ma non
+        è deterministico: non regge l'UPSERT in bulk. Serve una chiave calcolata
+        separata. Vedi pagina dedicata all'ingestione.</p></li>
+      <li><strong>Coerenza ISTAT ↔ comune.</strong>
+        <p>Verificare che ogni evento porti il codice del comune giusto (es. Ponza vs
+        Sermoneta) — è il Layer 2 della pipeline KWF.</p></li>
+    </ol>
+    <p class="note">Quando un punto si chiude, si sposta dalla roadmap "in sviluppo" a
+    "operativo" — solo dopo verifica dal vivo, mai per dichiarazione.</p>
+  </section>
+
+  <footer>
+    <span class="gr">MAMMUTH•EVENTS™</span> · EXOSKELETON™ · Developer Guide<br>
+    KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · Leonardo Adriano Chelariu
+  </footer>
+
+</div>
+</body>
+</html>
