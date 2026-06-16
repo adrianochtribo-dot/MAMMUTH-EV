@@ -7,347 +7,78 @@
 <link rel="icon" type="image/jpeg" href="favicon.jpeg?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Fraunces:ital,wght@0,300;0,400;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #c8a96e;
-    --gold-dim: #7a6240;
-    --bg: #080808;
-    --bg-2: #0f0f0f;
-    --bg-3: #161616;
-    --border: #222;
-    --silver: #a0a0a0;
-    --text: #e8e4dc;
-    --green: #4ade80;
-    --red: #ef4444;
-    --amber: #f0c040;
+  :root{
+    --gold:#c8a96e; --gold-dim:#7a6240;
+    --bg:#080808; --bg-2:#0f0f0f; --bg-3:#161616; --border:#222;
+    --silver:#a0a0a0; --text:#e8e4dc;
+    --green:#4ade80; --amber:#f0c040; --blue:#60a5fa; --purple:#8B7CF6;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    min-height: 100vh;
-    overflow-x: hidden;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;min-height:100vh}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.95);
+    border-bottom:1px solid var(--border);padding:0 40px;height:52px;
+    display:flex;align-items:center;justify-content:space-between}
+  .header-left{display:flex;align-items:center;gap:10px}
+  .header-left img{height:30px;width:auto;object-fit:contain;flex-shrink:0}
+  .header-right{display:flex;align-items:center;gap:8px;font-size:.6rem;
+    letter-spacing:.15em;color:var(--silver)}
+  .status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+  .hero{padding:120px 40px 50px;text-align:center;border-bottom:1px solid var(--border)}
+  .hero-label{font-size:.6rem;letter-spacing:.3em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:600;color:var(--gold);line-height:1.1;margin-bottom:12px}
+  .hero-sub{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;color:var(--silver);margin-bottom:32px}
+  .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:34px;font-size:.6rem;letter-spacing:.15em;color:var(--gold-dim)}
+  .hero-meta span{color:var(--gold)}
+
+  .container{max-width:880px;margin:0 auto;padding:50px 24px 100px}
+
+  .section-label{font-size:.6rem;letter-spacing:.25em;color:var(--gold-dim);
+    text-transform:uppercase;margin:44px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .section-label:first-child{margin-top:0}
+
+  /* ---- LISTA: una riga per modulo ---- */
+  .row{display:flex;align-items:center;gap:18px;padding:18px 6px;
+    border-bottom:1px solid #1a1a1a;text-decoration:none;color:inherit;
+    transition:background .15s,padding-left .15s;position:relative}
+  .row:hover{background:var(--bg-2);padding-left:16px}
+  .row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+    background:var(--gold);transform:scaleY(0);transition:transform .2s}
+  .row:hover::before{transform:scaleY(1)}
+
+  .row-main{flex:1;min-width:0}
+  .row-tag{font-size:.5rem;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:5px}
+  .row-title{font-family:'Cinzel',serif;font-size:1.02rem;font-weight:600;color:var(--gold);line-height:1.25}
+  .row-desc{font-family:'Fraunces',serif;font-style:italic;font-size:.78rem;color:var(--silver);margin-top:4px;line-height:1.45}
+
+  .row-right{display:flex;align-items:center;gap:16px;flex-shrink:0}
+  .status{font-size:.5rem;letter-spacing:.12em;display:flex;align-items:center;gap:6px;white-space:nowrap}
+  .status .d{width:6px;height:6px;border-radius:50%}
+  .s-green{color:var(--green)} .s-green .d{background:var(--green)}
+  .s-amber{color:var(--amber)} .s-amber .d{background:var(--amber)}
+  .s-blue{color:var(--blue)} .s-blue .d{background:var(--blue)}
+  .s-purple{color:var(--purple)} .s-purple .d{background:var(--purple)}
+  .arrow{color:var(--gold-dim);font-size:1.1rem;transition:transform .15s,color .15s}
+  .row:hover .arrow{color:var(--gold);transform:translateX(3px)}
+
+  @media(max-width:600px){
+    .row-right{flex-direction:column;align-items:flex-end;gap:6px}
+    .row-desc{display:none}
   }
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(8,8,8,0.95);
-    border-bottom: 1px solid var(--border);
-    padding: 0 40px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header-left {
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-  }
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--silver);
-  }
-  .status-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  .hero {
-    padding: 120px 40px 60px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 600;
-    color: var(--gold);
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-  .hero-sub {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 0.95rem;
-    color: var(--silver);
-    margin-bottom: 40px;
-  }
-  .hero-meta {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-dim);
-  }
-  .hero-meta span { color: var(--gold); }
-  .grid-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 40px;
-  }
-  .section-label {
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2px;
-    margin-bottom: 60px;
-  }
-  .card {
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    padding: 28px;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 2px;
-    height: 0;
-    background: var(--gold);
-    transition: height 0.3s ease;
-  }
-  .card:hover { background: var(--bg-3); border-color: var(--gold-dim); }
-  .card:hover::before { height: 100%; }
-  .card-tag {
-    font-size: 0.5rem;
-    letter-spacing: 0.2em;
-    color: var(--gold-dim);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .card-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .card-desc {
-    font-family: 'Fraunces', serif;
-    font-size: 0.8rem;
-    color: var(--silver);
-    line-height: 1.6;
-    font-style: italic;
-  }
-  .card-status {
-    margin-top: 16px;
-    font-size: 0.5rem;
-    letter-spacing: 0.15em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .dot-green { color: var(--green); }
-  .dot-amber { color: var(--amber); }
-  .dot-red { color: var(--red); }
-  .card-featured {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #0a0f0a 0%, #0f1a0f 100%);
-    border-color: var(--gold-dim);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  .card-featured .card-title { font-size: 1.3rem; }
-  .card-featured-badge {
-    flex-shrink: 0;
-    padding: 8px 20px;
-    border: 1px solid var(--gold);
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-  }
-  .card-exo {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #030d06 0%, #061209 100%);
-    border: 1px solid #1a3a22;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-exo::after {
-    content: 'EXOSKELETON';
-    position: absolute;
-    right: 180px;
-    font-family: 'Cinzel', serif;
-    font-size: 4rem;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(74,222,128,0.06);
-    pointer-events: none;
-    letter-spacing: .05em;
-    user-select: none;
-  }
-  .card-exo::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: var(--green);
-  }
-  .card-exo .card-title { font-size: 1.3rem; color: var(--green); }
-  .card-exo .card-tag { color: rgba(74,222,128,0.5); }
-  .card-exo-badge {
-    flex-shrink: 0;
-    padding: 10px 24px;
-    border: 1px solid var(--green);
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: var(--green);
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    transition: background .2s;
-    z-index: 1;
-  }
-  .card-exo-badge:hover { background: rgba(74,222,128,.08); }
-  .card-safety {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #030a0d 0%, #061218 100%);
-    border: 1px solid #1a2f3a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-safety::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: #60a5fa;
-  }
-  .card-safety .card-title { font-size: 1.3rem; color: #60a5fa; }
-  .card-safety .card-tag { color: rgba(96,165,250,0.5); }
-  .card-safety-badge {
-    flex-shrink: 0;
-    padding: 10px 24px;
-    border: 1px solid #60a5fa;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: #60a5fa;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    transition: background .2s;
-    z-index: 1;
-  }
-  .card-safety-badge:hover { background: rgba(96,165,250,.08); }
-  .card-geonode {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #08060f 0%, #0d0a1a 100%);
-    border: 1px solid #2a1a4a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .card-geonode::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 100%;
-    background: #8B7CF6;
-  }
-  .card-geonode .card-title { font-size: 1.3rem; color: #8B7CF6; }
-  .card-geonode .card-tag { color: rgba(139,124,246,0.5); }
-  .card-geonode-badge {
-    flex-shrink: 0;
-    padding: 10px 24px;
-    border: 1px solid #8B7CF6;
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-    color: #8B7CF6;
-    text-transform: uppercase;
-    text-decoration: none;
-    display: block;
-    transition: background .2s;
-    z-index: 1;
-  }
-  .card-geonode-badge:hover { background: rgba(139,124,246,.08); }
-  .card-devguide-badge {
-    flex-shrink: 0;
-    padding: 8px 18px;
-    border: 1px dashed var(--gold-dim);
-    font-size: 0.5rem;
-    letter-spacing: 0.18em;
-    color: var(--gold);
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 14px;
-    transition: background .2s, border-color .2s;
-  }
-  .card-devguide-badge:hover { background: var(--bg-3); border-color: var(--gold); }
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-dim);
-  }
-  .footer-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
+  footer{border-top:1px solid var(--border);padding:30px 40px;display:flex;flex-direction:column;gap:10px;
+    font-size:.55rem;letter-spacing:.15em;color:var(--gold-dim)}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-left" style="display:flex;align-items:center;gap:10px">
-    <img src="https://mammuth-frontend.vercel.app/kreatio-badge.png" alt="Timbro KREATIO · Nero Kaelum" style="height:38px;width:auto;object-fit:contain;flex-shrink:0">
+  <div class="header-left">
+    <img src="https://mammuth-frontend.vercel.app/kreatio-badge.png" alt="Timbro KREATIO · Nero Kaelum">
   </div>
   <div class="header-right">
     <div class="status-dot"></div>
@@ -358,184 +89,204 @@
 <div class="hero">
   <div class="hero-label">Sistema Integrato · MAMMUTH•EV™</div>
   <h1>Developer Portal</h1>
-  <p class="hero-sub">Architettura completa, protocolli di validazione e pipeline operative</p>
+  <p class="hero-sub">Tutti i moduli, uno per riga. Clicca e apri.</p>
   <div class="hero-meta">
-    <div>Pagine · <span>20</span></div>
     <div>Sistema · <span>ACTIVE</span></div>
     <div>Versione · <span>v2.0</span></div>
     <div>Code · <span>KWF-3620</span></div>
   </div>
 </div>
 
-<div class="grid-container">
+<div class="container">
 
+  <!-- 00 -->
   <div class="section-label">00 · Master Architecture Document</div>
-  <div class="grid">
-    <a href="exoskeleton-dev.html" class="card card-exo">
-      <div style="position:relative;z-index:1">
-        <div class="card-tag">Developer Reference · Architettura Completa</div>
-        <div class="card-title">EXOSKELETON™</div>
-        <div class="card-desc">Il documento di riferimento assoluto per lo sviluppo. Mappa di tutti i moduli KREATIO, flusso dati completo, tech stack, database schema KWF, validation pipeline 4 layer, gerarchia ISTAT e roadmap. Entry point unico per ogni sviluppatore.</div>
-        <div class="card-status dot-green">● MASTER DOC · 11 LIVE · 3 IN SVILUPPO · 5 PIANIFICATI</div>
-      </div>
-      <div class="card-exo-badge">Apri EXOSKELETON™ →</div>
-    </a>
-  </div>
+  <a class="row" href="exoskeleton-dev.html">
+    <div class="row-main">
+      <div class="row-tag">Developer Reference · Architettura Completa</div>
+      <div class="row-title">EXOSKELETON™</div>
+      <div class="row-desc">La mappa di tutti i moduli KREATIO. Entry point per ogni sviluppatore.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>MASTER DOC</span><span class="arrow">→</span></div>
+  </a>
 
+  <!-- 01 -->
   <div class="section-label">01 · Interfacce Principali</div>
-  <div class="grid">
-    <a href="../index.html" class="card card-featured">
-      <div>
-        <div class="card-tag">Homepage · Mappa Interattiva</div>
-        <div class="card-title">MAMMUTH•EV™ — Global Folk & Traditions</div>
-        <div class="card-desc">Mappa live degli eventi del microterritorio italiano. Geolocalizzazione certificata, dati ISTAT verificati.</div>
-        <div class="card-status dot-green">● LIVE · Where Communities Come Alive</div>
-      </div>
-      <div class="card-featured-badge">Apri Mappa →</div>
-    </a>
-    <a href="interfaces-dev.html" class="card">
-      <div class="card-tag">Developer Guide · Livello UI</div>
-      <div class="card-title">Interfacce Principali — Guida Sviluppatore</div>
-      <div class="card-desc">Documentazione tecnica del livello frontend: home, mappa, scheda evento, passaporto. Build status, superfici e lavoro aperto.</div>
-      <div class="card-status dot-amber">● IN PROGRESS</div>
-      <span class="card-devguide-badge">Apri Guida 01 →</span>
-    </a>
-    <a href="atlas-eventa-dev.html" class="card">
-      <div class="card-tag">Archivio · Database</div>
-      <div class="card-title">ATLAS•EVENTA™</div>
-      <div class="card-desc">Repository centrale degli eventi verificati. Struttura gerarchica per territorio, categoria e fonte.</div>
-      <div class="card-status dot-amber">● IN PROGRESS</div>
-      <span class="card-devguide-badge">Apri Guida 02 →</span>
-    </a>
-  </div>
+  <a class="row" href="../index.html">
+    <div class="row-main">
+      <div class="row-tag">Homepage · Mappa Interattiva</div>
+      <div class="row-title">MAMMUTH•EV™ — Global Folk &amp; Traditions</div>
+      <div class="row-desc">Mappa live degli eventi del microterritorio italiano.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>LIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="interfaces-dev.html">
+    <div class="row-main">
+      <div class="row-tag">Developer Guide · Livello UI</div>
+      <div class="row-title">Interfacce Principali — Guida Sviluppatore</div>
+      <div class="row-desc">Livello frontend: home, mappa, scheda evento, passaporto.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>IN PROGRESS</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="atlas-eventa-dev.html">
+    <div class="row-main">
+      <div class="row-tag">Archivio · Database</div>
+      <div class="row-title">ATLAS•EVENTA™</div>
+      <div class="row-desc">Repository centrale degli eventi verificati.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>IN PROGRESS</span><span class="arrow">→</span></div>
+  </a>
 
+  <!-- 02 -->
   <div class="section-label">02 · Sistema di Validazione T.C.F.™</div>
-  <div class="grid">
-    <a href="TCF-playground.html" class="card">
-      <div class="card-tag">Validazione · Interactive</div>
-      <div class="card-title">T.C.F.™ Playground</div>
-      <div class="card-desc">Motore di validazione interattivo. Testa record JSON in tempo reale contro i 4 pilastri del Total Coherence Framework.</div>
-      <div class="card-status dot-green">● ENGINE ACTIVE</div>
-    </a>
-    <a href="TCF-framework.html" class="card">
-      <div class="card-tag">Documentazione · Framework</div>
-      <div class="card-title">T.C.F.™ Framework</div>
-      <div class="card-desc">Specifica completa dei 4 pilastri: Coerenza Territoriale, Anti-Rumore, Validazione Ontologica, Auditabilità.</div>
-      <div class="card-status dot-green">● DOC ACTIVE</div>
-    </a>
-    <a href="COLOR-TRIAGE.html" class="card">
-      <div class="card-tag">Classificazione · Triage</div>
-      <div class="card-title">Color Triage System</div>
-      <div class="card-desc">Sistema di classificazione cromatica per stato e priorità dei record nel database.</div>
-      <div class="card-status dot-amber">● BETA</div>
-    </a>
-    <a href="THRESHOLD-5000.html" class="card">
-      <div class="card-tag">Soglie · Calibrazione</div>
-      <div class="card-title">Threshold 5000</div>
-      <div class="card-desc">Parametri di soglia per il sistema immunitario del dato. Calibrazione dinamica dell'ENTROPY_INDEX.</div>
-      <div class="card-status dot-amber">● BETA</div>
-    </a>
-    <a href="criterion-sanctus.html" class="card">
-      <div class="card-tag">Macchina della Verità · ID DNA</div>
-      <div class="card-title">CRITĒRION•SĀNCTUS</div>
-      <div class="card-desc">Protocollo di immunizzazione dati. ID sequenziale, triage V/G/R, log CID_HUB, analisi comportamentale e ban automatico.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-  </div>
+  <a class="row" href="TCF-playground.html">
+    <div class="row-main">
+      <div class="row-tag">Validazione · Interactive</div>
+      <div class="row-title">T.C.F.™ Playground</div>
+      <div class="row-desc">Motore di validazione interattivo. Testa record JSON in tempo reale.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ENGINE ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="TCF-framework.html">
+    <div class="row-main">
+      <div class="row-tag">Documentazione · Framework</div>
+      <div class="row-title">T.C.F.™ Framework</div>
+      <div class="row-desc">Specifica completa dei 4 pilastri del Total Coherence Framework.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>DOC ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="COLOR-TRIAGE.html">
+    <div class="row-main">
+      <div class="row-tag">Classificazione · Triage</div>
+      <div class="row-title">Color Triage System</div>
+      <div class="row-desc">Classificazione cromatica per stato e priorità dei record.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>BETA</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="THRESHOLD-5000.html">
+    <div class="row-main">
+      <div class="row-tag">Soglie · Calibrazione</div>
+      <div class="row-title">Threshold 5000</div>
+      <div class="row-desc">Parametri di soglia per il sistema immunitario del dato.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>BETA</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="criterion-sanctus.html">
+    <div class="row-main">
+      <div class="row-tag">Macchina della Verità · ID DNA</div>
+      <div class="row-title">CRITĒRION•SĀNCTUS</div>
+      <div class="row-desc">Protocollo di immunizzazione dati. ID sequenziale, log CID_HUB, ban automatico.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
 
+  <!-- 03 -->
   <div class="section-label">03 · Core System Architecture</div>
-  <div class="grid">
-    <a href="JLX.html" class="card">
-      <div class="card-tag">Linguaggio · Normalizzazione</div>
-      <div class="card-title">JLX™ — JOKA Language Extended</div>
-      <div class="card-desc">Standard di normalizzazione del dato. Ogni record espresso in forma univoca, leggibile dalla macchina e conforme agli standard KREATIO.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-    <a href="MORPHEUS-JLX.html" class="card">
-      <div class="card-tag">Anti-Rumore · Filtro</div>
-      <div class="card-title">MORPHEUS•JLX™</div>
-      <div class="card-desc">Sistema di soppressione del rumore semantico. Pilastro 02 del T.C.F.™ — elimina duplicati e anomalie contestuali.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-    <a href="BRAIN-BOX.html" class="card">
-      <div class="card-tag">Repository · Memoria</div>
-      <div class="card-title">Brain Box Global System™</div>
-      <div class="card-desc">Vertice gerarchico della pipeline. Repository finale con memoria immutabile, data certa e firma digitale CODE 3620.</div>
-      <div class="card-status dot-green">● ARCHIVE ACTIVE</div>
-    </a>
-    <a href="QDC-v.html" class="card">
-      <div class="card-tag">Qualità · Certificazione</div>
-      <div class="card-title">QDC-v™</div>
-      <div class="card-desc">Quality Data Certification. Protocollo di certificazione finale prima dell'ingresso nel Brain Box.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-    <a href="CODE-3620.html" class="card">
-      <div class="card-tag">Identità · Firma</div>
-      <div class="card-title">CODE 3620</div>
-      <div class="card-desc">Firma digitale del sistema KREATIO. Impronta di provenienza, integrità e conformità su ogni blocco di dati.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-  </div>
+  <a class="row" href="JLX.html">
+    <div class="row-main">
+      <div class="row-tag">Linguaggio · Normalizzazione</div>
+      <div class="row-title">JLX™ — JOKA Language Extended</div>
+      <div class="row-desc">Standard di normalizzazione del dato in forma univoca.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="MORPHEUS-JLX.html">
+    <div class="row-main">
+      <div class="row-tag">Anti-Rumore · Filtro</div>
+      <div class="row-title">MORPHEUS•JLX™</div>
+      <div class="row-desc">Soppressione del rumore semantico. Elimina duplicati e anomalie.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="BRAIN-BOX.html">
+    <div class="row-main">
+      <div class="row-tag">Repository · Memoria</div>
+      <div class="row-title">Brain Box Global System™</div>
+      <div class="row-desc">Repository finale con memoria immutabile e firma CODE 3620.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ARCHIVE ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="QDC-v.html">
+    <div class="row-main">
+      <div class="row-tag">Qualità · Certificazione</div>
+      <div class="row-title">QDC-v™</div>
+      <div class="row-desc">Quality Data Certification. Certificazione finale prima del Brain Box.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="CODE-3620.html">
+    <div class="row-main">
+      <div class="row-tag">Identità · Firma</div>
+      <div class="row-title">CODE 3620</div>
+      <div class="row-desc">Firma digitale del sistema KREATIO su ogni blocco di dati.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
 
+  <!-- 04 -->
   <div class="section-label">04 · Safety Engine — API Live</div>
-  <div class="grid">
-    <a href="https://mammuth-ev-production.up.railway.app/docs" target="_blank" class="card card-safety">
-      <div style="position:relative;z-index:1">
-        <div class="card-tag">API Live · Railway.app · Python 3.12 · FastAPI 0.111.0</div>
-        <div class="card-title">Safety Engine™ — Scenario A</div>
-        <div class="card-desc">Motore predittivo crowd crush basato su standard Fruin LoS. Calcola risk score 0–1, livello rischio, analisi bottleneck e match storico su incidenti reali. Filosofia: INFORMARE, CONSIGLIARE, MITIGARE — mai vietare.</div>
-        <div class="card-status" style="color:#60a5fa">● LIVE · mammuth-ev-production.up.railway.app</div>
-      </div>
-      <div class="card-safety-badge">Apri Swagger →</div>
-    </a>
-    <a href="https://mammuth-ev-production.up.railway.app/api/v1/safety/health" target="_blank" class="card">
-      <div class="card-tag">Health Check · GET</div>
-      <div class="card-title">Safety Engine · Health</div>
-      <div class="card-desc">Endpoint di monitoring. Restituisce status, scenario e versione del Safety Engine in produzione.</div>
-      <div class="card-status dot-green">● /api/v1/safety/health</div>
-    </a>
-  </div>
+  <a class="row" href="https://mammuth-ev-production.up.railway.app/docs" target="_blank">
+    <div class="row-main">
+      <div class="row-tag">API Live · Railway · FastAPI</div>
+      <div class="row-title">Safety Engine™ — Scenario A</div>
+      <div class="row-desc">Motore predittivo crowd crush. Informare, consigliare, mitigare — mai vietare.</div>
+    </div>
+    <div class="row-right"><span class="status s-blue"><span class="d"></span>LIVE · API</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="https://mammuth-ev-production.up.railway.app/api/v1/safety/health" target="_blank">
+    <div class="row-main">
+      <div class="row-tag">Health Check · GET</div>
+      <div class="row-title">Safety Engine · Health</div>
+      <div class="row-desc">Endpoint di monitoring. Status, scenario e versione in produzione.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>HEALTH</span><span class="arrow">→</span></div>
+  </a>
 
-  <div class="section-label">05 · Ricerca & Sviluppo</div>
-  <div class="grid">
-    <a href="ANTHROPIC-HOLE.html" class="card">
-      <div class="card-tag">AI · Integrazione</div>
-      <div class="card-title">Anthropic Hole</div>
-      <div class="card-desc">Interfaccia di integrazione con modelli AI per validazione semantica profonda e cross-referencing automatico.</div>
-      <div class="card-status dot-amber">● EXPERIMENTAL</div>
-    </a>
-    <a href="to-fill-the-void-strategy.html" class="card">
-      <div class="card-tag">Strategia · Saturazione Territoriale</div>
-      <div class="card-title">To Fill The Void™ — Strategia</div>
-      <div class="card-desc">Filosofia e strategia WhatsApp per la saturazione territoriale. 3 garanzie, logica crowdsourcing, pipeline ingestion.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-    <a href="to-fill-the-void.html" class="card">
-      <div class="card-tag">Protocollo · Gamification</div>
-      <div class="card-title">To Fill The Void™ — Protocollo PIQ/ENR/LEM</div>
-      <div class="card-desc">3 pilastri operativi: Incentivo Qualitativo, Eliminazione Rumore, Leva Emotiva. Gamification funzionale per la Verità Territoriale.</div>
-      <div class="card-status dot-green">● ACTIVE</div>
-    </a>
-    <a href="JUST-ONE-CLICK-AWAY.html" class="card">
-      <div class="card-tag">UX · Onboarding</div>
-      <div class="card-title">Just One Click Away</div>
-      <div class="card-desc">Interfaccia di inserimento rapido eventi per operatori territoriali. Riduce il tempo di inserimento a un click certificato.</div>
-      <div class="card-status dot-amber">● BETA</div>
-    </a>
-  </div>
+  <!-- 05 -->
+  <div class="section-label">05 · Ricerca &amp; Sviluppo</div>
+  <a class="row" href="ANTHROPIC-HOLE.html">
+    <div class="row-main">
+      <div class="row-tag">AI · Integrazione</div>
+      <div class="row-title">Anthropic Hole</div>
+      <div class="row-desc">Integrazione con modelli AI per validazione semantica profonda.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>EXPERIMENTAL</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="to-fill-the-void-strategy.html">
+    <div class="row-main">
+      <div class="row-tag">Strategia · Saturazione Territoriale</div>
+      <div class="row-title">To Fill The Void™ — Strategia</div>
+      <div class="row-desc">Filosofia e strategia WhatsApp per la saturazione territoriale.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="to-fill-the-void.html">
+    <div class="row-main">
+      <div class="row-tag">Protocollo · Gamification</div>
+      <div class="row-title">To Fill The Void™ — Protocollo PIQ/ENR/LEM</div>
+      <div class="row-desc">3 pilastri operativi: Incentivo, Eliminazione Rumore, Leva Emotiva.</div>
+    </div>
+    <div class="row-right"><span class="status s-green"><span class="d"></span>ACTIVE</span><span class="arrow">→</span></div>
+  </a>
+  <a class="row" href="JUST-ONE-CLICK-AWAY.html">
+    <div class="row-main">
+      <div class="row-tag">UX · Onboarding</div>
+      <div class="row-title">Just One Click Away</div>
+      <div class="row-desc">Inserimento rapido eventi per operatori territoriali.</div>
+    </div>
+    <div class="row-right"><span class="status s-amber"><span class="d"></span>BETA</span><span class="arrow">→</span></div>
+  </a>
 
+  <!-- 06 -->
   <div class="section-label">06 · Global Territory Architecture</div>
-  <div class="grid">
-    <a href="geonode.html" class="card card-geonode">
-      <div style="position:relative;z-index:1">
-        <div class="card-tag">Data Architecture · Global · Open Data · 249 Paesi</div>
-        <div class="card-title">MAMMUTH•GEONODE™</div>
-        <div class="card-desc">Layer di identificazione territoriale universale. Da Sermoneta a Tahiti — 249 paesi, 15+ identificatori per territorio, architettura Worker Python/Redpanda/Redis. ISTAT · LAU · NUTS · ISO 3166 · INSEE DOM-TOM · ISO 4217. Qualsiasi punto del globo, zero adattamenti.</div>
-        <div class="card-status" style="color:#8B7CF6">● v1.0 · 5-PHASE ROADMAP · GLOBAL EXPANSION READY</div>
-      </div>
-      <div class="card-geonode-badge">Apri GEONODE™ →</div>
-    </a>
-  </div>
+  <a class="row" href="geonode.html">
+    <div class="row-main">
+      <div class="row-tag">Data Architecture · Global · 249 Paesi</div>
+      <div class="row-title">MAMMUTH•GEONODE™</div>
+      <div class="row-desc">Identificazione territoriale universale. Da Sermoneta a Tahiti.</div>
+    </div>
+    <div class="row-right"><span class="status s-purple"><span class="d"></span>v1.0</span><span class="arrow">→</span></div>
+  </a>
 
 </div>
 
@@ -544,7 +295,7 @@
     <div>MAMMUTH•EV™ · KREATIO UNIVERSAL SYSTEM™ · KWF-3620</div>
     <div>Developer Portal · v2.0 · <span style="color:var(--green)">● SYSTEM ACTIVE</span></div>
   </div>
-  <div style="color:#3a3a2a;font-size:0.5rem;letter-spacing:0.1em;text-align:center">MAMMUTH™ · MAMMUTH•EVENTS™ are trademarks of Leonardo Adriano Chelariu. All rights reserved.</div>
+  <div style="color:#3a3a2a;font-size:.5rem;letter-spacing:.1em;text-align:center">MAMMUTH™ · MAMMUTH•EVENTS™ are trademarks of Leonardo Adriano Chelariu. All rights reserved.</div>
 </footer>
 
 </body>
