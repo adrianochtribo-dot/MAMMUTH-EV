@@ -3,267 +3,804 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COLOR TRIAGE RAW PARKING — Pre-Processing Engine | KREATIO UNIVERSAL SYSTEM™</title>
+  <title>T.C.F.™ — Total Coherence Framework | KREATIO UNIVERSAL SYSTEM™</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
   <style>
-    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--orange:#e07b39;--silver:#a8b8c8;--triage:#d4a017;}
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
-    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8c98a;
+      --gold-dim: #7a6240;
+      --bg: #080808;
+      --bg-2: #0f0f0f;
+      --bg-3: #161616;
+      --border: #222;
+      --border-gold: #3a2e1a;
+      --text: #d4c4a8;
+      --text-dim: #6a5f4e;
+      --red: #c0392b;
+      --blue: #6e9ec9;
+      --green: #7ab88a;
+    }
 
-    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
-    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
-    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
-    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--triage);}
-    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--triage);animation:pulse 2s infinite;}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    main{max-width:1100px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    .hero{padding:80px 0 60px;border-bottom:1px solid var(--border-gold);margin-bottom:80px;position:relative;overflow:hidden;}
-    .hero::after{content:'CT';position:absolute;right:-20px;top:30%;transform:translateY(-50%);font-family:'Cinzel',serif;font-size:14rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(212,160,23,0.04);pointer-events:none;}
-    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
-    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.4rem,3.5vw,2.8rem);font-weight:600;color:var(--gold);line-height:1.1;letter-spacing:0.05em;margin-bottom:8px;}
-    .hero h1 span{display:block;font-size:0.35em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:12px;}
-    .hero-desc{max-width:660px;margin-top:32px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
-    .hero-meta{margin-top:40px;display:flex;gap:40px;flex-wrap:wrap;}
-    .hero-meta-item{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);}
-    .hero-meta-item strong{display:block;color:var(--gold);font-size:0.75rem;margin-bottom:4px;}
+    /* NOISE TEXTURE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
 
-    section{margin-bottom:80px;}
-    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
-    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-    .section-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:32px;}
+    /* TOP HEADER */
+    .sys-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(8,8,8,0.95);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+    }
 
-    .definition{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--triage);padding:32px 36px;margin-bottom:40px;position:relative;}
-    .definition::before{content:'§';position:absolute;top:24px;right:28px;font-family:'Cinzel',serif;font-size:2rem;color:var(--border-gold);}
-    .definition p{font-size:1rem;line-height:1.9;color:var(--text);}
+    .sys-header .brand {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+    }
 
-    /* TRIAGE VISUAL */
-    .triage-visual{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:40px;}
-    .tv-item{padding:36px 32px;}
-    .tv-triage{background:rgba(212,160,23,0.05);border-top:3px solid var(--triage);}
-    .tv-parking{background:rgba(110,158,201,0.05);border-top:3px solid var(--blue);}
-    .tv-label{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.3em;margin-bottom:12px;text-transform:uppercase;}
-    .tv-triage .tv-label{color:var(--triage);}
-    .tv-parking .tv-label{color:var(--blue);}
-    .tv-title{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--gold);letter-spacing:0.1em;margin-bottom:12px;}
-    .tv-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.7;}
+    .sys-header .code {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.15em;
+    }
 
-    /* COLOR CODES */
-    .color-codes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);margin-bottom:40px;}
-    .cc-item{background:var(--bg-2);padding:24px;text-align:center;transition:background 0.3s;}
-    .cc-item:hover{background:var(--bg-3);}
-    .cc-dot{width:20px;height:20px;border-radius:50%;margin:0 auto 12px;}
-    .cc-status{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.25em;margin-bottom:8px;text-transform:uppercase;}
-    .cc-desc{font-size:0.78rem;color:var(--text-dim);line-height:1.5;}
+    .sys-header .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--green);
+      letter-spacing: 0.1em;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 40px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--border-gold);
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: 'T.C.F.™';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 10rem;
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,169,110,0.06);
+      pointer-events: none;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: 0.4em;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      margin-top: 32px;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .hero-meta {
+      margin-top: 40px;
+      display: flex;
+      gap: 40px;
+    }
+
+    .hero-meta-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+    }
+
+    /* SECTION */
+    section {
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+
+    /* DEFINITION BLOCK */
+    .definition {
+      background: var(--bg-2);
+      border: 1px solid var(--border-gold);
+      border-left: 3px solid var(--gold);
+      padding: 32px 36px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .definition::before {
+      content: '§';
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: var(--border-gold);
+    }
+
+    .definition p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text);
+    }
+
+    /* PILLARS GRID */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .pillar {
+      background: var(--bg-2);
+      padding: 36px 32px;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .pillar:hover {
+      background: var(--bg-3);
+    }
+
+    .pillar-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .pillar-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .pillar-tag {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      padding: 4px 10px;
+      border: 1px solid var(--border-gold);
+      color: var(--gold-dim);
+    }
 
     /* PIPELINE */
-    .pipeline{background:var(--bg-2);border:1px solid var(--border-gold);padding:32px;margin-bottom:40px;}
-    .p-title{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;color:var(--gold-dim);margin-bottom:24px;text-transform:uppercase;}
-    .p-flow{display:flex;align-items:center;flex-wrap:wrap;}
-    .p-node{border:1px solid var(--border-gold);padding:12px 14px;text-align:center;flex:1;min-width:85px;}
-    .p-node-name{font-family:'Cinzel',serif;font-size:0.58rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:3px;}
-    .p-node-sub{font-family:'DM Mono',monospace;font-size:0.45rem;color:var(--text-dim);}
-    .p-node.entry{border-color:var(--triage);border-width:2px;}
-    .p-node.entry .p-node-name{color:var(--triage);}
-    .p-arrow{font-family:'DM Mono',monospace;color:var(--gold-dim);font-size:0.9rem;padding:0 4px;flex-shrink:0;}
+    .pipeline {
+      margin-bottom: 40px;
+    }
 
-    /* FUNCTIONS */
-    .functions{margin-bottom:40px;}
-    .func{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
-    .func:last-child{border-bottom:none;}
-    .func-num{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:900;color:var(--border-gold);min-width:50px;line-height:1;padding-top:4px;}
-    .func-content{flex:1;}
-    .func-title{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:6px;}
-    .func-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.6;}
+    .pipeline-step {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .pipeline-step:last-child {
+      border-bottom: none;
+    }
+
+    .step-index {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.2em;
+      min-width: 40px;
+      padding-top: 4px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .step-arrow {
+      font-family: 'DM Mono', monospace;
+      color: var(--gold-dim);
+      font-size: 1.2rem;
+      padding-top: 2px;
+    }
 
     /* CODE BLOCK */
-    .code-block{background:#050505;border:1px solid var(--border);border-left:3px solid var(--triage);padding:28px 32px;margin:24px 0;overflow-x:auto;}
-    .code-block pre{font-family:'DM Mono',monospace;font-size:0.78rem;line-height:1.8;color:#8ea8c0;}
-    .comment{color:#3a4a3a;}.key{color:var(--gold);}.value{color:var(--green);}
-    .string{color:#a0c8a0;}.label{color:var(--blue);}.num{color:var(--amber);}.triage{color:var(--triage);}
+    .code-block {
+      background: #050505;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      padding: 28px 32px;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
 
-    /* WARNING */
-    .warning{background:rgba(192,57,43,0.06);border:1px solid rgba(192,57,43,0.2);border-left:3px solid var(--red);padding:28px 32px;margin-bottom:40px;}
-    .w-title{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--red);letter-spacing:0.1em;margin-bottom:10px;}
-    .w-desc{font-size:0.85rem;color:var(--text-dim);line-height:1.6;}
+    .code-block pre {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      color: #8ea8c0;
+    }
 
-    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:1100px;margin:0 auto;position:relative;z-index:1;}
-    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
-    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
-    .footer-links{display:flex;gap:20px;margin-top:12px;}
-    .footer-links a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.15em;}
-    .footer-links a:hover{color:var(--gold);}
-    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+    .code-block .comment { color: #3a4a3a; }
+    .code-block .key { color: var(--gold); }
+    .code-block .value { color: var(--green); }
+    .code-block .string { color: #a0c8a0; }
+    .code-block .label { color: var(--blue); }
 
-    .fade-in{opacity:0;transform:translateY(20px);animation:fadeIn 0.8s ease forwards;}
-    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
-    .fade-in:nth-child(1){animation-delay:0.1s}.fade-in:nth-child(2){animation-delay:0.2s}.fade-in:nth-child(3){animation-delay:0.3s}.fade-in:nth-child(4){animation-delay:0.4s}
+    /* TAXONOMY TABLE */
+    .taxonomy {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      font-size: 0.85rem;
+    }
 
-    @media(max-width:768px){main{padding:100px 20px 60px;}.triage-visual{grid-template-columns:1fr;}.color-codes{grid-template-columns:1fr;}.hero::after{display:none;}footer{flex-direction:column;gap:20px;}}
+    .taxonomy thead tr {
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .taxonomy th {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 400;
+    }
+
+    .taxonomy td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dim);
+      vertical-align: top;
+    }
+
+    .taxonomy tr:hover td {
+      background: var(--bg-2);
+      color: var(--text);
+    }
+
+    .taxonomy .cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .taxonomy .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      border: 1px solid currentColor;
+    }
+
+    .badge-high { color: var(--red); border-color: var(--red); }
+    .badge-med { color: var(--gold-dim); border-color: var(--gold-dim); }
+    .badge-low { color: var(--text-dim); border-color: var(--border); }
+
+    /* INTEGRATION BOX */
+    .integration-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .int-item {
+      background: var(--bg-2);
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .int-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 10px;
+    }
+
+    .int-desc {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-gold);
+      padding: 40px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-sig {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.2em;
+      line-height: 2;
+    }
+
+    .footer-sig strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .footer-glyph {
+      font-size: 1.2rem;
+      color: var(--border-gold);
+      letter-spacing: 0.1em;
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+    .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+    @media (max-width: 768px) {
+      main { padding: 100px 20px 60px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .integration-box { grid-template-columns: 1fr; }
+      .hero::after { display: none; }
+      footer { flex-direction: column; gap: 20px; }
+    }
   </style>
 </head>
 <body>
 
+<!-- SYSTEM HEADER -->
 <header class="sys-header">
   <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
-  <span class="code">DOC-CT-001 · v1.0</span>
-  <span class="status"><span class="status-dot"></span>TRIAGE ACTIVE</span>
+  <span class="code">DOC-TCF-001 · v1.0</span>
+  <span class="status">
+    <span class="status-dot"></span>
+    FRAMEWORK ACTIVE
+  </span>
 </header>
 
 <main>
 
+  <!-- HERO -->
   <div class="hero fade-in">
-    <div class="hero-label">Pre-Processing Engine Document</div>
-    <h1>COLOR TRIAGE RAW PARKING<span>Anticamera di Controllo · Barriera Anti-Entropia</span></h1>
-    <p class="hero-desc">Il primo stadio di ingresso per tutto il flusso informativo. La barriera protettiva che impedisce che il disordine del mondo esterno inquini la purezza del database principale — BRAIN BOX GLOBAL SYSTEM™.</p>
+    <div class="hero-label">Technical Architecture Document</div>
+    <h1>
+      T.C.F.™
+      <span>Total Coherence Framework</span>
+    </h1>
+    <p class="hero-desc">
+      Protocollo di validazione logica e culturale progettato per garantire l'integrità dei dati all'interno dell'ecosistema ATLAS•EVENTA™. Il guardiano che trasforma una massa disordinata di informazioni in una struttura dati certificata.
+    </p>
     <div class="hero-meta">
-      <div class="hero-meta-item"><strong>TIPO</strong>Pre-Processing Engine</div>
-      <div class="hero-meta-item"><strong>POSIZIONE</strong>Primo stadio della pipeline</div>
-      <div class="hero-meta-item"><strong>FUNZIONE</strong>Triage · Parking · Anti-Chaos</div>
-      <div class="hero-meta-item"><strong>PRINCIPIO</strong>Difesa contro l'Entropia</div>
+      <div class="hero-meta-item">
+        <strong>SISTEMA PADRE</strong>
+        KREATIO UNIVERSAL SYSTEM™
+      </div>
+      <div class="hero-meta-item">
+        <strong>COMPONENTE</strong>
+        ATLAS•EVENTA™
+      </div>
+      <div class="hero-meta-item">
+        <strong>TIPO</strong>
+        Validation Protocol
+      </div>
+      <div class="hero-meta-item">
+        <strong>PRIORITÀ</strong>
+        Critical
+      </div>
     </div>
   </div>
 
   <!-- DEFINIZIONE -->
   <section class="fade-in">
-    <div class="section-label">00 · Definizione</div>
-    <h2 class="section-title">La Duplice Natura</h2>
-    <div class="triage-visual">
-      <div class="tv-item tv-triage">
-        <div class="tv-label">Color Triage · La Selezione</div>
-        <div class="tv-title">Codifica per Priorità</div>
-        <div class="tv-desc">Come in un sistema di emergenza, i dati vengono analizzati e "codificati" per colore o priorità. Il Triage separa il grano dal loglio: scarta il rumore, identifica le informazioni di valore e prepara il materiale per la normalizzazione JLX.</div>
-      </div>
-      <div class="tv-item tv-parking">
-        <div class="tv-label">Raw Parking · L'Area di Parcheggio</div>
-        <div class="tv-title">Limbo Sicuro</div>
-        <div class="tv-desc">Qui vengono depositati i dati "grezzi" non ancora pronti per la certificazione QDC.v. Il Parking è un limbo sicuro: il dato non viene cestinato, ma parcheggiato affinché MORPHEUS•JLX™ possa lavorarci senza che il sistema principale ne risenta.</div>
-      </div>
-    </div>
+    <div class="section-label">01 · Definizione</div>
+    <h2 class="section-title">Cos'è il T.C.F.™</h2>
     <div class="definition">
-      <p>Il <strong style="color:var(--triage)">COLOR TRIAGE RAW PARKING</strong> è il motore di pre-processazione che agisce come barriera protettiva. Senza di esso, l'intero KREATIO UNIVERSAL SYSTEM™ collasserebbe sotto il peso della propria espansione. Accettare dati non processati direttamente nel nucleo significherebbe corrompere l'integrità e vanificare il lavoro di T.C.F.™</p>
-    </div>
-  </section>
-
-  <!-- COLOR CODES -->
-  <section class="fade-in">
-    <div class="section-label">01 · Sistema di Codifica</div>
-    <h2 class="section-title">Color Coding · Priorità di Processazione</h2>
-    <div class="color-codes">
-      <div class="cc-item">
-        <div class="cc-dot" style="background:var(--green)"></div>
-        <div class="cc-status" style="color:var(--green)">GREEN · READY</div>
-        <div class="cc-desc">Dato completo, fonte verificata, nessun duplicato rilevato. Pronto per MORPHEUS•JLX™ → T.C.F.™ → QDC.v.</div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-dot" style="background:var(--amber)"></div>
-        <div class="cc-status" style="color:var(--amber)">AMBER · PARKING</div>
-        <div class="cc-desc">Dato incompleto o fonte non verificata. Parcheggiato in attesa di completamento. Non consumare EVENT_ID.</div>
-      </div>
-      <div class="cc-item">
-        <div class="cc-dot" style="background:var(--red)"></div>
-        <div class="cc-status" style="color:var(--red)">RED · REJECTED</div>
-        <div class="cc-desc">Duplicato confermato, rumore puro o dato irrecuperabile. Scartato definitivamente. Log registrato per audit.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POSIZIONE PIPELINE -->
-  <section class="fade-in">
-    <div class="section-label">02 · Posizione nel Sistema</div>
-    <h2 class="section-title">Primo Stadio della Pipeline</h2>
-    <div class="pipeline">
-      <div class="p-title">Data Flow · COLOR TRIAGE come Primo Filtro</div>
-      <div class="p-flow">
-        <div class="p-node entry"><div class="p-node-name">COLOR TRIAGE</div><div class="p-node-sub">Raw Parking</div></div>
-        <span class="p-arrow">→</span>
-        <div class="p-node" style="border-color:rgba(155,127,199,0.4)"><div class="p-node-name" style="color:var(--purple)">MORPHEUS•JLX™</div><div class="p-node-sub">Clean</div></div>
-        <span class="p-arrow">→</span>
-        <div class="p-node"><div class="p-node-name">T.C.F.™</div><div class="p-node-sub">Validate</div></div>
-        <span class="p-arrow">→</span>
-        <div class="p-node" style="border-color:var(--gold-dim)"><div class="p-node-name">ATLAS•EVENTA™</div><div class="p-node-sub">Certified</div></div>
-        <span class="p-arrow">→</span>
-        <div class="p-node" style="border-color:rgba(78,201,176,0.4)"><div class="p-node-name" style="color:var(--cyan)">QDC.v.</div><div class="p-node-sub">Sealed</div></div>
-        <span class="p-arrow">→</span>
-        <div class="p-node" style="border-color:rgba(168,184,200,0.4)"><div class="p-node-name" style="color:var(--silver)">BRAIN BOX</div><div class="p-node-sub">Archive ∞</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FUNZIONI -->
-  <section class="fade-in">
-    <div class="section-label">03 · Interazione con l'Ecosistema</div>
-    <h2 class="section-title">Le Tre Funzioni Operative</h2>
-    <div class="functions">
-      <div class="func">
-        <div class="func-num">1</div>
-        <div class="func-content">
-          <div class="func-title">Filtro Anti-Caos</div>
-          <div class="func-desc">Il sistema chiede: "Questo dato è utile? È già presente? È completo?". Se la risposta è no, il dato resta nel Parking finché non viene completato. Nessun dato incompleto entra nel nucleo del sistema.</div>
-        </div>
-      </div>
-      <div class="func">
-        <div class="func-num">2</div>
-        <div class="func-content">
-          <div class="func-title">Gestione della Ridondanza</div>
-          <div class="func-desc">Il motore identifica i duplicati <strong style="color:var(--triage)">prima ancora che arrivino nel database</strong>. Invece di consumare inutilmente un nuovo EVENT_ID, il sistema rileva la sovrapposizione e sposta il dato in una coda di unione o aggiornamento dell'istanza esistente.</div>
-        </div>
-      </div>
-      <div class="func">
-        <div class="func-num">3</div>
-        <div class="func-content">
-          <div class="func-title">Ambiente di Lavoro Sicuro</div>
-          <div class="func-desc">È l'area dove operano gli algoritmi di pulizia. Mantenendo i dati "grezzi" separati dal cuore del sistema, garantisce che il BRAIN BOX rimanga un ambiente incontaminato dove risiedono solo dati che hanno già superato tutti i test di conformità.</div>
-        </div>
-      </div>
+      <p>
+        Il <strong style="color:var(--gold)">T.C.F.™ (Total Coherence Framework)</strong> è una componente architetturale fondamentale del sistema KREATIO UNIVERSAL SYSTEM™. Si tratta di un protocollo di validazione logica e culturale la cui funzione primaria è operare come <em>filtro di coerenza</em>: ogni dato, evento o istanza che transita nel sistema deve superare questo "esame" per essere considerato valido e integrato nel database ATLAS•EVENTA™.
+      </p>
     </div>
 
     <div class="code-block">
-      <pre><span class="comment">// COLOR TRIAGE RAW PARKING — Incoming Record Schema</span>
+      <pre><span class="comment">// TCF Validation Schema — Entry Point</span>
 {
-  <span class="key">"raw_id"</span>: <span class="string">"raw-tmp-20260602-001"</span>,
-  <span class="key">"source"</span>: <span class="string">"web_scraping"</span>,
-  <span class="key">"raw_data"</span>: { <span class="label">...</span> },
-  <span class="key">"triage_status"</span>: <span class="triage">PENDING</span>, <span class="comment">// → GREEN | AMBER | RED</span>
-  <span class="key">"duplicate_check"</span>: <span class="value">false</span>,
-  <span class="key">"completeness_score"</span>: <span class="num">0.72</span>, <span class="comment">// &lt; 1.0 → PARKING</span>
-  <span class="key">"parking_reason"</span>: <span class="string">"source_unverified"</span>,
-  <span class="key">"event_id_consumed"</span>: <span class="value">false</span>, <span class="comment">// NEVER before GREEN</span>
-  <span class="key">"morpheus_queue"</span>: <span class="value">WAITING</span>,
-  <span class="key">"created"</span>: <span class="string">"2026-06-02T16:30:00Z"</span>
+  <span class="key">"tcf_version"</span>: <span class="string">"1.0.0"</span>,
+  <span class="key">"system"</span>: <span class="string">"KREATIO_UNIVERSAL_SYSTEM"</span>,
+  <span class="key">"component"</span>: <span class="string">"ATLAS_EVENTA"</span>,
+  <span class="key">"validation_pillars"</span>: [
+    <span class="string">"TERRITORIAL_COHERENCE"</span>,
+    <span class="string">"ANTI_NOISE_MORPHEUS_JLX"</span>,
+    <span class="string">"ONTOLOGICAL_VALIDATION"</span>,
+    <span class="string">"AUDITABILITY"</span>
+  ],
+  <span class="key">"entry_status"</span>: <span class="value">PENDING</span> <span class="comment">// → VALIDATED | REJECTED | FLAGGED</span>
 }</pre>
     </div>
   </section>
 
-  <!-- WARNING -->
+  <!-- PILLARS -->
   <section class="fade-in">
-    <div class="section-label">04 · Regola Critica</div>
-    <h2 class="section-title">La Difesa contro l'Entropia</h2>
-    <div class="warning">
-      <div class="w-title">⚠ VINCOLO ASSOLUTO — EVENT_ID Mai Consumato in PARKING</div>
-      <div class="w-desc">Un EVENT_ID viene assegnato <strong>esclusivamente</strong> quando il dato ha superato il COLOR TRIAGE con status GREEN. Un dato in stato AMBER o RED nel Raw Parking non riceve mai un EVENT_ID progressivo. Questo garantisce l'integrità del VINCOLO DI NUMERAZIONE ID sequenziale di tutto il sistema.</div>
+    <div class="section-label">02 · Architettura</div>
+    <h2 class="section-title">I Quattro Pilastri</h2>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-number">PILLAR · 01</div>
+        <div class="pillar-name">Coerenza<br>Territoriale</div>
+        <div class="pillar-desc">Verifica che l'evento sia strettamente ancorato alla realtà geografica e culturale del territorio dichiarato. Impedisce l'inserimento di dati generici, errati o privi di contesto locale.</div>
+        <span class="pillar-tag">GEO-ANCHOR VALIDATION</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">PILLAR · 02</div>
+        <div class="pillar-name">Anti-Rumore<br>Morpheus·JLX™</div>
+        <div class="pillar-desc">Lavora in sinergia con il pipeline di deduplicazione per scartare "rumore" informativo, duplicati camuffati o inserimenti non pertinenti che potrebbero compromettere la qualità del database.</div>
+        <span class="pillar-tag">DEDUP · NOISE FILTER</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">PILLAR · 03</div>
+        <div class="pillar-name">Validazione<br>Ontologica</div>
+        <div class="pillar-desc">Assicura che ogni evento rispetti la tassonomia definita (Riti, Sagre, Palii, ecc.) e non violi le gerarchie di priorità stabilite dal sistema. Ogni entità deve appartenere a una categoria precisa.</div>
+        <span class="pillar-tag">TAXONOMY ENGINE</span>
+      </div>
+      <div class="pillar">
+        <div class="pillar-number">PILLAR · 04</div>
+        <div class="pillar-name">Auditabilità</div>
+        <div class="pillar-desc">Ogni passaggio del processo di validazione T.C.F.™ è tracciabile. Nessun dato è frutto di generazioni automatiche prive di riscontro. Ogni record porta il proprio history log immutabile.</div>
+        <span class="pillar-tag">IMMUTABLE AUDIT LOG</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="fade-in">
+    <div class="section-label">03 · Processo</div>
+    <h2 class="section-title">Pipeline di Validazione</h2>
+
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="step-index">STEP.01</span>
+        <div class="step-content">
+          <div class="step-title">DATA INGESTION</div>
+          <div class="step-desc">Il dato grezzo entra nel sistema tramite API, scraping validato o inserimento manuale certificato. Viene assegnato un UUID e uno status iniziale <code style="font-family:'DM Mono',monospace;color:var(--gold);font-size:0.8em">PENDING</code>.</div>
+        </div>
+        <span class="step-arrow">↓</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-index">STEP.02</span>
+        <div class="step-content">
+          <div class="step-title">TERRITORIAL ANCHOR CHECK</div>
+          <div class="step-desc">Il Pillar 01 verifica la coerenza geografica. Coordinate, comune, provincia e regione vengono cross-referenziati contro il database territoriale LAZIO/ATLAS. Fallimento → <code style="font-family:'DM Mono',monospace;color:var(--red);font-size:0.8em">REJECTED</code>.</div>
+        </div>
+        <span class="step-arrow">↓</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-index">STEP.03</span>
+        <div class="step-content">
+          <div class="step-title">MORPHEUS·JLX™ DEDUPLICATION</div>
+          <div class="step-desc">Il Pillar 02 confronta l'istanza contro tutti i record esistenti usando similarity scoring su nome, data, coordinate e ente organizzatore. Duplicato rilevato → <code style="font-family:'DM Mono',monospace;color:var(--gold-dim);font-size:0.8em">FLAGGED</code> per revisione umana.</div>
+        </div>
+        <span class="step-arrow">↓</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-index">STEP.04</span>
+        <div class="step-content">
+          <div class="step-title">ONTOLOGICAL CLASSIFICATION</div>
+          <div class="step-desc">Il Pillar 03 assegna la categoria tassonomica definitiva secondo lo schema KREATIO. Ogni evento riceve un <code style="font-family:'DM Mono',monospace;color:var(--blue);font-size:0.8em">tipo</code> e un <code style="font-family:'DM Mono',monospace;color:var(--blue);font-size:0.8em">subtipo</code> dalla gerarchia controllata.</div>
+        </div>
+        <span class="step-arrow">↓</span>
+      </div>
+      <div class="pipeline-step">
+        <span class="step-index">STEP.05</span>
+        <div class="step-content">
+          <div class="step-title">AUDIT STAMP & COMMIT</div>
+          <div class="step-desc">Il Pillar 04 appone il timestamp di validazione, l'operatore o sistema responsabile, e la versione T.C.F.™ applicata. Il record diventa immutabile e riceve status <code style="font-family:'DM Mono',monospace;color:var(--green);font-size:0.8em">VALIDATED</code>.</div>
+        </div>
+        <span class="step-arrow">✓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAXONOMY TABLE -->
+  <section class="fade-in">
+    <div class="section-label">04 · Tassonomia</div>
+    <h2 class="section-title">Schema Ontologico degli Eventi</h2>
+
+    <table class="taxonomy">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Tipo</th>
+          <th>Subtipo</th>
+          <th>Priorità TCF</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="cat">FESTA_RELIGIOSA</td>
+          <td>Heritage</td>
+          <td>Processione, Rito, Pellegrinaggio</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>Richiede fonte storica</td>
+        </tr>
+        <tr>
+          <td class="cat">SAGRA</td>
+          <td>Enogastronomia</td>
+          <td>Prodotto tipico, Vino, Olio, Cereali</td>
+          <td><span class="badge badge-med">MEDIUM</span></td>
+          <td>IGP/DOC preferibile</td>
+        </tr>
+        <tr>
+          <td class="cat">PALIO</td>
+          <td>Rievocazione</td>
+          <td>Medievale, Storica, Folkloric</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>Data storica obbligatoria</td>
+        </tr>
+        <tr>
+          <td class="cat">MERCATO</td>
+          <td>Tradizione</td>
+          <td>Artigianato, Antiquariato, Stagionale</td>
+          <td><span class="badge badge-low">LOW</span></td>
+          <td>Periodicità verificata</td>
+        </tr>
+        <tr>
+          <td class="cat">RITO_AGRARIO</td>
+          <td>Heritage</td>
+          <td>Semina, Raccolto, Stagionale</td>
+          <td><span class="badge badge-high">HIGH</span></td>
+          <td>Continuità storica richiesta</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- INTEGRAZIONI -->
+  <section class="fade-in">
+    <div class="section-label">05 · Integrazioni</div>
+    <h2 class="section-title">Sistemi Collegati</h2>
+
+    <div class="integration-box">
+      <div class="int-item">
+        <div class="int-name">ATLAS•EVENTA™</div>
+        <div class="int-desc">Database principale. Riceve solo record con status VALIDATED dal T.C.F.™</div>
+      </div>
+      <div class="int-item">
+        <div class="int-name">MORPHEUS·JLX™</div>
+        <div class="int-desc">Pipeline di deduplicazione. Alimenta il Pillar Anti-Rumore con similarity scoring.</div>
+      </div>
+      <div class="int-item">
+        <div class="int-name">MAMMUTH•EV™</div>
+        <div class="int-desc">Frontend mapping layer. Visualizza solo dati certificati dal T.C.F.™</div>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre><span class="comment">// Esempio Record Validato T.C.F.™</span>
+{
+  <span class="key">"uuid"</span>: <span class="string">"ev-laz-0042"</span>,
+  <span class="key">"nome"</span>: <span class="string">"Infiorata di Genzano"</span>,
+  <span class="key">"tipo"</span>: <span class="string">"FESTA_RELIGIOSA"</span>,
+  <span class="key">"comune"</span>: <span class="string">"Genzano di Roma"</span>,
+  <span class="key">"provincia"</span>: <span class="string">"RM"</span>,
+  <span class="key">"coordinate"</span>: { <span class="label">lat</span>: <span class="value">41.7001</span>, <span class="label">lng</span>: <span class="value">12.6876</span> },
+  <span class="key">"tcf_status"</span>: <span class="value">VALIDATED</span>,
+  <span class="key">"tcf_version"</span>: <span class="string">"1.0.0"</span>,
+  <span class="key">"tcf_timestamp"</span>: <span class="string">"2026-06-02T00:00:00Z"</span>,
+  <span class="key">"tcf_pillars_passed"</span>: <span class="value">[1, 2, 3, 4]</span>
+}</pre>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div>
-    <div class="footer-sig">
-      <strong>Leonardo Adriano Chelariu</strong>
-      Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
-      K•Word•Festival (KWF) · MAMMUTH•EV™
-    </div>
-    <div class="footer-links">
-      <a href="developer-index.html">← Developer Portal</a>
-      <a href="MORPHEUS-JLX.html">→ MORPHEUS•JLX™</a>
-      <a href="BRAIN-BOX.html">→ BRAIN BOX</a>
-    </div>
+  <div class="footer-sig">
+    <strong>Leonardo Adriano Chelariu</strong>
+    Founder & Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+    K•Word•Festival (KWF) · MAMMUTH•EV™
   </div>
   <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
 </footer>
 
+
+<!-- KUS-NAV · barra navigazione portale (autoportante) -->
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="TCF-playground.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">T.C.F.™ Playground</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="COLOR-TRIAGE.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">Color Triage</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  .kusnav-disabled{opacity:.38;pointer-events:none}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
 </body>
 </html>
