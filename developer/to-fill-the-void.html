@@ -212,5 +212,31 @@ function show(idx, btn) {
 // init
 show(0, document.querySelector('[data-idx="0"]'));
 </script>
+
+<!-- KUS-NAV · barra navigazione portale (autoportante) -->
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="to-fill-the-void-strategy.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">Void · Strategia</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="JUST-ONE-CLICK-AWAY.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">Just One Click Away</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  .kusnav-disabled{opacity:.38;pointer-events:none}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
 </body>
 </html>
