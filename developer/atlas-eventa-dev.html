@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>02 · ATLAS•EVENTA™ — Developer Guide · MAMMUTH•EVENTS™</title>
+<style>
+  :root{
+    --bg:#0a0c10; --panel:#11141b; --panel-2:#161a23; --line:#222836;
+    --ink:#e8ebf2; --ink-dim:#8b93a7; --ink-faint:#5b6276;
+    --g1:#8b5cf6; --g2:#3b82f6; --g3:#22d3ee; --g4:#2dd4bf;
+    --backlog:#64748b; --progress:#fbbf24; --beta:#38bdf8; --shipped:#34d399;
+    --warn:#f87171; --warn-bg:#1c1416;
+    --mono:'SF Mono',ui-monospace,'JetBrains Mono','Roboto Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;padding-bottom:84px}
+
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.86);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .row{max-width:820px;margin:0 auto;padding:12px 20px;display:flex;
+    align-items:center;justify-content:space-between;gap:12px}
+  .topbar a.home{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    color:var(--ink-dim);text-decoration:none}
+  .topbar a.home:hover{color:var(--g3)}
+  .pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
+    font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink-dim)}
+  .pill .d{width:7px;height:7px;border-radius:50%}
+  .pill.progress{color:var(--progress);border-color:#3a3520}.pill.progress .d{background:var(--progress)}
+
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+
+  header{padding:56px 0 36px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px}
+  h1{font-size:clamp(34px,7.5vw,58px);font-weight:800;letter-spacing:-.03em;line-height:.98;
+    background:linear-gradient(100deg,var(--g1),var(--g2) 40%,var(--g3) 70%,var(--g4));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .role{font-family:var(--mono);font-size:13px;color:var(--ink-dim);margin-top:16px;letter-spacing:.03em}
+  .lede{font-size:18px;color:var(--ink-dim);margin-top:22px;max-width:62ch}
+
+  .build{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:30px}
+  .build .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+  .build .top h3{font-size:13px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+  .state{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:6px 13px;border-radius:8px;border:1px solid;text-transform:uppercase}
+  .state.progress{color:var(--progress);border-color:#3a3520;background:#1a1710}
+  .state .d{width:8px;height:8px;border-radius:50%;background:currentColor}
+  .bar{height:8px;border-radius:6px;background:#0c0e13;border:1px solid var(--line);overflow:hidden;display:flex}
+  .bar i{height:100%;display:block}
+  .bar i.s{background:var(--shipped)} .bar i.b{background:var(--beta)}
+  .bar i.p{background:var(--progress)} .bar i.k{background:transparent}
+  .barlabel{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:8px;letter-spacing:.04em}
+  .milestones{list-style:none;margin-top:18px}
+  .milestones li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:14px}
+  .milestones li:first-child{border-top:none}
+  .ms{flex-shrink:0;width:74px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 0;text-align:center;border-radius:5px;border:1px solid}
+  .ms.shipped{color:var(--shipped);border-color:#1f3a2c}
+  .ms.beta{color:var(--beta);border-color:#1c3445}
+  .ms.backlog{color:var(--backlog);border-color:#2a3140}
+  .milestones .txt{color:var(--ink-dim)}
+  .milestones .txt b{color:var(--ink);font-weight:600;display:block}
+
+  section{padding:44px 0;border-bottom:1px solid var(--line)}
+  .snum{font-family:var(--mono);font-size:12px;color:var(--g3);letter-spacing:.18em;margin-bottom:14px}
+  h2{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:18px}
+  p{color:var(--ink-dim);margin-bottom:14px}
+  p strong{color:var(--ink);font-weight:600}
+  .lead-line{color:var(--ink);font-size:17px;font-weight:500;margin-bottom:16px}
+  code{font-family:var(--mono);font-size:13px;background:var(--panel-2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--g3)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  @media(max-width:560px){.split{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:var(--g3)}
+  .card b{font-size:15px;display:block;margin-bottom:4px}
+  .card p{font-size:13px;margin:0;color:var(--ink-faint)}
+
+  pre{background:#0c0e13;border:1px solid var(--line);border-radius:12px;padding:18px;overflow-x:auto;margin-top:6px}
+  pre code{background:none;border:none;padding:0;color:var(--ink-dim);font-size:12.5px;line-height:1.7}
+  .c-key{color:var(--g3)} .c-val{color:var(--shipped)}
+
+  .tiers{list-style:none;margin-top:6px;counter-reset:tier}
+  .tiers li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .tiers li:last-child{border-bottom:none}
+  .tiers .rank{font-family:var(--mono);font-size:13px;color:var(--g1);min-width:40px;font-weight:700}
+  .tiers .d b{color:var(--ink);font-size:14px;display:block;margin-bottom:2px}
+  .tiers .d span{font-size:13px;color:var(--ink-faint)}
+
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+  @media(max-width:560px){.rules{grid-template-columns:1fr}}
+  .rule{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:16px}
+  .rule .n{font-family:var(--mono);font-size:10px;color:var(--g3);letter-spacing:.1em;margin-bottom:8px}
+  .rule b{display:block;font-size:14px;margin-bottom:4px}
+  .rule p{font-size:13px;margin:0;color:var(--ink-faint)}
+
+  .links{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+  .lnk{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .rel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--g3);min-width:84px;text-transform:uppercase}
+  .lnk .m b{color:var(--ink);font-size:14px}
+  .lnk .m span{display:block;color:var(--ink-faint);font-size:13px}
+
+  ol.do{list-style:none;counter-reset:do;margin-top:6px}
+  ol.do li{counter-increment:do;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--line)}
+  ol.do li:last-child{border-bottom:none}
+  ol.do li::before{content:counter(do);position:absolute;left:0;top:13px;width:28px;height:28px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);color:var(--g3);font-family:var(--mono);font-size:13px;display:flex;align-items:center;justify-content:center}
+  ol.do li strong{color:var(--ink)} ol.do li p{margin:4px 0 0;font-size:14px}
+
+  .note{font-size:13px;color:var(--ink-faint);font-style:italic;margin-top:18px}
+
+  .nav{position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(10,12,16,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .nav .row{max-width:820px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .nbtn{display:flex;flex-direction:column;text-decoration:none;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);min-width:0}
+  .nbtn:hover{border-color:var(--g3)}
+  .nbtn .lbl{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ink-faint);text-transform:uppercase}
+  .nbtn .ttl{font-size:13px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nbtn.next{text-align:right;align-items:flex-end}
+  .nbtn.disabled{opacity:.4;pointer-events:none}
+  .nbtn.idx{border-style:dashed;align-items:center}
+  .nbtn.idx .ttl{color:var(--g3)}
+
+  footer{padding:34px 0 0;color:var(--ink-faint);font-family:var(--mono);font-size:12px}
+  footer .gr{background:linear-gradient(100deg,var(--g1),var(--g3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="row">
+  <a class="home" href="developer-index.html">← KREATIO · DEVELOPER PORTAL</a>
+  <span class="pill progress"><span class="d"></span>Build · In Progress</span>
+</div></div>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · Developer Guide</div>
+    <h1>ATLAS•EVENTA™</h1>
+    <div class="role">02 · Il database — dove vive la verità territoriale</div>
+    <p class="lede">È il core informativo del sistema: il repository centrale degli eventi
+    certificati. Tutto il resto gira intorno a questo. La regola che lo governa è una sola:
+    <strong>nessun dato entra se non è certificato, deduplicato e tracciabile.</strong></p>
+
+    <div class="build">
+      <div class="top">
+        <h3>Build Status</h3>
+        <span class="state progress"><span class="d"></span>In Progress</span>
+      </div>
+      <div class="bar">
+        <i class="s" style="width:40%"></i>
+        <i class="b" style="width:20%"></i>
+        <i class="p" style="width:0%"></i>
+        <i class="k" style="width:40%"></i>
+      </div>
+      <div class="barlabel"><span>Build Progress · 3 capisaldi su 5</span><span>~60% · stato dichiarato, da confermare</span></div>
+
+      <ul class="milestones">
+        <li><span class="ms shipped">Shipped</span><span class="txt"><b>Schema PostgreSQL + PostGIS</b>Tabella eventi con coordinate e ancoraggio ISTAT. In produzione su Supabase.</span></li>
+        <li><span class="ms shipped">Shipped</span><span class="txt"><b>Ancoraggio territoriale ISTAT</b>Ogni evento legato a un codice comune. Verità territoriale certificata.</span></li>
+        <li><span class="ms shipped">Shipped</span><span class="txt"><b>Pipeline di validazione</b>MORPHEUS·JLX™ + T.C.F.™ come guardiani prima del commit.</span></li>
+        <li><span class="ms beta">Beta</span><span class="txt"><b>Separazione Entity / Instance</b>Evento (cosa è) vs occorrenze (quando accade). Da confermare che lo schema reale la implementi.</span></li>
+        <li><span class="ms backlog">Backlog</span><span class="txt"><b>Bulk ingest idempotente</b>Caricamento di massa senza duplicati. Da costruire (vedi sezione 06).</span></li>
+      </ul>
+    </div>
+  </header>
+
+  <section>
+    <div class="snum">01 — Cos'è</div>
+    <h2>Definizione</h2>
+    <p class="lead-line">ATLAS•EVENTA™ non è un calendario. È il <strong>core informativo
+    e il motore operativo</strong> del sistema.</p>
+    <p>Mappa l'identità culturale delle comunità attraverso i loro eventi, con un principio
+    architetturale preciso: separare l'<strong>entità</strong> dell'evento (cosa è) dal suo
+    <strong>dato temporale e geografico</strong> (quando e dove accade). Questa separazione
+    è ciò che impedisce i duplicati e permette una memoria storica precisa.</p>
+  </section>
+
+  <section>
+    <div class="snum">02 — Fondamenti</div>
+    <h2>Architettura del sistema</h2>
+    <div class="split">
+      <div class="card"><div class="tag">Entity / Instance Split</div><b>⊗ Entità vs Istanza</b><p>L'evento (cosa è) è distinto dalle sue occorrenze nel tempo (quando accade). Niente duplicati, storico preciso.</p></div>
+      <div class="card"><div class="tag">Geo · ISTAT · Coords</div><b>◎ Ancoraggio territoriale</b><p>Ogni luogo geolocalizzato con coordinate e codice ISTAT. Senza riferimento geografico univoco, l'evento non entra.</p></div>
+    </div>
+    <div class="card" style="margin-top:14px"><div class="tag">MORPHEUS·JLX™ + T.C.F.™</div><b>⊕ Pipeline di validazione integrata</b><p>MORPHEUS·JLX™ pulisce e deduplica; T.C.F.™ verifica coerenza culturale e priorità territoriale. Sono i guardiani del dato.</p></div>
+
+    <p style="margin-top:22px">Lo schema separa entità e istanza così:</p>
+    <pre><code>{
+  <span class="c-key">"entity"</span>: {              <span class="c-key">// immutabile</span>
+    <span class="c-key">"id"</span>: "ev-laz-0042",
+    <span class="c-key">"nome"</span>: "Infiorata di Genzano",
+    <span class="c-key">"tipo"</span>: "FESTA_RELIGIOSA",
+    <span class="c-key">"istat_comune"</span>: 058041,
+    <span class="c-key">"coordinate"</span>: { lat: 41.7001, lng: 12.6876 }
+  },
+  <span class="c-key">"instance"</span>: {            <span class="c-key">// ricorrente</span>
+    <span class="c-key">"entity_ref"</span>: "ev-laz-0042",
+    <span class="c-key">"data_inizio"</span>: "2026-06-14",
+    <span class="c-key">"edizione"</span>: 97,
+    <span class="c-key">"tcf_status"</span>: <span class="c-val">VALIDATED</span>
+  }
+}</code></pre>
+  </section>
+
+  <section>
+    <div class="snum">03 — Gerarchia</div>
+    <h2>Priorità di saturazione</h2>
+    <p>Il database si riempie per priorità, non a caso. Prima il DNA culturale più profondo.</p>
+    <ul class="tiers">
+      <li><span class="rank">I</span><div class="d"><b>Riti religiosi / feste patronali</b><span>Priorità assoluta. Continuità storica plurisecolare, fonte documentale verificabile.</span></div></li>
+      <li><span class="rank">II</span><div class="d"><b>Sagre territoriali canoniche</b><span>Alta priorità. Identità agroalimentare, preferibilmente IGP/DOP/DOC o tradizioni stagionali.</span></div></li>
+      <li><span class="rank">III</span><div class="d"><b>Palii / giostre / rievocazioni</b><span>Priorità standard. Data storica d'origine obbligatoria. Solo dopo la saturazione di I e II.</span></div></li>
+    </ul>
+    <p class="note">Solo dopo aver saturato le priorità si integrano altre tipologie (cultura,
+    sport, svago). Sempre privilegiando l'accuratezza sulla quantità.</p>
+  </section>
+
+  <section>
+    <div class="snum">04 — Regole immutabili</div>
+    <h2>Caratteristiche non negoziabili</h2>
+    <div class="rules">
+      <div class="rule"><div class="n">RULE · 01</div><b>ID sequenziale</b><p>Identificativo progressivo obbligatorio. Mai riassegnabile. Niente duplicati né buchi logici.</p></div>
+      <div class="rule"><div class="n">RULE · 02</div><b>Versioning obbligatorio</b><p>Vietato sovrascrivere. Storico completo per ogni record, auditabilità totale.</p></div>
+      <div class="rule"><div class="n">RULE · 03</div><b>Family-Centric</b><p>Pensato per famiglie e comunità. Accesso chiaro, immediato, senza logiche commerciali.</p></div>
+      <div class="rule"><div class="n">RULE · 04</div><b>Anti-Ranking</b><p>Nessuna classifica o promozione. Solo fedeltà storica e sociale dell'evento al territorio.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="snum">05 — Connessioni</div>
+    <h2>Moduli collegati</h2>
+    <p class="lead-line">ATLAS è al centro: <strong>riceve</strong> dai validatori e
+    <strong>alimenta</strong> le interfacce.</p>
+    <div class="links">
+      <div class="lnk"><span class="rel">riceve da ←</span><div class="m"><b>MORPHEUS·JLX™ + T.C.F.™</b><span>Ogni dato passa dai guardiani prima del commit. Nessuna eccezione.</span></div></div>
+      <div class="lnk"><span class="rel">alimenta →</span><div class="m"><b>Interfacce Principali (01)</b><span>Mappa, lista, scheda evento: mostrano ciò che è qui dentro.</span></div></div>
+      <div class="lnk"><span class="rel">usa →</span><div class="m"><b>GEONODE™</b><span>Codici territoriali per l'ancoraggio ISTAT di ogni evento.</span></div></div>
+      <div class="lnk"><span class="rel">archivia →</span><div class="m"><b>BRAIN-BOX™</b><span>Memoria immutabile e versioning di ogni record certificato.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="snum">06 — Da fare</div>
+    <h2>Lavoro aperto</h2>
+    <p>Tracciato. Lo stato va confermato sul database reale, non assunto.</p>
+    <ol class="do">
+      <li><strong>Verificare la separazione Entity / Instance nello schema reale.</strong>
+        <p>Il documento la prevede; controllare se la tabella su Supabase la implementa o se entità e istanza sono fuse. Se fuse → da risolvere.</p></li>
+      <li><strong>Costruire il bulk ingest idempotente.</strong>
+        <p>Caricare centinaia di eventi senza duplicati. Serve una chiave d'identità deterministica + UPSERT, coerente con la RULE 01 (ID sequenziale) ma adatta al carico automatico.</p></li>
+      <li><strong>Conteggio reale e distribuzione per comune.</strong>
+        <p>Chiudere il disallineamento sui numeri con <code>select count(*)</code> e <code>group by istat_comune</code>. Verificare che ogni evento porti il codice del comune giusto.</p></li>
+      <li><strong>Geocoordinate mancanti.</strong>
+        <p>Eventi senza lat/lng non compaiono in mappa. Censire quanti restano e completarli.</p></li>
+    </ol>
+    <p class="note">Quando un caposaldo si chiude, si aggiorna il Build Status in cima — e
+    solo dopo verifica dal vivo, mai per dichiarazione.</p>
+  </section>
+
+  <footer>
+    <span class="gr">MAMMUTH•EVENTS™</span> · 02 · ATLAS•EVENTA™ · Developer Guide<br>
+    KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · Leonardo Adriano Chelariu
+  </footer>
+
+</div>
+
+<div class="nav"><div class="row">
+  <a class="nbtn prev" href="interfaces-dev.html" id="prev">
+    <span class="lbl">← Precedente</span><span class="ttl">01 · Interfacce Principali</span></a>
+  <a class="nbtn idx" href="developer-index.html"><span class="lbl">Indice</span><span class="ttl">Portal</span></a>
+  <a class="nbtn next disabled" id="next" aria-disabled="true">
+    <span class="lbl">Prossimo · Backlog</span><span class="ttl">Non pubblicato →</span></a>
+</div></div>
+
+<script>
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ var p = document.getElementById('prev'); if(p && p.href) location.href = p.href; }
+    if(e.key === 'ArrowRight'){ var n = document.getElementById('next'); if(n && !n.classList.contains('disabled') && n.href) location.href = n.href; }
+  });
+</script>
+</body>
+</html>
