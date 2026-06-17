@@ -27,7 +27,6 @@
     .hero h1 span{display:block;font-size:0.32em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:14px;}
     .hero-desc{max-width:620px;margin-top:28px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
 
-    /* LEGENDA STATI */
     .legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:36px;}
     .legend-item{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;color:var(--text-dim);}
     .badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;padding:2px 8px;border:1px solid;border-radius:2px;}
@@ -35,7 +34,6 @@
     .badge.beta{border-color:var(--amber);color:var(--amber);}
     .badge.target{border-color:var(--purple);color:var(--purple);}
 
-    /* FLOW */
     .flow{margin-bottom:60px;}
     .node-wrap{display:flex;flex-direction:column;align-items:center;}
 
@@ -49,7 +47,6 @@
     .node-arrow-hint{position:absolute;right:16px;bottom:14px;font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--border-gold);}
     .node:hover .node-arrow-hint{color:var(--gold-dim);}
 
-    /* accent per famiglia */
     .node.ingress{border-left-color:var(--rose);}
     .node.ingress .node-name{color:var(--rose);}
     .node.process{border-left-color:var(--purple);}
@@ -62,13 +59,11 @@
     .connector{width:1px;height:28px;background:linear-gradient(to bottom,var(--border-gold),var(--gold-dim));margin:0 auto;}
     .connector-arrow{text-align:center;color:var(--gold-dim);font-size:0.8rem;line-height:1;margin:-4px 0;}
 
-    /* GATE color triage */
     .gate-branch{display:flex;align-items:center;gap:12px;max-width:620px;width:100%;margin:6px auto 0;padding-left:30px;}
     .gate-line{font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--amber);}
     .gate-park{flex:1;background:var(--bg-3);border:1px dashed var(--border-gold);border-left:2px solid var(--amber);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.08em;}
     .gate-park strong{color:var(--amber);font-weight:400;}
 
-    /* BORGOVIA 3 corsie */
     .borgovia-lanes{max-width:620px;width:100%;margin:10px auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid rgba(122,184,138,0.25);}
     .lane{background:var(--bg-3);padding:14px 12px;text-align:center;}
     .lane-conf{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;margin-bottom:6px;text-transform:uppercase;}
@@ -76,6 +71,8 @@
     .lane.hi .lane-conf{color:var(--green);}
     .lane.mid .lane-conf{color:var(--amber);}
     .lane.lo .lane-conf{color:var(--rose);}
+    .borgovia-reject{max-width:620px;width:100%;margin:2px auto 0;background:var(--bg-3);border:1px dashed var(--border-gold);border-left:2px solid var(--red);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);letter-spacing:0.06em;line-height:1.6;}
+    .borgovia-reject strong{color:var(--red);font-weight:400;}
     .lock-note{max-width:620px;width:100%;margin:8px auto 0;background:var(--bg-2);border:1px solid var(--border-gold);border-left:2px solid var(--silver);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);letter-spacing:0.05em;line-height:1.6;}
     .lock-note strong{color:var(--silver);font-weight:400;}
 
@@ -122,13 +119,11 @@
     </div>
   </div>
 
-  <!-- IL FLUSSO -->
   <section class="fade-in">
     <div class="section-label">Il Flusso · 9 Stadi</div>
 
     <div class="flow">
 
-      <!-- 1 INGRESSO -->
       <div class="node-wrap">
         <a class="node ingress" href="ANTHROPIC-HOLE.html">
           <div class="node-top"><span class="node-id">STADIO 01</span><span class="badge beta">BETA</span></div>
@@ -139,7 +134,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 2 ESTRAZIONE -->
       <div class="node-wrap">
         <a class="node ingress" href="to-fill-the-void.html">
           <div class="node-top"><span class="node-id">STADIO 02</span><span class="badge beta">BETA</span></div>
@@ -150,7 +144,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 3 COLOR TRIAGE (GATE) -->
       <div class="node-wrap">
         <a class="node" style="border-left-color:var(--amber);" href="COLOR-TRIAGE.html">
           <div class="node-top"><span class="node-id">STADIO 03 · GATE</span><span class="badge live">LIVE</span></div>
@@ -165,7 +158,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 4 MORPHEUS -->
       <div class="node-wrap">
         <a class="node process" href="MORPHEUS-JLX.html">
           <div class="node-top"><span class="node-id">STADIO 04</span><span class="badge live">LIVE</span></div>
@@ -176,7 +168,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 5 TCF SCORING -->
       <div class="node-wrap">
         <a class="node score" href="TCF-framework.html">
           <div class="node-top"><span class="node-id">STADIO 05 · SCORING</span><span class="badge live">LIVE</span></div>
@@ -187,7 +178,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 6 BORGOVIA -->
       <div class="node-wrap">
         <a class="node borgovia" href="criterion-sanctus.html">
           <div class="node-top"><span class="node-id">STADIO 06 · VALIDATION</span><span class="badge target">TARGET</span></div>
@@ -201,10 +191,10 @@
         <div class="lane mid"><div class="lane-conf">Conf. MEDIA</div><div class="lane-action">1 worker<br>conferma (tap)</div></div>
         <div class="lane lo"><div class="lane-conf">Conf. BASSA</div><div class="lane-action">consenso<br>N-worker</div></div>
       </div>
-      <div class="lock-note"><strong>🔒 MANUAL_LOCKED</strong> · i record validati a mano (es. pilota Sermoneta) sono blindati: BORGOVIA li riconosce e non li tocca mai. Il completamento manuale resta manuale, per sempre.</div>
+      <div class="borgovia-reject"><strong>✕ REJECTED</strong> · record bocciato dai worker → torna al RAW PARKING (stadio 03), non entra mai in ATLAS. Lo scarto è tracciato, non perso.</div>
+      <div class="lock-note"><strong>🔒 MANUAL_LOCKED</strong> · i record validati a mano (es. pilota Sermoneta) sono blindati: BORGOVIA li riconosce e non li tocca mai. Ogni lock porta traccia di chi (locked_by) e quando (locked_at) — auditabilità T.C.F. Il completamento manuale resta manuale, per sempre.</div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 7 ATLAS -->
       <div class="node-wrap">
         <a class="node" style="border-left-color:var(--gold);" href="ATLAS-EVENTA.html">
           <div class="node-top"><span class="node-id">STADIO 07</span><span class="badge live">LIVE</span></div>
@@ -215,7 +205,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 8 QDC -->
       <div class="node-wrap">
         <a class="node" style="border-left-color:var(--cyan);" href="QDC-v.html">
           <div class="node-top"><span class="node-id">STADIO 08 · SEAL</span><span class="badge beta">BETA</span></div>
@@ -226,7 +215,6 @@
       </div>
       <div class="connector"></div><div class="connector-arrow">▼</div>
 
-      <!-- 9 BRAIN BOX -->
       <div class="node-wrap">
         <a class="node archive" href="BRAIN-BOX.html">
           <div class="node-top"><span class="node-id">STADIO 09 · ∞</span><span class="badge target">TARGET</span></div>
@@ -239,7 +227,6 @@
     </div>
   </section>
 
-  <!-- IL PRINCIPIO -->
   <section class="fade-in">
     <div class="section-label">Perché Questo Flusso Scala</div>
     <h2 class="section-title">Lo Score Dosa gli Umani</h2>
@@ -266,7 +253,6 @@
 </footer>
 
 
-<!-- KUS-NAV · barra navigazione portale (autoportante) -->
 <div class="kusnav">
 <a class="kusnav-btn kusnav-prev kusnav-disabled" id="kusnav-prev"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">— inizio —</span></a>
 <a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
