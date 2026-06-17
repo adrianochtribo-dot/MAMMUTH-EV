@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALIDATION ENGINE™ | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--rose:#c97090;--silver:#a8b8c8;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--cyan);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:960px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:60px 0 50px;border-bottom:1px solid var(--border-gold);margin-bottom:60px;position:relative;overflow:hidden;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:600;color:var(--cyan);line-height:1.1;letter-spacing:0.05em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.32em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:14px;}
+    .hero-desc{max-width:680px;margin-top:28px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+    .badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;padding:2px 8px;border:1px solid;border-radius:2px;}
+    .badge.target{border-color:var(--cyan);color:var(--cyan);}
+    .meta-row{display:flex;gap:36px;flex-wrap:wrap;margin-top:36px;}
+    .meta{font-family:'DM Mono',monospace;}
+    .meta-k{font-size:0.55rem;letter-spacing:0.25em;color:var(--gold-dim);text-transform:uppercase;}
+    .meta-v{font-size:0.85rem;color:var(--text);margin-top:6px;}
+
+    section{margin-bottom:64px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:28px;}
+    p.body{font-size:1rem;line-height:1.9;color:var(--text);margin-bottom:18px;}
+    p.body strong{color:var(--gold);font-weight:400;}
+
+    /* ===== SIGNATURE: pipeline a gate verticale ===== */
+    .pipeline{border:1px solid var(--border-gold);background:var(--bg-2);border-radius:4px;overflow:hidden;}
+    .stage{display:grid;grid-template-columns:64px 1fr;border-bottom:1px solid var(--border);}
+    .stage:last-child{border-bottom:none;}
+    .stage-n{display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:1.1rem;color:var(--gold-dim);border-right:1px solid var(--border);background:var(--bg-3);}
+    .stage-body{padding:18px 24px;}
+    .stage-name{font-family:'Cinzel',serif;font-size:1rem;color:var(--cyan);letter-spacing:0.05em;margin-bottom:4px;}
+    .stage-flow{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.06em;margin-bottom:8px;}
+    .stage-d{font-size:0.88rem;color:var(--text-dim);line-height:1.6;}
+    .stage-exit{font-family:'DM Mono',monospace;font-size:0.58rem;margin-top:10px;display:flex;gap:18px;flex-wrap:wrap;}
+    .exit-pass{color:var(--green);} .exit-fail{color:var(--rose);}
+
+    .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .pillar{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:22px 26px;position:relative;}
+    .pillar .pn{position:absolute;top:14px;right:18px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--border-gold);}
+    .pillar-name{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--cyan);letter-spacing:0.05em;margin-bottom:6px;}
+    .pillar-tech{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold-dim);letter-spacing:0.06em;margin-bottom:10px;}
+    .pillar-d{font-size:0.86rem;color:var(--text-dim);line-height:1.6;}
+    .pillar.now{border-left-color:var(--green);} .pillar.now .pillar-name{color:var(--green);}
+    .pillar.next{border-left-color:var(--amber);} .pillar.next .pillar-name{color:var(--amber);}
+    .pillar.guard{border-left-color:var(--rose);} .pillar.guard .pillar-name{color:var(--rose);}
+    .phase-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;padding:1px 7px;border:1px solid;border-radius:2px;margin-top:10px;text-transform:uppercase;}
+    .phase-now{border-color:var(--green);color:var(--green);}
+    .phase-next{border-color:var(--amber);color:var(--amber);}
+    .phase-guard{border-color:var(--rose);color:var(--rose);}
+
+    table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:0.72rem;margin-top:10px;}
+    th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top;}
+    th{color:var(--gold-dim);letter-spacing:0.12em;text-transform:uppercase;font-size:0.58rem;font-weight:400;}
+    td strong{color:var(--gold);font-weight:400;}
+    .lane-hi{color:var(--green);} .lane-mid{color:var(--amber);} .lane-lo{color:var(--rose);}
+
+    .principle{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:28px 32px;}
+    .principle p{font-size:0.98rem;line-height:1.9;color:var(--text);}
+    .principle strong{color:var(--gold);font-weight:400;}
+
+    .roadmap{display:flex;flex-direction:column;gap:2px;background:var(--border);border:1px solid var(--border-gold);}
+    .phase{background:var(--bg-2);padding:18px 24px;display:grid;grid-template-columns:90px 1fr;gap:20px;align-items:baseline;}
+    .phase-id{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;}
+    .phase-id.p1{color:var(--green);} .phase-id.p2{color:var(--amber);} .phase-id.p3{color:var(--rose);}
+    .phase-txt{font-size:0.9rem;color:var(--text-dim);line-height:1.6;}
+    .phase-txt strong{color:var(--text);font-weight:400;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:960px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    .fade-in{opacity:0;transform:translateY(16px);animation:fadeIn 0.7s ease forwards;}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.pillars{grid-template-columns:1fr;}.phase{grid-template-columns:1fr;gap:6px;}footer{flex-direction:column;gap:20px;}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-VENG-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>VALIDATION ENGINE · NODO 5</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">Pipeline · Stadio 05 · Motore di Validazione</div>
+    <h1>VALIDATION ENGINE™<span>Dalla quarantena PENDING alla certezza, su scala</span></h1>
+    <p class="hero-desc">Il motore che processa ogni dato in stato PENDING prima che tocchi ATLAS•EVENTA. Non un controllo Vero/Falso, ma una catena di gate che misura forma, coerenza e contesto — e instrada il dato verso l'auto-validazione, il singolo worker o il consenso. Progettato per reggere da quaranta eventi a miliardi sulla stessa struttura, senza mai scrivere una verità che non sia tracciabile.</p>
+    <div class="meta-row">
+      <div class="meta"><div class="meta-k">Posizione</div><div class="meta-v">Nodo 5 / 9 · alimenta T.C.F. Scoring → BORGOVIA</div></div>
+      <div class="meta"><div class="meta-k">Stato</div><div class="meta-v"><span class="badge target">TARGET</span> nucleo deterministico attivo</div></div>
+      <div class="meta"><div class="meta-k">Input</div><div class="meta-v">crawl-worker · WhatsApp · OCR locandine</div></div>
+    </div>
+  </div>
+
+  <section class="fade-in">
+    <div class="section-label">Il Flusso · Catena di Gate</div>
+    <h2 class="section-title">Come un Dato Attraversa il Motore</h2>
+    <p class="body">Ogni record PENDING entra dall'alto e scende attraverso i gate. A ogni stadio può passare oltre, fermarsi (resta PENDING per revisione) o essere marcato corrotto. <strong>Nessun dato salta un gate, e nessun esito viene scritto senza traccia.</strong></p>
+    <div class="pipeline">
+      <div class="stage">
+        <div class="stage-n">01</div>
+        <div class="stage-body">
+          <div class="stage-name">Structured Output Enforcement</div>
+          <div class="stage-flow">PENDING grezzo → schema tipizzato</div>
+          <div class="stage-d">Forza i tipi: la data deve essere ISO 8601, i campi obbligatori presenti, i valori nei domini ammessi. Un campo non convertibile non passa: il record diventa PENDING_CORROTTO, isolato dal flusso valido.</div>
+          <div class="stage-exit"><span class="exit-pass">▸ schema valido → Gate 02</span><span class="exit-fail">▸ tipo corrotto → PENDING_CORROTTO</span></div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-n">02</div>
+        <div class="stage-body">
+          <div class="stage-name">Guardrails Semantici</div>
+          <div class="stage-flow">forma valida → significato coerente</div>
+          <div class="stage-d">Controlli incrociati di coerenza. Temporale: la data dell'evento è successiva alla scansione? Spaziale: il luogo è coerente col territorio_id dichiarato? Un evento "a Milano" su territorio Sermoneta fallisce e resta in PENDING.</div>
+          <div class="stage-exit"><span class="exit-pass">▸ coerente → Scoring</span><span class="exit-fail">▸ incoerente → PENDING (revisione)</span></div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-n">03</div>
+        <div class="stage-body">
+          <div class="stage-name">T.C.F. Scoring</div>
+          <div class="stage-flow">coerenza → punteggio di confidenza</div>
+          <div class="stage-d">Calcola il punteggio sui quattro assi (rischio, predittività, reputazione, corroborazione) più la completezza. Il punteggio non decide da solo: dosa il livello di controllo a valle.</div>
+          <div class="stage-exit"><span class="exit-pass">▸ score calcolato → BORGOVIA</span></div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-n">04</div>
+        <div class="stage-body">
+          <div class="stage-name">BORGOVIA · Instradamento Consenso</div>
+          <div class="stage-flow">score → corsia di validazione</div>
+          <div class="stage-d">Lo score sceglie la corsia: confidenza alta → auto-validato; media → un worker conferma; bassa → consenso N-worker. Solo qui un dato può diventare VALIDATED ed entrare in ATLAS•EVENTA.</div>
+          <div class="stage-exit"><span class="exit-pass">▸ consenso → VALIDATED · ATLAS</span><span class="exit-fail">▸ bocciato → REJECTED · raw parking</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">I Cinque Pilastri · Tecnologie Native</div>
+    <h2 class="section-title">Di Cosa è Fatto il Motore</h2>
+    <p class="body">Cinque capacità tecnologiche, ciascuna mappata a uno stadio. Tre sono il nucleo attivo oggi; due si innestano sulla stessa struttura quando arriveranno i loro input — il motore nasce con gli slot già pronti, per non essere mai riscritto.</p>
+    <div class="pillars">
+      <div class="pillar now">
+        <div class="pn">I</div>
+        <div class="pillar-name">Structured Output Enforcement</div>
+        <div class="pillar-tech">schema tipizzato · validazione dinamica</div>
+        <div class="pillar-d">Il motore non accetta testo libero. Ogni campo è forzato al suo tipo: data ISO 8601, categoria nel dominio noto, coordinate valide. Ciò che non si converte è corrotto, non "quasi buono".</div>
+        <div class="phase-tag phase-now">Fase 1 · Attivo</div>
+      </div>
+      <div class="pillar now">
+        <div class="pn">III</div>
+        <div class="pillar-name">Guardrails Semantici</div>
+        <div class="pillar-tech">coerenza cross-field · temporale · ontologica</div>
+        <div class="pillar-d">Valida il significato, non solo la forma. Coerenza temporale (eventi nel futuro), spaziale (luogo ↔ territorio), ontologica (categoria ↔ contenuto). È il Territorial Coherence del T.C.F. reso eseguibile.</div>
+        <div class="phase-tag phase-now">Fase 1 · Attivo</div>
+      </div>
+      <div class="pillar now">
+        <div class="pn">V</div>
+        <div class="pillar-name">Ensemble Voting · Consenso</div>
+        <div class="pillar-tech">orchestratore multi-validatore · 2-su-3</div>
+        <div class="pillar-d">Per il dato incerto, controllo democratico: parser deterministico, modello di visione, LLM di ragionamento. Il dato passa solo con consenso di 2 su 3. È il cuore già descritto in BORGOVIA, qui orchestrato.</div>
+        <div class="phase-tag phase-now">Fase 1 · Struttura · 2 di 3 attivi</div>
+      </div>
+      <div class="pillar next">
+        <div class="pn">II</div>
+        <div class="pillar-name">Confidenza Spaziale</div>
+        <div class="pillar-tech">bounding box · OCR × posizionamento</div>
+        <div class="pillar-d">Per i dati estratti da locandine-immagini: la confidenza combina la qualità del glifo OCR e la coerenza della posizione. Un titolo sotto i loghi sponsor non si auto-valida. Si attiva col flusso WhatsApp/locandine.</div>
+        <div class="phase-tag phase-next">Fase 2 · Input OCR</div>
+      </div>
+      <div class="pillar guard">
+        <div class="pn">IV</div>
+        <div class="pillar-name">Self-Healing · con Audit</div>
+        <div class="pillar-tech">agente correttivo → ritorno in PENDING</div>
+        <div class="pillar-d">Su un'incongruenza, un agente isola il frammento e tenta una correzione mirata. Vincolo non negoziabile: la correzione torna in PENDING marcata "auto-corretta + cosa è cambiato", mai dritta in VALIDATED. Self-healing senza perdere la certificazione.</div>
+        <div class="phase-tag phase-guard">Fase 3 · Gated</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Le Tre Corsie · Esito del Consenso</div>
+    <h2 class="section-title">Lo Score Dosa il Controllo</h2>
+    <p class="body">L'esito del motore non è binario. In base al punteggio di confidenza, il dato è instradato in una di tre corsie — meno controllo umano dove i segnali sono forti e concordi.</p>
+    <table>
+      <tr><th>Confidenza</th><th>Corsia</th><th>Intervento umano</th><th>Esito</th></tr>
+      <tr><td class="lane-hi">ALTA</td><td>auto</td><td>nessuno</td><td>VALIDATED automatico</td></tr>
+      <tr><td class="lane-mid">MEDIA</td><td>one_worker</td><td>1 conferma (tap)</td><td>VALIDATED su conferma</td></tr>
+      <tr><td class="lane-lo">BASSA</td><td>n_worker</td><td>consenso 2/3</td><td>VALIDATED o REJECTED</td></tr>
+    </table>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">La Regola Non Negoziabile</div>
+    <h2 class="section-title">Auto-Validare Sì, Inventare Mai</h2>
+    <div class="principle">
+      <p>Il motore può scalare a miliardi solo se l'automazione non costa mai la certezza. Un dato auto-validato deve restare <strong>auditabile</strong>: quale gate ha passato, con che punteggio, con quale consenso. Una correzione automatica deve <strong>dichiarare cosa ha cambiato</strong> e tornare in coda, non promuoversi da sola. È la differenza tra un sistema che cresce e uno che si gonfia di dati che sembrano veri. ATLAS•EVENTA accetta solo verità tracciabili — e il Validation Engine esiste per produrle in volume, non per aggirarle.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Roadmap · Costruzione a Strati</div>
+    <h2 class="section-title">Dal Nucleo alla Scala</h2>
+    <div class="roadmap">
+      <div class="phase">
+        <div class="phase-id p1">FASE 1 · ORA</div>
+        <div class="phase-txt"><strong>Nucleo deterministico.</strong> Gate 01 (schema) + Gate 02 (coerenza temporale e territoriale) + T.C.F. Scoring, eseguiti su SQL e funzione edge. Gira sui PENDING reali di oggi. Zero AI, zero rischio, pienamente auditabile.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-id p2">FASE 2 · OCR</div>
+        <div class="phase-txt"><strong>Confidenza spaziale.</strong> Si attiva con il flusso locandine/WhatsApp: bounding box e confidenza posizionale per i dati da immagine. Stesso motore, nuovo input.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-id p3">FASE 3 · AGENTICO</div>
+        <div class="phase-txt"><strong>Self-healing gated.</strong> Agente correttivo che propone, mai decide: ogni correzione torna in PENDING con audit. Si abilita solo dopo che il nucleo e il consenso sono provati su volume.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder &amp; Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="ATLAS-EVENTA.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">ATLAS•EVENTA™</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="BORGOVIA-validation-layer.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">BORGOVIA™ Validation Layer</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>
