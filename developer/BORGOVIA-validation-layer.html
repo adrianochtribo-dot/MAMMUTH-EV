@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BORGOVIA™ VALIDATION LAYER | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--rose:#c97090;--silver:#a8b8c8;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--purple);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:920px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:60px 0 50px;border-bottom:1px solid var(--border-gold);margin-bottom:60px;position:relative;overflow:hidden;}
+    .hero::after{content:'⬡';position:absolute;right:-10px;top:30%;transform:translateY(-50%);font-size:13rem;color:transparent;-webkit-text-stroke:1px rgba(155,127,199,0.05);pointer-events:none;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:600;color:var(--green);line-height:1.1;letter-spacing:0.05em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.32em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:14px;}
+    .hero-desc{max-width:640px;margin-top:28px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+
+    .badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;padding:2px 8px;border:1px solid;border-radius:2px;}
+    .badge.target{border-color:var(--purple);color:var(--purple);}
+    .meta-row{display:flex;gap:36px;flex-wrap:wrap;margin-top:36px;}
+    .meta{font-family:'DM Mono',monospace;}
+    .meta-k{font-size:0.55rem;letter-spacing:0.25em;color:var(--gold-dim);text-transform:uppercase;}
+    .meta-v{font-size:0.85rem;color:var(--text);margin-top:6px;}
+
+    section{margin-bottom:60px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:28px;}
+    p.body{font-size:1rem;line-height:1.9;color:var(--text);margin-bottom:18px;}
+    p.body strong{color:var(--gold);font-weight:400;}
+
+    .axes{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .axis{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:22px 26px;}
+    .axis-name{font-family:'Cinzel',serif;font-size:1rem;font-weight:600;color:var(--cyan);letter-spacing:0.06em;margin-bottom:6px;}
+    .axis-q{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold-dim);letter-spacing:0.08em;margin-bottom:10px;}
+    .axis-d{font-size:0.85rem;color:var(--text-dim);line-height:1.6;}
+    .axis.risk{border-left-color:var(--red);} .axis.risk .axis-name{color:var(--rose);}
+    .axis.predict{border-left-color:var(--blue);} .axis.predict .axis-name{color:var(--blue);}
+    .axis.reput{border-left-color:var(--amber);} .axis.reput .axis-name{color:var(--amber);}
+    .axis.corrob{border-left-color:var(--green);} .axis.corrob .axis-name{color:var(--green);}
+
+    .lanes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid rgba(122,184,138,0.25);margin-top:8px;}
+    .lane{background:var(--bg-3);padding:18px 14px;text-align:center;}
+    .lane-conf{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.15em;margin-bottom:8px;text-transform:uppercase;}
+    .lane-act{font-size:0.78rem;color:var(--text);line-height:1.5;}
+    .lane.hi .lane-conf{color:var(--green);} .lane.mid .lane-conf{color:var(--amber);} .lane.lo .lane-conf{color:var(--rose);}
+
+    .note{background:var(--bg-2);border:1px solid var(--border-gold);padding:14px 20px;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;line-height:1.7;margin-top:10px;}
+    .note.lock{border-left:2px solid var(--silver);} .note.lock strong{color:var(--silver);font-weight:400;}
+    .note.reject{border-left:2px solid var(--red);} .note.reject strong{color:var(--red);font-weight:400;}
+
+    table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:0.72rem;margin-top:10px;}
+    th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);}
+    th{color:var(--gold-dim);letter-spacing:0.12em;text-transform:uppercase;font-size:0.58rem;font-weight:400;}
+    td strong{color:var(--gold);font-weight:400;}
+
+    .principle{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--green);padding:28px 32px;}
+    .principle p{font-size:0.98rem;line-height:1.9;color:var(--text);}
+    .principle strong{color:var(--gold);font-weight:400;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:920px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    .fade-in{opacity:0;transform:translateY(16px);animation:fadeIn 0.7s ease forwards;}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.hero::after{display:none;}.axes{grid-template-columns:1fr;}.lanes{grid-template-columns:1fr;}footer{flex-direction:column;gap:20px;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-BORG-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>VALIDATION LAYER · NODO 6</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">Pipeline · Stadio 06 · Validazione Distribuita</div>
+    <h1>BORGOVIA™<span>VALIDATION LAYER · La strada dei borghi verso la certezza</span></h1>
+    <p class="hero-desc">Il nodo che decide, per ogni dato, quanto controllo umano serve. Non "un umano controlla tutto", ma lo score che dosa l'intervento: il dato sicuro passa da solo, l'incerto chiama i worker. È ciò che rende sostenibile la validazione su scala globale — da Sermoneta ai miliardi di eventi.</p>
+    <div class="meta-row">
+      <div class="meta"><div class="meta-k">Posizione</div><div class="meta-v">Nodo 6 / 9 · tra T.C.F. Scoring e ATLAS•EVENTA</div></div>
+      <div class="meta"><div class="meta-k">Stato</div><div class="meta-v"><span class="badge target">TARGET</span> fondazione dati attiva</div></div>
+      <div class="meta"><div class="meta-k">Decisione</div><div class="meta-v">Rischio + Predittività + Reputazione + Corroborazione</div></div>
+    </div>
+  </div>
+
+  <section class="fade-in">
+    <div class="section-label">Come Decide · I Quattro Assi</div>
+    <h2 class="section-title">Quattro Domande, Una Corsia</h2>
+    <p class="body">BORGOVIA non guarda un solo numero. Pesa quattro assi indipendenti, ognuno risponde a una domanda diversa. Insieme decidono la corsia di validazione. Il principio è asimmetrico: <strong>i quattro abbassano il controllo solo quando sono d'accordo; basta un segnale rosso perché il controllo salga.</strong></p>
+    <div class="axes">
+      <div class="axis risk">
+        <div class="axis-name">RISCHIO</div>
+        <div class="axis-q">"cosa succede se sbaglio?"</div>
+        <div class="axis-d">Quanto costa l'errore. Affollamento, tipo evento, impatto. Fonte: Safety Engine. Promuove sempre verso più controllo, mai meno: è il freno di sicurezza.</div>
+      </div>
+      <div class="axis predict">
+        <div class="axis-name">PREDITTIVITÀ</div>
+        <div class="axis-q">"cosa mi aspettavo a priori?"</div>
+        <div class="axis-d">Confronta l'evento col modello di ciò che è normale per quel tipo, luogo e periodo. Se devia dall'atteso, alza il controllo. Il filtro del plausibile.</div>
+      </div>
+      <div class="axis reput">
+        <div class="axis-name">REPUTAZIONE</div>
+        <div class="axis-q">"chi me lo sta dicendo?"</div>
+        <div class="axis-d">Pesa la fonte sul suo storico di affidabilità. Si auto-aggiorna a ogni validazione: il sistema impara di chi fidarsi. È l'asse che fa calare il costo nel tempo.</div>
+      </div>
+      <div class="axis corrob">
+        <div class="axis-name">CORROBORAZIONE</div>
+        <div class="axis-q">"in quanti me lo confermano?"</div>
+        <div class="axis-d">Conta le fonti indipendenti che riportano lo stesso evento. Più fonti convergono, più la verità emerge da sola. Validazione gratis per convergenza.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">L'Esito · Le Tre Corsie</div>
+    <h2 class="section-title">Lo Score Dosa gli Umani</h2>
+    <p class="body">In base ai quattro assi, ogni dato è instradato in una di tre corsie. Più i segnali sono favorevoli e concordi, meno controllo serve.</p>
+    <div class="lanes">
+      <div class="lane hi"><div class="lane-conf">Confidenza ALTA</div><div class="lane-act">auto-validato<br>0 worker</div></div>
+      <div class="lane mid"><div class="lane-conf">Confidenza MEDIA</div><div class="lane-act">1 worker<br>conferma (tap)</div></div>
+      <div class="lane lo"><div class="lane-conf">Confidenza BASSA</div><div class="lane-act">consenso<br>N-worker</div></div>
+    </div>
+    <div class="note reject"><strong>✕ REJECTED</strong> · record bocciato dai worker → torna al RAW PARKING (stadio 03), non entra mai in ATLAS. Lo scarto è tracciato, non perso.</div>
+    <div class="note lock"><strong>🔒 MANUAL_LOCKED</strong> · i record curati a mano (es. pilota Sermoneta) sono blindati: BORGOVIA li riconosce e non li tocca mai. Ogni lock porta traccia di chi (locked_by) e quando (locked_at) — auditabilità T.C.F.</div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Implementazione · Struttura Dati</div>
+    <h2 class="section-title">Le Colonne della Validazione</h2>
+    <p class="body">La fondazione di BORGOVIA vive sulla tabella <strong>eventi</strong>: i quattro assi, la decisione e l'auditabilità. I punteggi si popolano man mano che T.C.F. e Safety Engine girano; in loro assenza il default è prudente.</p>
+    <table>
+      <tr><th>Campo</th><th>Asse / Ruolo</th><th>Tipo</th></tr>
+      <tr><td><strong>risk_score</strong></td><td>Rischio (Safety Engine)</td><td>numeric</td></tr>
+      <tr><td><strong>predict_score</strong></td><td>Predittività (modello a priori)</td><td>numeric</td></tr>
+      <tr><td><strong>reputation_score</strong></td><td>Reputazione (storico fonte)</td><td>numeric</td></tr>
+      <tr><td><strong>corroboration_count</strong></td><td>Corroborazione (n. fonti indipendenti)</td><td>integer</td></tr>
+      <tr><td><strong>validation_lane</strong></td><td>Decisione: auto / one_worker / n_worker</td><td>text</td></tr>
+      <tr><td><strong>validation_status</strong></td><td>PENDING / VALIDATED / REJECTED</td><td>text</td></tr>
+      <tr><td><strong>validation_origin</strong></td><td>MANUAL_LOCKED / USER_WHATSAPP / BORGOVIA_AUTO / CRAWLER</td><td>text</td></tr>
+      <tr><td><strong>locked_by · locked_at</strong></td><td>Auditabilità del lock manuale</td><td>text · timestamptz</td></tr>
+    </table>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Perché Scala</div>
+    <h2 class="section-title">Il Costo che Cala col Volume</h2>
+    <div class="principle">
+      <p>Il collo di bottiglia di ogni piattaforma di dati territoriali è la <strong>validazione</strong>. BORGOVIA la risolve facendo decidere allo score quanto intervento umano serve, caso per caso. Le fonti affidabili (reputazione alta) e gli eventi confermati da più parti (corroborazione) si auto-validano senza worker; solo l'incerto e il rischioso arrivano agli umani. Così, più il sistema lavora, più impara di chi fidarsi, più la validazione costa poco. È il modello che permette di passare da decine di eventi a <strong>miliardi</strong> sulla stessa struttura — e di farlo restando hyper-local, perché la decisione è sul singolo dato, non sul territorio in blocco.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder &amp; Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="TCF-framework.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">T.C.F.™ Framework</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="ATLAS-EVENTA.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">ATLAS•EVENTA™</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>
