@@ -124,7 +124,7 @@
 
 <div class="topbar"><div class="wrap">
   <div class="brand"><span class="dot"></span> MAMMUTH•EV™ · DATI VALIDATI</div>
-  <a href="./index.html">← Developer Portal</a>
+  <a href="developer-index.html">← Developer Portal</a>
 </div></div>
 
 <header class="hero"><div class="wrap">
@@ -158,8 +158,7 @@
 
 <script>
 // ============================================================
-//  CONFIG — sostituisci SOLO la chiave qui sotto, una volta.
-//  Usa la chiave PUBBLICA (sb_publishable_...), MAI la secret.
+//  CONFIG
 // ============================================================
 const SUPABASE_URL = "https://pwfsuefyiiwnltikcdho.supabase.co";
 const SUPABASE_KEY = "sb_publishable_5sHvYKX3YL7RI_RwpJK9FQ_-A2G7H63";
@@ -176,7 +175,6 @@ const COLS = [
 let RAW = [];
 let filter = "VALIDATED";
 
-// ---- T.C.F. score deterministico (0–100): completezza + coerenza, zero invenzione ----
 function tcf(e){
   const checks = [
     ["Titolo", !!(e.titolo && e.titolo.trim())],
@@ -243,7 +241,6 @@ function render(){
 }
 
 function updateStats(){
-  const act = RAW.filter(e=>e.status==="attivo"||true); // tutti i caricati
   const val = RAW.filter(e=>e.validation_status==="VALIDATED");
   const pen = RAW.filter(e=>e.validation_status==="PENDING");
   document.getElementById("n-val").textContent = val.length;
@@ -256,19 +253,19 @@ function updateStats(){
 async function load(){
   const msg = document.getElementById("status-msg");
   if(SUPABASE_KEY.startsWith("INCOLLA")){
-    msg.innerHTML = "⚠ Chiave non configurata. Apri il codice della pagina e incolla la chiave publishable nel blocco CONFIG.";
+    msg.innerHTML = "⚠ Chiave non configurata.";
     return;
   }
   try{
     const url = `${SUPABASE_URL}/rest/v1/eventi?select=${COLS}&status=eq.attivo&order=data_inizio.asc`;
     const res = await fetch(url, { headers:{ apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}` }});
-    if(!res.ok){ msg.textContent = `Errore ${res.status}: il database ha rifiutato la richiesta. Controlla la chiave publishable.`; return; }
+    if(!res.ok){ msg.textContent = `Errore ${res.status}: il database ha rifiutato la richiesta.`; return; }
     RAW = await res.json();
     if(!Array.isArray(RAW)||RAW.length===0){ msg.textContent = "Nessun evento attivo trovato."; return; }
     updateStats();
     render();
   }catch(err){
-    msg.textContent = "Connessione non riuscita. Verifica rete e URL del progetto.";
+    msg.textContent = "Connessione non riuscita.";
   }
 }
 
@@ -282,5 +279,29 @@ document.getElementById("seg").addEventListener("click", e=>{
 document.getElementById("q").addEventListener("input", render);
 load();
 </script>
+
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="BORGOVIA-validation-layer.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">BORGOVIA™ Validation Layer</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="ATLAS-EVENTA.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">ATLAS•EVENTA™</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
 </body>
 </html>
