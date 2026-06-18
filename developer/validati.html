@@ -203,7 +203,7 @@ function render(){
   if(q) rows = rows.filter(e=>[e.titolo,e.luogo,e.categoria,e.organizzatore].some(x=>x&&String(x).toLowerCase().includes(q)));
 
   const list = document.getElementById("list");
-  if(rows.length===0){ list.innerHTML = `<div id="status-msg">Nessun evento per questo filtro.</div>`; return; }
+  if(rows.length===0){ list.innerHTML = `<div style="padding:40px 0;text-align:center;color:var(--muted);font-style:italic">Nessun evento per questo filtro.</div>`; return; }
 
   list.innerHTML = rows.map(e=>{
     const {score,checks} = tcf(e);
@@ -256,12 +256,29 @@ async function load(){
     msg.innerHTML = "⚠ Chiave non configurata.";
     return;
   }
+  const headers = { apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}` };
   try{
-    const url = `${SUPABASE_URL}/rest/v1/eventi?select=${COLS}&status=eq.attivo&order=data_inizio.asc`;
-    const res = await fetch(url, { headers:{ apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}` }});
-    if(!res.ok){ msg.textContent = `Errore ${res.status}: il database ha rifiutato la richiesta.`; return; }
-    RAW = await res.json();
-    if(!Array.isArray(RAW)||RAW.length===0){ msg.textContent = "Nessun evento attivo trovato."; return; }
+    // VALIDATI: letti dalla vista pubblica unica (eventi_catalogo_pubblico = eventi VALIDATED)
+    const urlVal = `${SUPABASE_URL}/rest/v1/eventi_catalogo_pubblico?select=*&order=data_inizio.asc`;
+    const resVal = await fetch(urlVal, { headers });
+    if(!resVal.ok){ msg.textContent = `Errore ${resVal.status}: il database ha rifiutato la richiesta (validati).`; return; }
+    const validati = await resVal.json();
+    validati.forEach(e=>{ e.validation_status = "VALIDATED"; });
+
+    // PENDING: letti da eventi_staging (in coda di validazione BORGOVIA)
+    let pending = [];
+    try{
+      const urlPen = `${SUPABASE_URL}/rest/v1/eventi_staging?select=*&stato_validazione=eq.pending&order=data_inizio.asc`;
+      const resPen = await fetch(urlPen, { headers });
+      if(resPen.ok){
+        pending = await resPen.json();
+        pending.forEach(e=>{ e.validation_status = "PENDING"; });
+      }
+    }catch(_){ /* staging opzionale: se non leggibile, mostro solo i validati */ }
+
+    RAW = validati.concat(pending);
+    if(!Array.isArray(RAW)||RAW.length===0){ msg.textContent = "Nessun evento trovato."; return; }
+    document.getElementById("status-msg").style.display = "none";
     updateStats();
     render();
   }catch(err){
