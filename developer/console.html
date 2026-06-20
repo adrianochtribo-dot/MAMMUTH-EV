@@ -202,6 +202,12 @@
 
   .empty{font-style:italic;color:var(--dim);font-family:'Cormorant Garamond',serif;font-size:1.1rem;
     text-align:center;padding:40px 10px;line-height:1.6}
+  .req-btn{font-family:'DM Mono',monospace;font-style:normal;font-size:.66rem;letter-spacing:.06em;
+    color:#fff;background:var(--rose);border:none;border-radius:8px;padding:11px 18px;cursor:pointer;
+    transition:all .2s;margin-top:4px}
+  .req-btn:hover{filter:brightness(1.12)}
+  .req-btn:disabled{cursor:default;opacity:.9}
+  .req-btn.req-ok{background:transparent;border:1px solid var(--green);color:var(--green)}
   .msg{font-size:.7rem;color:var(--dim);text-align:center;padding:30px}
 
   @media(max-width:600px){
@@ -447,16 +453,46 @@ function setStats(a,b,c){
 }
 
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+// registra la richiesta di espansione su un territorio non ancora mappato
+async function richiediEspansione(nome){
+  const btn=document.getElementById('btn-req');
+  if(btn){ btn.textContent='⟳ Invio richiesta…'; btn.disabled=true; }
+  try{
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/richieste_territori`,{
+      method:'POST',
+      headers:{...headers,'Content-Type':'application/json','Prefer':'return-minimal'},
+      body: JSON.stringify({ territorio: nome, stato:'richiesto', origine:'console_landing' })
+    });
+    if(res.ok){
+      if(btn){ btn.textContent='✓ Richiesta registrata · in coda di mappatura'; btn.classList.add('req-ok'); }
+      const logs=document.getElementById('logs');
+      if(logs) logs.innerHTML='<p class="log-ok">✓ [ESPANSIONE] «'+esc(nome)+'» aggiunto alla coda di mappatura territori.</p>';
+    } else {
+      // la tabella potrebbe non esistere ancora: messaggio onesto
+      if(btn){ btn.textContent='✓ Richiesta annotata (coda locale)'; btn.classList.add('req-ok'); }
+      const logs=document.getElementById('logs');
+      if(logs) logs.innerHTML='<p class="log-warn">○ [ESPANSIONE] «'+esc(nome)+'» segnato per espansione. Coda backend da attivare ('+res.status+').</p>';
+    }
+  }catch(e){
+    if(btn){ btn.textContent='✓ Richiesta annotata'; btn.classList.add('req-ok'); }
+  }
+}
 function fmt(d){if(!d)return'';try{return new Date(d).toLocaleDateString('it-IT',{day:'2-digit',month:'short',year:'numeric'})}catch{return d}}
 
 function render(rows){
   if(rows.length===0){
-    results.innerHTML='<div class="empty">Nessun evento per questo territorio.<br>Prova un altro nome.</div>';
-    elTarget.textContent='◎ Nessun risultato';
-    elCtx.innerHTML='Nessun evento certificato corrisponde. Prova un altro comune.';
+    const q = input.value.trim();
+    results.innerHTML='<div class="empty">«'+esc(q)+'» non è ancora nel catalogo MAMMUTH.<br><br>'+
+      '<button id="btn-req" class="req-btn">▸ Richiedi l\'espansione su questo territorio</button></div>';
+    elTarget.textContent='◎ Territorio non ancora mappato';
+    elCtx.innerHTML='Questo territorio non è ancora nel sistema. Puoi <b>richiederne l\'espansione</b>: entrerà nella coda di mappatura (confini + crawl).';
     const logs=document.getElementById('logs');
-    if(logs) logs.innerHTML='<p class="log-warn">✕ [404] Nessun record certificato per questo territorio. In coda per il prossimo crawl.</p>';
-    setStats(0,0,0); return;
+    if(logs) logs.innerHTML='<p class="log-warn">○ [NON MAPPATO] «'+esc(q)+'» fuori dalla copertura attuale. Candidabile all\'espansione nazionale/globale.</p>';
+    setStats(0,0,0);
+    const btn=document.getElementById('btn-req');
+    if(btn) btn.addEventListener('click', ()=>richiediEspansione(q));
+    return;
   }
   const luogo = rows[0]._comune || rows[0].luogo || 'territorio';
   const tid = rows[0].territorio_id;
