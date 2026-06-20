@@ -1,4 +1,5 @@
 'use client';
+// build: console-territorio v1 — 2026-06-20
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
