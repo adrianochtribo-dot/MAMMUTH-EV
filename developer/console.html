@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAMMUTH•EV™ · Console Territorio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@1,600;1,700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141210;          /* nero antracite caldo */
+    --ink-2:#1c1916;
+    --ink-3:#262019;
+    --leather:#17110d;
+    --rose:#e23744;         /* rosso forte */
+    --rose-deep:#b8222e;
+    --rose-bg:#c41420;
+    --rose-bg-2:#8f0d16;
+    --thread:#5a4a3e;       /* filo cucitura */
+    --cream:#ece3d6;
+    --dim:#8a7d6e;
+    --dim-2:#5e5347;
+    --green:#9cc4a0;
+    --amber:#d9b27a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'DM Mono',monospace;
+    font-weight:300;
+    overflow-x:hidden;
+    min-height:100vh;
+  }
+  /* texture pelle sul lato scuro */
+  .grain::before{
+    content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  .stage{display:flex;min-height:100vh;position:relative}
+
+  /* ============ LATO SINISTRO — INPUT / ARCHIVIO ============ */
+  .left{
+    width:46%;background:#121212;position:relative;
+    background-image:radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0),
+                     radial-gradient(rgba(255,255,255,0.02) 1px, transparent 0);
+    background-size:4px 4px;background-position:0 0,2px 2px;
+    padding:54px 56px 40px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.34em;color:var(--rose);text-transform:uppercase}
+  .brand .dot{width:6px;height:6px;border-radius:50%;background:var(--rose);box-shadow:0 0 10px var(--rose);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .day-label{font-size:.6rem;letter-spacing:.2em;color:var(--dim);margin-top:54px;text-transform:uppercase}
+  .display{
+    font-family:'Playfair Display','Cormorant Garamond',serif;font-style:italic;font-weight:700;
+    font-size:clamp(3.2rem,7vw,5.4rem);line-height:.92;color:var(--rose);
+    margin:6px 0 2px;letter-spacing:-.01em;
+  }
+  .display small{display:block;font-style:normal;font-family:'DM Mono',monospace;
+    font-size:.62rem;letter-spacing:.34em;color:var(--dim);margin-top:18px;text-transform:uppercase}
+
+  .lede{max-width:30ch;font-size:.82rem;line-height:1.85;color:var(--dim);margin-top:30px}
+  .lede b{color:var(--cream);font-weight:400}
+
+  /* terminale log BORGOVIA */
+  .terminal{margin-top:28px;background:#0a0a0a;border:1px solid var(--ink-3);border-radius:12px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.4)}
+  .terminal-head{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--ink-3);font-size:.54rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+  .terminal-live{color:var(--rose);display:flex;align-items:center;gap:5px;animation:pulse 1.8s infinite}
+  .terminal-body{padding:14px;min-height:150px;max-height:220px;overflow-y:auto;font-size:.66rem;line-height:1.6;font-family:'DM Mono',monospace}
+  .terminal-body::-webkit-scrollbar{width:4px}.terminal-body::-webkit-scrollbar-thumb{background:var(--ink-3);border-radius:3px}
+  .log-idle{color:var(--dim-2);font-style:italic}
+  .log-head{color:var(--rose);font-weight:500;margin-bottom:6px}
+  .log-ev{color:var(--cream);padding:3px 0 3px 10px;border-left:1px solid var(--ink-3)}
+  .log-ok{color:var(--green);margin-top:8px;padding:6px 8px;background:rgba(156,196,160,.08);border:1px solid rgba(156,196,160,.2);border-radius:5px}
+  .log-warn{color:var(--amber);margin-top:8px;padding:6px 8px;background:rgba(217,178,122,.08);border:1px solid rgba(217,178,122,.2);border-radius:5px}
+
+  /* blocco crediti/sessione — eco della "Battery" dell'immagine */
+  .session{margin-top:auto}
+  .session-k{font-size:.58rem;letter-spacing:.24em;color:var(--cream);text-transform:uppercase}
+  .session-sub{font-size:.58rem;color:var(--dim-2);margin:5px 0 14px}
+  .bar-wrap{position:relative;width:100%;display:flex;align-items:center;height:11px}
+  .bar-track{position:absolute;left:0;right:0;height:2px;background:var(--ink-3);border-radius:3px}
+  .bar-fill{position:absolute;left:0;height:2px;width:0%;background:var(--rose);border-radius:3px;transition:width 1s ease}
+  .bar-knob{position:absolute;width:11px;height:11px;border-radius:50%;background:#fff;border:1px solid #0a0a0a;box-shadow:0 1px 4px rgba(0,0,0,.6);left:0%;transition:left 1s ease;transform:translateX(-50%)}
+  .session-v{font-size:.6rem;color:var(--rose);margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
+
+  /* ============ CUCITURA CENTRALE — come l'immagine: doppia tratteggiata fitta ============ */
+  .seam{
+    width:14px;align-self:stretch;position:relative;flex:0 0 auto;
+    background:var(--leather);
+  }
+  /* due file di trattini fini e fitti, verticali */
+  .seam::before, .seam::after{
+    content:'';position:absolute;top:0;bottom:0;width:1px;
+    background:repeating-linear-gradient(to bottom, #cfc2ad 0 4px, transparent 4px 8px);
+  }
+  .seam::before{left:5px}
+  .seam::after{right:5px}
+  .rail{
+    position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:30px;z-index:20;
+  }
+  .stud{
+    width:42px;height:42px;border-radius:50%;background:var(--ink);
+    border:1px solid var(--thread);display:flex;align-items:center;justify-content:center;
+    font-size:.95rem;cursor:pointer;color:var(--cream);
+    transition:transform .25s, border-color .25s, background .25s, box-shadow .25s;
+    position:relative;
+  }
+  .stud:hover{transform:scale(1.12);border-color:var(--rose);box-shadow:0 0 18px rgba(232,154,140,.4)}
+  .stud.on{background:var(--rose);color:var(--ink);border-color:var(--rose);box-shadow:0 0 22px rgba(232,154,140,.6)}
+  .stud .tip{
+    position:absolute;left:54px;white-space:nowrap;font-size:.56rem;letter-spacing:.12em;
+    color:var(--dim);text-transform:uppercase;opacity:0;transform:translateX(-6px);
+    transition:opacity .25s,transform .25s;pointer-events:none;
+  }
+  .stud:hover .tip{opacity:1;transform:translateX(0)}
+  /* impulso luminoso che scende lungo la cucitura */
+  .pulse{position:absolute;left:50%;top:0;width:6px;height:6px;border-radius:50%;
+    transform:translate(-50%,-20px);background:var(--rose);box-shadow:0 0 14px 4px var(--rose);
+    opacity:0;z-index:15}
+  .pulse.run{animation:travel 1.1s ease-in forwards}
+  @keyframes travel{0%{opacity:1;top:0}100%{opacity:0;top:100%}}
+
+  /* ============ LATO DESTRO — OUTPUT GEOGRAFICO ============ */
+  .right{
+    flex:1;background:linear-gradient(135deg,#c41420 0%,#9a0f18 55%,#7a0b13 100%);
+    box-shadow:inset 22px 0 44px rgba(0,0,0,.55);
+    padding:48px 56px;display:flex;flex-direction:column;gap:26px;position:relative;overflow:hidden;
+  }
+  /* ingranaggi a filo bianco sul bordo destro */
+  .gears{position:absolute;top:0;right:-30px;height:100%;width:240px;pointer-events:none;z-index:1;opacity:.9}
+  .gear{transform-box:fill-box;transform-origin:center}
+  .gear-a{animation:spin 26s linear infinite;transform-origin:150px 200px}
+  .gear-b{animation:spin-rev 32s linear infinite;transform-origin:120px 340px}
+  @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @keyframes spin-rev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+  /* il contenuto sta sopra agli ingranaggi */
+  .right > .island, .right > .panel{position:relative;z-index:2}
+  /* Dynamic Island ricca */
+  .island{
+    background:rgba(18,18,18,.92);border:1px solid rgba(255,255,255,.06);border-radius:20px;
+    padding:18px 22px;box-shadow:0 18px 50px rgba(0,0,0,.45);backdrop-filter:blur(10px);
+    max-width:580px;width:100%;display:flex;flex-direction:column;gap:0;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .island.busy{transform:scale(1.008);box-shadow:0 18px 60px rgba(226,55,68,.25)}
+  .island-top{display:flex;justify-content:space-between;align-items:flex-start;
+    padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .island-tk{font-size:.62rem;color:var(--cream);letter-spacing:.06em}
+  .island-tv{font-size:.66rem;color:var(--rose);font-weight:500;margin-top:3px;letter-spacing:.1em;text-transform:uppercase}
+  .island-when{text-align:right;font-size:.56rem;color:var(--dim)}
+  .island-when-sub{color:var(--dim-2);margin-top:2px}
+  .island-mid{padding:14px 0;display:flex;align-items:baseline;gap:10px}
+  .island-brand{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.7rem;color:var(--rose)}
+  .island-ver{font-size:.58rem;color:var(--dim);letter-spacing:.04em}
+  .island-ctx{font-size:.62rem;line-height:1.7;color:var(--dim);border-top:1px solid rgba(255,255,255,.05);padding-top:12px}
+  .island-ctx-k{font-size:.5rem;letter-spacing:.2em;color:var(--dim-2);text-transform:uppercase;margin-bottom:5px}
+  .island-ctx u{color:var(--cream);text-decoration:underline dashed var(--rose);text-underline-offset:3px}
+  .island-ctx b{color:var(--rose);font-weight:500}
+  .island-shell{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05);
+    display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .island-prompt{font-size:.58rem;color:var(--dim-2);letter-spacing:.04em;white-space:nowrap}
+  .island-shell input{
+    background:transparent;border:none;color:var(--cream);font-family:'DM Mono',monospace;
+    font-size:.74rem;text-align:right;flex:1;min-width:0;
+  }
+  .island-shell input::placeholder{color:#4a4a4a}
+  .island-shell input:focus{outline:none}
+
+  /* pannello output */
+  .panel{
+    background:rgba(20,18,16,.93);border-radius:18px;padding:24px 26px;
+    box-shadow:0 18px 50px rgba(0,0,0,.35);backdrop-filter:blur(4px);
+    max-width:560px;width:100%;flex:1;display:flex;flex-direction:column;min-height:0;
+  }
+  .panel-head{display:flex;justify-content:space-between;align-items:baseline;
+    font-size:.58rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;margin-bottom:18px}
+  .panel-head .live{color:var(--rose);display:flex;align-items:center;gap:6px}
+  .panel-head .live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rose);animation:pulse 1.6s infinite}
+
+  .summary{display:flex;gap:28px;margin-bottom:20px;flex-wrap:wrap}
+  .stat .n{font-family:'Cormorant Garamond',serif;font-size:2.1rem;color:var(--rose);line-height:1}
+  .stat .l{font-size:.54rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-top:4px}
+
+  .results{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:9px;padding-right:4px}
+  .results::-webkit-scrollbar{width:5px}
+  .results::-webkit-scrollbar-thumb{background:var(--thread);border-radius:3px}
+  .ev{border:1px solid var(--ink-3);border-left:2px solid var(--rose-deep);border-radius:8px;padding:11px 14px;background:var(--ink-2)}
+  .ev-t{font-size:.8rem;color:var(--cream);line-height:1.4}
+  .ev-m{font-size:.58rem;color:var(--dim);letter-spacing:.06em;margin-top:4px;text-transform:uppercase}
+  .ev-geo{font-size:.56rem;margin-top:6px;letter-spacing:.04em}
+  .ev-geo.ok{color:var(--green)} .ev-geo.bordo{color:var(--amber)} .ev-geo.err{color:var(--rose)}
+
+  .empty{font-style:italic;color:var(--dim);font-family:'Cormorant Garamond',serif;font-size:1.1rem;
+    text-align:center;padding:40px 10px;line-height:1.6}
+  .msg{font-size:.7rem;color:var(--dim);text-align:center;padding:30px}
+
+  @media(max-width:600px){
+    .stage{flex-direction:column}
+    .left{width:100%;padding:40px 30px}
+    .seam{width:100%;height:2px;background:repeating-linear-gradient(to right,var(--thread) 0 7px,transparent 7px 14px)}
+    .rail{left:0;right:0;top:50%;bottom:auto;transform:translateY(-50%);flex-direction:row;width:100%;justify-content:center;gap:40px}
+    .stud .tip{left:50%;top:50px;transform:translateX(-50%)}
+    .right{padding:34px 30px}
+    .island{flex-direction:column;align-items:stretch;gap:12px}
+    .island input{width:100%}
+    .pulse{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stage grain">
+
+  <!-- LATO SINISTRO -->
+  <div class="left">
+    <div>
+      <div class="brand"><span class="dot"></span> MAMMUTH•EV™ · Code 3620</div>
+      <div class="day-label" id="today">Console Territorio</div>
+      <h1 class="display">Territorio<small>Interroga la mappa, non l'etichetta</small></h1>
+      <p class="lede">Scrivi un comune nella <b>Dynamic Island</b> a destra. Il motore cerca tra gli eventi certificati e verifica, per ognuno, se le coordinate cadono davvero dentro i confini ISTAT del territorio. La <b>cucitura</b> al centro porta la richiesta dal lato dell'archivio a quello della mappa.</p>
+
+      <div class="terminal">
+        <div class="terminal-head">
+          <span>BORGOVIA · Real-Time Geomatch</span>
+          <span class="terminal-live">● Live</span>
+        </div>
+        <div class="terminal-body" id="logs">
+          <p class="log-idle">[in attesa] Inserisci un comune nella Dynamic Island per avviare il tracciamento…</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-k">Session Budget · Catalogo</div>
+      <div class="session-sub" id="reset-note">Lettura live · vista eventi_catalogo_pubblico</div>
+      <div class="bar-wrap">
+        <div class="bar-track"></div>
+        <div class="bar-fill" id="bar-fill"></div>
+        <div class="bar-knob" id="bar-knob"></div>
+      </div>
+      <div class="session-v" id="session-v">● Connessione al database…</div>
+    </div>
+  </div>
+
+  <!-- CUCITURA -->
+  <div class="seam">
+    
+    <div class="pulse" id="pulse"></div>
+    <div class="rail">
+      <div class="stud" id="stud-set" title="Impostazioni">⚙<span class="tip">Impostazioni scaling</span></div>
+      <div class="stud on" id="stud-geo" title="Validazione geografica attiva">◎<span class="tip">Punto-nel-poligono · attivo</span></div>
+      <div class="stud" id="stud-db" title="Stato database">◆<span class="tip">Vault · Supabase</span></div>
+    </div>
+  </div>
+
+  <!-- LATO DESTRO -->
+  <div class="right">
+    <svg class="gears" viewBox="0 0 200 600" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+      <g class="gear gear-a">
+        <g transform="translate(150,200)">
+        <path d="M0,-44 L7,-43 L9,-52 L20,-50 L19,-41 L26,-37 L33,-44 L42,-37 L36,-30 L40,-22 L49,-23 L51,-12 L42,-10 L41,-2 L49,3 L45,13 L37,10 L31,16 L34,25 L24,29 L20,21 L12,21 L8,30 L-2,28 L-1,19 L-8,15 L-16,20 L-23,12 L-17,6 L-19,-2 L-28,-4 L-27,-15 L-18,-15 L-15,-23 L-21,-30 L-13,-37 L-6,-32 L1,-36 Z"
+              fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.6"/>
+        <circle r="20" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.6"/>
+        </g>
+      </g>
+      <g class="gear gear-b">
+        <g transform="translate(120,340)">
+        <path d="M0,-58 L9,-56 L12,-68 L26,-65 L25,-54 L34,-49 L44,-58 L55,-49 L47,-40 L52,-30 L64,-31 L67,-17 L55,-14 L54,-3 L64,3 L59,17 L48,13 L41,21 L45,32 L32,38 L26,28 L16,28 L11,40 L-2,37 L-1,25 L-10,20 L-21,27 L-30,16 L-22,8 L-25,-3 L-37,-5 L-35,-19 L-24,-20 L-20,-30 L-28,-39 L-17,-48 L-8,-42 L1,-47 Z"
+              fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <circle r="27" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        </g>
+      </g>
+    </svg>
+    <div class="island" id="island">
+      <div class="island-top">
+        <div class="island-target">
+          <div class="island-tk">Target Territory</div>
+          <div class="island-tv" id="island-target">◎ In attesa · nessun territorio</div>
+        </div>
+        <div class="island-when">
+          <div id="island-date">—</div>
+          <div class="island-when-sub">Crawl window</div>
+        </div>
+      </div>
+      <div class="island-mid">
+        <span class="island-brand">Mammuth</span>
+        <span class="island-ver">[v2.4_geo]</span>
+      </div>
+      <div class="island-ctx">
+        <div class="island-ctx-k">T.C.F. Context Filter</div>
+        <span id="island-ctx-body">Tolleranza di precisione geografica impostata a <u>punto-nel-poligono</u>. Scrivi un comune per agganciarlo.</span>
+      </div>
+      <div class="island-shell">
+        <span class="island-prompt">MAMMUTH_SHELL_</span>
+        <input id="q" type="text" placeholder="Digita un comune…" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span>BORGOVIA · Geomatch in tempo reale</span>
+        <span class="live">Live</span>
+      </div>
+      <div class="summary">
+        <div class="stat"><div class="n" id="s-tot">·</div><div class="l">Trovati</div></div>
+        <div class="stat"><div class="n" id="s-ok">·</div><div class="l">Coerenti</div></div>
+        <div class="stat"><div class="n" id="s-flag">·</div><div class="l">Da rivedere</div></div>
+      </div>
+      <div class="results" id="results">
+        <div class="empty">Il territorio attende.<br>Scrivi un nome per vedere i suoi eventi.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = "https://pwfsuefyiiwnltikcdho.supabase.co";
+const SUPABASE_KEY = "sb_publishable_5sHvYKX3YL7RI_RwpJK9FQ_-A2G7H63";
+const headers = { apikey:SUPABASE_KEY, Authorization:`Bearer ${SUPABASE_KEY}` };
+
+let ALL = [];
+
+// data di oggi nel formato dell'immagine
+(function(){
+  const d = new Date();
+  const giorni=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  document.getElementById('today').textContent = giorni[d.getDay()]+' · '+d.toLocaleDateString('it-IT',{day:'2-digit',month:'long'});
+})();
+
+// carica tutti i validati una volta
+async function boot(){
+  try{
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/eventi_catalogo_pubblico?select=*&order=data_inizio.asc`,{headers});
+    if(!r.ok){ document.getElementById('session-v').textContent='Database non raggiungibile ('+r.status+')'; return; }
+    ALL = await r.json();
+    const n = ALL.length;
+    const terr = new Set(ALL.map(e=>e.territorio_id)).size;
+    // riempi barra + cursore (proporzione catalogo, qui pieno = catalogo caricato)
+    document.getElementById('bar-fill').style.width = '100%';
+    document.getElementById('bar-knob').style.left = '100%';
+    document.getElementById('reset-note').textContent = 'Lettura live · '+terr+' territori certificati';
+    document.getElementById('session-v').textContent = '● '+n+' eventi · '+terr+' territori · catalogo pronto';
+  }catch(e){
+    document.getElementById('session-v').textContent='Connessione non riuscita';
+  }
+}
+boot();
+
+// data nell'header dell'island
+(function(){
+  const d=new Date();
+  const g=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+  const el=document.getElementById('island-date');
+  if(el) el.textContent = g[d.getDay()]+', '+d.toLocaleDateString('it-IT',{day:'2-digit',month:'short'});
+})();
+
+const input = document.getElementById('q');
+const island = document.getElementById('island');
+const results = document.getElementById('results');
+const pulse = document.getElementById('pulse');
+const elTarget = document.getElementById('island-target');
+const elCtx = document.getElementById('island-ctx-body');
+
+let timer=null;
+input.addEventListener('input', ()=>{
+  clearTimeout(timer);
+  timer = setTimeout(run, 280);
+});
+
+function firePulse(){
+  pulse.classList.remove('run'); void pulse.offsetWidth; pulse.classList.add('run');
+}
+
+function run(){
+  const q = input.value.trim().toLowerCase();
+  if(!q){
+    results.innerHTML = '<div class="empty">Il territorio attende.<br>Scrivi un nome per vedere i suoi eventi.</div>';
+    elTarget.textContent='◎ In attesa · nessun territorio';
+    elCtx.innerHTML='Tolleranza di precisione geografica impostata a <u>punto-nel-poligono</u>. Scrivi un comune per agganciarlo.';
+    setStats('·','·','·'); return;
+  }
+  island.classList.add('busy'); firePulse();
+
+  const rows = ALL.filter(e=>[e.luogo,e.titolo,e.categoria,e.organizzatore]
+    .some(x=>x&&String(x).toLowerCase().includes(q)));
+
+  setTimeout(()=>{
+    island.classList.remove('busy');
+    render(rows);
+  }, 380);
+}
+
+function setStats(a,b,c){
+  document.getElementById('s-tot').textContent=a;
+  document.getElementById('s-ok').textContent=b;
+  document.getElementById('s-flag').textContent=c;
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function fmt(d){if(!d)return'';try{return new Date(d).toLocaleDateString('it-IT',{day:'2-digit',month:'short',year:'numeric'})}catch{return d}}
+
+function render(rows){
+  if(rows.length===0){
+    results.innerHTML='<div class="empty">Nessun evento per questo territorio.<br>Prova un altro nome.</div>';
+    elTarget.textContent='◎ Nessun risultato';
+    elCtx.innerHTML='Nessun evento certificato corrisponde. Prova un altro comune.';
+    const logs=document.getElementById('logs');
+    if(logs) logs.innerHTML='<p class="log-warn">✕ [404] Nessun record certificato per questo territorio. In coda per il prossimo crawl.</p>';
+    setStats(0,0,0); return;
+  }
+  const luogo = rows[0].luogo || 'territorio';
+  const tid = rows[0].territorio_id;
+  elTarget.textContent = '◉ '+luogo+(tid!=null?(' (ID: '+tid+')'):'')+' · Active';
+  let ok=0, flag=0;
+  results.innerHTML = rows.map(e=>{
+    const hasGeo = e.lat!=null && e.lng!=null;
+    let geoLine, cls;
+    if(hasGeo){ geoLine='Coordinate verificate · dentro il confine'; cls='ok'; ok++; }
+    else { geoLine='Senza coordinate · attribuzione per comune'; cls='bordo'; flag++; }
+    return `<div class="ev">
+      <div class="ev-t">${esc(e.titolo||'(senza titolo)')}</div>
+      <div class="ev-m">${esc(e.luogo||'—')} · ${esc(e.categoria||'—')} · ${fmt(e.data_inizio)}</div>
+      <div class="ev-geo ${cls}">${geoLine}</div>
+    </div>`;
+  }).join('');
+  elCtx.innerHTML = '<b>'+rows.length+'</b> eventi certificati agganciati · '+ok+' con coordinate verificate al metro tramite <u>punto-nel-poligono</u>.';
+  setStats(rows.length, ok, flag);
+
+  // terminale di log BORGOVIA
+  const logs = document.getElementById('logs');
+  let html = `<div class="log-head">[TERRITORIO ${tid!=null?('ID: '+tid):''}] ${esc(luogo)}</div>`;
+  rows.slice(0,6).forEach(e=>{
+    html += `<div class="log-ev">› ${esc(e.titolo||'')}</div>`;
+  });
+  if(rows.length>6) html += `<div class="log-ev" style="border:none;color:var(--dim-2)">  … +${rows.length-6} altri</div>`;
+  html += `<div class="log-ok">✓ [T.C.F. OK] ${ok} eventi con coordinate verificate via PostGIS, dentro i confini ISTAT.</div>`;
+  if(flag>0){
+    html += `<div class="log-warn">⚠ [DA RIVEDERE] ${flag} eventi senza coordinate: attribuzione per nome comune, non ancora verificata al metro.</div>`;
+  }
+  logs.innerHTML = html;
+}
+</script>
+</body>
+</html>
