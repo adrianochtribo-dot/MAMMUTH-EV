@@ -340,26 +340,36 @@ let ALL = [];
 })();
 
 // carica tutti i validati una volta
+let TERR = {}; // territorio_id -> nome comune
+
 async function boot(){
   try{
+    // 1. carico i nomi dei comuni dalla tabella territori
+    try{
+      const rt = await fetch(`${SUPABASE_URL}/rest/v1/territori?select=id,nome`,{headers});
+      if(rt.ok){ (await rt.json()).forEach(t=>{ TERR[t.id]=t.nome; }); }
+    }catch(_){}
+
+    // 2. carico gli eventi certificati
     const r = await fetch(`${SUPABASE_URL}/rest/v1/eventi_catalogo_pubblico?select=*&order=data_inizio.asc`,{headers});
     if(!r.ok){ document.getElementById('session-v').textContent='Database non raggiungibile ('+r.status+')'; return; }
     ALL = await r.json();
+    // aggancio il nome comune a ogni evento
+    ALL.forEach(e=>{ e._comune = TERR[e.territorio_id] || ('Territorio '+e.territorio_id); });
+
     const n = ALL.length;
-    const terr = new Set(ALL.map(e=>e.territorio_id)).size;
-    // riempi barra + cursore (proporzione catalogo, qui pieno = catalogo caricato)
+    const comuni = [...new Set(ALL.map(e=>e._comune).filter(Boolean))].sort();
     document.getElementById('bar-fill').style.width = '100%';
     document.getElementById('bar-knob').style.left = '100%';
-    document.getElementById('reset-note').textContent = 'Lettura live · '+terr+' territori certificati';
-    document.getElementById('session-v').textContent = '● '+n+' eventi · '+terr+' territori · catalogo pronto';
+    document.getElementById('reset-note').textContent = 'Lettura live · '+comuni.length+' comuni certificati';
+    document.getElementById('session-v').textContent = '● '+n+' eventi · '+comuni.length+' comuni · catalogo pronto';
 
-    // pillole: i territori realmente presenti, cliccabili
-    const luoghi = [...new Set(ALL.map(e=>e.luogo).filter(Boolean))].sort();
+    // pillole = i COMUNI veri, cliccabili
     const chipsEl = document.getElementById('chips');
     if(chipsEl){
-      chipsEl.innerHTML = luoghi.slice(0,12).map(l=>`<span class="chip">${l}</span>`).join('');
+      chipsEl.innerHTML = comuni.map(c=>`<span class="chip" data-comune="${c}">${c}</span>`).join('');
       chipsEl.querySelectorAll('.chip').forEach(c=>{
-        c.addEventListener('click', ()=>{ input.value=c.textContent; run(); });
+        c.addEventListener('click', ()=>{ input.value=c.dataset.comune; run(); });
       });
     }
   }catch(e){
@@ -420,7 +430,7 @@ function run(){
 
   // un evento combacia se una delle sue stringhe contiene almeno una parola utile
   const rows = ALL.filter(e=>{
-    const blob = norm([e.luogo,e.titolo,e.categoria,e.organizzatore,e.comune].join(' '));
+    const blob = norm([e._comune,e.luogo,e.titolo,e.categoria,e.organizzatore].join(' '));
     return termini.some(t=>blob.includes(t));
   });
 
@@ -448,7 +458,7 @@ function render(rows){
     if(logs) logs.innerHTML='<p class="log-warn">✕ [404] Nessun record certificato per questo territorio. In coda per il prossimo crawl.</p>';
     setStats(0,0,0); return;
   }
-  const luogo = rows[0].luogo || 'territorio';
+  const luogo = rows[0]._comune || rows[0].luogo || 'territorio';
   const tid = rows[0].territorio_id;
   elTarget.textContent = '◉ '+luogo+(tid!=null?(' (ID: '+tid+')'):'')+' · Active';
   let ok=0, flag=0;
