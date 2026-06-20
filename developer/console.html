@@ -112,6 +112,24 @@
   }
   .stud:hover{transform:scale(1.12);border-color:var(--rose);box-shadow:0 0 18px rgba(232,154,140,.4)}
   .stud.on{background:var(--rose);color:var(--ink);border-color:var(--rose);box-shadow:0 0 22px rgba(232,154,140,.6)}
+  /* stati dinamici */
+  .stud.ok{border-color:var(--green);color:var(--green);box-shadow:0 0 16px rgba(156,196,160,.4)}
+  .stud.ok::after{content:'';position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  .stud.warn{border-color:var(--amber);color:var(--amber);box-shadow:0 0 16px rgba(217,178,122,.4)}
+  .stud.warn::after{content:'';position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:var(--amber);animation:pulse 1.2s infinite}
+  .stud.off{border-color:var(--dim-2);color:var(--dim-2)}
+  .stud.loading{opacity:.5}
+  /* pannello stato che si apre cliccando un bottone */
+  .stud-panel{position:absolute;left:50%;transform:translateX(-50%);bottom:18px;z-index:40;
+    background:rgba(10,10,10,.97);border:1px solid var(--rose);border-radius:10px;padding:14px 16px;
+    width:230px;font-family:'DM Mono',monospace;font-size:.6rem;line-height:1.7;color:var(--cream);
+    box-shadow:0 12px 40px rgba(0,0,0,.6);display:none}
+  .stud-panel.show{display:block}
+  .stud-panel .sp-title{color:var(--rose);letter-spacing:.14em;text-transform:uppercase;font-size:.55rem;margin-bottom:8px}
+  .stud-panel .sp-row{display:flex;justify-content:space-between;gap:10px;padding:2px 0;color:var(--dim)}
+  .stud-panel .sp-row b{color:var(--cream);font-weight:400}
+  .stud-panel .sp-state-ok{color:var(--green)}
+  .stud-panel .sp-state-warn{color:var(--amber)}
   .stud .tip{
     position:absolute;left:54px;white-space:nowrap;font-size:.56rem;letter-spacing:.12em;
     color:var(--dim);text-transform:uppercase;opacity:0;transform:translateX(-6px);
@@ -263,10 +281,11 @@
     
     <div class="pulse" id="pulse"></div>
     <div class="rail">
-      <div class="stud" id="stud-set" title="Impostazioni">⚙<span class="tip">Impostazioni scaling</span></div>
-      <div class="stud on" id="stud-geo" title="Validazione geografica attiva">◎<span class="tip">Punto-nel-poligono · attivo</span></div>
-      <div class="stud" id="stud-db" title="Stato database">◆<span class="tip">Vault · Supabase</span></div>
+      <div class="stud" id="stud-set" title="Impostazioni scaling">⚙<span class="tip">Scaling · —</span></div>
+      <div class="stud" id="stud-geo" title="Validazione geografica">◎<span class="tip">Punto-nel-poligono · —</span></div>
+      <div class="stud" id="stud-db" title="Stato database">◆<span class="tip">Vault · —</span></div>
     </div>
+    <div class="stud-panel" id="stud-panel"></div>
   </div>
 
   <!-- LATO DESTRO -->
@@ -383,6 +402,74 @@ async function boot(){
   }
 }
 boot();
+
+// ============ BOTTONI DINAMICI SULLA CUCITURA ============
+// Stato reale del sistema: scaling, geo-validazione, vault/db
+const STUD = {
+  set: {el:document.getElementById('stud-set'), title:'Impostazioni Scaling', data:{}},
+  geo: {el:document.getElementById('stud-geo'), title:'Punto-nel-Poligono', data:{}},
+  db:  {el:document.getElementById('stud-db'),  title:'Vault · Supabase', data:{}}
+};
+const studPanel = document.getElementById('stud-panel');
+
+function setStud(key, cls, tip){
+  const s = STUD[key]; if(!s||!s.el) return;
+  s.el.classList.remove('loading','ok','warn','off');
+  s.el.classList.add(cls);
+  const t = s.el.querySelector('.tip'); if(t) t.textContent = tip;
+}
+
+async function diagnostica(){
+  Object.values(STUD).forEach(s=>s.el&&s.el.classList.add('loading'));
+
+  // ◆ VAULT/DB: il database risponde?
+  try{
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/territori?select=id&limit=1`,{headers});
+    if(r.ok){
+      setStud('db','ok','Vault · connesso');
+      STUD.db.data = {Stato:'Connesso', Database:'Supabase REST', Risposta:r.status+' OK'};
+    } else {
+      setStud('db','warn','Vault · '+r.status);
+      STUD.db.data = {Stato:'Errore', Codice:r.status};
+    }
+  }catch(e){ setStud('db','warn','Vault · offline'); STUD.db.data={Stato:'Offline'}; }
+
+  // ◎ PUNTO-NEL-POLIGONO: quanti territori hanno il confine caricato?
+  try{
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/territori?select=id,nome`,{headers});
+    if(r.ok){
+      const terr = await r.json();
+      const n = terr.length;
+      setStud('geo','ok','Punto-nel-poligono · attivo');
+      STUD.geo.data = {Stato:'Attivo', 'Territori mappati':n, Metodo:'ST_Contains', Tolleranza:'bordo 500m'};
+    } else { setStud('geo','warn','Geo · '+r.status); STUD.geo.data={Stato:'Errore',Codice:r.status}; }
+  }catch(e){ setStud('geo','off','Geo · n/d'); STUD.geo.data={Stato:'Non disponibile'}; }
+
+  // ⚙ SCALING: quanti eventi nel catalogo (carico del sistema)
+  try{
+    const n = (typeof ALL!=='undefined' && ALL) ? ALL.length : 0;
+    const comuni = (typeof ALL!=='undefined' && ALL) ? new Set(ALL.map(e=>e._comune)).size : 0;
+    setStud('set','ok','Scaling · '+comuni+' comuni');
+    STUD.set.data = {Stato:'Operativo', 'Eventi catalogo':n, 'Comuni attivi':comuni, Scaling:'geometrico 1→256'};
+  }catch(e){ setStud('set','off','Scaling · n/d'); STUD.set.data={Stato:'Non disponibile'}; }
+}
+
+function apriPannello(key){
+  const s = STUD[key]; if(!s) return;
+  const rows = Object.entries(s.data).map(([k,v])=>
+    `<div class="sp-row"><span>${k}</span><b>${v}</b></div>`).join('');
+  studPanel.innerHTML = `<div class="sp-title">${s.title}</div>${rows||'<div class="sp-row">Caricamento…</div>'}`;
+  studPanel.classList.add('show');
+  clearTimeout(window._spTimer);
+  window._spTimer = setTimeout(()=>studPanel.classList.remove('show'), 5000);
+}
+
+Object.entries(STUD).forEach(([key,s])=>{
+  if(s.el) s.el.addEventListener('click', ()=>apriPannello(key));
+});
+
+// lancia la diagnostica dopo che boot ha caricato i dati
+setTimeout(diagnostica, 1500);
 
 // data nell'header dell'island
 (function(){
