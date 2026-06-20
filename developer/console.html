@@ -170,6 +170,11 @@
   }
   .island-shell input::placeholder{color:#4a4a4a}
   .island-shell input:focus{outline:none}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:.58rem;letter-spacing:.04em;color:var(--cream);background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:4px 11px;cursor:pointer;
+    transition:all .2s;font-family:'DM Mono',monospace}
+  .chip:hover{background:var(--rose);color:#fff;border-color:var(--rose)}
 
   /* pannello output */
   .panel{
@@ -299,6 +304,7 @@
         <span class="island-prompt">MAMMUTH_SHELL_</span>
         <input id="q" type="text" placeholder="Digita un comune…" autocomplete="off" spellcheck="false">
       </div>
+      <div class="chips" id="chips"></div>
     </div>
 
     <div class="panel">
@@ -346,6 +352,16 @@ async function boot(){
     document.getElementById('bar-knob').style.left = '100%';
     document.getElementById('reset-note').textContent = 'Lettura live · '+terr+' territori certificati';
     document.getElementById('session-v').textContent = '● '+n+' eventi · '+terr+' territori · catalogo pronto';
+
+    // pillole: i territori realmente presenti, cliccabili
+    const luoghi = [...new Set(ALL.map(e=>e.luogo).filter(Boolean))].sort();
+    const chipsEl = document.getElementById('chips');
+    if(chipsEl){
+      chipsEl.innerHTML = luoghi.slice(0,12).map(l=>`<span class="chip">${l}</span>`).join('');
+      chipsEl.querySelectorAll('.chip').forEach(c=>{
+        c.addEventListener('click', ()=>{ input.value=c.textContent; run(); });
+      });
+    }
   }catch(e){
     document.getElementById('session-v').textContent='Connessione non riuscita';
   }
@@ -377,18 +393,36 @@ function firePulse(){
   pulse.classList.remove('run'); void pulse.offsetWidth; pulse.classList.add('run');
 }
 
+// rimuove accenti, abbassa, pulisce
+function norm(s){
+  return String(s||'').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+}
+// parole da ignorare nella ricerca
+const STOP = new Set(['prov','provincia','comune','di','del','della','italia','lazio','it','frazione','localita','loc','lt']);
+
 function run(){
-  const q = input.value.trim().toLowerCase();
-  if(!q){
+  const raw = input.value.trim();
+  if(!raw){
     results.innerHTML = '<div class="empty">Il territorio attende.<br>Scrivi un nome per vedere i suoi eventi.</div>';
     elTarget.textContent='◎ In attesa · nessun territorio';
     elCtx.innerHTML='Tolleranza di precisione geografica impostata a <u>punto-nel-poligono</u>. Scrivi un comune per agganciarlo.';
+    const logs=document.getElementById('logs');
+    if(logs) logs.innerHTML='<p class="log-idle">[in attesa] Inserisci un comune nella Dynamic Island per avviare il tracciamento…</p>';
     setStats('·','·','·'); return;
   }
   island.classList.add('busy'); firePulse();
 
-  const rows = ALL.filter(e=>[e.luogo,e.titolo,e.categoria,e.organizzatore]
-    .some(x=>x&&String(x).toLowerCase().includes(q)));
+  // parole utili digitate dall'utente (tolte le stopword)
+  const parole = norm(raw).split(' ').filter(w=>w.length>=2 && !STOP.has(w));
+  const termini = parole.length ? parole : norm(raw).split(' ').filter(Boolean);
+
+  // un evento combacia se una delle sue stringhe contiene almeno una parola utile
+  const rows = ALL.filter(e=>{
+    const blob = norm([e.luogo,e.titolo,e.categoria,e.organizzatore,e.comune].join(' '));
+    return termini.some(t=>blob.includes(t));
+  });
 
   setTimeout(()=>{
     island.classList.remove('busy');
