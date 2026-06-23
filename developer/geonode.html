@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMMUTH•GEONODE™ — Global Territory Architecture</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background-color: #0D0D18;
+      color: #DEDEE8;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #0D0D18;
+      border-bottom: 1px solid #2A2A3A;
+      padding: 0 24px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #7070A0; }
+
+    .nav-badge {
+      font-size: 10px;
+      background: linear-gradient(135deg, #8B7CF6, #38BDF8);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 60px 24px 48px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FBBF24;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 60px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #8B7CF6 0%, #E879A0 35%, #38BDF8 70%, #34D399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: #8888AA;
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat-value { font-size: 26px; font-weight: 700; color: #FFFFFF; display: block; }
+    .stat-label { font-size: 11px; color: #666688; letter-spacing: 0.05em; }
+
+    .back-link {
+      display: inline-block;
+      font-size: 12px;
+      color: #8B7CF6;
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section { margin-bottom: 72px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #2A2A3A;
+    }
+
+    .section-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #8B7CF6;
+      background-color: #1E1A3A;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.1em;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+
+    .section h3 {
+      font-size: 11px;
+      font-weight: 600;
+      color: #8B7CF6;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin: 28px 0 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #171724;
+      border: 1px solid #2A2A3A;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: #9090B0;
+      line-height: 1.6;
+    }
+
+    .card-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #34D399;
+      background-color: #0D2A1E;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 1px solid #2A2A3A;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+    thead tr { background-color: #171724; }
+
+    th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6060A0;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 11px 16px;
+      border-top: 1px solid #1E1E2E;
+      color: #CCCCDD;
+      vertical-align: top;
+    }
+
+    tr:hover td { background-color: #171724; }
+
+    .mono {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #38BDF8;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 5px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .tag-violet { background-color: #1E1A3A; color: #8B7CF6; }
+    .tag-mint   { background-color: #0D2A1E; color: #34D399; }
+    .tag-sky    { background-color: #0D1E2A; color: #38BDF8; }
+    .tag-amber  { background-color: #2A1E0D; color: #FBBF24; }
+    .tag-rose   { background-color: #2A0D1A; color: #E879A0; }
+    .tag-red    { background-color: #2A0D0D; color: #EF4444; }
+
+    .code-block {
+      background-color: #080810;
+      border: 1px solid #2A2A3A;
+      border-radius: 12px;
+      padding: 22px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      line-height: 1.9;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      color: #CCCCDD;
+    }
+
+    .code-block .comment { color: #4A4A6A; }
+    .code-block .key     { color: #8B7CF6; }
+    .code-block .value   { color: #34D399; }
+    .code-block .string  { color: #FBBF24; }
+    .code-block .type    { color: #38BDF8; }
+
+    .arch {
+      background-color: #111120;
+      border: 1px solid #2A2A3A;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .arch-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .arch-node {
+      background-color: #1E1A3A;
+      border: 1px solid #3A2A6A;
+      border-radius: 9px;
+      padding: 9px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8B7CF6;
+      white-space: nowrap;
+    }
+
+    .arch-node.green { background-color: #0D2A1E; border-color: #1A5A3A; color: #34D399; }
+    .arch-node.blue  { background-color: #0D1E2A; border-color: #1A3A5A; color: #38BDF8; }
+    .arch-node.amber { background-color: #2A1E0D; border-color: #5A3A1A; color: #FBBF24; }
+
+    .arch-arrow { font-size: 16px; color: #3A3A5A; }
+
+    .highlight {
+      background-color: #1A1A30;
+      border-left: 3px solid #8B7CF6;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #BBBBCC;
+      line-height: 1.6;
+    }
+
+    .tahiti-box {
+      background-color: #0D1A20;
+      border: 1px solid #1A3A4A;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .tahiti-box h3 { color: #38BDF8 !important; margin-top: 0 !important; }
+    .tahiti-box p  { font-size: 13px; color: #6688AA; margin-bottom: 18px; }
+
+    .roadmap { display: flex; flex-direction: column; }
+
+    .roadmap-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #1E1E2E;
+    }
+
+    .roadmap-phase { width: 72px; flex-shrink: 0; }
+
+    .phase-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .roadmap-content h4 { font-size: 14px; font-weight: 600; color: #FFFFFF; margin-bottom: 6px; }
+    .roadmap-content p  { font-size: 12px; color: #7070A0; line-height: 1.6; }
+
+    footer {
+      border-top: 1px solid #2A2A3A;
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 11px;
+      color: #4A4A6A;
+      letter-spacing: 0.05em;
+      line-height: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+    <span class="nav-badge">GEONODE™ v1.0</span>
+  </nav>
+
+  <div class="hero">
+    <a href="developer-index.html" class="back-link">← Developer Portal</a>
+    <div class="hero-tag">MAMMUTH•EVENTS™ — ATLAS•EVENTA™ INFRASTRUCTURE</div>
+    <h1>MAMMUTH•GEONODE™</h1>
+    <p class="hero-sub">Layer di identificazione territoriale universale. Da Sermoneta a Tahiti — qualsiasi punto del globo, zero adattamenti, architettura iper-distribuita in tempo reale.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-value">249</span><span class="stat-label">Paesi ISO 3166</span></div>
+      <div class="stat"><span class="stat-value">7.900+</span><span class="stat-label">Comuni italiani</span></div>
+      <div class="stat"><span class="stat-value">100K+</span><span class="stat-label">LAU EU mappabili</span></div>
+      <div class="stat"><span class="stat-value">15+</span><span class="stat-label">Identificatori per territorio</span></div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- 01 ARCHITETTURA -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">01</span>
+        <h2>Architettura Worker Multi-Threading</h2>
+      </div>
+
+      <div class="highlight">
+        Stack produzione: <strong>Python / FastAPI</strong> su Railway · <strong>PostgreSQL + PostGIS</strong> su Supabase · <strong>Next.js 14</strong> su Vercel · Workers in <strong>Python asyncio</strong> · Cache <strong>Redis</strong> · Queue <strong>Redpanda</strong>
+      </div>
+
+      <h3>Flusso dati</h3>
+      <div class="arch">
+        <div class="arch-row">
+          <div class="arch-node amber">FONTE PUBBLICA</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node blue">INGESTION WORKER</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node">REDPANDA QUEUE</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node green">PROCESSOR WORKER</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node amber">SUPABASE PostGIS</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-node blue">ISTAT API</div>
+          <span class="arch-arrow">+</span>
+          <div class="arch-node blue">EUROSTAT API</div>
+          <span class="arch-arrow">+</span>
+          <div class="arch-node blue">INSEE API</div>
+          <span class="arch-arrow">+</span>
+          <div class="arch-node blue">OSM OVERPASS</div>
+          <span class="arch-arrow">→</span>
+          <div class="arch-node green">REDIS CACHE</div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#8B7CF6"></div>Worker Ingestion</div>
+          <div class="card-desc">Worker Python asyncio indipendenti per ogni fonte dati. Ogni worker gestisce una macro-area geografica senza condividere stato.</div>
+          <span class="card-code">asyncio + httpx + tenacity</span>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#38BDF8"></div>Message Queue — Redpanda</div>
+          <div class="card-desc">Kafka-compatible, zero JVM overhead. Topic separati: geonode.italia · geonode.eu · geonode.global</div>
+          <span class="card-code">redpanda + kafka-python</span>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#34D399"></div>Cache — Redis</div>
+          <div class="card-desc">Redis con TTL 24h per dati stabili ISTAT, 1h per semi-dinamici, 60s per real-time. Evita re-fetch su dati immutabili.</div>
+          <span class="card-code">redis-py + hiredis</span>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#FBBF24"></div>Processor Worker</div>
+          <div class="card-desc">Normalizza, valida, geolocalizza, scrive su Supabase PostGIS. Applica T.C.F.™ e deduplication MORPHEUS·JLX™.</div>
+          <span class="card-code">FastAPI + GeoAlchemy2</span>
+        </div>
+      </div>
+
+      <h3>Pseudocodice Python Worker</h3>
+      <div class="code-block">
+<span class="comment"># mammuth/workers/geonode_ingestion.py</span>
+<span class="key">import</span> asyncio, httpx
+<span class="key">from</span> kafka <span class="key">import</span> KafkaProducer
+<span class="key">from</span> tenacity <span class="key">import</span> retry, stop_after_attempt
+
+<span class="type">SOURCES</span> = {
+  <span class="string">"istat_comuni"</span>: <span class="string">"https://sdmx.istat.it/SDMXWS/rest/data/IT1,DF_COMUNI"</span>,
+  <span class="string">"eurostat_lau"</span>: <span class="string">"https://gisco-services.ec.europa.eu/distribution/v2/lau"</span>,
+  <span class="string">"insee_tahiti"</span>: <span class="string">"https://api.insee.fr/metadonnees/V1/geo/commune"</span>,
+}
+
+<span class="key">class</span> <span class="type">GeoNodeWorker</span>:
+  <span class="key">def</span> __init__(self, source_key, topic):
+    self.source = <span class="type">SOURCES</span>[source_key]
+    self.producer = KafkaProducer(bootstrap_servers=<span class="string">"redpanda:9092"</span>)
+    self.topic = topic
+
+  <span class="key">@retry</span>(stop=stop_after_attempt(3))
+  <span class="key">async def</span> fetch(self):
+    <span class="key">async with</span> httpx.AsyncClient(timeout=30) <span class="key">as</span> c:
+      <span class="key">return</span> (<span class="key">await</span> c.get(self.source)).json()
+
+  <span class="key">async def</span> run(self):
+    data = <span class="key">await</span> self.fetch()
+    <span class="key">for</span> record <span class="key">in</span> GeoNodeNormalizer.normalize(data):
+      self.producer.send(self.topic, value=record)
+
+<span class="key">async def</span> main():
+  workers = [
+    GeoNodeWorker(<span class="string">"istat_comuni"</span>, <span class="string">"geonode.italia"</span>),
+    GeoNodeWorker(<span class="string">"eurostat_lau"</span>, <span class="string">"geonode.eu"</span>),
+    GeoNodeWorker(<span class="string">"insee_tahiti"</span>, <span class="string">"geonode.global"</span>),
+  ]
+  <span class="key">await</span> asyncio.gather(*[w.run() <span class="key">for</span> w <span class="key">in</span> workers])
+      </div>
+    </div>
+
+    <!-- 02 ITALIA -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">02</span>
+        <h2>Codici Nazionali — Italia</h2>
+      </div>
+
+      <h3>Codici ISTAT</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Livello</th><th>Codice</th><th>Formato</th><th>Esempio</th><th>Utilità MAMMUTH</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Regione</td><td class="mono">ISTAT_REG</td><td><span class="tag tag-sky">NUM 2</span></td><td class="mono">12 = Lazio</td><td>Gerarchia L1</td></tr>
+            <tr><td>Provincia</td><td class="mono">ISTAT_PROV</td><td><span class="tag tag-sky">NUM 3</span></td><td class="mono">059 = Latina</td><td>Gerarchia L2</td></tr>
+            <tr><td>Comune</td><td class="mono">ISTAT_COM</td><td><span class="tag tag-violet">NUM 6</span></td><td class="mono">059026 = Sermoneta</td><td>Chiave primaria IT</td></tr>
+            <tr><td>Frazione</td><td class="mono">ISTAT_LOC</td><td><span class="tag tag-mint">NUM 9</span></td><td class="mono">059026001</td><td>Geolocalizzazione iperlocale</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight">
+        ⚠️ <strong>059026 = Sermoneta</strong> (corretto) · <strong>059028 = Ponza</strong> — errore già corretto in ATLAS•EVENTA™. Aggiornamento annuale obbligatorio per fusioni comunali ISTAT.
+      </div>
+
+      <h3>Codici Catastali, CAP e Economici</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Codice</th><th>Ente</th><th>Formato</th><th>Esempio</th><th>Utilità</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Belfiore</td><td>Agenzia Entrate</td><td><span class="tag tag-amber">A-Z + 3 NUM</span></td><td class="mono">I593 = Sermoneta</td><td>Cross-ref CF organizzatori</td></tr>
+            <tr><td>CAP</td><td>Poste Italiane</td><td><span class="tag tag-sky">NUM 5</span></td><td class="mono">04013</td><td>Ricerca secondaria (non chiave)</td></tr>
+            <tr><td>ATECO 2025</td><td>ISTAT</td><td><span class="tag tag-violet">ALFA-NUM</span></td><td class="mono">90.01.09</td><td>Classificazione organizzatori PARTNER™</td></tr>
+            <tr><td>REA</td><td>CCIAA</td><td><span class="tag tag-mint">SIGLA + NUM</span></td><td class="mono">LT-123456</td><td>Verifica legale organizzatori</td></tr>
+            <tr><td>P.IVA</td><td>Agenzia Entrate</td><td><span class="tag tag-rose">IT + 11 NUM</span></td><td class="mono">IT12345678901</td><td>Obbligatorio MAMMUTH•PARTNER™</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>ATECO rilevanti per MAMMUTH</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#8B7CF6"></div>90.01 — Rappresentazioni artistiche</div>
+          <div class="card-desc">Festival, concerti, spettacoli teatrali, eventi culturali. Categoria core MAMMUTH.</div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#38BDF8"></div>91.03 — Luoghi storici</div>
+          <div class="card-desc">Castelli, borghi medievali, musei. Categoria primaria per Sermoneta e borghi italiani.</div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#34D399"></div>56.10 — Ristorazione</div>
+          <div class="card-desc">Sagre, degustazioni, eventi gastronomici. Categoria ENOGASTRONOMIA.</div>
+        </div>
+        <div class="card">
+          <div class="card-title"><div class="card-dot" style="background:#FBBF24"></div>93.29 — Altri intrattenimenti</div>
+          <div class="card-desc">Fiere, mercati, eventi misti. Categoria FIERA e default.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 EUROPA -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">03</span>
+        <h2>Codici Europei — UE</h2>
+      </div>
+
+      <h3>Standard NUTS</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Livello</th><th>Descrizione</th><th>Formato</th><th>Italia</th><th>Spagna</th><th>Francia</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>NUTS 0</td><td>Stato</td><td><span class="tag tag-sky">ISO A-2</span></td><td class="mono">IT</td><td class="mono">ES</td><td class="mono">FR</td></tr>
+            <tr><td>NUTS 1</td><td>Macro-regione</td><td><span class="tag tag-sky">3 CHAR</span></td><td class="mono">ITI = Centro</td><td class="mono">ES3</td><td class="mono">FRG</td></tr>
+            <tr><td>NUTS 2</td><td>Regione</td><td><span class="tag tag-violet">4 CHAR</span></td><td class="mono">ITI4 = Lazio</td><td class="mono">ES30</td><td class="mono">FRG0</td></tr>
+            <tr><td>NUTS 3</td><td>Provincia</td><td><span class="tag tag-violet">5 CHAR</span></td><td class="mono">ITI44 = Latina</td><td class="mono">ES300</td><td class="mono">FRG01</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Codici LAU — Chiave Universale EU</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Paese</th><th>Sistema</th><th>Lunghezza</th><th>Esempio</th><th>Fase</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🇮🇹 Italia</td><td class="mono">ISTAT 6 cifre</td><td><span class="tag tag-violet">6</span></td><td class="mono">059026</td><td><span class="tag tag-mint">LIVE</span></td></tr>
+            <tr><td>🇪🇸 Spagna</td><td class="mono">INE municipio</td><td><span class="tag tag-sky">5</span></td><td class="mono">28079 = Madrid</td><td><span class="tag tag-amber">FASE 4</span></td></tr>
+            <tr><td>🇫🇷 Francia</td><td class="mono">INSEE commune</td><td><span class="tag tag-sky">5</span></td><td class="mono">75056 = Parigi</td><td><span class="tag tag-amber">FASE 4</span></td></tr>
+            <tr><td>🇩🇪 Germania</td><td class="mono">AGS Schlüssel</td><td><span class="tag tag-mint">8</span></td><td class="mono">09162000 = Monaco</td><td><span class="tag tag-amber">FASE 4</span></td></tr>
+            <tr><td>🇵🇹 Portogallo</td><td class="mono">INE código</td><td><span class="tag tag-mint">6</span></td><td class="mono">110600 = Lisbona</td><td><span class="tag tag-amber">FASE 4</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 04 GLOBALE -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">04</span>
+        <h2>Codici Internazionali — Globale</h2>
+      </div>
+
+      <div class="tahiti-box">
+        <h3>🌺 Caso di Studio — Tahiti / Polinesia Francese</h3>
+        <p>Test estremo del sistema: territorio remoto, valuta locale XPF, UTC-10, sistema INSEE adattato per DOM-TOM, carattere ʻOkina polinesiano.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Codice</th><th>Valore</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>ISO 3166-1 A-2</td><td class="mono">PF</td><td>Polinesia Francese</td></tr>
+              <tr><td>ISO 3166-1 A-3</td><td class="mono">PYF</td><td>Codice internazionale</td></tr>
+              <tr><td>INSEE Comune</td><td class="mono">98735</td><td>Papeete — prefisso 98 per DOM-TOM</td></tr>
+              <tr><td>UN/LOCODE</td><td class="mono">PF PPT</td><td>Hub logistico principale</td></tr>
+              <tr><td>Valuta ISO 4217</td><td class="mono">XPF</td><td>Franco CFP — obbligatorio PARTNER™ locale</td></tr>
+              <tr><td>Timezone</td><td class="mono">Pacific/Tahiti</td><td>UTC-10 — critico per data_inizio eventi</td></tr>
+              <tr><td>Carattere speciale</td><td class="mono">ʻOkina U+02BB</td><td>UTF-8 NFC obbligatorio — non rimuovere</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3>ISO 3166 — Standard Paese Globale</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tipo</th><th>Formato</th><th>IT</th><th>ES</th><th>FR</th><th>JP</th><th>Utilizzo</th></tr></thead>
+          <tbody>
+            <tr><td>Alpha-2</td><td><span class="tag tag-sky">2 lett.</span></td><td class="mono">IT</td><td class="mono">ES</td><td class="mono">FR</td><td class="mono">JP</td><td>Prefisso GSN, API, frontend</td></tr>
+            <tr><td>Alpha-3</td><td><span class="tag tag-sky">3 lett.</span></td><td class="mono">ITA</td><td class="mono">ESP</td><td class="mono">FRA</td><td class="mono">JPN</td><td>Database interno, export</td></tr>
+            <tr><td>Numerico</td><td><span class="tag tag-violet">3 cifre</span></td><td class="mono">380</td><td class="mono">724</td><td class="mono">250</td><td class="mono">392</td><td>Sistemi legacy, dogane</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Standard Finanziari Globali</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Standard</th><th>Utilizzo</th><th>Formato</th><th>Esempio</th></tr></thead>
+          <tbody>
+            <tr><td>ISO 4217</td><td>Valute multi-country</td><td><span class="tag tag-amber">3 CHAR</span></td><td class="mono">EUR · USD · XPF · JPY</td></tr>
+            <tr><td>IBAN IT</td><td>Pagamenti organizzatori IT</td><td><span class="tag tag-violet">IT + 25</span></td><td class="mono">IT60X0542811101000000123456</td></tr>
+            <tr><td>BIC/SWIFT</td><td>Pagamenti internazionali</td><td><span class="tag tag-sky">8-11 CHAR</span></td><td class="mono">BCITITMM</td></tr>
+            <tr><td>UN/LOCODE</td><td>Hub logistici eventi</td><td><span class="tag tag-mint">ISO2+3</span></td><td class="mono">ITSRM · PFPPT</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 05 IMPLEMENTAZIONE -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-number">05</span>
+        <h2>Implementazione in MAMMUTH</h2>
+      </div>
+
+      <h3>Schema SQL PostgreSQL + PostGIS</h3>
+      <div class="code-block">
+<span class="comment">-- Tabella territori universale MAMMUTH•GEONODE™</span>
+<span class="key">CREATE TABLE</span> <span class="type">geonode_territori</span> (
+  id                SERIAL PRIMARY KEY,
+  gsn               VARCHAR(60) UNIQUE NOT NULL,
+  <span class="comment">-- formato: IT-059026-1749123456789-001</span>
+
+  <span class="comment">-- Identificatori italiani</span>
+  istat_comune      CHAR(6),
+  istat_provincia   CHAR(3),
+  istat_regione     CHAR(2),
+  belfiore_code     CHAR(4),
+  cap_principale    CHAR(5),
+
+  <span class="comment">-- Identificatori europei</span>
+  lau_code          VARCHAR(20),
+  nuts3_code        CHAR(5),
+  nuts2_code        CHAR(4),
+  nuts1_code        CHAR(3),
+
+  <span class="comment">-- Identificatori internazionali</span>
+  iso_3166_1_a2     CHAR(2) NOT NULL,
+  iso_3166_1_a3     CHAR(3),
+  iso_3166_1_num    CHAR(3),
+  iso_3166_2        VARCHAR(6),
+  un_locode         CHAR(5),
+  insee_code        VARCHAR(10),
+
+  <span class="comment">-- Anagrafici</span>
+  nome_comune       VARCHAR(255),
+  nome_provincia    VARCHAR(255),
+  nome_regione      VARCHAR(255),
+  nome_stato        VARCHAR(255),
+  nome_continente   VARCHAR(50),
+
+  <span class="comment">-- Finanziari e temporali</span>
+  valuta_iso4217    CHAR(3) DEFAULT 'EUR',
+  timezone          VARCHAR(50),
+  utc_offset        VARCHAR(6),
+
+  <span class="comment">-- PostGIS</span>
+  lat               DECIMAL(9,6),
+  lng               DECIMAL(9,6),
+  geom              GEOMETRY(Point, 4326),
+
+  active            BOOLEAN DEFAULT true,
+  updated_at        TIMESTAMP DEFAULT NOW()
+);
+
+<span class="key">CREATE INDEX</span> idx_geonode_geom  ON geonode_territori USING GIST(geom);
+<span class="key">CREATE INDEX</span> idx_geonode_istat ON geonode_territori(istat_comune);
+<span class="key">CREATE INDEX</span> idx_geonode_lau   ON geonode_territori(lau_code);
+<span class="key">CREATE INDEX</span> idx_geonode_iso   ON geonode_territori(iso_3166_1_a2);
+<span class="key">CREATE INDEX</span> idx_geonode_gsn   ON geonode_territori(gsn);
+      </div>
+
+      <h3>JSON Schema GEONODE Universale</h3>
+      <div class="code-block">
+{
+  <span class="comment">// Sermoneta → Papeete: stessa struttura, zero adattamenti</span>
+  <span class="string">"___GEONODE___"</span>: {
+    <span class="key">"gsn"</span>: <span class="value">"IT-059026-1749123456789-001"</span>,
+    <span class="key">"identificatori"</span>: {
+      <span class="key">"istat"</span>:    <span class="value">"059026"</span>,
+      <span class="key">"lau"</span>:      <span class="value">"059026"</span>,
+      <span class="key">"nuts3"</span>:    <span class="value">"ITI44"</span>,
+      <span class="key">"nuts2"</span>:    <span class="value">"ITI4"</span>,
+      <span class="key">"iso_a2"</span>:   <span class="value">"IT"</span>,
+      <span class="key">"iso_a3"</span>:   <span class="value">"ITA"</span>,
+      <span class="key">"belfiore"</span>: <span class="value">"I593"</span>,
+      <span class="key">"cap"</span>:      <span class="value">"04013"</span>
+    },
+    <span class="key">"gerarchia"</span>: {
+      <span class="key">"comune"</span>:    <span class="value">"Sermoneta"</span>,
+      <span class="key">"provincia"</span>: <span class="value">"Latina"</span>,
+      <span class="key">"regione"</span>:   <span class="value">"Lazio"</span>,
+      <span class="key">"stato"</span>:     <span class="value">"Italia"</span>,
+      <span class="key">"continente"</span>:<span class="value">"Europa"</span>
+    },
+    <span class="key">"geo"</span>: {
+      <span class="key">"lat"</span>:      <span class="value">41.550</span>,
+      <span class="key">"lng"</span>:      <span class="value">12.983</span>,
+      <span class="key">"timezone"</span>: <span class="value">"Europe/Rome"</span>,
+      <span class="key">"utc_offset"</span>:<span class="value">"+01:00"</span>
+    },
+    <span class="key">"economico"</span>: {
+      <span class="key">"valuta"</span>:    <span class="value">"EUR"</span>
+    },
+    <span class="key">"meta"</span>: {
+      <span class="key">"kus_3620"</span>: <span class="value">true</span>,
+      <span class="key">"fonte"</span>:    <span class="value">"ISTAT + Eurostat"</span>
+    }
+  }
+}
+      </div>
+
+      <h3>Roadmap di Espansione</h3>
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-phase"><span class="phase-badge tag-mint">FASE 1</span></div>
+          <div class="roadmap-content">
+            <h4>✅ Live — Sermoneta, Italia</h4>
+            <p>ISTAT 6 cifre · Belfiore · CAP · PostGIS · Safety Engine · 28 eventi KUS-3620</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-phase"><span class="phase-badge tag-sky">FASE 2</span></div>
+          <div class="roadmap-content">
+            <h4>Provincia di Latina</h4>
+            <p>NUTS3 ITI44 · LAU Eurostat · ISO 3166-2 IT-LT · Pipeline ISTAT automatizzata</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-phase"><span class="phase-badge tag-violet">FASE 3</span></div>
+          <div class="roadmap-content">
+            <h4>Italia Completa</h4>
+            <p>Gerarchia NUTS 1/2/3 · ATECO organizzatori · REA/P.IVA · MAMMUTH•PARTNER™ B2B</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-phase"><span class="phase-badge tag-amber">FASE 4</span></div>
+          <div class="roadmap-content">
+            <h4>Europa — 27 Paesi UE</h4>
+            <p>LAU come chiave primaria universale · NUTS pan-europeo · VIES · Workers Redpanda attivi</p>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="roadmap-phase"><span class="phase-badge tag-rose">FASE 5</span></div>
+          <div class="roadmap-content">
+            <h4>Globale — Tahiti e oltre</h4>
+            <p>ISO 3166-1 · INSEE DOM-TOM · ISO 4217 multivaluta · UN/LOCODE · UTF-8 ʻOkina · Qualsiasi punto del globo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>MAMMUTH•GEONODE™ v1.0 · KREATIO UNIVERSAL SYSTEM™ Code 3620</p>
+    <p>ATLAS•EVENTA™ Infrastructure · Global Territory Architecture</p>
+    <p>© MAMMUTH•EVENTS™ — Where Communities Come Alive™</p>
+  </footer>
+
+
+<!-- KUS-NAV · barra navigazione portale (autoportante) -->
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="JUST-ONE-CLICK-AWAY.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">Just One Click Away</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next kusnav-disabled" id="kusnav-next" aria-disabled="true"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">— fine —</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  .kusnav-disabled{opacity:.38;pointer-events:none}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>

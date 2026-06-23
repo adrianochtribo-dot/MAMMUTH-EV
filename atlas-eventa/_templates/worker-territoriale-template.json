@@ -1,0 +1,53 @@
+{
+  "_comment_schema": "GEONODE™ Worker Territoriale — Template Standard di Acquisizione Dati Comunali. KREATIO UNIVERSAL SYSTEM™ — Code 3620. Ogni campo evento DEVE avere fonte_verifica e stato_verifica popolati prima dell'ingestion in ATLAS•EVENTA™. Zero dati inventati — verità territoriale certificata.",
+
+  "player_id": "MAMMUT-LAZ-LT-XXX",
+  "comune": "STRING",
+  "provincia": "STRING",
+  "codice_istat": "STRING",
+  "diocesi_appartenenza": "STRING",
+
+  "parrocchie_territoriali": [
+    {
+      "nome_parrocchia": "STRING",
+      "santo_titolare": "STRING",
+      "fonte_verifica": "URL sito Diocesi o Parrocchia",
+      "stato_verifica": "unverified"
+    }
+  ],
+
+  "calendario_ciclico_12_mesi": {
+    "gennaio": [],
+    "febbraio": [],
+    "marzo": [],
+    "aprile": [],
+    "maggio": [],
+    "giugno": [],
+    "luglio": [],
+    "agosto": [],
+    "settembre": [],
+    "ottobre": [],
+    "novembre": [],
+    "dicembre": []
+  },
+
+  "_template_evento": {
+    "_comment": "Struttura da replicare per ogni evento dentro i mesi del calendario_ciclico_12_mesi",
+    "evento_nome": "STRING",
+    "tipo": "ENUM: Religiosa | Folkloristica | Enogastronomica | Sagra | Festival | Mostra | Patronale | Teatrale | Civile",
+    "periodo": "STRING (es. data fissa o variabile, range)",
+    "anchor_luogo": "STRING (luogo specifico evento)",
+    "fonte_verifica": "URL fonte primaria (sito Comune, ProLoco, Diocesi, testata locale)",
+    "stato_verifica": "ENUM: unverified | verified | certified",
+    "data_verifica": "ISO 8601 date, null se unverified",
+    "verificato_da": "STRING (nome operatore/Referente Territoriale), null se unverified"
+  },
+
+  "_workflow_validazione": {
+    "step_1": "Worker territoriale popola i campi base (evento_nome, tipo, periodo, anchor_luogo) con stato_verifica = unverified",
+    "step_2": "Referente Territoriale o founder verifica su fonte primaria",
+    "step_3": "Se confermato: stato_verifica = verified, fonte_verifica compilato, data_verifica e verificato_da popolati",
+    "step_4": "Solo record con stato_verifica = verified o certified entrano in ATLAS•EVENTA™ tramite T.C.F.™",
+    "step_5": "MORPHEUS•JLX™ esegue dedup/normalizzazione solo su record verified+"
+  }
+}

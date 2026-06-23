@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMMUTH•PIPELINE™ — Il Flusso Unico del Dato | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--rose:#c97090;--silver:#a8b8c8;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--cyan);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:920px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:60px 0 50px;border-bottom:1px solid var(--border-gold);margin-bottom:60px;position:relative;overflow:hidden;}
+    .hero::after{content:'⌭';position:absolute;right:-10px;top:30%;transform:translateY(-50%);font-size:13rem;color:transparent;-webkit-text-stroke:1px rgba(201,169,110,0.04);pointer-events:none;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:600;color:var(--gold);line-height:1.1;letter-spacing:0.05em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.32em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:14px;}
+    .hero-desc{max-width:620px;margin-top:28px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+
+    .legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:36px;}
+    .legend-item{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;color:var(--text-dim);}
+    .badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;padding:2px 8px;border:1px solid;border-radius:2px;}
+    .badge.live{border-color:var(--green);color:var(--green);}
+    .badge.beta{border-color:var(--amber);color:var(--amber);}
+    .badge.target{border-color:var(--purple);color:var(--purple);}
+
+    .flow{margin-bottom:60px;}
+    .node-wrap{display:flex;flex-direction:column;align-items:center;}
+
+    .node{display:block;width:100%;max-width:620px;background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--gold-dim);
+      padding:22px 28px;text-decoration:none;transition:all 0.25s;position:relative;}
+    .node:hover{background:var(--bg-3);border-left-color:var(--gold);transform:translateX(4px);}
+    .node-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:12px;}
+    .node-id{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;color:var(--text-dim);}
+    .node-name{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:600;color:var(--gold);letter-spacing:0.06em;}
+    .node-role{font-size:0.85rem;color:var(--text-dim);line-height:1.6;}
+    .node-arrow-hint{position:absolute;right:16px;bottom:14px;font-family:'DM Mono',monospace;font-size:0.55rem;color:var(--border-gold);}
+    .node:hover .node-arrow-hint{color:var(--gold-dim);}
+
+    .node.ingress{border-left-color:var(--rose);}
+    .node.ingress .node-name{color:var(--rose);}
+    .node.process{border-left-color:var(--purple);}
+    .node.score{border-left-color:var(--cyan);}
+    .node.score .node-name{color:var(--cyan);}
+    .node.borgovia{border-left-color:var(--green);border-color:rgba(122,184,138,0.3);}
+    .node.borgovia .node-name{color:var(--green);}
+    .node.archive{border-left-color:var(--silver);}
+
+    .connector{width:1px;height:28px;background:linear-gradient(to bottom,var(--border-gold),var(--gold-dim));margin:0 auto;}
+    .connector-arrow{text-align:center;color:var(--gold-dim);font-size:0.8rem;line-height:1;margin:-4px 0;}
+
+    .gate-branch{display:flex;align-items:center;gap:12px;max-width:620px;width:100%;margin:6px auto 0;padding-left:30px;}
+    .gate-line{font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--amber);}
+    .gate-park{flex:1;background:var(--bg-3);border:1px dashed var(--border-gold);border-left:2px solid var(--amber);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.08em;}
+    .gate-park strong{color:var(--amber);font-weight:400;}
+
+    .borgovia-lanes{max-width:620px;width:100%;margin:10px auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);border:1px solid rgba(122,184,138,0.25);}
+    .lane{background:var(--bg-3);padding:14px 12px;text-align:center;}
+    .lane-conf{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;margin-bottom:6px;text-transform:uppercase;}
+    .lane-action{font-size:0.72rem;color:var(--text);line-height:1.4;}
+    .lane.hi .lane-conf{color:var(--green);}
+    .lane.mid .lane-conf{color:var(--amber);}
+    .lane.lo .lane-conf{color:var(--rose);}
+    .borgovia-reject{max-width:620px;width:100%;margin:2px auto 0;background:var(--bg-3);border:1px dashed var(--border-gold);border-left:2px solid var(--red);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);letter-spacing:0.06em;line-height:1.6;}
+    .borgovia-reject strong{color:var(--red);font-weight:400;}
+    .lock-note{max-width:620px;width:100%;margin:8px auto 0;background:var(--bg-2);border:1px solid var(--border-gold);border-left:2px solid var(--silver);padding:10px 16px;font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--text-dim);letter-spacing:0.05em;line-height:1.6;}
+    .lock-note strong{color:var(--silver);font-weight:400;}
+
+    section{margin-bottom:60px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:28px;}
+    .principle{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:28px 32px;margin-bottom:20px;}
+    .principle p{font-size:0.98rem;line-height:1.9;color:var(--text);}
+    .principle strong{color:var(--gold);font-weight:400;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:920px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-links{display:flex;gap:20px;margin-top:12px;flex-wrap:wrap;}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.15em;}
+    .footer-links a:hover{color:var(--gold);}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    .fade-in{opacity:0;transform:translateY(16px);animation:fadeIn 0.7s ease forwards;}
+    @keyframes fadeIn{to{opacity:1;transform:translateY(0)}}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.hero::after{display:none;}.borgovia-lanes{grid-template-columns:1fr;}footer{flex-direction:column;gap:20px;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-PIPE-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>PIPELINE OVERVIEW</span>
+</header>
+
+<main>
+
+  <div class="hero fade-in">
+    <div class="hero-label">Il Flusso Unico del Dato · Dall'Ingresso all'Archivio</div>
+    <h1>MAMMUTH•PIPELINE™<span>Come i moduli si collegano · Input → Output certificato</span></h1>
+    <p class="hero-desc">Ogni modulo del KREATIO UNIVERSAL SYSTEM™ non vive da solo: è una stazione di un unico flusso. Un dato grezzo entra dal territorio, attraversa nove stadi e ne esce come verità certificata e immutabile. Ogni nodo è cliccabile.</p>
+    <div class="legend">
+      <div class="legend-item"><span class="badge live">LIVE</span> attivo e funzionante</div>
+      <div class="legend-item"><span class="badge beta">BETA</span> parziale / in completamento</div>
+      <div class="legend-item"><span class="badge target">TARGET</span> progettato, da costruire</div>
+    </div>
+  </div>
+
+  <section class="fade-in">
+    <div class="section-label">Il Flusso · 9 Stadi</div>
+
+    <div class="flow">
+
+      <div class="node-wrap">
+        <a class="node ingress" href="ANTHROPIC-HOLE.html">
+          <div class="node-top"><span class="node-id">STADIO 01</span><span class="badge beta">BETA</span></div>
+          <div class="node-name">INGRESSO</div>
+          <div class="node-role">Acquisizione dal mondo reale: Anthropic Hole SYSTEM™, foto via WhatsApp, web crawling. Il territorio entra nel sistema.</div>
+          <span class="node-arrow-hint">→ Anthropic Hole</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node ingress" href="to-fill-the-void.html">
+          <div class="node-top"><span class="node-id">STADIO 02</span><span class="badge beta">BETA</span></div>
+          <div class="node-name">ESTRAZIONE</div>
+          <div class="node-role">OCR e visione artificiale: la locandina fotografata diventa testo strutturato — data, luogo, nome evento. Dal pixel al dato.</div>
+          <span class="node-arrow-hint">→ To Fill The Void™</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node" style="border-left-color:var(--amber);" href="COLOR-TRIAGE.html">
+          <div class="node-top"><span class="node-id">STADIO 03 · GATE</span><span class="badge live">LIVE</span></div>
+          <div class="node-name" style="color:var(--amber);">COLOR TRIAGE</div>
+          <div class="node-role">Primo cancello automatico: il dato è processabile? Lo smista. Ciò che è lavorabile prosegue; il rumore e i grezzi ambigui restano parcheggiati.</div>
+          <span class="node-arrow-hint">→ Color Triage</span>
+        </a>
+      </div>
+      <div class="gate-branch">
+        <span class="gate-line">└┄►</span>
+        <div class="gate-park"><strong>RAW PARKING</strong> · dato ambiguo o non pertinente → parcheggiato in attesa, non distrutto</div>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node process" href="MORPHEUS-JLX.html">
+          <div class="node-top"><span class="node-id">STADIO 04</span><span class="badge live">LIVE</span></div>
+          <div class="node-name">MORPHEUS•JLX™</div>
+          <div class="node-role">Sanificazione: pulizia, deduplicazione e normalizzazione nel linguaggio JLX. Il dato lavorabile diventa record pulito e uniforme.</div>
+          <span class="node-arrow-hint">→ Morpheus·JLX™</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node score" href="TCF-framework.html">
+          <div class="node-top"><span class="node-id">STADIO 05 · SCORING</span><span class="badge live">LIVE</span></div>
+          <div class="node-name">T.C.F. — SCORING</div>
+          <div class="node-role">La macchina della verità assegna un punteggio di confidenza (0–1) tramite il Safety Engine. È il numero che deciderà quanti umani servono dopo.</div>
+          <span class="node-arrow-hint">→ T.C.F.™ Framework</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node borgovia" href="criterion-sanctus.html">
+          <div class="node-top"><span class="node-id">STADIO 06 · VALIDATION</span><span class="badge target">TARGET</span></div>
+          <div class="node-name">BORGOVIA™ VALIDATION LAYER</div>
+          <div class="node-role">La validazione distribuita, dosata dallo score: il dato sicuro passa da solo, il dubbio chiede un worker, l'incerto richiede il consenso di più worker. La strada dei borghi verso la certezza.</div>
+          <span class="node-arrow-hint">→ Critērion·Sānctus</span>
+        </a>
+      </div>
+      <div class="borgovia-lanes">
+        <div class="lane hi"><div class="lane-conf">Conf. ALTA</div><div class="lane-action">auto-validato<br>0 worker</div></div>
+        <div class="lane mid"><div class="lane-conf">Conf. MEDIA</div><div class="lane-action">1 worker<br>conferma (tap)</div></div>
+        <div class="lane lo"><div class="lane-conf">Conf. BASSA</div><div class="lane-action">consenso<br>N-worker</div></div>
+      </div>
+      <div class="borgovia-reject"><strong>✕ REJECTED</strong> · record bocciato dai worker → torna al RAW PARKING (stadio 03), non entra mai in ATLAS. Lo scarto è tracciato, non perso.</div>
+      <div class="lock-note"><strong>🔒 MANUAL_LOCKED</strong> · i record validati a mano (es. pilota Sermoneta) sono blindati: BORGOVIA li riconosce e non li tocca mai. Ogni lock porta traccia di chi (locked_by) e quando (locked_at) — auditabilità T.C.F. Il completamento manuale resta manuale, per sempre.</div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node" style="border-left-color:var(--gold);" href="ATLAS-EVENTA.html">
+          <div class="node-top"><span class="node-id">STADIO 07</span><span class="badge live">LIVE</span></div>
+          <div class="node-name">ATLAS•EVENTA™</div>
+          <div class="node-role">Il database certificato: il record validato entra nell'archivio territoriale strutturato, con coordinate, ISTAT e categoria.</div>
+          <span class="node-arrow-hint">→ ATLAS•EVENTA™</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node" style="border-left-color:var(--cyan);" href="QDC-v.html">
+          <div class="node-top"><span class="node-id">STADIO 08 · SEAL</span><span class="badge beta">BETA</span></div>
+          <div class="node-name" style="color:var(--cyan);">QDC.v.</div>
+          <div class="node-role">Quantum Data Certification: il sigillo finale rende il dato indivisibile, statico e non alterabile. Da informazione a verità storica certificata.</div>
+          <span class="node-arrow-hint">→ QDC.v.</span>
+        </a>
+      </div>
+      <div class="connector"></div><div class="connector-arrow">▼</div>
+
+      <div class="node-wrap">
+        <a class="node archive" href="BRAIN-BOX.html">
+          <div class="node-top"><span class="node-id">STADIO 09 · ∞</span><span class="badge target">TARGET</span></div>
+          <div class="node-name" style="color:var(--silver);">BRAIN BOX</div>
+          <div class="node-role">L'archivio immutabile e permanente. Punto di arrivo: memoria universale, scalabile da Sermoneta all'Europa. La frammentazione è vinta.</div>
+          <span class="node-arrow-hint">→ Brain Box</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Perché Questo Flusso Scala</div>
+    <h2 class="section-title">Lo Score Dosa gli Umani</h2>
+    <div class="principle">
+      <p>Il collo di bottiglia di ogni piattaforma di dati territoriali è la <strong>validazione</strong>: chi controlla che il dato sia vero? Nel KREATIO UNIVERSAL SYSTEM™ la risposta non è "un umano controlla tutto" — è il punteggio di confidenza del <strong>T.C.F.</strong> che decide, caso per caso, quanto intervento umano serve. Il dato sicuro passa da solo; solo l'incerto arriva ai worker di <strong>BORGOVIA™</strong>. Così cento worker smaltiscono migliaia di eventi senza inserimento manuale, e il sistema cresce in verticale (più profondità per territorio) e in orizzontale (più territori) sulla stessa struttura — verso la scala globale.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <div class="footer-sig">
+      <strong>Leonardo Adriano Chelariu</strong>
+      Founder &amp; Author · KREATIO UNIVERSAL SYSTEM™ · Code 3620<br>
+      K•Word•Festival (KWF) · MAMMUTH•EV™
+    </div>
+    <div class="footer-links">
+      <a href="developer-index.html">← Developer Portal</a>
+      <a href="KREATIO-UNIVERSAL-SYSTEM.html">→ The Mothership</a>
+    </div>
+  </div>
+  <div class="footer-glyph">Ð I ⅅΓ•ⅅΛΞ•Ƨ⊥ⅅΛΞ</div>
+</footer>
+
+
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev kusnav-disabled" id="kusnav-prev"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">— inizio —</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="KREATIO-UNIVERSAL-SYSTEM.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">The Mothership</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  .kusnav-disabled{opacity:.38;pointer-events:none}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&!p.classList.contains('kusnav-disabled')&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&!n.classList.contains('kusnav-disabled')&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>

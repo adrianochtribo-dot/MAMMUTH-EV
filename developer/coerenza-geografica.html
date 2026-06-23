@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COERENZA GEOGRAFICA™ · PUNTO-NEL-POLIGONO | KREATIO UNIVERSAL SYSTEM™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8c98a;--gold-dim:#7a6240;--bg:#080808;--bg-2:#0f0f0f;--bg-3:#161616;--border:#222;--border-gold:#3a2e1a;--text:#d4c4a8;--text-dim:#6a5f4e;--red:#c0392b;--blue:#6e9ec9;--green:#7ab88a;--amber:#d4a017;--purple:#9b7fc7;--cyan:#4ec9b0;--rose:#c97090;--silver:#a8b8c8;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Fraunces',serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    .sys-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border-gold);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(12px);}
+    .sys-header .brand{font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.3em;color:var(--gold);}
+    .sys-header .code{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);letter-spacing:0.15em;}
+    .sys-header .status{display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--cyan);}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+    main{max-width:920px;margin:0 auto;padding:120px 40px 80px;position:relative;z-index:1;}
+
+    .hero{padding:60px 0 50px;border-bottom:1px solid var(--border-gold);margin-bottom:60px;position:relative;overflow:hidden;}
+    .hero::after{content:'⬢';position:absolute;right:-10px;top:30%;transform:translateY(-50%);font-size:13rem;color:transparent;-webkit-text-stroke:1px rgba(78,201,176,0.05);pointer-events:none;}
+    .hero-label{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:24px;}
+    .hero h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:600;color:var(--cyan);line-height:1.1;letter-spacing:0.05em;margin-bottom:8px;}
+    .hero h1 span{display:block;font-size:0.32em;font-weight:400;letter-spacing:0.35em;color:var(--text-dim);margin-top:14px;}
+    .hero-desc{max-width:640px;margin-top:28px;font-size:1.05rem;color:var(--text);line-height:1.8;font-style:italic;}
+
+    .badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;padding:2px 8px;border:1px solid;border-radius:2px;}
+    .badge.active{border-color:var(--green);color:var(--green);}
+    .meta-row{display:flex;gap:36px;flex-wrap:wrap;margin-top:36px;}
+    .meta{font-family:'DM Mono',monospace;}
+    .meta-k{font-size:0.55rem;letter-spacing:0.25em;color:var(--gold-dim);text-transform:uppercase;}
+    .meta-v{font-size:0.85rem;color:var(--text);margin-top:6px;}
+
+    section{margin-bottom:60px;}
+    .section-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.4em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+    .section-title{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:600;color:var(--gold-light);letter-spacing:0.1em;margin-bottom:28px;}
+    p.body{font-size:1rem;line-height:1.9;color:var(--text);margin-bottom:18px;}
+    p.body strong{color:var(--gold);font-weight:400;}
+
+    .esiti{display:grid;grid-template-columns:1fr;gap:16px;}
+    .esito{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:22px 26px;}
+    .esito-name{font-family:'DM Mono',monospace;font-size:0.95rem;font-weight:400;color:var(--cyan);letter-spacing:0.06em;margin-bottom:8px;}
+    .esito-d{font-size:0.9rem;color:var(--text-dim);line-height:1.7;}
+    .esito.coerente{border-left-color:var(--green);} .esito.coerente .esito-name{color:var(--green);}
+    .esito.bordo{border-left-color:var(--amber);} .esito.bordo .esito-name{color:var(--amber);}
+    .esito.errore{border-left-color:var(--red);} .esito.errore .esito-name{color:var(--rose);}
+
+    table{width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:0.72rem;margin-top:10px;}
+    th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);}
+    th{color:var(--gold-dim);letter-spacing:0.12em;text-transform:uppercase;font-size:0.58rem;font-weight:400;}
+    td strong{color:var(--gold);font-weight:400;}
+    td .ok{color:var(--green);} td .bordo{color:var(--amber);} td .err{color:var(--rose);}
+
+    pre{background:var(--bg-3);border:1px solid var(--border-gold);border-left:3px solid var(--cyan);padding:20px 24px;overflow-x:auto;font-family:'DM Mono',monospace;font-size:0.68rem;line-height:1.7;color:var(--text);margin-top:10px;}
+    pre .kw{color:var(--purple);} pre .fn{color:var(--cyan);} pre .str{color:var(--green);} pre .com{color:var(--text-dim);font-style:italic;}
+
+    .note{background:var(--bg-2);border:1px solid var(--border-gold);padding:14px 20px;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--text-dim);letter-spacing:0.05em;line-height:1.7;margin-top:10px;}
+    .note.warn{border-left:2px solid var(--amber);} .note.warn strong{color:var(--amber);font-weight:400;}
+
+    .principle{background:var(--bg-2);border:1px solid var(--border-gold);border-left:3px solid var(--green);padding:28px 32px;}
+    .principle p{font-size:0.98rem;line-height:1.9;color:var(--text);}
+    .principle strong{color:var(--gold);font-weight:400;}
+
+    footer{border-top:1px solid var(--border-gold);padding:40px;display:flex;justify-content:space-between;align-items:flex-end;max-width:920px;margin:0 auto;position:relative;z-index:1;}
+    .footer-sig{font-family:'Cinzel',serif;font-size:0.7rem;color:var(--gold-dim);letter-spacing:0.2em;line-height:2;}
+    .footer-sig strong{display:block;color:var(--gold);font-size:0.85rem;margin-bottom:4px;}
+    .footer-glyph{font-size:1.2rem;color:var(--border-gold);}
+
+    @media(max-width:768px){main{padding:100px 20px 60px;}.hero::after{display:none;}footer{flex-direction:column;gap:20px;}}
+  </style>
+</head>
+<body>
+
+<header class="sys-header">
+  <span class="brand">KREATIO UNIVERSAL SYSTEM™ · CODE 3620</span>
+  <span class="code">DOC-GEO-001 · v1.0</span>
+  <span class="status"><span class="status-dot"></span>COERENZA GEOGRAFICA · PILASTRO I</span>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="hero-label">Validazione Ontologica · Pilastro Territoriale</div>
+    <h1>Coerenza Geografica<span>PUNTO-NEL-POLIGONO</span></h1>
+    <p class="hero-desc">Un evento non appartiene a un comune perché il nome combacia, ma perché le sue coordinate cadono dentro i confini reali del territorio. La geografia decide, non la stringa.</p>
+    <div class="meta-row">
+      <div class="meta"><div class="meta-k">Stato</div><div class="meta-v"><span class="badge active">ATTIVO</span></div></div>
+      <div class="meta"><div class="meta-k">Funzione</div><div class="meta-v">valida_coerenza_geografica_v2</div></div>
+      <div class="meta"><div class="meta-k">Motore</div><div class="meta-v">PostGIS · ST_Contains</div></div>
+      <div class="meta"><div class="meta-k">Copertura</div><div class="meta-v">31 comuni · Provincia di Latina</div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-label">Il problema</div>
+    <h2 class="section-title">Perché il nome non basta</h2>
+    <p class="body">Il vecchio controllo di coerenza territoriale confrontava il <strong>nome del comune</strong> estratto dall'evento con i nomi nel registro dei territori. Funziona finché i dati sono puliti, ma è cieco rispetto a due errori reali: un evento attribuito al comune sbagliato passa il controllo se il nome combacia, e una frazione condivisa tra più comuni non viene mai distinta.</p>
+    <p class="body">La soluzione carica i <strong>confini ufficiali ISTAT</strong> (poligoni) di tutti i comuni nel database e verifica geometricamente se le coordinate dell'evento cadono dentro il territorio dichiarato. La verità diventa la mappa, non l'etichetta.</p>
+  </section>
+
+  <section>
+    <div class="section-label">La logica</div>
+    <h2 class="section-title">Tre esiti, non un sì/no</h2>
+    <p class="body">Un confine netto produce falsi positivi: un evento sul molo di un'isola cade tecnicamente fuori dal poligono costiero pur essendo legittimo. Una tolleranza fissa, al contrario, maschera gli errori veri. La funzione risolve distinguendo <strong>perché</strong> un punto è fuori, non solo <strong>quanto</strong>.</p>
+    <div class="esiti">
+      <div class="esito coerente">
+        <div class="esito-name">COERENTE</div>
+        <div class="esito-d">Il punto cade dentro il poligono del comune attribuito. Coerenza territoriale piena, nessuna tolleranza necessaria.</div>
+      </div>
+      <div class="esito bordo">
+        <div class="esito-name">COERENTE_BORDO</div>
+        <div class="esito-d">Il punto è fuori dal poligono ma non cade dentro nessun altro comune (mare, costa, montagna) ed è entro 500 m dal confine. Caso tipico delle isole e delle frazioni costiere: l'evento è legittimo, la coordinata è solo imprecisa.</div>
+      </div>
+      <div class="esito errore">
+        <div class="esito-name">ERRORE_ATTRIBUZIONE</div>
+        <div class="esito-d">Il punto cade dentro un comune <em>diverso</em> da quello dichiarato. Non è imprecisione: l'evento è attribuito al territorio sbagliato. Il sistema lo segnala con il nome del comune reale, senza mascherarlo.</div>
+      </div>
+    </div>
+    <div class="note warn"><strong>Principio chiave:</strong> non conta quanto un punto è fuori dal confine, ma se "ruba" il punto a un altro comune valido. La distanza è ambigua; l'appartenenza a un altro poligono no.</div>
+  </section>
+
+  <section>
+    <div class="section-label">Caso reale</div>
+    <h2 class="section-title">Doganella di Ninfa vs Ponza</h2>
+    <p class="body">Al primo passaggio sui 66 eventi geolocalizzati, 8 risultavano fuori dal proprio poligono. La distanza dal confine era quasi identica (Doganella a 362 m, Ponza-Le Forna a 350 m): una soglia di metri non li avrebbe mai distinti. La logica a tre esiti sì.</p>
+    <table>
+      <thead><tr><th>Evento</th><th>Attribuito a</th><th>Esito</th></tr></thead>
+      <tbody>
+        <tr><td>Festa di Santa Maria Assunta — Doganella di Ninfa</td><td>Sermoneta</td><td><strong class="err">ERRORE_ATTRIBUZIONE: Latina</strong></td></tr>
+        <tr><td>Sagra della Polenta — Doganella di Ninfa</td><td>Sermoneta</td><td><strong class="err">ERRORE_ATTRIBUZIONE: Latina</strong></td></tr>
+        <tr><td>Festa di San Silverio (Le Forna)</td><td>Ponza</td><td><strong class="bordo">COERENTE_BORDO</strong></td></tr>
+        <tr><td>Pellegrinaggio a Palmarola</td><td>Ponza</td><td><strong class="bordo">COERENTE_BORDO</strong></td></tr>
+        <tr><td>SONIK — Festival Musica Elettronica</td><td>Ponza</td><td><strong class="bordo">COERENTE_BORDO</strong></td></tr>
+        <tr><td>Sagra delle Zeppole · San Giuseppe · Stendardo</td><td>Ponza</td><td><strong class="bordo">COERENTE_BORDO</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="body" style="margin-top:24px">I sei eventi ponzesi cadono in mare attorno all'arcipelago: imprecisione costiera, eventi veri, accettati. I due di Doganella di Ninfa cadono dentro il comune di Latina: errore di attribuzione reale, invisibile al controllo per nome, scovato dalla geografia.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Implementazione</div>
+    <h2 class="section-title">La funzione</h2>
+    <pre><span class="kw">create or replace function</span> <span class="fn">valida_coerenza_geografica_v2</span>(
+    p_lat double precision, p_lng double precision, p_territorio_id integer
+) <span class="kw">returns</span> text <span class="kw">as</span> $$
+<span class="kw">declare</span>
+    v_punto geometry; v_poligono geometry; v_altro text;
+<span class="kw">begin</span>
+    v_punto := <span class="fn">ST_SetSRID</span>(<span class="fn">ST_MakePoint</span>(p_lng, p_lat), 4326);
+    <span class="kw">select</span> geom <span class="kw">into</span> v_poligono <span class="kw">from</span> territori <span class="kw">where</span> id = p_territorio_id;
+    <span class="kw">if</span> v_poligono <span class="kw">is null then return</span> <span class="str">'NO_GEOM'</span>; <span class="kw">end if</span>;
+
+    <span class="com">-- A) dentro il comune attribuito</span>
+    <span class="kw">if</span> <span class="fn">ST_Contains</span>(v_poligono, v_punto) <span class="kw">then return</span> <span class="str">'COERENTE'</span>; <span class="kw">end if</span>;
+
+    <span class="com">-- B) dentro un ALTRO comune -> errore di attribuzione</span>
+    <span class="kw">select</span> t2.nome <span class="kw">into</span> v_altro <span class="kw">from</span> territori t2
+      <span class="kw">where</span> t2.id &lt;&gt; p_territorio_id <span class="kw">and</span> <span class="fn">ST_Contains</span>(t2.geom, v_punto) <span class="kw">limit</span> 1;
+    <span class="kw">if</span> v_altro <span class="kw">is not null then return</span> <span class="str">'ERRORE_ATTRIBUZIONE:'</span> || v_altro; <span class="kw">end if</span>;
+
+    <span class="com">-- C) fuori da tutti, ma entro 500m -> caso-confine</span>
+    <span class="kw">if</span> <span class="fn">ST_DWithin</span>(v_punto::geography, v_poligono::geography, 500) <span class="kw">then return</span> <span class="str">'COERENTE_BORDO'</span>; <span class="kw">end if</span>;
+
+    <span class="kw">return</span> <span class="str">'FUORI_AREA'</span>;
+<span class="kw">end</span>; $$ <span class="kw">language</span> plpgsql;</pre>
+    <div class="note">FONTE CONFINI: dati ufficiali ISTAT (openpolis/geojson-italy), 31 comuni Provincia di Latina, MULTIPOLYGON SRID 4326, semplificati a ~50 m. Caricati in territori.geom dopo la correzione di 8 codici ISTAT errati.</div>
+  </section>
+
+  <section>
+    <div class="section-label">Ruolo nella pipeline</div>
+    <div class="principle">
+      <p>Questa funzione è l'evoluzione del <strong>Pilastro I — Coerenza Territoriale</strong> del T.C.F. dentro BORGOVIA. Sostituisce il match per nome con la verifica geometrica reale. Un evento <strong>COERENTE</strong> o <strong>COERENTE_BORDO</strong> supera il pilastro; un <strong>ERRORE_ATTRIBUZIONE</strong> viene segnalato per revisione, con indicato il comune corretto. La geografia non è più un'etichetta da fidarsi: è una verifica che si può eseguire.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-sig">
+    <strong>COERENZA GEOGRAFICA™</strong>
+    KREATIO UNIVERSAL SYSTEM™ · CODE 3620<br>
+    Pilastro I · Validazione Ontologica Territoriale
+  </div>
+  <div class="footer-glyph">⬢</div>
+</footer>
+
+<div class="kusnav">
+<a class="kusnav-btn kusnav-prev" id="kusnav-prev" href="BORGOVIA-validation-layer.html"><span class="kusnav-lbl">← Precedente</span><span class="kusnav-ttl">BORGOVIA™ Validation Layer</span></a>
+<a class="kusnav-btn kusnav-idx" href="developer-index.html"><span class="kusnav-lbl">Indice</span><span class="kusnav-ttl">Portal</span></a>
+<a class="kusnav-btn kusnav-next" id="kusnav-next" href="validati.html"><span class="kusnav-lbl">Prossimo →</span><span class="kusnav-ttl">Dati Validati</span></a>
+</div>
+<style>
+  .kusnav{position:fixed;bottom:0;left:0;right:0;z-index:99999;display:flex;
+    gap:10px;justify-content:space-between;align-items:stretch;max-width:880px;margin:0 auto;
+    padding:12px 20px;background:rgba(10,12,16,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-top:1px solid #222836;box-sizing:border-box;
+    font-family:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace}
+  .kusnav *{box-sizing:border-box}
+  .kusnav-btn{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+    padding:8px 14px;border-radius:10px;border:1px solid #222836;background:#11141b;min-width:0;flex:1;max-width:38%}
+  .kusnav-btn:hover{border-color:#22d3ee}
+  .kusnav-lbl{font-size:9px;letter-spacing:.12em;color:#5b6276;text-transform:uppercase}
+  .kusnav-ttl{font-size:13px;color:#e8ebf2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kusnav-next{text-align:right} .kusnav-next .kusnav-lbl{text-align:right}
+  .kusnav-idx{border-style:dashed;align-items:center;flex:0 0 auto;max-width:none}
+  .kusnav-idx .kusnav-ttl{color:#22d3ee}
+  body{padding-bottom:88px}
+</style>
+<script>document.addEventListener('keydown',function(e){var t=e.target||{},tag=(t.tagName||'').toUpperCase();if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||t.isContentEditable)return;if(e.metaKey||e.ctrlKey||e.altKey)return;if(e.key==='ArrowLeft'){var p=document.getElementById('kusnav-prev');if(p&&p.getAttribute('href'))location.href=p.getAttribute('href');}if(e.key==='ArrowRight'){var n=document.getElementById('kusnav-next');if(n&&n.getAttribute('href'))location.href=n.getAttribute('href');}});</script>
+</body>
+</html>

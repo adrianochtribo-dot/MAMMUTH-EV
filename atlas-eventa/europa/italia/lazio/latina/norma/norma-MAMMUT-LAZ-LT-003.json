@@ -1,0 +1,230 @@
+{
+  "player_id": "MAMMUT-LAZ-LT-003",
+  "comune": "Norma",
+  "provincia": "Latina",
+  "codice_istat": "059016",
+  "coordinate_baricentro": "41.5833,12.9667",
+  "diocesi_appartenenza": "Diocesi di Latina-Terracina-Sezze-Priverno",
+
+  "parrocchie_territoriali": [
+    {
+      "nome_parrocchia": "Parrocchia SS. Annunziata",
+      "santo_titolare": "Santissima Annunziata",
+      "fonte_verifica": null,
+      "stato_verifica": "unverified"
+    },
+    {
+      "nome_parrocchia": "Parrocchia Maria SS. Assunta",
+      "santo_titolare": "Maria Santissima Assunta",
+      "fonte_verifica": null,
+      "stato_verifica": "unverified"
+    }
+  ],
+
+  "calendario_ciclico_12_mesi": {
+
+    "gennaio": [
+      {
+        "evento_nome": "Festa di Sant'Antonio Abate",
+        "tipo": "Religiosa",
+        "periodo": "Domenica successiva al 17 gennaio",
+        "orario": null,
+        "anchor_luogo": "Centro urbano di Norma (benedizione animali, distribuzione pane benedetto)",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "febbraio": [],
+    "marzo": [],
+
+    "aprile": [
+      {
+        "evento_nome": "Festa della Madonna del Rifugio",
+        "tipo": "Religiosa",
+        "periodo": "Seconda domenica dopo Pasqua (data mobile: Aprile o Maggio secondo l'anno)",
+        "orario": null,
+        "anchor_luogo": "Processione per le vie del borgo medievale di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "maggio": [],
+
+    "giugno": [
+      {
+        "evento_nome": "Simulacrum - I Lepini tra Sacro e Profano",
+        "tipo": "Mostra",
+        "periodo": "Metà giugno (es. 13-25 giugno)",
+        "orario": null,
+        "anchor_luogo": "Museo Civico Archeologico di Norma e Parco Archeologico di Norba",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "Estate Normese (rassegna culturale - apertura cartellone)",
+        "tipo": "Festival",
+        "periodo": "Da fine giugno a tutto settembre (rassegna continuativa, ~80 giorni)",
+        "orario": null,
+        "anchor_luogo": "Parco Archeologico di Norba e centro storico",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "luglio": [],
+
+    "agosto": [
+      {
+        "evento_nome": "Festa Patronale di San Rocco",
+        "tipo": "Patronale",
+        "periodo": "Dal 15 al 23 agosto (16 agosto: liturgia principale; 23 agosto: Ottava)",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma (processioni, fiera, spettacolo pirotecnico)",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "NORBENSIS Festival (Festival Internazionale del Folklore)",
+        "tipo": "Festival",
+        "periodo": "Agosto (date variabili, storicamente attorno al 21-25 agosto)",
+        "orario": null,
+        "anchor_luogo": "Vie e piazze del centro storico di Norma (Piazza Caio Cestio)",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": "https://norbensis.it/festival/",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-14",
+        "verificato_da": "Claude (ricerca web 2026-06-14) - in attesa conferma Leonardo",
+        "nota_correzione": "Il documento di origine riportava 'Norbanus Festival', fine luglio (23-27/7), promosso da Pro Loco Norma + CIOFF. Verifica web mostra che il festival, fondato nel 1995 come 'Festival Internazionale del Folklore - Il folklore per la pace dei popoli' (gruppo folklorico 'Norbanus'), e' oggi denominato NORBENSIS Festival (Associazione Folklorica Norbensis), e le edizioni recenti documentate (2015, 2017, 2024, 2025) si svolgono in AGOSTO, non a fine luglio. Solo l'edizione 2013 risulta a fine luglio. Nome, mese e organizzatore corretti di conseguenza; data esatta 2026 da confermare su norbensis.it o pagina Comune di Norma."
+      }
+    ],
+
+    "settembre": [],
+
+    "ottobre": [
+      {
+        "evento_nome": "Ottobre: Mese del Gusto (rassegna macro-contenitore)",
+        "tipo": "Enogastronomica",
+        "periodo": "Tutti i weekend di ottobre",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "Best Wine (sotto-evento di Ottobre: Mese del Gusto)",
+        "tipo": "Enogastronomica",
+        "periodo": "Un weekend di ottobre (nell'ambito di 'Ottobre: Mese del Gusto')",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "ChocoDay / Festa del Cioccolato (sotto-evento di Ottobre: Mese del Gusto)",
+        "tipo": "Enogastronomica",
+        "periodo": "Un weekend di ottobre (nell'ambito di 'Ottobre: Mese del Gusto')",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma, Museo del Cioccolato",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "I Gusti del Borgo (sotto-evento di Ottobre: Mese del Gusto)",
+        "tipo": "Enogastronomica",
+        "periodo": "Un weekend di ottobre (nell'ambito di 'Ottobre: Mese del Gusto')",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "Sagra della Castagna di Norma",
+        "tipo": "Sagra",
+        "periodo": "Ultimo weekend di ottobre (56a edizione nel 2025, 57a prevista nel 2026)",
+        "orario": null,
+        "anchor_luogo": "Centro storico di Norma e Parco Archeologico di Norba (caldarroste, baracche, visite guidate)",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": "https://www.visitlazio.com/eventi-lazio/54-sagra-della-castagna-a-norma/",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-14",
+        "verificato_da": "Claude (ricerca web 2026-06-14) - in attesa conferma Leonardo"
+      }
+    ],
+
+    "novembre": [],
+
+    "dicembre": [
+      {
+        "evento_nome": "Festa Patronale di Santa Barbara",
+        "tipo": "Patronale",
+        "periodo": "4 dicembre",
+        "orario": null,
+        "anchor_luogo": "Cerimonie istituzionali e civili, centro di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      },
+      {
+        "evento_nome": "Norma Paese Presepe / Eventi di Natale",
+        "tipo": "Folkloristica",
+        "periodo": "Dall'8 dicembre al 6 gennaio",
+        "orario": null,
+        "anchor_luogo": "Itinerario presepiale nel centro storico di Norma",
+        "coordinate": "41.5833,12.9667",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ]
+  },
+
+  "_riepilogo": {
+    "totale_eventi": 13,
+    "certified": 0,
+    "verified": 2,
+    "unverified": 11,
+    "fonte_originale": "Documento fornito dall'utente il 2026-06-14, generato da un assistente AI esterno. Codice ISTAT e coordinate baricentro verificati indipendentemente da Claude su 3 fonti (comuni-italiani.it, amministrazionicomunali.it, paginebianche.it).",
+    "correzioni_applicate": [
+      "Norbanus Festival (luglio, Pro Loco+CIOFF) corretto in NORBENSIS Festival (agosto, Associazione Folklorica Norbensis) - vedi nota_correzione sull'evento.",
+      "Festa della Madonna del Rifugio: periodo 'Aprile/Maggio' (data mobile legata a Pasqua) collocato in aprile con nota esplicita."
+    ],
+    "punti_apertura_per_referente_territoriale": [
+      "Due parrocchie distinte nel documento originale (SS. Annunziata, Maria SS. Assunta) per lo stesso comune - da verificare se entrambe esistono o se una e' un refuso.",
+      "Tutte le coordinate sono il baricentro comunale, non geolocalizzazioni per singolo evento - da raffinare come fatto per Bassiano.",
+      "11 eventi su 13 sono 'unverified': dati del documento originale cosi' come forniti, in attesa di fonte primaria prima dell'ingestion T.C.F."
+    ],
+    "stato_pilota": "Secondo binario (Provincia di Latina). Non tocca eventi_view, in_scope_pilot, o la mappa live."
+  }
+}

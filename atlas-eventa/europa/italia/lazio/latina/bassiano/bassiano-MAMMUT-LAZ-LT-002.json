@@ -1,0 +1,243 @@
+{
+  "player_id": "MAMMUT-LAZ-LT-002",
+  "comune": "Bassiano",
+  "provincia": "Latina",
+  "codice_istat": "059004",
+  "diocesi_appartenenza": "Diocesi di Latina-Terracina-Sezze-Priverno (Forania di Sezze)",
+
+  "parrocchie_territoriali": [
+    {
+      "nome_parrocchia": "Parrocchia di San Erasmo Vescovo e Martire",
+      "santo_titolare": "San Erasmo",
+      "fonte_verifica": "https://comune.bassiano.lt.it",
+      "stato_verifica": "verified"
+    }
+  ],
+
+  "calendario_ciclico_12_mesi": {
+
+    "gennaio": [
+      {
+        "evento_nome": "Festa di Sant'Antonio Abate",
+        "tipo": "Religiosa",
+        "periodo": "17 Gennaio",
+        "orario": "10:00-18:00",
+        "anchor_luogo": "Sagrato della Chiesa di San Erasmo",
+        "coordinate": "41.5494,13.0325",
+        "fonte_verifica": "https://comune.bassiano.lt.it",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "febbraio": [
+      {
+        "evento_nome": "Carnevale Bassianese",
+        "tipo": "Folkloristica",
+        "periodo": "Domenica di Carnevale (variabile)",
+        "orario": "15:00-20:00",
+        "anchor_luogo": "Piazza Giacomo Matteotti e centro storico",
+        "coordinate": "41.5491,13.0331",
+        "fonte_verifica": "https://www.facebook.com/prolocobassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "marzo": [
+      {
+        "evento_nome": "Incontri Culturali \"Aldo Manuzio\"",
+        "tipo": "Teatrale",
+        "periodo": "Fine Marzo (date variabili)",
+        "orario": "18:30-20:30",
+        "anchor_luogo": "Auditorium Comunale, Via Aldo Manuzio",
+        "coordinate": "41.5487,13.0320",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "aprile": [
+      {
+        "evento_nome": "Fiera in Fattoria - Come Allora",
+        "tipo": "Enogastronomica",
+        "periodo": "Seconda settimana di Aprile (Sabato e Domenica)",
+        "orario": "10:00-20:00",
+        "anchor_luogo": "Valle Pepe, Via Carpinetana Vecchia",
+        "coordinate": "41.5562,13.0285",
+        "fonte_verifica": "https://www.fattivivo.com/eventi/fiera-in-fattoria-come-allora-2026-valle-pepe-bassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      },
+      {
+        "evento_nome": "La Passione Vivente di Gesù Cristo",
+        "tipo": "Religiosa",
+        "periodo": "Venerdì Santo (variabile)",
+        "orario": "21:00-23:30",
+        "anchor_luogo": "Percorso itinerante nel borgo medievale",
+        "coordinate": "41.5496,13.0328",
+        "fonte_verifica": "https://www.facebook.com/Latinatodaynotizielatina",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "maggio": [
+      {
+        "evento_nome": "Festa dei Fauni di Bassiano",
+        "tipo": "Folkloristica",
+        "periodo": "Metà Maggio (Sabato e Domenica)",
+        "orario": "16:00-23:00",
+        "anchor_luogo": "Piazza Giacomo Matteotti",
+        "coordinate": "41.5491,13.0331",
+        "fonte_verifica": "https://www.facebook.com/prolocobassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "giugno": [
+      {
+        "evento_nome": "Festa Patronale di San Vincenzo Ferreri",
+        "tipo": "Religiosa",
+        "periodo": "Seconda settimana di Giugno",
+        "orario": "09:30-23:30",
+        "anchor_luogo": "Chiesa Matrice di San Erasmo e Centro Storico",
+        "coordinate": "41.5494,13.0325",
+        "fonte_verifica": "https://comune.bassiano.lt.it",
+        "stato_verifica": "certified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      },
+      {
+        "evento_nome": "Laboratori di Creatività e Sostenibilità - LepiniLab",
+        "tipo": "Sociale",
+        "periodo": "Prima e quarta settimana di Giugno",
+        "orario": "16:00-19:00",
+        "anchor_luogo": "Centro Sociale Anziani APS, Via Aldo Manuzio 13",
+        "coordinate": "41.5488,13.0319",
+        "fonte_verifica": "https://www.instagram.com/prolocobassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "luglio": [
+      {
+        "evento_nome": "Sagra del Prosciutto di Bassiano",
+        "tipo": "Sagra",
+        "periodo": "Ultimo fine settimana di Luglio (Ven-Sab-Dom)",
+        "orario": "12:00-24:00",
+        "anchor_luogo": "Piazza Giacomo Matteotti e Parcheggio Grandi Eventi \"Prato del Principe\"",
+        "coordinate": "41.5475,13.0338",
+        "fonte_verifica": "https://sagreautentiche.it/sagre/sagra-del-prosciutto-bassiano/",
+        "stato_verifica": "certified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "agosto": [
+      {
+        "evento_nome": "L'Estate Bassianese (Rassegna Estiva)",
+        "tipo": "Festival",
+        "periodo": "Dal 1 al 25 Agosto",
+        "orario": "21:00-23:30",
+        "anchor_luogo": "Anfiteatro Comunale / Piazza Giacomo Matteotti",
+        "coordinate": "41.5491,13.0331",
+        "fonte_verifica": "https://comune.bassiano.lt.it",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "settembre": [
+      {
+        "evento_nome": "Festa della Madonna del Carmo",
+        "tipo": "Religiosa",
+        "periodo": "Metà Settembre",
+        "orario": "17:00-21:00",
+        "anchor_luogo": "Chiesa di San Erasmo e Vie del Borgo",
+        "coordinate": "41.5494,13.0325",
+        "fonte_verifica": "https://comune.bassiano.lt.it",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ],
+
+    "ottobre": [
+      {
+        "evento_nome": "Festa d'Autunno e dei Prodotti Locali",
+        "tipo": "Sagra",
+        "periodo": "Terza Domenica di Ottobre",
+        "orario": "10:00-20:00",
+        "anchor_luogo": "Centro Storico e Via Aldo Manuzio",
+        "coordinate": "41.5489,13.0322",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "novembre": [
+      {
+        "evento_nome": "Mostra Documentaria al Museo delle Scritture",
+        "tipo": "Mostra",
+        "periodo": "Date variabili nel mese",
+        "orario": "09:30-18:30",
+        "anchor_luogo": "Museo delle Scritture \"Aldo Manuzio\", Via Sezze",
+        "coordinate": "41.5483,13.0315",
+        "fonte_verifica": null,
+        "stato_verifica": "unverified",
+        "data_verifica": null,
+        "verificato_da": null
+      }
+    ],
+
+    "dicembre": [
+      {
+        "evento_nome": "Il Mercatino Enogastronomico delle Eccellenze Natalizie",
+        "tipo": "Enogastronomica",
+        "periodo": "Fine settimana antecedente il Natale (es. 19-21 Dicembre)",
+        "orario": "12:00-21:00",
+        "anchor_luogo": "Mura Medievali di Bassiano",
+        "coordinate": "41.5495,13.0327",
+        "fonte_verifica": "https://www.instagram.com/prolocobassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      },
+      {
+        "evento_nome": "Presepe Vivente di Bassiano",
+        "tipo": "Folkloristica",
+        "periodo": "26 Dicembre (Santo Stefano)",
+        "orario": "16:30-20:00",
+        "anchor_luogo": "Piazza Giacomo Matteotti e vicoli del borgo",
+        "coordinate": "41.5491,13.0331",
+        "fonte_verifica": "https://www.facebook.com/comunedibassiano",
+        "stato_verifica": "verified",
+        "data_verifica": "2026-06-12",
+        "verificato_da": "Leonardo Adriano Chelariu"
+      }
+    ]
+  },
+
+  "_riepilogo": {
+    "totale_eventi": 14,
+    "certified": 2,
+    "verified": 9,
+    "unverified": 3,
+    "nota": "Eventi unverified (Incontri Aldo Manuzio Marzo, Festa d'Autunno Ottobre, Mostra Documentaria Novembre) richiedono fonte primaria diretta prima dell'ingestion in ATLAS•EVENTA™."
+  }
+}

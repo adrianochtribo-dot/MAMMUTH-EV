@@ -1,4 +1,5 @@
 'use client';
+// build: console-territorio v1 — 2026-06-20
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
@@ -165,6 +166,35 @@ function BentoSection() {
   );
 }
 
+function ConsoleSection() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once:true, margin:'0px 0px -60px 0px' });
+  const comuni = ['Bassiano','Latina','Ponza','Sermoneta','Sezze','Terracina'];
+  return (
+    <section id="console" ref={ref} data-track-section="Console" aria-labelledby="console-title" className="bg-[#0a0a0a] py-28 px-6 overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <motion.p custom={0} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'} className="text-eyebrow text-[#E89A8C] mb-3">Console Territorio · Live</motion.p>
+          <motion.h2 id="console-title" custom={0.1} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'} className="text-[clamp(32px,5vw,56px)] font-extrabold tracking-tightest leading-[1.06] text-white text-balance mb-4">Interroga la mappa,<br/><span style={{color:'#E89A8C',fontStyle:'italic'}}>non l&apos;etichetta.</span></motion.h2>
+          <motion.p custom={0.2} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'} className="text-[19px] font-light text-neutral-400 max-w-xl mx-auto text-balance">Digita un comune: il motore verifica in tempo reale se ogni evento cade davvero dentro i confini ISTAT del territorio. Geomatch punto-nel-poligono, eventi certificati, zero dati inventati.</motion.p>
+        </div>
+        <motion.div custom={0.3} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'} className="flex flex-wrap justify-center gap-2 mb-10">
+          {comuni.map(c => (
+            <span key={c} className="px-4 py-2 rounded-full border border-white/15 text-[13px] font-mono text-neutral-300 bg-white/5">{c}</span>
+          ))}
+        </motion.div>
+        <motion.div custom={0.4} variants={fadeUp} initial="hidden" animate={inView?'visible':'hidden'} className="text-center">
+          <a href="https://adrianochtribo-dot.github.io/MAMMUTH-EV/developer/console.html" target="_blank" rel="noopener noreferrer"
+             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-[15px] text-[#0a0a0a]"
+             style={{background:'#E89A8C'}}>
+            Apri la Console Territorio →
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 const TIERS = [
   { id:'free', name:'Esploratore', desc:'Per chi vuole scoprire il territorio.', priceM:0, priceY:0, accent:'#8B7CF6', featured:false, cta:'Inizia gratis', ctaHref:'#', features:['Mappa interattiva eventi','23+ eventi certificati Sermoneta','Ricerca per comune e categoria','Codex Itineris™ — Grado I'] },
   { id:'pro', name:'Pro', desc:'Per organizzatori e appassionati.', priceM:9, priceY:79, accent:'#FFFFFF', featured:true, cta:'Accesso anticipato', ctaHref:'#', features:['Tutto di Esploratore','Caricamento eventi illimitato','TO FILL THE VOID™ pipeline','API REST 10.000 req/mese','Codex Itineris™ — tutti i gradi','Dashboard organizzatore'] },
@@ -322,6 +352,7 @@ export default function Page() {
       <NavBar />
       <HeroSection />
       <BentoSection />
+      <ConsoleSection />
       <PricingSection />
       <SiteFooter />
     </main>
