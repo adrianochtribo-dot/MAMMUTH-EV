@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <!-- ===== CRUSCOTTO LIVE (dati reali dal motore) ===== -->
+  <!-- ===== CRUSCOTTO LIVE ===== -->
   <section class="fade-in" id="live-section">
     <div class="section-label">Catalogo Certificato · Dati Live</div>
     <h2 class="section-title">Il Motore, in Tempo Reale</h2>
@@ -128,6 +128,66 @@
       </div>
     </div>
     <div id="lv-list" style="margin-top:18px"></div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">L'Architettura · Space-Time Bucket Consensus</div>
+    <h2 class="section-title">Il Caos Diventa Dato Certo</h2>
+    <p class="body">Le fonti del territorio italiano sono frammentate: ogni comune usa un CMS diverso — <strong>Kibernetes</strong> (Latina), <strong>Municipium</strong> (Cisterna), Drupal, halleyweb — le diocesi pubblicano riti, le Pro Loco le sagre, i social confermano. Lo stesso evento compare su più fonti con nomi, date e categorie difformi.</p>
+    <p class="body">BORGOVIA risolve il caos <strong>senza confrontare mai un evento con l'intero database</strong>. Confina ogni record nel suo "secchio" spazio-temporale — territorio ISTAT + finestra mensile — e dentro quel secchio applica una matrice di consenso gerarchica che elegge la versione autorevole.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Il Flusso · Quattro Livelli</div>
+    <h2 class="section-title">Dall'Ingestione alla Verità</h2>
+    <div class="axes">
+      <div class="axis predict">
+        <div class="axis-name">1 · INGESTIONE</div>
+        <div class="axis-q">append-only · zero-lock</div>
+        <div class="axis-d">Il crawler scrive il grezzo in eventi_staging senza interrogare la tabella di verità. Nessun lock, accetta il caos alla velocità della rete.</div>
+      </div>
+      <div class="axis corrob">
+        <div class="axis-name">2 · SECCHI SPAZIO-TEMPORALI</div>
+        <div class="axis-q">PLACE_ID = ISTAT + mese</div>
+        <div class="axis-d">bg_assegna_place_id() e bg_calcola_bucket() confinano ogni evento nel suo secchio. Le fonti multi-territorio risolvono il borgo dal testo.</div>
+      </div>
+      <div class="axis reput">
+        <div class="axis-name">3 · MATRICE DI CONSENSO</div>
+        <div class="axis-q">chi vince nel conflitto</div>
+        <div class="axis-d">bg_applica_consenso() elegge il record con autorità più alta nel secchio e manda gli altri in triage, senza bloccare la pipeline.</div>
+      </div>
+      <div class="axis">
+        <div class="axis-name">4 · ID FACTORY</div>
+        <div class="axis-q">scrittura sequenziale unica</div>
+        <div class="axis-d">ingest_staging_to_eventi() migra in eventi solo i record sintetizzati col territorio, come PENDING. Le fonti non primarie entrano da_verificare.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">La Matrice · Autorità delle Fonti</div>
+    <h2 class="section-title">Chi Ha Autorità su Cosa</h2>
+    <p class="body">Ogni tipo di fonte pesa diversamente a seconda del campo. Il Comune comanda sulle date ufficiali, la Diocesi sui riti religiosi, la Pro Loco sulle sagre; il social conferma soltanto.</p>
+    <table>
+      <tr><th>Tipo fonte</th><th>Autorità su</th><th>Peso</th><th>Corsia</th></tr>
+      <tr><td><strong>comune</strong></td><td>date ufficiali</td><td>90</td><td>auto</td></tr>
+      <tr><td><strong>diocesi</strong></td><td>riti religiosi</td><td>95</td><td>auto su riti</td></tr>
+      <tr><td><strong>proloco</strong></td><td>sagre / folklore</td><td>90</td><td>da verificare</td></tr>
+      <tr><td><strong>social</strong></td><td>sola conferma</td><td>20</td><td>manuale</td></tr>
+    </table>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Prova sul Campo · Primo Nodo Nazionale</div>
+    <h2 class="section-title">Da Sermoneta a Pieve Tesino</h2>
+    <p class="body">Il motore non è teoria: ha già portato il primo evento <strong>fuori dal Lazio</strong>. "In Volo" della Pro Loco di Pieve Tesino (TN) — la prima Pro Loco d'Italia, 1881 — ha attraversato tutti e quattro i livelli ed è entrato nel catalogo come PENDING / da_verificare, perché una fonte Pro Loco non diventa verità pubblica da sola. Secchio assegnato: <strong>022143:2026-06</strong>.</p>
+    <div class="note lock"><strong>🔒 Invariante</strong> · validation_status='VALIDATED' e "presente nel catalogo pubblico" sono identici per costruzione: nessuna copia, nessun layer esterno. BORGOVIA vive interamente dentro Supabase come catena di funzioni SQL append-only.</div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Modello Storico · Lo Scoring a Quattro Assi</div>
+    <h2 class="section-title">Come lo Score Dosa gli Umani</h2>
+    <p class="body">Accanto al consenso a secchi, BORGOVIA conserva il modello di scoring che dosa il controllo umano sul singolo dato. Le sezioni che seguono descrivono i quattro assi, le tre corsie e le colonne della validazione.</p>
   </section>
 
   <section class="fade-in">
@@ -245,19 +305,19 @@
   fetch(URL+'/rest/v1/eventi_catalogo_pubblico?select=titolo,data_inizio,luogo,categoria,gratuito,territorio_id&order=data_inizio.asc&limit=10',{headers:H})
     .then(function(r){return r.json();})
     .then(function(rows){
-      var terr={},grat=0,html='';
+      var terr={},grat=0,h='';
       rows.forEach(function(e){
         if(e.territorio_id!=null)terr[e.territorio_id]=1;
         if(e.gratuito===true)grat++;
         var cat=(e.categoria&&e.categoria!=='da_classificare')?e.categoria:'';
-        html+='<div style="background:var(--bg-2);border:1px solid var(--border-gold);padding:14px 18px;margin-bottom:8px">'
+        h+='<div style="background:var(--bg-2);border:1px solid var(--border-gold);padding:14px 18px;margin-bottom:8px">'
           +'<div style="font-family:\'Cinzel\',serif;font-size:0.95rem;color:var(--gold-light)">'+(e.titolo||'')+'</div>'
           +'<div style="font-family:\'DM Mono\',monospace;font-size:0.6rem;color:var(--text-dim);letter-spacing:0.05em;margin-top:5px">'
           +[fd(e.data_inizio),e.luogo||'',cat].filter(Boolean).join('  ·  ')+'</div></div>';
       });
       set('lv-terr',Object.keys(terr).length||'—');
       set('lv-grat',grat);
-      var l=document.getElementById('lv-list');if(l)l.innerHTML=html;
+      var l=document.getElementById('lv-list');if(l)l.innerHTML=h;
     })
     .catch(function(){var l=document.getElementById('lv-list');if(l)l.innerHTML='<div style="font-family:\'DM Mono\',monospace;font-size:0.62rem;color:var(--red)">Catalogo non leggibile.</div>';});
 })();
