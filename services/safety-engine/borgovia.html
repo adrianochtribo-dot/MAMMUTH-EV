@@ -17,7 +17,6 @@ body {
 }
 .wrap { max-width:760px; margin:0 auto; }
 
-/* --- header --- */
 .kusnav {
   display:flex; align-items:center; gap:10px;
   font-size:9px; font-family:'DM Mono',monospace;
@@ -42,9 +41,8 @@ body {
   border-radius:99px; background:#FFF;
 }
 .status-pill.active { background:#1A1A1E; color:#FFF; border-color:#1A1A1E; }
-.status-pill.target { border-color:#FFB830; color:#9a7510; }
+.status-pill.live { background:#E8221A; color:#FFF; border-color:#E8221A; }
 
-/* --- sections --- */
 h2 {
   font-size:11px; font-family:'DM Mono',monospace; font-weight:500;
   letter-spacing:0.14em; text-transform:uppercase; color:#E8221A;
@@ -53,19 +51,46 @@ h2 {
 p { font-size:14px; color:#3A3A40; margin-bottom:14px; }
 .lead { font-size:15px; color:#1A1A1E; }
 
+/* --- LIVE dashboard --- */
+.live-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:14px;
+}
+.stat {
+  background:#FFF; border:1.5px solid #EDE8E0; border-radius:16px;
+  padding:18px 16px; box-shadow:3px 3px 0 #EDE8E0;
+}
+.stat .num {
+  font-size:30px; font-weight:700; font-family:'DM Mono',monospace;
+  color:#1A1A1E; line-height:1; margin-bottom:6px;
+}
+.stat .lbl {
+  font-size:9px; font-family:'DM Mono',monospace; letter-spacing:0.1em;
+  text-transform:uppercase; color:#B8B0A4;
+}
+.stat.accent { border-color:#E8221A; box-shadow:3px 3px 0 #E8221A33; }
+.stat.accent .num { color:#E8221A; }
+
+.live-note {
+  font-size:10px; font-family:'DM Mono',monospace; color:#B8B0A4;
+  letter-spacing:0.04em; margin-bottom:8px; display:flex; align-items:center; gap:7px;
+}
+.pulse { width:7px; height:7px; border-radius:50%; background:#39B54A; box-shadow:0 0 0 0 #39B54A; animation:pulse 2s infinite; }
+@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(57,181,74,.5)} 70%{box-shadow:0 0 0 8px rgba(57,181,74,0)} 100%{box-shadow:0 0 0 0 rgba(57,181,74,0)} }
+
+.evt {
+  background:#FFF; border:1.5px solid #EDE8E0; border-radius:14px;
+  padding:14px 16px; margin-bottom:10px;
+}
+.evt .t { font-size:14px; font-weight:600; margin-bottom:4px; }
+.evt .m { font-size:11px; font-family:'DM Mono',monospace; color:#B8B0A4; letter-spacing:0.04em; display:flex; flex-wrap:wrap; gap:10px; }
+.evt .cat { color:#E8221A; }
+
+.loading { font-size:13px; font-family:'DM Mono',monospace; color:#B8B0A4; padding:8px 0; }
+.error { font-size:12px; font-family:'DM Mono',monospace; color:#E8221A; background:#FFF4F3; border:1.5px solid #FFD9D6; border-radius:12px; padding:12px 14px; }
+
 /* --- level cards --- */
-.level {
-  background:#FFF; border:1.5px solid #EDE8E0; border-radius:18px;
-  padding:20px 22px; margin-bottom:14px;
-  box-shadow:3px 3px 0 #EDE8E0;
-}
-.level .n {
-  display:inline-flex; align-items:center; justify-content:center;
-  width:26px; height:26px; border-radius:8px;
-  background:#1A1A1E; color:#FFF;
-  font-family:'DM Mono',monospace; font-size:13px; font-weight:500;
-  margin-right:10px;
-}
+.level { background:#FFF; border:1.5px solid #EDE8E0; border-radius:18px; padding:20px 22px; margin-bottom:14px; box-shadow:3px 3px 0 #EDE8E0; }
+.level .n { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:#1A1A1E; color:#FFF; font-family:'DM Mono',monospace; font-size:13px; font-weight:500; margin-right:10px; }
 .level h3 { font-size:15px; font-weight:700; display:flex; align-items:center; margin-bottom:8px; }
 .level p { font-size:13px; margin-bottom:0; }
 .level code { font-family:'DM Mono',monospace; font-size:12px; background:#F2EFEA; padding:1px 5px; border-radius:4px; color:#1A1A1E; }
@@ -74,7 +99,6 @@ p { font-size:14px; color:#3A3A40; margin-bottom:14px; }
 .level.l3 { border-color:#FFB830; box-shadow:3px 3px 0 #FFB83066; }
 .level.l4 { border-color:#C9B1FF; box-shadow:3px 3px 0 #C9B1FF66; }
 
-/* --- authority matrix --- */
 table { width:100%; border-collapse:collapse; font-size:12.5px; margin-bottom:8px; background:#FFF; border-radius:14px; overflow:hidden; border:1.5px solid #EDE8E0; }
 th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #F2EFEA; }
 th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:#B8B0A4; font-weight:500; }
@@ -82,17 +106,8 @@ td { color:#3A3A40; }
 td.w { font-family:'DM Mono',monospace; font-weight:500; color:#1A1A1E; }
 tr:last-child td { border-bottom:none; }
 
-/* --- flow --- */
 .flow { font-family:'DM Mono',monospace; font-size:11px; color:#3A3A40; background:#FFF; border:1.5px solid #EDE8E0; border-radius:14px; padding:16px 18px; margin-bottom:14px; line-height:2; }
 .flow b { color:#E8221A; font-weight:500; }
-
-/* --- real case --- */
-.case { background:#1A1A1E; color:#FAF8F5; border-radius:18px; padding:22px; margin-bottom:14px; }
-.case h3 { color:#FFF; font-size:15px; margin-bottom:10px; }
-.case .tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#FFB830; margin-bottom:12px; }
-.case dl { display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:13px; }
-.case dt { font-family:'DM Mono',monospace; font-size:11px; color:#8A8A92; }
-.case dd { color:#FAF8F5; }
 
 .footer { font-size:8px; font-family:'DM Mono',monospace; color:#C8C4BC; letter-spacing:0.12em; text-transform:uppercase; text-align:center; margin-top:48px; line-height:1.8; }
 .footer span { color:#D8D4CC; }
@@ -101,7 +116,6 @@ tr:last-child td { border-bottom:none; }
 <body>
 <div class="wrap">
 
-  <!-- KUSNAV -->
   <nav class="kusnav">
     <a href="developer-index.html">← Developer Portal</a>
     <span class="sep">/</span>
@@ -110,9 +124,7 @@ tr:last-child td { border-bottom:none; }
     <span style="color:#1A1A1E">BORGOVIA™</span>
   </nav>
 
-  <!-- HEADER -->
   <div class="logo">
-    <span style="font-size:28px">🦣</span>
     <span class="logo-text">BORGOVIA</span>
     <span class="dot"></span>
     <span class="logo-text">Engine</span>
@@ -122,18 +134,41 @@ tr:last-child td { border-bottom:none; }
   <div class="sub">Nodo 6 della pipeline · Validation Layer · KUS Code 3620</div>
 
   <div class="status-bar">
-    <div class="status-pill active">✓ 4 Livelli LIVE</div>
+    <div class="status-pill live">● LIVE</div>
+    <div class="status-pill active">✓ 4 Livelli</div>
     <div class="status-pill active">✓ Consenso attivo</div>
     <div class="status-pill active">✓ Multi-CMS</div>
     <div class="status-pill active">✓ Nazionale</div>
   </div>
 
-  <!-- OVERVIEW -->
+  <!-- ============ CRUSCOTTO LIVE ============ -->
+  <h2>Catalogo certificato · dati live</h2>
+  <div class="live-note"><span class="pulse"></span> Letto in tempo reale da Supabase · vista eventi_catalogo_pubblico</div>
+
+  <div class="live-grid">
+    <div class="stat accent">
+      <div class="num" id="n-totali">—</div>
+      <div class="lbl">Eventi validati</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="n-territori">—</div>
+      <div class="lbl">Territori coperti</div>
+    </div>
+    <div class="stat">
+      <div class="num" id="n-gratuiti">—</div>
+      <div class="lbl">Eventi gratuiti</div>
+    </div>
+  </div>
+
+  <div id="live-list">
+    <div class="loading" id="loading">Caricamento eventi dal catalogo…</div>
+  </div>
+
+  <!-- ============ DOCUMENTAZIONE MOTORE ============ -->
   <h2>Il problema</h2>
   <p class="lead">Le fonti del territorio italiano sono frammentate e contraddittorie: ogni comune usa un CMS diverso (Kibernetes, Municipium, Drupal, halleyweb), le diocesi pubblicano riti, le Pro Loco le sagre, i social confermano. Lo stesso evento può comparire su più fonti con nomi, date e categorie difformi.</p>
-  <p>BORGOVIA risolve questo caos <b>senza confrontare mai un evento con l'intero database</b>. Confina ogni record nel suo "secchio" spazio-temporale (territorio ISTAT + mese), e dentro quel secchio applica una matrice di consenso gerarchica che elegge la versione autorevole. È il nodo che trasforma il rumore in dato certificato.</p>
+  <p>BORGOVIA risolve questo caos <b>senza confrontare mai un evento con l'intero database</b>. Confina ogni record nel suo "secchio" spazio-temporale (territorio ISTAT + mese), e dentro quel secchio applica una matrice di consenso gerarchica che elegge la versione autorevole.</p>
 
-  <!-- FLOW -->
   <h2>Flusso a 4 livelli</h2>
   <div class="flow">
     [Fonti eterogenee] → <b>L1</b> Ingestione append-only (zero-lock)<br>
@@ -143,30 +178,12 @@ tr:last-child td { border-bottom:none; }
     → [eventi · PENDING] → valida_pending() → <b>VALIDATED</b>
   </div>
 
-  <!-- LEVELS -->
   <h2>I quattro livelli</h2>
+  <div class="level l1"><h3><span class="n">1</span> Ingestione append-only</h3><p>Il crawler scrive i dati grezzi in <code>eventi_staging</code> senza interrogare la tabella di verità. Nessun lock, nessuna validazione in ingresso. Campi di servizio: <code>bucket_key</code>, <code>tipo_fonte</code>, <code>peso_fonte</code>, <code>consenso_stato</code>.</p></div>
+  <div class="level l2"><h3><span class="n">2</span> Secchi spazio-temporali</h3><p><code>bg_assegna_place_id()</code> assegna il territorio dal registro per dominio. <code>bg_calcola_bucket()</code> genera la chiave <code>ISTAT:AAAA-MM</code>. Per le fonti multi-territorio, <code>bg_risolvi_territorio_da_testo()</code> ricava il borgo dal comune citato nel testo.</p></div>
+  <div class="level l3"><h3><span class="n">3</span> Matrice di Consenso T.C.F.</h3><p><code>bg_normalizza()</code> comprime i titoli, la vista <code>bg_conflitti_secchio</code> rileva i duplicati, <code>bg_applica_consenso()</code> elegge il record con autorità più alta e manda gli altri in <code>triage</code>.</p></div>
+  <div class="level l4"><h3><span class="n">4</span> ID Factory</h3><p><code>ingest_staging_to_eventi()</code> è l'unica autorità di scrittura: migra in <code>eventi</code> soltanto i record <code>sintetizzato</code> con territorio risolto, come <code>PENDING</code>. Le fonti non primarie entrano con <code>da_verificare=true</code>.</p></div>
 
-  <div class="level l1">
-    <h3><span class="n">1</span> Ingestione append-only</h3>
-    <p>Il crawler scrive i dati grezzi in <code>eventi_staging</code> senza interrogare la tabella di verità. Nessun lock, nessuna validazione in ingresso: il buffer accetta il caos alla velocità della rete. Campi di servizio: <code>bucket_key</code>, <code>tipo_fonte</code>, <code>peso_fonte</code>, <code>consenso_stato</code>.</p>
-  </div>
-
-  <div class="level l2">
-    <h3><span class="n">2</span> Secchi spazio-temporali</h3>
-    <p><code>bg_assegna_place_id()</code> assegna il territorio dal registro <code>fonti_comune</code> per dominio. <code>bg_calcola_bucket()</code> genera la chiave <code>ISTAT:AAAA-MM</code>. Per le fonti multi-territorio (diocesi, Pro Loco), <code>bg_risolvi_territorio_da_testo()</code> ricava il borgo dal comune citato nel testo — mai un ISTAT inventato.</p>
-  </div>
-
-  <div class="level l3">
-    <h3><span class="n">3</span> Matrice di Consenso T.C.F.</h3>
-    <p>Dentro ogni secchio, <code>bg_normalizza()</code> comprime i titoli (lowercase, accenti, punteggiatura) e la vista <code>bg_conflitti_secchio</code> rileva i duplicati. <code>bg_applica_consenso()</code> elegge il record con autorità più alta e manda gli altri in <code>triage</code>, senza bloccare la pipeline.</p>
-  </div>
-
-  <div class="level l4">
-    <h3><span class="n">4</span> ID Factory</h3>
-    <p><code>ingest_staging_to_eventi()</code> è l'unica autorità di scrittura: migra in <code>eventi</code> soltanto i record <code>consenso_stato='sintetizzato'</code> con territorio risolto, come <code>PENDING</code> con origine <code>BORGOVIA</code>. Le fonti non primarie (Pro Loco, social) entrano sempre con <code>da_verificare=true</code>.</p>
-  </div>
-
-  <!-- AUTHORITY MATRIX -->
   <h2>Matrice di autorità delle fonti</h2>
   <table>
     <tr><th>tipo_fonte</th><th>autorità su</th><th>peso</th><th>corsia</th></tr>
@@ -175,26 +192,9 @@ tr:last-child td { border-bottom:none; }
     <tr><td class="w">proloco</td><td>sagre / folklore</td><td class="w">90</td><td>da verificare</td></tr>
     <tr><td class="w">social</td><td>sola conferma</td><td class="w">20</td><td>manuale</td></tr>
   </table>
-  <p>I pesi vivono nel registro <code>fonti_comune</code> (colonne <code>autorita_date</code>, <code>autorita_riti</code>, <code>autorita_categoria</code>) e governano chi vince in caso di conflitto dentro lo stesso secchio.</p>
 
-  <!-- REAL CASE -->
-  <h2>Caso reale: primo nodo nazionale</h2>
-  <div class="case">
-    <div class="tag">● Live · fuori dal Lazio</div>
-    <h3>"In Volo" — Pieve Tesino (TN)</h3>
-    <dl>
-      <dt>fonte</dt><dd>Pro Loco Pieve Tesino — prima Pro Loco d'Italia (1881)</dd>
-      <dt>territorio</dt><dd>ISTAT 022143 · Trento · Trentino-Alto Adige</dd>
-      <dt>secchio</dt><dd>022143:2026-06</dd>
-      <dt>consenso</dt><dd>sintetizzato → eventi (PENDING)</dd>
-      <dt>stato</dt><dd>da_verificare = true · origine BORGOVIA</dd>
-    </dl>
-  </div>
-  <p>L'evento ha attraversato tutti e quattro i livelli ed è entrato nel catalogo come <code>PENDING / da_verificare</code>: una fonte Pro Loco non diventa verità pubblica da sola, ma resta tracciata in attesa di conferma. È la regola T.C.F. che tiene anche su scala nazionale.</p>
-
-  <!-- INVARIANT -->
   <h2>Invariante di sistema</h2>
-  <p><code>validation_status='VALIDATED'</code> e "presente nel catalogo pubblico" sono <b>identici per costruzione</b>: nessuna copia, nessun layer esterno che sincronizza. BORGOVIA vive interamente dentro Supabase come catena di funzioni SQL append-only, proprio per non violare questa garanzia.</p>
+  <p><code>validation_status='VALIDATED'</code> e "presente nel catalogo pubblico" sono <b>identici per costruzione</b>: nessuna copia, nessun layer esterno. BORGOVIA vive interamente dentro Supabase come catena di funzioni SQL append-only.</p>
 
   <div class="footer">
     KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · BORGOVIA™ VALIDATION LAYER<br>
@@ -202,5 +202,67 @@ tr:last-child td { border-bottom:none; }
   </div>
 
 </div>
+
+<script>
+const SUPABASE_URL = 'https://pwfsuefyiiwnltikcdho.supabase.co';
+const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3ZnN1ZWZ5aWl3bmx0aWtjZGhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5MDc0NDMsImV4cCI6MjA5NjQ4MzQ0M30.wYI64KqC9tPP-dmmzpOZXAS3MP-A4UZiTkRmoJg46B4';
+const HEAD = { apikey: ANON, Authorization: 'Bearer ' + ANON };
+
+const MESI = ['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+function fmtData(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  if(isNaN(d)) return '';
+  return d.getDate() + ' ' + MESI[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+async function carica(){
+  const list = document.getElementById('live-list');
+  try {
+    // conteggio totale via header Content-Range
+    const cnt = await fetch(SUPABASE_URL + '/rest/v1/eventi_catalogo_pubblico?select=id',
+      { headers: { ...HEAD, Prefer: 'count=exact', Range: '0-0' } });
+    const cr = cnt.headers.get('content-range') || '0-0/0';
+    const totale = parseInt(cr.split('/')[1] || '0', 10);
+
+    // ultimi eventi (titolo, data, luogo, categoria, gratuito, territorio)
+    const res = await fetch(SUPABASE_URL +
+      '/rest/v1/eventi_catalogo_pubblico?select=titolo,data_inizio,luogo,categoria,gratuito,territorio_id&order=data_inizio.asc&limit=12',
+      { headers: HEAD });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const righe = await res.json();
+
+    // stat
+    document.getElementById('n-totali').textContent = totale;
+    const terr = new Set(righe.map(r => r.territorio_id).filter(x => x != null));
+    document.getElementById('n-territori').textContent = terr.size || '—';
+    const grat = righe.filter(r => r.gratuito === true).length;
+    document.getElementById('n-gratuiti').textContent = grat;
+
+    // lista
+    if(righe.length === 0){
+      list.innerHTML = '<div class="loading">Nessun evento nel catalogo pubblico al momento.</div>';
+      return;
+    }
+    list.innerHTML = righe.map(r => {
+      const d = fmtData(r.data_inizio);
+      const cat = r.categoria && r.categoria !== 'da_classificare' ? r.categoria : '';
+      const luogo = r.luogo || '';
+      const meta = [d, luogo, cat].filter(Boolean);
+      return '<div class="evt"><div class="t">' + (r.titolo || 'Senza titolo') +
+        '</div><div class="m">' +
+        (d ? '<span>'+d+'</span>' : '') +
+        (luogo ? '<span>'+luogo+'</span>' : '') +
+        (cat ? '<span class="cat">'+cat+'</span>' : '') +
+        '</div></div>';
+    }).join('');
+  } catch(e){
+    list.innerHTML = '<div class="error">Impossibile leggere il catalogo (' + e.message +
+      '). Verifica la policy di lettura pubblica sulla vista.</div>';
+    document.getElementById('n-totali').textContent = '—';
+  }
+}
+carica();
+</script>
 </body>
 </html>
