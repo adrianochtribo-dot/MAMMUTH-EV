@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BORGOVIA™ Engine | MAMMUTH•EV Developer Portal</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:#FAF8F5;
+  color:#1A1A1E;
+  min-height:100vh;
+  padding:32px 20px 60px;
+  line-height:1.55;
+}
+.wrap { max-width:760px; margin:0 auto; }
+
+/* --- header --- */
+.kusnav {
+  display:flex; align-items:center; gap:10px;
+  font-size:9px; font-family:'DM Mono',monospace;
+  color:#B8B0A4; letter-spacing:0.16em; text-transform:uppercase;
+  margin-bottom:28px;
+}
+.kusnav a { color:#B8B0A4; text-decoration:none; }
+.kusnav a:hover { color:#E8221A; }
+.kusnav .sep { color:#D8D4CC; }
+
+.logo { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.logo-text { font-size:24px; font-weight:300; letter-spacing:0.18em; text-transform:uppercase; }
+.dot { width:7px; height:7px; background:#E8221A; border-radius:50%; margin:0 3px; }
+.divider { height:1px; background:#D8D4CC; width:180px; margin:14px 0; }
+.tagline { font-size:15px; font-weight:700; margin-bottom:4px; }
+.sub { font-size:9px; font-family:'DM Mono',monospace; font-weight:300; letter-spacing:0.22em; color:#B8B0A4; text-transform:uppercase; }
+
+.status-bar { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 36px; }
+.status-pill {
+  font-size:10px; font-family:'DM Mono',monospace; color:#888;
+  letter-spacing:0.06em; padding:5px 11px; border:1.5px solid #EDE8E0;
+  border-radius:99px; background:#FFF;
+}
+.status-pill.active { background:#1A1A1E; color:#FFF; border-color:#1A1A1E; }
+.status-pill.target { border-color:#FFB830; color:#9a7510; }
+
+/* --- sections --- */
+h2 {
+  font-size:11px; font-family:'DM Mono',monospace; font-weight:500;
+  letter-spacing:0.14em; text-transform:uppercase; color:#E8221A;
+  margin:40px 0 14px;
+}
+p { font-size:14px; color:#3A3A40; margin-bottom:14px; }
+.lead { font-size:15px; color:#1A1A1E; }
+
+/* --- level cards --- */
+.level {
+  background:#FFF; border:1.5px solid #EDE8E0; border-radius:18px;
+  padding:20px 22px; margin-bottom:14px;
+  box-shadow:3px 3px 0 #EDE8E0;
+}
+.level .n {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:26px; height:26px; border-radius:8px;
+  background:#1A1A1E; color:#FFF;
+  font-family:'DM Mono',monospace; font-size:13px; font-weight:500;
+  margin-right:10px;
+}
+.level h3 { font-size:15px; font-weight:700; display:flex; align-items:center; margin-bottom:8px; }
+.level p { font-size:13px; margin-bottom:0; }
+.level code { font-family:'DM Mono',monospace; font-size:12px; background:#F2EFEA; padding:1px 5px; border-radius:4px; color:#1A1A1E; }
+.level.l1 { border-color:#7FB3FF; box-shadow:3px 3px 0 #7FB3FF66; }
+.level.l2 { border-color:#FF70A6; box-shadow:3px 3px 0 #FF70A666; }
+.level.l3 { border-color:#FFB830; box-shadow:3px 3px 0 #FFB83066; }
+.level.l4 { border-color:#C9B1FF; box-shadow:3px 3px 0 #C9B1FF66; }
+
+/* --- authority matrix --- */
+table { width:100%; border-collapse:collapse; font-size:12.5px; margin-bottom:8px; background:#FFF; border-radius:14px; overflow:hidden; border:1.5px solid #EDE8E0; }
+th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #F2EFEA; }
+th { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:#B8B0A4; font-weight:500; }
+td { color:#3A3A40; }
+td.w { font-family:'DM Mono',monospace; font-weight:500; color:#1A1A1E; }
+tr:last-child td { border-bottom:none; }
+
+/* --- flow --- */
+.flow { font-family:'DM Mono',monospace; font-size:11px; color:#3A3A40; background:#FFF; border:1.5px solid #EDE8E0; border-radius:14px; padding:16px 18px; margin-bottom:14px; line-height:2; }
+.flow b { color:#E8221A; font-weight:500; }
+
+/* --- real case --- */
+.case { background:#1A1A1E; color:#FAF8F5; border-radius:18px; padding:22px; margin-bottom:14px; }
+.case h3 { color:#FFF; font-size:15px; margin-bottom:10px; }
+.case .tag { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#FFB830; margin-bottom:12px; }
+.case dl { display:grid; grid-template-columns:auto 1fr; gap:6px 16px; font-size:13px; }
+.case dt { font-family:'DM Mono',monospace; font-size:11px; color:#8A8A92; }
+.case dd { color:#FAF8F5; }
+
+.footer { font-size:8px; font-family:'DM Mono',monospace; color:#C8C4BC; letter-spacing:0.12em; text-transform:uppercase; text-align:center; margin-top:48px; line-height:1.8; }
+.footer span { color:#D8D4CC; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- KUSNAV -->
+  <nav class="kusnav">
+    <a href="developer-index.html">← Developer Portal</a>
+    <span class="sep">/</span>
+    <a href="pipeline.html">Pipeline</a>
+    <span class="sep">/</span>
+    <span style="color:#1A1A1E">BORGOVIA™</span>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="logo">
+    <span style="font-size:28px">🦣</span>
+    <span class="logo-text">BORGOVIA</span>
+    <span class="dot"></span>
+    <span class="logo-text">Engine</span>
+  </div>
+  <div class="divider"></div>
+  <div class="tagline">Space-Time Bucket Consensus</div>
+  <div class="sub">Nodo 6 della pipeline · Validation Layer · KUS Code 3620</div>
+
+  <div class="status-bar">
+    <div class="status-pill active">✓ 4 Livelli LIVE</div>
+    <div class="status-pill active">✓ Consenso attivo</div>
+    <div class="status-pill active">✓ Multi-CMS</div>
+    <div class="status-pill active">✓ Nazionale</div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <h2>Il problema</h2>
+  <p class="lead">Le fonti del territorio italiano sono frammentate e contraddittorie: ogni comune usa un CMS diverso (Kibernetes, Municipium, Drupal, halleyweb), le diocesi pubblicano riti, le Pro Loco le sagre, i social confermano. Lo stesso evento può comparire su più fonti con nomi, date e categorie difformi.</p>
+  <p>BORGOVIA risolve questo caos <b>senza confrontare mai un evento con l'intero database</b>. Confina ogni record nel suo "secchio" spazio-temporale (territorio ISTAT + mese), e dentro quel secchio applica una matrice di consenso gerarchica che elegge la versione autorevole. È il nodo che trasforma il rumore in dato certificato.</p>
+
+  <!-- FLOW -->
+  <h2>Flusso a 4 livelli</h2>
+  <div class="flow">
+    [Fonti eterogenee] → <b>L1</b> Ingestione append-only (zero-lock)<br>
+    → <b>L2</b> Secchi spazio-temporali (PLACE_ID = ISTAT + mese)<br>
+    → <b>L3</b> Matrice di Consenso T.C.F. (risoluzione conflitti)<br>
+    → <b>L4</b> ID Factory (scrittura sequenziale unica)<br>
+    → [eventi · PENDING] → valida_pending() → <b>VALIDATED</b>
+  </div>
+
+  <!-- LEVELS -->
+  <h2>I quattro livelli</h2>
+
+  <div class="level l1">
+    <h3><span class="n">1</span> Ingestione append-only</h3>
+    <p>Il crawler scrive i dati grezzi in <code>eventi_staging</code> senza interrogare la tabella di verità. Nessun lock, nessuna validazione in ingresso: il buffer accetta il caos alla velocità della rete. Campi di servizio: <code>bucket_key</code>, <code>tipo_fonte</code>, <code>peso_fonte</code>, <code>consenso_stato</code>.</p>
+  </div>
+
+  <div class="level l2">
+    <h3><span class="n">2</span> Secchi spazio-temporali</h3>
+    <p><code>bg_assegna_place_id()</code> assegna il territorio dal registro <code>fonti_comune</code> per dominio. <code>bg_calcola_bucket()</code> genera la chiave <code>ISTAT:AAAA-MM</code>. Per le fonti multi-territorio (diocesi, Pro Loco), <code>bg_risolvi_territorio_da_testo()</code> ricava il borgo dal comune citato nel testo — mai un ISTAT inventato.</p>
+  </div>
+
+  <div class="level l3">
+    <h3><span class="n">3</span> Matrice di Consenso T.C.F.</h3>
+    <p>Dentro ogni secchio, <code>bg_normalizza()</code> comprime i titoli (lowercase, accenti, punteggiatura) e la vista <code>bg_conflitti_secchio</code> rileva i duplicati. <code>bg_applica_consenso()</code> elegge il record con autorità più alta e manda gli altri in <code>triage</code>, senza bloccare la pipeline.</p>
+  </div>
+
+  <div class="level l4">
+    <h3><span class="n">4</span> ID Factory</h3>
+    <p><code>ingest_staging_to_eventi()</code> è l'unica autorità di scrittura: migra in <code>eventi</code> soltanto i record <code>consenso_stato='sintetizzato'</code> con territorio risolto, come <code>PENDING</code> con origine <code>BORGOVIA</code>. Le fonti non primarie (Pro Loco, social) entrano sempre con <code>da_verificare=true</code>.</p>
+  </div>
+
+  <!-- AUTHORITY MATRIX -->
+  <h2>Matrice di autorità delle fonti</h2>
+  <table>
+    <tr><th>tipo_fonte</th><th>autorità su</th><th>peso</th><th>corsia</th></tr>
+    <tr><td class="w">comune</td><td>date ufficiali</td><td class="w">90</td><td>auto</td></tr>
+    <tr><td class="w">diocesi</td><td>riti religiosi</td><td class="w">95</td><td>auto su riti</td></tr>
+    <tr><td class="w">proloco</td><td>sagre / folklore</td><td class="w">90</td><td>da verificare</td></tr>
+    <tr><td class="w">social</td><td>sola conferma</td><td class="w">20</td><td>manuale</td></tr>
+  </table>
+  <p>I pesi vivono nel registro <code>fonti_comune</code> (colonne <code>autorita_date</code>, <code>autorita_riti</code>, <code>autorita_categoria</code>) e governano chi vince in caso di conflitto dentro lo stesso secchio.</p>
+
+  <!-- REAL CASE -->
+  <h2>Caso reale: primo nodo nazionale</h2>
+  <div class="case">
+    <div class="tag">● Live · fuori dal Lazio</div>
+    <h3>"In Volo" — Pieve Tesino (TN)</h3>
+    <dl>
+      <dt>fonte</dt><dd>Pro Loco Pieve Tesino — prima Pro Loco d'Italia (1881)</dd>
+      <dt>territorio</dt><dd>ISTAT 022143 · Trento · Trentino-Alto Adige</dd>
+      <dt>secchio</dt><dd>022143:2026-06</dd>
+      <dt>consenso</dt><dd>sintetizzato → eventi (PENDING)</dd>
+      <dt>stato</dt><dd>da_verificare = true · origine BORGOVIA</dd>
+    </dl>
+  </div>
+  <p>L'evento ha attraversato tutti e quattro i livelli ed è entrato nel catalogo come <code>PENDING / da_verificare</code>: una fonte Pro Loco non diventa verità pubblica da sola, ma resta tracciata in attesa di conferma. È la regola T.C.F. che tiene anche su scala nazionale.</p>
+
+  <!-- INVARIANT -->
+  <h2>Invariante di sistema</h2>
+  <p><code>validation_status='VALIDATED'</code> e "presente nel catalogo pubblico" sono <b>identici per costruzione</b>: nessuna copia, nessun layer esterno che sincronizza. BORGOVIA vive interamente dentro Supabase come catena di funzioni SQL append-only, proprio per non violare questa garanzia.</p>
+
+  <div class="footer">
+    KREATIO UNIVERSAL SYSTEM™ · CODE 3620 · BORGOVIA™ VALIDATION LAYER<br>
+    <span>adrianochtribo-dot/MAMMUTH-EV · main · borgovia.html</span>
+  </div>
+
+</div>
+</body>
+</html>
